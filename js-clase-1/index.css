@@ -17,14 +17,19 @@ body {
   display: flex;
   flex-direction: column;
   font-size: 15px;
+  width: 100%;
+  align-items: center;
 }
 
-h1 {
-  text-align: center;
+header{
+  width: 100%;
   margin: 1rem 0;
   background-color: var(--color1);
   margin: 0 0 1rem;
   padding: 1rem 0;
+}
+h1 {
+  text-align: center;
   color: white;
 }
 
@@ -33,7 +38,11 @@ h1 span {
   font-size: 1.5rem;
   color: var(--color2);
 }
-
+.ejercicios{
+  display:flex;
+  align-items: center;
+  justify-content: center;
+}
 form {
   display: flex;
   justify-content: center;
@@ -59,7 +68,7 @@ p.resp {
 
 p {
   margin: 2rem 3rem;
-  text-align: center;
+  max-width: 900px;
 }
 
 input {
@@ -92,7 +101,7 @@ code {
   background-color: rgb(38, 41, 46);
   color: white;
   width: 80%;
-  max-width: 600px;
+  max-width: 900px;
   margin: 0 auto;
   padding: 1rem;
   border-left: 5px solid var(--color2);
