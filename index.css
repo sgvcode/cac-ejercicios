@@ -1,0 +1,124 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400&family=Nanum+Gothic+Coding&display=swap');
+
+:root {
+  --color1: midnightblue;
+  --color2: orange;
+
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  display: flex;
+  flex-direction: column;
+  font-size: 15px;
+}
+
+h1 {
+  text-align: center;
+  margin: 1rem 0;
+  background-color: var(--color1);
+  margin: 0 0 1rem;
+  padding: 1rem 0;
+  color: white;
+}
+
+h1 span {
+  font-weight: lighter;
+  font-size: 1.5rem;
+  color: var(--color2);
+}
+
+form {
+  display: flex;
+  justify-content: center;
+}
+
+form.invert {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  gap: .5rem;
+}
+
+form.invert input {
+  padding: .2rem;
+}
+
+p.resp {
+  font-style: italic;
+  font-weight: bold;
+  color: var(--color1);
+}
+
+p {
+  margin: 2rem 3rem;
+  text-align: center;
+}
+
+input {
+  width: 40%;
+  max-width: 600px;
+  background-color: white;
+  border: 1px solid var(--color1);
+  border-radius: .2rem;
+}
+
+input::placeholder {
+  padding-left: .5rem;
+}
+
+form button {
+  padding: .5rem 1rem;
+  margin: 0 .2rem;
+  background-color: var(--color1);
+  border: none;
+  color: white;
+  text-transform: uppercase;
+  font-size: .7rem;
+  border-radius: .2rem;
+}
+
+code {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  background-color: rgb(38, 41, 46);
+  color: white;
+  width: 80%;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 1rem;
+  border-left: 5px solid var(--color2);
+  font-family: 'Nanum Gothic Coding', monospace;
+  font-size: .9rem;
+  line-height: 1.2rem;
+}
+
+ul {
+  list-style: decimal-leading-zero;
+  padding: 0 1.5rem;
+}
+
+/* li::before {
+  content: "\2025";
+  padding-right: 8px;
+  color: white;
+  } */
+
+li span {
+  color: var(--color2);
+}
+
+footer {
+  margin: 1rem 0 0;
+  color: white;
+  font-size: .8rem;
+  padding: 1rem 0;
+}

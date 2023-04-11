@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="index.css">
+  <title>Practica JS</title>
+</head>
+
+<body>
+  <!-- EJERCICIOS CLASE 1 -->
+  <div>
+    <h1>Prácticas de Javascript <span>...CAC#23053...</span></h1>
+    <!-- Ejercicio 1 -->
+    <div class="ejercicio">
+      <p>1- Realizá un programa que permita al usuario ingresar su nombre. La computadora debe emitir una
+        salida con un mensaje de bienvenida que incluya el nombre ingresado.</p>
+      <form>
+        <input type="text" id="name" placeholder="Ingresa tu nombre">
+        <button type="button" onclick="capturarName()">Enviar</button>
+      </form>
+      <p class="resp" id="welcome"></p>
+      <code>
+        <ul>
+          <li><span>let name = prompt("Ingresa tu nombre: ");</span></li>
+          <li><span>console.log(`Te damos la bienvenida, ${name}`);</span></li>
+        </ul>
+      </code>
+    </div>
+    <!-- Ejercicio 2 -->
+    <div class="ejercicio">
+      <p>2- Realizá un programa que permita al usuario ingresar un número entero. La computadora debe
+        informar el número opuesto1 y el número inverso2 del ingresado.</p>
+      <form>
+        <input type="text" id="int" placeholder="Ingresa un número entero">
+        <button type="button" onclick="capturarInt()">Enviar</button>
+      </form>
+      <p class="resp" id="entero"></p>
+      <code>
+        <ul>
+          <li><span>let int = parseInt(prompt("Ingresa un número entero: "));</span></li>
+          <li><span>console.log(`El opuesto de ${int} es ${int * -1} y el inverso es ${1 / int}`);</span></li>
+        </ul>
+      </code>
+    </div>
+    <!-- Ejercicio 3 -->
+    <div class="ejercicio">
+      <p>3- Realizá un programa que permita al usuario ingresar 3 notas pertenecientes a tres trimestres distintos para
+        cierto alumno. La computadora debe mostrar la nota promedio.</p>
+      <code>
+        <ul>
+          <li><span>let trim1 = parseInt(prompt("Ingresa la nota del 1º Trimestre: "));</span></li>
+          <li><span>let trim2 = parseInt(prompt("Ingresa la nota del 2º Trimestre: "));</span></li>
+          <li><span>let trim3 = parseInt(prompt("Ingresa la nota del 3º Trimestre: "));</span></li>
+          <li><span>console.log(`El promedio es ${parseFloat((trim1 + trim2 + trim3) / 3).toFixed(2)}`)</span></li>
+        </ul>
+      </code>
+    </div>
+    <!-- Ejercicio 4 -->
+    <div class="ejercicio">
+      <p>4- Realizá un programa que permita al usuario ingresar el valor salarial de una hora de trabajo y la
+        cantidad de horas trabajadas por día. La computadora debe mostrar el valor del salario semanal,
+        asumiendo que trabaja todos los días hábiles y media jornada los sábados.</p>
+      <code>
+        <ul>
+          <li><span>let hourSalary = parseInt(prompt("Ingresa tu salario x hora: "));</span></li>
+          <li><span>let daylyWorkedHours = parseFloat(prompt("Ingresa la cantidad de horas trabajadas x día: "));</span></li>
+          <li><span>console.log(`Tu salario semanal es de ${hourSalary * daylyWorkedHours * 5.5}`);</span></li>
+        </ul>
+      </code>
+    </div>
+    <!-- Ejercicio 5 -->
+    <div class="ejercicio">
+      <p>5- Realizá un programa que permita al usuario ingresar valores del mismo tipo para las variables a y b. Una vez
+        cargadas, la computadora debe mostrar ambas variables por pantalla, intercambiar entre sí sus valores (que lo
+        cargado en a quede en b, y viceversa), y volver a mostrarlas.</p>
+      <code>
+        <ul>
+          <li><span>let a = parseInt(prompt("Ingresa el valor de 'a': "));</span></li>
+          <li><span>let b = parseInt(prompt("Ingresa el valor de 'b': "))</span></li>
+          <li><span>console.log(`Valor de a = ${a} / valor de b = ${b}`);</span></li>
+          <li><span>[a, b] = [b, a];</span></li>
+          <li><span>console.log(`Valor de a = ${a} / valor de b = ${b}`);</span></li>
+        </ul>
+      </code>
+    </div>
+    <!-- Ejercicio 6 -->
+    <div class="ejercicio">
+      <p>6- Realizá un programa que permita al usuario ingresar el valor unitario de cierto artículo y la cantidad de
+        artículos vendidos por un vendedor, del cual se sabe que gana un sueldo fijo de $14000 más el 16% del monto
+        total vendido. Con tales datos, la computadora debe calcular el sueldo mensual del vendedor y mostrarlo.</p>
+      <code>
+        <ul>
+          <li><span>let salary = 14000;</span></li>
+          <li><span>let commision = 16;</span></li>
+          <li><span>let itemPrice = parseFloat(prompt("Ingresa el precio del art. vendido: "));</span></li>
+          <li><span>let soldItems = parseInt(prompt("Ingresa la cantidad de artículos vendidos: "));</span></li>
+          <li><span>let totalSalary = salary + (itemPrice * soldItems) * (commision*0.01);</span></li>
+          <li><span>console.log(`El salario total con la comisión de venta es de ${parseFloat((totalSalary).toFixed(3))}`);</span></li>
+        </ul>
+      </code>
+    </div>
+    <!-- Ejercicio 7 -->
+    <div class="ejercicio">
+      <p>7- Realizá un programa que permita al usuario ingresar el ancho y el largo de un terreno en metros y el valor
+        del metro cuadrado de tierra. La computadora debe mostrar el valor total del terreno y la cantidad de metros de
+        alambre que serían necesarios para cercarlo completamente en tres pasadas.</p>
+      <code>
+        <ul>
+          <li><span>let width = parseInt(prompt("Ingresar ancho del terreno (m): "));</span></li>
+          <li><span>let height = parseInt(prompt("Ingresar largo del terreno (m): "));</span></li>
+          <li><span>let m2Price = parseInt(prompt("Ingresar precio x m2 de terreno ($): "));</span></li>
+          <li><span>let totalPrice = width * height * m2Price;</span></li>
+          <li><span>let wireAmount = (width + height) * 2 * 3;</span></li>
+          <li><span>console.log(`El precio total del Terreno es de $ ${totalPrice} y se necesitan ${wireAmount} m de alambre para 3 pasadas de cerco`);</span></li>
+        </ul>
+      </code>
+    </div>
+    <!-- Ejercicio 8 -->
+    <div class="ejercicio">
+      <p>8- Realizá un programa que permita al usuario ingresar dos números enteros. La computadora debe mostrar los
+        resultados de las 4 operaciones matemáticas básicas con tales números.</p>
+      <code>
+        <ul>
+          <li><span>let n1 = parseInt(prompt("Ingresa un valor entero para n1: "));</span></li>
+          <li><span>let n2 = parseInt(prompt("Ingresa un valor entero para n2: "));</span></li>
+          <li><span>console.log(`a + b = ${n1 + n2}`);</span></li>
+          <li><span>console.log(`a - b = ${n1 - n2}`);</span></li>
+          <li><span>console.log(`a * b = ${n1 * n2}`);</span></li>
+          <li><span>console.log(`a / b = ${n1 / n2}`);</span></li>
+        </ul>
+      </code>
+    </div>
+    <!-- Ejercicio 9 -->
+    <div class="ejercicio">
+      <p>9- Realizá un programa que permita al usuario ingresar dos números enteros, que representan las medidas en
+        grados de dos ángulos interiores de cierto triángulo. La computadora debe mostrar el valor en grados del ángulo
+        restante.</p>
+      <code>
+        <ul>
+          <li><span>let angA = parseInt(prompt("Ingresa 1º Angulo de un tríángulo: "));</span></li>
+          <li><span>let angB = parseInt(prompt("Ingresa 2º Angulo de un tríángulo: "));</span></li>
+          <li><span>let angC = 180 - (angA + angB);</span></li>
+          <li><span>console.log(`El angulo restante del triángulo mide ${angC}º`);</span></li>
+        </ul>
+      </code>
+    </div>
+    <!-- Ejercicio 10 -->
+    <div class="ejercicio">
+      <p>10- Realizá un programa que permita al usuario ingresar los nombres de tres inversores junto al capital
+        invertido por cada uno. La computadora debe informar qué porcentaje del total aportó cada uno y cuál es el monto
+        del total aportado entre los tres.</p>
+      <code>
+        <ul>
+          <li><span>let inversor1 = prompt("Ingresar nombre 1º inversor: ");</span></li>
+          <li><span>let monto1 = parseInt(prompt(`Ingresar monto invertido por ${inversor1}`));</span></li>
+          <li><span>let inversor2 = prompt("Ingresar nombre 2º inversor: ");</span></li>
+          <li><span>let monto2 = parseInt(prompt(`Ingresar monto invertido por ${inversor2}`));</span></li>
+          <li><span>let inversor3 = prompt("Ingresar nombre 3º inversor: ");</span></li>
+          <li><span>let monto3 = parseInt(prompt(`Ingresar monto invertido por ${inversor3}`));</span></li>
+          <li><span></span></li>
+          <li><span>let inversionTotal = monto1 + monto2 + monto3;</span></li>
+          <li><span>let perc1 = parseFloat(monto1/inversionTotal*100).toFixed(2);</span></li>
+          <li><span>let perc2 = parseFloat(monto2/inversionTotal*100).toFixed(2);</span></li>
+          <li><span>let perc3 = parseFloat(monto3/inversionTotal*100).toFixed(2);</span></li>
+          <li><span></span></li>
+          <li><span>console.log(`El monto total invertido por ${inversor1}, ${inversor2} y ${inversor3} es de ${inversionTotal}`);</span></li>
+          <li><span>console.log(`${inversor1} aportó el ${perc1}% del capital total`);</span></li>
+          <li><span>console.log(`${inversor2} aportó el ${perc2}% del capital total`);</span></li>
+          <li><span>console.log(`${inversor3} aportó el ${perc3}% del capital total`);</span></li>
+        </ul>
+      </code>
+    </div>
+    <footer>
+      <code>{SGVero} - CAC#23053</code>
+    </footer>
+    <script src="scripts/01-ejercicios.js"></script>
+</body>
+
+</html>
