@@ -69,6 +69,8 @@ p.resp {
 p {
   margin: 2rem 3rem;
   max-width: 900px;
+  text-align: justify;
+  align-items: center;
 }
 
 input {
