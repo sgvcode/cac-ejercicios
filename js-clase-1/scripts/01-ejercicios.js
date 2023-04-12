@@ -2,16 +2,100 @@
 function capturarName() {
   let name = document.getElementById("name").value;
   let welcomeMsg = document.getElementById("welcome");
-  welcomeMsg.textContent = `Te damos la Bienvenida, ${name}`;
+  let nameInput = document.getElementById("name");
+
+  if (name == "") {
+    alert("Por favor, ingresa tu nombre");
+    nameInput.focus();
+  } else {
+    welcomeMsg.textContent = `Te damos la Bienvenida, ${name}`;
+    nameInput.value = "";
+  }
 }
+
 //ejercicio 2
-function capturarInt(){
+function capturarInt() {
   let int = document.getElementById('int').value;
   let numberInt = document.getElementById("entero");
   numberInt.textContent = `El opuesto de ${int} es ${int * -1} y el inverso es ${(1 / int).toFixed(3)}`;
+  document.getElementById("int").value="";
 }
 
-// /* 1) Realizá un programa que permita al usuario ingresar su nombre. La computadora debe emitir una 
+//ejercicio 3
+function capturarNotas() {
+  let trim1 = parseFloat(document.getElementById("trim1").value);
+  let trim2 = parseFloat(document.getElementById("trim2").value);
+  let trim3 = parseFloat(document.getElementById("trim3").value);
+  
+  if (isNaN(trim1) || trim1 < 0 || trim1 > 10) {
+    alert("Ingresa una nota valida para el 1º Trim");
+    document.getElementById("trim1").focus();
+  } else if (isNaN(trim2) || trim2 < 0 || trim2 > 10) {
+    alert("Ingresa una nota valida para el 2º Trim");
+    document.getElementById("trim2").focus();
+  } else if (isNaN(trim3) || trim3 < 0 || trim3 > 10){
+    alert("Ingresa una nota valida para el 3º Trim");
+    document.getElementById("trim3").focus();
+  } else {
+    document.getElementById("trim1").value="";
+    document.getElementById("trim2").value="";
+    document.getElementById("trim3").value="";
+    document.getElementById("trim1").focus="";
+  }
+
+  let promedio = (trim1 + trim2 + trim3) / 3;
+  promedioNota.textContent = `El promedio anual de tus notas es: ${promedio.toFixed(2)}`;
+}
+
+//Ejercicio 4
+function capturarSalary() {
+  let hourSalary = parseInt(document.getElementById("hourSalary").value);
+  let daylyWorkedHours = parseInt(document.getElementById("daylyWorkedHours").value);
+
+  if(isNaN(hourSalary)) {
+    alert("Ingresa tu salario por hora");
+    document.getElementById("hourSalary").focus();
+  } else if (isNaN(daylyWorkedHours)) {
+    alert("Ingresa cantidad de horas trabajadas por semana");
+    document.getElementById("daylyWorkedHours").focus();
+  } else {
+    document.getElementById("hourSalary").value="";
+    document.getElementById("daylyWorkedHours").value="";
+    document.getElementById("hourSalary").focus();
+  }
+
+  let weeklySalary = hourSalary * daylyWorkedHours * 5.5;
+  weeklySalaryMsg.textContent = `Tu salario semanal es de ${weeklySalary}`;
+
+  console.log(weeklySalary);
+}
+
+//Ejercicio 5
+function capturarInverted() {
+  let a = document.getElementById("a").value;
+  let b = document.getElementById("b").value;
+  let resultadoMsg = document.getElementById("resultadoMsg");
+  let invertedMsg = document.getElementById("invertedMsg");
+
+  if(a === "") {
+    alert("Ingresa un valor numérico para a");
+    document.getElementById("a").focus();
+  } else if (b === "" || typeof(a) !== typeof(b)) {
+    alert("Ingresa un valor numérico para b");
+    document.getElementById("b").focus();
+  } else {
+    document.getElementById("a").value="";
+    document.getElementById("b").value="";
+    document.getElementById("a").focus();
+  }
+
+  resultadoMsg.textContent = `Ingresaste los valores '${a}' y '${b}'`;
+  
+  [a, b] = [b, a];
+  invertedMsg.textContent = `Los valores invertidos son '${a}' y '${b}'`;
+}
+
+// /* 1) Realizá un programa que permita al usuario ingresar su nombre. La computadora debe emitir una
 // salida con un mensaje de bienvenida que incluya el nombre ingresado. */
 // let name = prompt("Ingresa tu nombre: ");
 // console.log(`Te damos la bienvenida, ${name}`);
@@ -33,7 +117,8 @@ function capturarInt(){
 // asumiendo que trabaja todos los días hábiles y media jornada los sábados. */
 // let hourSalary = parseInt(prompt("Ingresa tu salario x hora: "));
 // let daylyWorkedHours = parseFloat(prompt("Ingresa la cantidad de horas trabajadas x día: "));
-// console.log(`Tu salario semanal es de ${hourSalary * daylyWorkedHours * 5.5}`);
+// let weeklySalary = hourSalary * daylyWorkedHours * 5.5;
+// console.log(`Tu salario semanal es de ${weeklySalary}`);
 
 // /* 5) Realizá un programa que permita al usuario ingresar valores del mismo tipo para las variables a
 // y b. Una vez cargadas, la computadora debe mostrar ambas variables por pantalla, intercambiar
@@ -101,3 +186,4 @@ function capturarInt(){
 // console.log(`${inversor1} aportó el ${perc1}% del capital total`);
 // console.log(`${inversor2} aportó el ${perc2}% del capital total`);
 // console.log(`${inversor3} aportó el ${perc3}% del capital total`);
+
