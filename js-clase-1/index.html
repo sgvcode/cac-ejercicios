@@ -118,6 +118,12 @@
       <p>6- Realizá un programa que permita al usuario ingresar el valor unitario de cierto artículo y la cantidad de
         artículos vendidos por un vendedor, del cual se sabe que gana un sueldo fijo de $14000 más el 16% del monto
         total vendido. Con tales datos, la computadora debe calcular el sueldo mensual del vendedor y mostrarlo.</p>
+      <form class="invert">
+        <input class="multi" type="text" id="itemPrice" placeholder="Ingresa valor unitario del artículo">
+        <input class="multi" type="text" id="soldItems" placeholder="Ingresa cantidad de artículos vendidos">
+        <button type="button" onclick="capturarSalary()">Salario Total</button>
+      </form>
+      <p class="resp" id="totalSalaryMsg"></p>
       <code>
         <ul>
           <li><span class="gris">//Código para salida por consola</span></li>
@@ -135,12 +141,20 @@
       <p>7- Realizá un programa que permita al usuario ingresar el ancho y el largo de un terreno en metros y el valor
         del metro cuadrado de tierra. La computadora debe mostrar el valor total del terreno y la cantidad de metros de
         alambre que serían necesarios para cercarlo completamente en tres pasadas.</p>
+      <form class="invert">
+        <input class="multi" type="number" id="ancho" placeholder="Ingresa ancho del terreno (m)">
+        <input class="multi" type="number" id="largo" placeholder="Ingresa largo del terreno (m)">
+        <input class="multi" type="number" id="valorPorM2" placeholder="Ingresar precio x m2 de terreno">
+        <button type="button" onclick="capturarTerreno()">Valores Invertidos</button>
+      </form>
+      <p class="resp" id="valorTotalMsg"></p>
+      <p class="resp" id="metrosAlambreMsg"></p>
       <code>
         <ul>
           <li><span class="gris">//Código para salida por consola</span></li>
-          <li><span>let width = parseInt(prompt("Ingresar ancho del terreno (m): "));</span></li>
-          <li><span>let height = parseInt(prompt("Ingresar largo del terreno (m): "));</span></li>
-          <li><span>let m2Price = parseInt(prompt("Ingresar precio x m2 de terreno ($): "));</span></li>
+          <li><span>let width = parseInt(prompt("Ingresa ancho del terreno (m): "));</span></li>
+          <li><span>let height = parseInt(prompt("Ingresa largo del terreno (m): "));</span></li>
+          <li><span>let m2Price = parseInt(prompt("Ingresa precio x m2 de terreno ($): "));</span></li>
           <li><span>let totalPrice = width * height * m2Price;</span></li>
           <li><span>let wireAmount = (width + height) * 2 * 3;</span></li>
           <li><span>console.log(`El precio total del Terreno es de $ ${totalPrice} y se necesitan ${wireAmount} m de alambre para 3 pasadas de cerco`);</span></li>

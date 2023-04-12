@@ -18,7 +18,7 @@ function capturarInt() {
   let int = document.getElementById('int').value;
   let numberInt = document.getElementById("entero");
   numberInt.textContent = `El opuesto de ${int} es ${int * -1} y el inverso es ${(1 / int).toFixed(3)}`;
-  document.getElementById("int").value="";
+  document.getElementById("int").value = "";
 }
 
 //ejercicio 3
@@ -26,25 +26,25 @@ function capturarNotas() {
   let trim1 = parseFloat(document.getElementById("trim1").value);
   let trim2 = parseFloat(document.getElementById("trim2").value);
   let trim3 = parseFloat(document.getElementById("trim3").value);
-  
+
   if (isNaN(trim1) || trim1 < 0 || trim1 > 10) {
     alert("Ingresa una nota valida para el 1º Trim");
     document.getElementById("trim1").focus();
   } else if (isNaN(trim2) || trim2 < 0 || trim2 > 10) {
     alert("Ingresa una nota valida para el 2º Trim");
     document.getElementById("trim2").focus();
-  } else if (isNaN(trim3) || trim3 < 0 || trim3 > 10){
+  } else if (isNaN(trim3) || trim3 < 0 || trim3 > 10) {
     alert("Ingresa una nota valida para el 3º Trim");
     document.getElementById("trim3").focus();
   } else {
-    document.getElementById("trim1").value="";
-    document.getElementById("trim2").value="";
-    document.getElementById("trim3").value="";
-    document.getElementById("trim1").focus="";
+    document.getElementById("trim1").value = "";
+    document.getElementById("trim2").value = "";
+    document.getElementById("trim3").value = "";
+    document.getElementById("trim1").focus = "";
   }
 
   let promedio = (trim1 + trim2 + trim3) / 3;
-  promedioNota.textContent = `El promedio anual de tus notas es: ${promedio.toFixed(2)}`;
+  promedio.textContent = `El promedio anual de tus notas es: ${promedio.toFixed(2)}`;
 }
 
 //Ejercicio 4
@@ -52,20 +52,20 @@ function capturarSalary() {
   let hourSalary = parseInt(document.getElementById("hourSalary").value);
   let daylyWorkedHours = parseInt(document.getElementById("daylyWorkedHours").value);
 
-  if(isNaN(hourSalary)) {
+  if (isNaN(hourSalary)) {
     alert("Ingresa tu salario por hora");
     document.getElementById("hourSalary").focus();
   } else if (isNaN(daylyWorkedHours)) {
     alert("Ingresa cantidad de horas trabajadas por semana");
     document.getElementById("daylyWorkedHours").focus();
   } else {
-    document.getElementById("hourSalary").value="";
-    document.getElementById("daylyWorkedHours").value="";
+    document.getElementById("hourSalary").value = "";
+    document.getElementById("daylyWorkedHours").value = "";
     document.getElementById("hourSalary").focus();
   }
 
   let weeklySalary = hourSalary * daylyWorkedHours * 5.5;
-  weeklySalaryMsg.textContent = `Tu salario semanal es de ${weeklySalary}`;
+  weeklySalary.textContent = `Tu salario semanal es de ${weeklySalary}`;
 
   console.log(weeklySalary);
 }
@@ -77,22 +77,78 @@ function capturarInverted() {
   let resultadoMsg = document.getElementById("resultadoMsg");
   let invertedMsg = document.getElementById("invertedMsg");
 
-  if(a === "") {
+  if (a === "") {
     alert("Ingresa un valor numérico para a");
     document.getElementById("a").focus();
-  } else if (b === "" || typeof(a) !== typeof(b)) {
+  } else if (b === "" || typeof (a) !== typeof (b)) {
     alert("Ingresa un valor numérico para b");
     document.getElementById("b").focus();
   } else {
-    document.getElementById("a").value="";
-    document.getElementById("b").value="";
+    document.getElementById("a").value = "";
+    document.getElementById("b").value = "";
     document.getElementById("a").focus();
   }
 
   resultadoMsg.textContent = `Ingresaste los valores '${a}' y '${b}'`;
-  
+
   [a, b] = [b, a];
   invertedMsg.textContent = `Los valores invertidos son '${a}' y '${b}'`;
+}
+
+//Ejercicio 6
+
+let salary = 14000;
+let commision = 0.16;
+
+function capturarSalary() {
+  let itemPrice = parseFloat(document.getElementById("itemPrice").value);
+  let soldItems = parseFloat(document.getElementById("soldItems").value);
+  let totalSalaryMsg = document.getElementById("totalSalaryMsg");
+
+  if (itemPrice === "") {
+    alert("Debes ingresar el precio del Artículo");
+    document.getElementById("itemPrice").focus();
+  } else if (soldItems === "" || soldItems < 0) {
+    alert("Debes ingresar cantidad de artículos vendidos");
+    document.getElementById("soldItems").focus();
+  } else {
+    let totalSalary = salary + (itemPrice * soldItems * commision);
+    totalSalaryMsg.textContent = `Tu salario, sumadas las comisiones es de $ ${totalSalary.toFixed(3)}`;
+    document.getElementById("itemPrice").value = "";
+    document.getElementById("soldItems").value = "";
+    document.getElementById("itemPrice").focus();
+  }
+
+
+}
+
+//Ejercicio 7
+function capturarTerreno() {
+  let ancho = document.getElementById("ancho").value;
+  let largo = document.getElementById("largo").value;
+  let valorPorM2 = document.getElementById("valorPorM2").value;
+  let valorTotalMsg = document.getElementById("valorTotalMsg");
+  let metrosAlambreMsg = document.getElementById("metrosAlambreMsg");
+
+  if (ancho === "" || ancho < 1) {
+    alert("Debes ingresar el ancho del terreno");
+    document.getElementById(ancho).focus();
+  } else if (largo === "" || largo < 1) {
+    alert("Debes ingresar el largo del terreno");
+    document.getElementById(largo).focus();
+  } else if (valorPorM2 === "" || valorPorM2 < 0) {
+    alert("Debes ingresar el precio x m2 del terreno");
+    document.getElementById(valorPorM2).focus();
+  } else {
+    let valorTotal = ancho * largo * valorPorM2;
+    let metrosAlambreX3 = (2 * ancho + 2 * largo) * 3;
+    valorTotalMsg.textContent = `Valor de terreno de ${ancho}m x ${largo}m es de $${valorTotal}`;
+    metrosAlambreMsg.textContent = `Se necesitan ${metrosAlambreX3}m de alambre para 3 pasadas de cerco`;
+    document.getElementById("ancho").value="";
+    document.getElementById("largo").value="";
+    document.getElementById("valorPorM2").value="";
+    document.getElementById("ancho").focus();
+  }
 }
 
 // /* 1) Realizá un programa que permita al usuario ingresar su nombre. La computadora debe emitir una
