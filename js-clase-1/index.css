@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400&family=Nanum+Gothic+Coding&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&family=Roboto+Mono:wght@200;300&display=swap');
 
 :root {
   --color1: midnightblue;
@@ -60,11 +60,13 @@ form.invert input {
   padding: .5rem .2rem;
 }
 
-p.resp {
-  font-style: italic;
+.resp {
+  font-family: 'Roboto Mono', monospace;
   font-weight: bold;
   color: var(--color1);
   text-align: center;
+  margin: 2rem 0;
+  line-height: 1.4rem;
 }
 
 p {
@@ -81,6 +83,19 @@ input {
   border: 1px solid var(--color1);
   border-radius: .2rem;
   padding: .5rem 0;
+  outline:none;
+}
+
+input:focus {
+  animation: shake .3s;
+  border: 1px solid var(--color2);
+  outline: none;
+}
+
+@keyframes shake {
+  0%{transform: rotate(1deg);}
+  50%{ transform: rotate(2deg);}
+  100%{transform: rotate(0);}
 }
 
 input::placeholder {
@@ -89,7 +104,7 @@ input::placeholder {
 
 form button {
   padding: .5rem 1rem;
-  margin: 0 .2rem;
+  margin: 0  .2rem;
   background-color: var(--color1);
   border: none;
   color: white;
@@ -109,7 +124,7 @@ code {
   margin: 0 auto;
   padding: 1rem;
   border-left: 5px solid var(--color2);
-  font-family: 'Nanum Gothic Coding', monospace;
+  font-family: 'Roboto Mono', monospace;
   font-size: .9rem;
   line-height: 1.2rem;
 }
@@ -127,11 +142,11 @@ ul {
 
 li span {
   color: var(--color2);
-  font-style: italic;
 }
 
 span.gris {
   color: grey;
+  font-style: italic;
 }
 
 footer {

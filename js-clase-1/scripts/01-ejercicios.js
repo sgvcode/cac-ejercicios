@@ -127,8 +127,7 @@ function capturarTerreno() {
   let ancho = document.getElementById("ancho").value;
   let largo = document.getElementById("largo").value;
   let valorPorM2 = document.getElementById("valorPorM2").value;
-  let valorTotalMsg = document.getElementById("valorTotalMsg");
-  let metrosAlambreMsg = document.getElementById("metrosAlambreMsg");
+  let terrenoMsg = document.getElementById("terrenoMsg");
 
   if (ancho === "" || ancho < 1) {
     alert("Debes ingresar el ancho del terreno");
@@ -142,12 +141,40 @@ function capturarTerreno() {
   } else {
     let valorTotal = ancho * largo * valorPorM2;
     let metrosAlambreX3 = (2 * ancho + 2 * largo) * 3;
-    valorTotalMsg.textContent = `Valor de terreno de ${ancho}m x ${largo}m es de $${valorTotal}`;
-    metrosAlambreMsg.textContent = `Se necesitan ${metrosAlambreX3}m de alambre para 3 pasadas de cerco`;
-    document.getElementById("ancho").value="";
-    document.getElementById("largo").value="";
-    document.getElementById("valorPorM2").value="";
+    terrenoMsg.textContent = `Valor del terreno de ${ancho}m x ${largo}m = $${valorTotal}\nSe necesitan ${metrosAlambreX3}m de alambre para 3 pasadas de cerco`;
+    document.getElementById("ancho").value = "";
+    document.getElementById("largo").value = "";
+    document.getElementById("valorPorM2").value = "";
     document.getElementById("ancho").focus();
+  }
+}
+
+//Ejercicio 8
+function capturarNumeros() {
+  let n1 = parseInt(document.getElementById("n1").value);
+  let n2 = parseInt(document.getElementById("n2").value);
+  let operacionesMsg = document.getElementById("operacionesMsg");
+
+  if (isNaN(n1) || isNaN(n2)) {
+    alert("Ingresa un número entero");
+    if (isNaN(n1)) {
+      document.getElementById("n1").focus();
+    } else {
+      document.getElementById("n2").focus();
+    }
+  } else {
+    let suma = n1 + n2;
+    let resta = n1 - n2;
+    let mult = n1 * n2;
+    let div;
+
+    if (n2 === 0) {
+      div = "No se puede dividir entre cero";
+    } else {
+      div = (n1 / n2).toFixed(2);
+    }
+
+    operacionesMsg.textContent = `Suma = ${suma}\nResta = ${resta}\nProducto = ${mult}\nDivisión = ${div}`;
   }
 }
 
