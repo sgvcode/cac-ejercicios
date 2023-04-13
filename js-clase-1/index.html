@@ -20,9 +20,9 @@
       <p>1- Realizá un programa que permita al usuario ingresar su nombre. La computadora debe emitir una salida con un
         mensaje de bienvenida que incluya el nombre ingresado.</p>
       <form>
-        <input type="text" id="name" placeholder="Ingresa tu nombre">
+        <input type="text" id="name" pattern="[A-Za-záéíóúñÑ\s]+" placeholder="Ingresa tu nombre">
         <button type="button" onclick="capturarName()">Enviar</button>
-      </form>
+      </form class="one">
       <p class="resp" id="welcome"></p>
       <code>
         <ul>
@@ -36,8 +36,8 @@
     <div class="ejercicio">
       <p>2- Realizá un programa que permita al usuario ingresar un número entero. La computadora debe
         informar el número opuesto1 y el número inverso2 del ingresado.</p>
-      <form>
-        <input class="shake" type="text" id="int" placeholder="Ingresa un número entero">
+      <form class="one">
+        <input class="shake" type="number" id="int" placeholder="Ingresa un número entero">
         <button type="button" onclick="capturarInt()">Enviar</button>
       </form>
       <p class="resp" id="entero"></p>
@@ -189,7 +189,7 @@
         restante.</p>
       <form class="invert">
         <input class="multi" type="number" id="ang1" placeholder="Ingresa 1º ang. int del triángulo">
-        <input class="multi" type="number" id="ang2" placeholder="Ingresa 1º ang. int del triángulo">
+        <input class="multi" type="number" id="ang2" placeholder="Ingresa 2º ang. int del triángulo">
         <button type="button" onclick="capturarAngulo()">Calcular</button>
       </form>
       <pre class="resp" id="anguloMsg"></pre>

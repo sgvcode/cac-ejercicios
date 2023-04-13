@@ -4,8 +4,9 @@ function capturarName() {
   let welcomeMsg = document.getElementById("welcome");
   let nameInput = document.getElementById("name");
 
-  if (name == "") {
-    alert("Por favor, ingresa tu nombre");
+  if (name == "" || typeof(n1) !== String) {
+    alert("Por favor, ingresa un nombre válido");
+    document.getElementById("name").value="";
     nameInput.focus();
   } else {
     welcomeMsg.textContent = `Te damos la Bienvenida, ${name}`;
