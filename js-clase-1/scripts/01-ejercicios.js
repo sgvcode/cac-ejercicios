@@ -173,8 +173,102 @@ function capturarNumeros() {
     } else {
       div = (n1 / n2).toFixed(2);
     }
-
     operacionesMsg.textContent = `Suma = ${suma}\nResta = ${resta}\nProducto = ${mult}\nDivisión = ${div}`;
+    document.getElementById("n1").value = "";
+    document.getElementById("n2").value = "";
+    document.getElementById("n1").focus();
+  }
+}
+
+//Ejercicio 9
+function capturarAngulo() {
+  let ang1 = parseInt(document.getElementById("ang1").value);
+  let ang2 = parseInt(document.getElementById("ang2").value);
+  let anguloMsg = document.getElementById("anguloMsg");
+
+  if (isNaN(ang1) || isNaN(ang2)) {
+    alert("Ingresa un valor para el campo");
+    if (isNaN(ang1)) {
+      document.getElementById("ang1").focus();
+    } else {
+      document.getElementById("ang2").focus();
+    }
+  } else if (ang1 + ang2 > 180) {
+    alert("La suma de los ángulos no puede ser superior a 180 grados");
+    document.getElementById("ang1").value = "";
+    document.getElementById("ang2").value = "";
+    document.getElementById("ang1").focus();
+  } else {
+    let ang3 = 180 - (ang1 + ang2);
+    anguloMsg.textContent = `El 3º ángulo del triángulo es de ${ang3}º`;
+    document.getElementById("ang1").value = "";
+    document.getElementById("ang2").value = "";
+    document.getElementById("ang1").focus();
+  }
+}
+
+//Ejercicio 10
+// function calcularAportes(event) {
+//   event.preventDefault(); // Evita que el formulario se envíe
+
+//   let form = event.target;
+//   let inv1 = form.elements["inv1"].value;
+//   let monto1 = parseInt(form.elements["monto1"].value);
+//   let inv2 = form.elements["inv2"].value;
+//   let monto2 = parseInt(form.elements["monto2"].value);
+//   let inv3 = form.elements["inv3"].value;
+//   let monto3 = parseInt(form.elements["monto3"].value);
+
+//   let total = monto1 + monto2 + monto3;
+//   let porcentaje1 = ((monto1 / total) * 100).toFixed(2);
+//   let porcentaje2 = ((monto2 / total) * 100).toFixed(2);
+//   let porcentaje3 = ((monto3 / total) * 100).toFixed(2);
+
+//   let aportesMsg = document.getElementById("aportesMsg");
+//   aportesMsg.textContent = `El monto total invertido es $${total}\n${inv1}: ${porcentaje1}%\n${inv2}: ${porcentaje2}%\n${inv3}: ${porcentaje3}%`;
+// }
+
+// let aportesForm = document.getElementById("aportesForm");
+// aportesForm.addEventListener("submit", calcularAportes);
+
+function capturarAportes() {
+  let inv1 = document.getElementById("inv1").value;
+  let monto1 = parseInt(document.getElementById("monto1").value);
+  let inv2 = document.getElementById("inv2").value;
+  let monto2 = parseInt(document.getElementById("monto2").value);
+  let inv3 = document.getElementById("inv3").value;
+  let monto3 = parseInt(document.getElementById("monto3").value);
+
+  if (!inv1 || !inv2 || !inv3 || !monto1 || !monto2 || !monto3) {
+    alert("Debes ingresar datos en el campo");
+    if (!inv1) {
+      document.getElementById("inv1").focus();
+    } else if (!inv2) {
+      document.getElementById("inv2").focus();
+    } else if (!inv2) {
+      document.getElementById("inv2").focus();
+    } else if (!inv2) {
+      document.getElementById("inv2").focus();
+    } else if (!inv2) {
+      document.getElementById("inv2").focus();
+    }
+  } else {
+    //Calcular total y porcentajes
+    let total = monto1 + monto2 + monto3;
+    let porcentaje1 = ((monto1 / total) * 100).toFixed(2);
+    let porcentaje2 = ((monto2 / total) * 100).toFixed(2);
+    let porcentaje3 = ((monto3 / total) * 100).toFixed(2);
+    let aportesMsg = document.getElementById("aportesMsg");
+    aportesMsg.textContent = `El monto total invertido es $${total}\n${inv1}: ${porcentaje1}%\n${inv2}: ${porcentaje2}%\n${inv3}: ${porcentaje3}%`;
+
+    //Limpiar datos
+    document.getElementById("inv1").value = "";
+    document.getElementById("inv2").value = "";
+    document.getElementById("inv3").value = "";
+    document.getElementById("monto1").value = "";
+    document.getElementById("monto2").value = "";
+    document.getElementById("monto3").value = "";
+    document.getElementById("inv1").focus();
   }
 }
 
@@ -269,4 +363,3 @@ function capturarNumeros() {
 // console.log(`${inversor1} aportó el ${perc1}% del capital total`);
 // console.log(`${inversor2} aportó el ${perc2}% del capital total`);
 // console.log(`${inversor3} aportó el ${perc3}% del capital total`);
-
