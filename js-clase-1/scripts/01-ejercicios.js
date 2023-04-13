@@ -4,7 +4,9 @@ function capturarName() {
   let welcomeMsg = document.getElementById("welcome");
   let nameInput = document.getElementById("name");
 
-  if (name == "" || typeof(n1) !== String) {
+  let regex = /^[a-zA-Z]+$/;
+
+  if (name == "" || !regex.test(name)) {
     alert("Por favor, ingresa un nombre válido");
     document.getElementById("name").value="";
     nameInput.focus();
