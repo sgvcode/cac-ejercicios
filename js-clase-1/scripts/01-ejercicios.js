@@ -26,6 +26,7 @@ function capturarNotas() {
   let trim1 = parseFloat(document.getElementById("trim1").value);
   let trim2 = parseFloat(document.getElementById("trim2").value);
   let trim3 = parseFloat(document.getElementById("trim3").value);
+  let promedioNota = document.getElementById("promedioNota");
 
   if (isNaN(trim1) || trim1 < 0 || trim1 > 10) {
     alert("Ingresa una nota valida para el 1º Trim");
@@ -37,37 +38,35 @@ function capturarNotas() {
     alert("Ingresa una nota valida para el 3º Trim");
     document.getElementById("trim3").focus();
   } else {
+    let promedio = (trim1 + trim2 + trim3) / 3;
+    promedioNota.textContent = `El promedio anual de tus notas es: ${promedio.toFixed(2)}`;
+
     document.getElementById("trim1").value = "";
     document.getElementById("trim2").value = "";
     document.getElementById("trim3").value = "";
     document.getElementById("trim1").focus = "";
   }
-
-  let promedio = (trim1 + trim2 + trim3) / 3;
-  promedio.textContent = `El promedio anual de tus notas es: ${promedio.toFixed(2)}`;
 }
 
 //Ejercicio 4
-function capturarSalary() {
+function capturarWeeklySalary() {
   let hourSalary = parseInt(document.getElementById("hourSalary").value);
   let daylyWorkedHours = parseInt(document.getElementById("daylyWorkedHours").value);
+  let weeklySalaryMsg = document.getElementById("weeklySalaryMsg");
 
-  if (isNaN(hourSalary)) {
-    alert("Ingresa tu salario por hora");
+  if (isNaN(hourSalary) || hourSalary <= 0) {
+    alert("Ingresa tu salario por hora válido");
     document.getElementById("hourSalary").focus();
-  } else if (isNaN(daylyWorkedHours)) {
+  } else if (isNaN(daylyWorkedHours) || daylyWorkedHours <= 0) {
     alert("Ingresa cantidad de horas trabajadas por semana");
     document.getElementById("daylyWorkedHours").focus();
   } else {
+    let weeklySalary = hourSalary * daylyWorkedHours * 5.5;
+    weeklySalaryMsg.textContent = `Tu salario semanal es de $${weeklySalary}`;
     document.getElementById("hourSalary").value = "";
     document.getElementById("daylyWorkedHours").value = "";
     document.getElementById("hourSalary").focus();
   }
-
-  let weeklySalary = hourSalary * daylyWorkedHours * 5.5;
-  weeklySalary.textContent = `Tu salario semanal es de ${weeklySalary}`;
-
-  console.log(weeklySalary);
 }
 
 //Ejercicio 5
@@ -90,7 +89,6 @@ function capturarInverted() {
   }
 
   resultadoMsg.textContent = `Ingresaste los valores '${a}' y '${b}'`;
-
   [a, b] = [b, a];
   invertedMsg.textContent = `Los valores invertidos son '${a}' y '${b}'`;
 }
@@ -139,9 +137,10 @@ function capturarTerreno() {
     alert("Debes ingresar el precio x m2 del terreno");
     document.getElementById(valorPorM2).focus();
   } else {
+    let sup = largo * ancho;
     let valorTotal = ancho * largo * valorPorM2;
     let metrosAlambreX3 = (2 * ancho + 2 * largo) * 3;
-    terrenoMsg.textContent = `Valor del terreno de ${ancho}m x ${largo}m = $${valorTotal}\nSe necesitan ${metrosAlambreX3}m de alambre para 3 pasadas de cerco`;
+    terrenoMsg.textContent = `Valor del terreno de ${sup}m (${ancho}m x ${largo}m) = $${valorTotal}\nSe necesitan ${metrosAlambreX3}m de alambre para 3 pasadas de cerco`;
     document.getElementById("ancho").value = "";
     document.getElementById("largo").value = "";
     document.getElementById("valorPorM2").value = "";
@@ -173,7 +172,7 @@ function capturarNumeros() {
     } else {
       div = (n1 / n2).toFixed(2);
     }
-    operacionesMsg.textContent = `Suma = ${suma}\nResta = ${resta}\nProducto = ${mult}\nDivisión = ${div}`;
+    operacionesMsg.textContent = `Dados los números ${n1} y ${n2}, el resultado de la\nSuma = ${suma}\nResta = ${resta}\nProducto = ${mult}\nDivisión = ${div}`;
     document.getElementById("n1").value = "";
     document.getElementById("n2").value = "";
     document.getElementById("n1").focus();
@@ -200,7 +199,7 @@ function capturarAngulo() {
     document.getElementById("ang1").focus();
   } else {
     let ang3 = 180 - (ang1 + ang2);
-    anguloMsg.textContent = `El 3º ángulo del triángulo es de ${ang3}º`;
+    anguloMsg.textContent = `Dado un triángulo de Ang1=${ang1}º y Ang2=${ang2}º, el Ang3=${ang3}º`;
     document.getElementById("ang1").value = "";
     document.getElementById("ang2").value = "";
     document.getElementById("ang1").focus();
@@ -259,7 +258,7 @@ function capturarAportes() {
     let porcentaje2 = ((monto2 / total) * 100).toFixed(2);
     let porcentaje3 = ((monto3 / total) * 100).toFixed(2);
     let aportesMsg = document.getElementById("aportesMsg");
-    aportesMsg.textContent = `El monto total invertido es $${total}\n${inv1}: ${porcentaje1}%\n${inv2}: ${porcentaje2}%\n${inv3}: ${porcentaje3}%`;
+    aportesMsg.textContent = `El monto total invertido es $${total}\n${inv1} ($${monto1}): ${porcentaje1}%\n${inv2} ($${monto2}): ${porcentaje2}%\n${inv3} ($${monto3}): ${porcentaje3}%`;
 
     //Limpiar datos
     document.getElementById("inv1").value = "";

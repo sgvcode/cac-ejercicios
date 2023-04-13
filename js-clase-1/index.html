@@ -14,10 +14,11 @@
     <h1>Prácticas de Javascript <span>...CAC#23053...</span></h1>
   </header>
   <!-- EJERCICIOS CLASE 1 -->
-  <div>
+  <div class="contenido">
     <!-- Ejercicio 1 -->
     <div class="ejercicio">
-      <p>1- Realizá un programa que permita al usuario ingresar su nombre. La computadora debe emitir una salida con un mensaje de bienvenida que incluya el nombre ingresado.</p>
+      <p>1- Realizá un programa que permita al usuario ingresar su nombre. La computadora debe emitir una salida con un
+        mensaje de bienvenida que incluya el nombre ingresado.</p>
       <form>
         <input type="text" id="name" placeholder="Ingresa tu nombre">
         <button type="button" onclick="capturarName()">Enviar</button>
@@ -50,7 +51,8 @@
     </div>
     <!-- Ejercicio 3 -->
     <div class="ejercicio">
-      <p>3- Realizá un programa que permita al usuario ingresar 3 notas pertenecientes a tres trimestres distintos para cierto alumno. La computadora debe mostrar la nota promedio.</p>
+      <p>3- Realizá un programa que permita al usuario ingresar 3 notas pertenecientes a tres trimestres distintos para
+        cierto alumno. La computadora debe mostrar la nota promedio.</p>
       <form class="invert">
         <input type="number" id="trim1" placeholder="Ingresa Nota de 1º Trimestre">
         <input type="number" id="trim2" placeholder="Ingresa Nota de 2º Trimestre">
@@ -70,11 +72,13 @@
     </div>
     <!-- Ejercicio 4 -->
     <div class="ejercicio">
-      <p>4- Realizá un programa que permita al usuario ingresar el valor salarial de una hora de trabajo y la cantidad de horas trabajadas por día. La computadora debe mostrar el valor del salario semanal, asumiendo que trabaja todos los días hábiles y media jornada los sábados.</p>
+      <p>4- Realizá un programa que permita al usuario ingresar el valor salarial de una hora de trabajo y la cantidad
+        de horas trabajadas por día. La computadora debe mostrar el valor del salario semanal, asumiendo que trabaja
+        todos los días hábiles y media jornada los sábados.</p>
       <form class="invert">
         <input class="multi" type="number" id="hourSalary" placeholder="Ingresa tu salario por hora">
         <input class="multi" type="number" id="daylyWorkedHours" placeholder="Cantidad de horas trabajadas por día">
-        <button type="button" onclick="capturarSalary()">Salario Semanal</button>
+        <button type="button" onclick="capturarWeeklySalary()">Salario Semanal</button>
       </form>
       <p class="resp" id="weeklySalaryMsg"></p>
       <code>
@@ -88,7 +92,9 @@
     </div>
     <!-- Ejercicio 5 -->
     <div class="ejercicio">
-      <p>5- Realizá un programa que permita al usuario ingresar valores del mismo tipo para las variables a y b. Una vez cargadas, la computadora debe mostrar ambas variables por pantalla, intercambiar entre sí sus valores (que lo cargado en a quede en b, y viceversa), y volver a mostrarlas.</p>
+      <p>5- Realizá un programa que permita al usuario ingresar valores del mismo tipo para las variables a y b. Una vez
+        cargadas, la computadora debe mostrar ambas variables por pantalla, intercambiar entre sí sus valores (que lo
+        cargado en a quede en b, y viceversa), y volver a mostrarlas.</p>
       <form class="invert">
         <input class="multi" type="number" id="a" placeholder="Ingresa el valor de 'a'">
         <input class="multi" type="number" id="b" placeholder="Ingresa el valor de 'b'">
@@ -109,7 +115,9 @@
     </div>
     <!-- Ejercicio 6 -->
     <div class="ejercicio">
-      <p>6- Realizá un programa que permita al usuario ingresar el valor unitario de cierto artículo y la cantidad de artículos vendidos por un vendedor, del cual se sabe que gana un sueldo fijo de $14000 más el 16% del monto total vendido. Con tales datos, la computadora debe calcular el sueldo mensual del vendedor y mostrarlo.</p>
+      <p>6- Realizá un programa que permita al usuario ingresar el valor unitario de cierto artículo y la cantidad de
+        artículos vendidos por un vendedor, del cual se sabe que gana un sueldo fijo de $14000 más el 16% del monto
+        total vendido. Con tales datos, la computadora debe calcular el sueldo mensual del vendedor y mostrarlo.</p>
       <form class="invert">
         <input class="multi" type="text" id="itemPrice" placeholder="Ingresa valor unitario del artículo">
         <input class="multi" type="text" id="soldItems" placeholder="Ingresa cantidad de artículos vendidos">
@@ -130,7 +138,9 @@
     </div>
     <!-- Ejercicio 7 -->
     <div class="ejercicio">
-      <p>7- Realizá un programa que permita al usuario ingresar el ancho y el largo de un terreno en metros y el valor del metro cuadrado de tierra. La computadora debe mostrar el valor total del terreno y la cantidad de metros de alambre que serían necesarios para cercarlo completamente en tres pasadas.</p>
+      <p>7- Realizá un programa que permita al usuario ingresar el ancho y el largo de un terreno en metros y el valor
+        del metro cuadrado de tierra. La computadora debe mostrar el valor total del terreno y la cantidad de metros de
+        alambre que serían necesarios para cercarlo completamente en tres pasadas.</p>
       <form class="invert">
         <input class="multi" type="number" id="ancho" placeholder="Ingresa ancho del terreno (m)">
         <input class="multi" type="number" id="largo" placeholder="Ingresa largo del terreno (m)">
@@ -152,7 +162,8 @@
     </div>
     <!-- Ejercicio 8 -->
     <div class="ejercicio">
-      <p>8- Realizá un programa que permita al usuario ingresar dos números enteros. La computadora debe mostrar los resultados de las 4 operaciones matemáticas básicas con tales números.</p>
+      <p>8- Realizá un programa que permita al usuario ingresar dos números enteros. La computadora debe mostrar los
+        resultados de las 4 operaciones matemáticas básicas con tales números.</p>
       <form class="invert">
         <input class="multi" type="number" id="n1" placeholder="Ingresa un número entero">
         <input class="multi" type="number" id="n2" placeholder="Ingresa otro número entero">
@@ -173,13 +184,15 @@
     </div>
     <!-- Ejercicio 9 -->
     <div class="ejercicio">
-      <p>9- Realizá un programa que permita al usuario ingresar dos números enteros, que representan las medidas en grados de dos ángulos interiores de cierto triángulo. La computadora debe mostrar el valor en grados del ángulo restante.</p>
-        <form class="invert">
-          <input class="multi" type="number" id="ang1" placeholder="Ingresa 1º ang. int del triángulo">
-          <input class="multi" type="number" id="ang2" placeholder="Ingresa 1º ang. int del triángulo">
-          <button type="button" onclick="capturarAngulo()">Calcular</button>
-        </form>
-        <pre class="resp" id="anguloMsg"></pre>
+      <p>9- Realizá un programa que permita al usuario ingresar dos números enteros, que representan las medidas en
+        grados de dos ángulos interiores de cierto triángulo. La computadora debe mostrar el valor en grados del ángulo
+        restante.</p>
+      <form class="invert">
+        <input class="multi" type="number" id="ang1" placeholder="Ingresa 1º ang. int del triángulo">
+        <input class="multi" type="number" id="ang2" placeholder="Ingresa 1º ang. int del triángulo">
+        <button type="button" onclick="capturarAngulo()">Calcular</button>
+      </form>
+      <pre class="resp" id="anguloMsg"></pre>
       <code>
         <ul>
           <li><span class="gris">//Código para salida por consola</span></li>
@@ -228,7 +241,8 @@
     <footer>
       <code>{SGVero} - CAC#23053</code>
     </footer>
-    <script src="scripts/01-ejercicios.js"></script>
+  </div>
+  <script src="scripts/01-ejercicios.js"></script>
 </body>
 
 </html>
