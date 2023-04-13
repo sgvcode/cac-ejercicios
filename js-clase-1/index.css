@@ -102,10 +102,6 @@ input:focus {
   100%{transform: rotate(0);}
 }
 
-input::placeholder {
-  /* padding-left: .5rem; */
-}
-
 form button {
   padding: .5rem 1rem;
   margin: 0  .2rem;

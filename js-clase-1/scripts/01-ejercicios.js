@@ -13,6 +13,7 @@ function capturarName() {
   } else {
     welcomeMsg.textContent = `Te damos la Bienvenida, ${name}`;
     nameInput.value = "";
+    nameInput.focus();
   }
 }
 
@@ -20,8 +21,11 @@ function capturarName() {
 function capturarInt() {
   let int = document.getElementById('int').value;
   let numberInt = document.getElementById("entero");
+  let intInput = document.getElementById("int");
+
   numberInt.textContent = `El opuesto de ${int} es ${int * -1} y el inverso es ${(1 / int).toFixed(3)}`;
-  document.getElementById("int").value = "";
+  intInput.value="";
+  intInput.focus();
 }
 
 //ejercicio 3
@@ -29,6 +33,10 @@ function capturarNotas() {
   let trim1 = parseFloat(document.getElementById("trim1").value);
   let trim2 = parseFloat(document.getElementById("trim2").value);
   let trim3 = parseFloat(document.getElementById("trim3").value);
+  let trim1Input = document.getElementById("trim1");
+  let trim2Input = document.getElementById("trim2");
+  let trim3Input = document.getElementById("trim3");
+
   let promedioNota = document.getElementById("promedioNota");
 
   if (isNaN(trim1) || trim1 < 0 || trim1 > 10) {
@@ -44,10 +52,10 @@ function capturarNotas() {
     let promedio = (trim1 + trim2 + trim3) / 3;
     promedioNota.textContent = `El promedio anual de tus notas es: ${promedio.toFixed(2)}`;
 
-    document.getElementById("trim1").value = "";
-    document.getElementById("trim2").value = "";
-    document.getElementById("trim3").value = "";
-    document.getElementById("trim1").focus = "";
+    trim1Input.value="";
+    trim2Input.value="";
+    trim3Input.value="";
+    trim1Input.focus();
   }
 }
 
