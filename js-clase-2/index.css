@@ -1,0 +1,157 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@100&family=Montserrat:wght@300&display=swap');
+
+:root {
+  --color1: tomato;
+  --color2: rgb(255, 213, 0);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  display: flex;
+  flex-direction: column;
+  font-size: 15px;
+  width: 100%;
+  align-items: center;
+}
+
+header{
+  width: 100%;
+  margin: 1rem 0;
+  background-color: var(--color1);
+  margin: 0 0 1rem;
+  padding: 1rem 0;
+}
+h1 {
+  text-align: center;
+  color: white;
+}
+
+h1 span {
+  font-weight: lighter;
+  font-size: 1.5rem;
+  color: var(--color2);
+}
+.ejercicios{
+  display:flex;
+  align-items: center;
+  justify-content: center;
+}
+form {
+  display: flex;
+  justify-content: center;
+}
+
+form.invert {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  gap: .5rem;
+}
+
+form.invert input {
+  padding: .5rem;
+}
+
+.resp {
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: bold;
+  color: var(--color1);
+  text-align: left;
+  margin: 2rem 0;
+  line-height: 1.4rem;
+  font-size: .85rem;
+}
+
+p {
+  margin: 2rem 3rem;
+  max-width: 900px;
+  text-align: justify;
+  align-items: center;
+}
+
+input {
+  width: 20rem;
+  max-width: 600px;
+  background-color: white;
+  border: 1px solid var(--color1);
+  border-radius: .2rem;
+  padding: .5rem 0;
+  outline:none;
+  padding: .5rem;
+}
+
+input:focus {
+  animation: shake .3s;
+  border: 1px solid var(--color2);
+  outline: none;
+}
+
+@keyframes shake {
+  0%{transform: rotate(1deg);}
+  50%{ transform: rotate(2deg);}
+  100%{transform: rotate(0);}
+}
+
+form button {
+  padding: .5rem 1rem;
+  margin: 0  .2rem;
+  background-color: var(--color1);
+  border: none;
+  color: white;
+  text-transform: uppercase;
+  font-size: .7rem;
+  border-radius: .2rem;
+}
+
+code {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  background-color: rgb(38, 41, 46);
+  color: white;
+  width: 90%;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 1rem;
+  border-left: 5px solid var(--color2);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: .8rem;
+  line-height: 1.2rem;
+}
+
+ul {
+  list-style: decimal-leading-zero;
+  padding: 0 1.5rem;
+}
+
+/* li::before {
+  content: "\2025";
+  padding-right: 8px;
+  color: white;
+  } */
+
+li span {
+  color: var(--color2);
+}
+
+span.gris {
+  color: grey;
+  font-style: italic;
+}
+
+footer {
+  margin: 1rem 0 0;
+  color: white;
+  font-size: .8rem;
+  padding: 1rem 0;
+}
