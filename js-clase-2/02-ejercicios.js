@@ -28,8 +28,7 @@ function capturarAsientos() {
 
     const mensajeAsiento = (asientos >= inscriptos) ? `Hay ${asientos - inscriptos} asientos disponibles` : `Para ${inscriptos} inscriptos, faltan ${inscriptos - asientos} asientos`;
     document.getElementById("asientosMsg").textContent = mensajeAsiento;
-    document.getElementById("asientos").value = "";
-    document.getElementById("inscriptos").value = "";
+    document.getElementById("form2").reset();
     document.getElementById("asientos").focus();
 }
 
@@ -69,12 +68,34 @@ function capturarMayor3() {
         } else {
             document.getElementById("n33").focus();
         }
-        return; // Se agrega un return para salir de la función si hay un valor inválido.
+        return;
     }
     const mayorN3 = (n2 > mayorN) ? ((n3 > n2) ? `El mayor es ${n3}` : `El mayor es ${n2}`) : ((n3 > mayorN) ? `El mayor es ${n3}` : (n1 === n2 && n2 === n3) ? "Los tres números son iguales" : `El mayor es ${n1}`);
     document.getElementById("mayor3Msg").textContent = `${mayorN3} (entre ${n1}, ${n2} y ${n3})`;
-    document.getElementById("n11").value="";
-    document.getElementById("n22").value="";
-    document.getElementById("n33").value="";
+    document.getElementById("form4").reset()
     document.getElementById("n11").focus();
+}
+
+//Ejercicio 5
+function capturarJubilacion() {
+    const edad = parseInt(document.querySelector("#edad").value);
+    const genero = document.querySelector("#genero").value.toUpperCase();
+
+    if (edad < 1 || edad > 120 || isNaN(edad)) {
+        alert("Ingresa tu edad dentro del rango [1 - 120]");
+        document.querySelector("#edad").focus();
+        return;
+    }
+
+    if (genero !== "M" && genero !== "F") {
+        alert("Género inexistente");
+        document.querySelector("#genero").focus();
+        return;
+    }
+
+    const jubilados = ((genero === "M" && edad >= 65) || (genero === "F" && edad >= 60)) ? `Puedes jubilarte.` : `No puedes jubilarte.`
+
+    document.querySelector("#jubilacionMsg").textContent = `[${genero}/${edad} años] ${jubilados}`;
+    document.querySelector("#form5").reset();
+    document.querySelector("#edad").focus();
 }
