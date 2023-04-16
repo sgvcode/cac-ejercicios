@@ -240,6 +240,7 @@ function capturarMes() {
     if (mes < 1 || mes > 12 || isNaN(mes) || !isFinite(mes)) {
         alert("Debes ingresar un númer de mes de 1 a 12");
         document.getElementById("mes").focus();
+        return;
     }
 
     const NOMBRE_MES = {
