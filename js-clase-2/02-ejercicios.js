@@ -99,3 +99,76 @@ function capturarJubilacion() {
     document.querySelector("#form5").reset();
     document.querySelector("#edad").focus();
 }
+
+//Ejercicio 6
+function capturarSindicato() {
+    const edadEmpleado = parseInt(document.querySelector("#edadEmpleado").value);
+    const sueldoEmpleado = parseInt(document.querySelector("#sueldoEmpleado").value);
+
+    const descuento = [0.007, 0.014, 0.021, 0.028];
+    
+    if (isNaN(edadEmpleado) || isNaN(sueldoEmpleado)) {
+        alert("Ingresar un dato válido")
+        if (isNaN(edadEmpleado)) {
+            document.querySelector("#edadEmpleado").focua();
+        } else {
+            document.querySelector("#sueldoEmpleado").focua();
+        }
+    }
+
+    if (sueldoEmpleado < 20000) {
+        aporte = sueldoEmpleado * descuento[0];
+    } else if (sueldoEmpleado >= 20000 && sueldoEmpleado <= 29999) {
+        aporte = sueldoEmpleado * descuento[1];
+    } else if (sueldoEmpleado >= 30000 && sueldoEmpleado <= 39999) {
+        aporte = sueldoEmpleado * descuento[2];
+    } else {
+        aporte = sueldoEmpleado * descuento[3];
+    }
+
+    const incrementoEdad = aporte * 0.3;
+
+    const aporteSindicato = (edadEmpleado > 30) ? aporte : (aporte += incrementoEdad);
+
+    document.querySelector("#sindicatoMsg").innerHTML = `Con ${edadEmpleado} años y un sueldo de $${sueldoEmpleado}<br>aportas al sindicato $${aporteSindicato.toFixed(2)}`;
+
+    document.querySelector("#form6").reset();
+    document.querySelector("#edadEmpleado").value="";
+}
+
+function capturarOrden(){
+const num1 = parseInt(document.querySelector("#num1").value);
+const num2 = parseInt(document.querySelector("#num2").value);
+const num3 = parseInt(document.querySelector("#num3").value);
+
+if (isNaN(num1) || isNaN(num2) || isNaN(num3)) {
+    alert("Debes ingresar datos válidos");
+    if (isNaN(num1)) {
+        document.querySelector("#num1").focus();
+    } else if (isNaN(num2)) {
+        document.querySelector("#num2").focus();
+    } else {
+        document.querySelector("#num3").focus();
+    }
+}
+
+const numerosOrdenados = [num1, num2, num3].sort(function(a, b) {
+    return a - b;
+});
+
+ordenadosMsg.innerHTML = `[${num1},${num2},${num3}] en orden ascendente: [${numerosOrdenados}]`;
+document.querySelector("#form7").reset();
+document.querySelector("#num1").focus();
+}
+// const num1 = parseInt(prompt("Ingrese el primer número:"));
+// const num2 = parseInt(prompt("Ingrese el segundo número:"));
+// const num3 = parseInt(prompt("Ingrese el tercer número:"));
+
+// const numerosOrdenados = [num1, num2, num3].sort(function(a, b) {
+//   return a - b;
+// });
+
+// alert("Los números ordenados son: " + numerosOrdenados.join(", "));
+
+
+
