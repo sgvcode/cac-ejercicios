@@ -259,9 +259,9 @@ function capturarMes() {
     }
 
     const NOMBRE_MES_DEFAULT = "";
-    const nombreMes = NOMBRE_MES[mes] || NOMBRE_MES_DEFAULT;
+    const nombreMes = NOMBRE_MES[mes] ? NOMBRE_MES[mes].toUpperCase() : NOMBRE_MES_DEFAULT;
 
-    mesMsg.innerHTML = `Mes ${mes} corresponde a ${nombreMes}`;
+    mesMsg.innerHTML = `Mes '${mes}' corresponde a ${nombreMes}`;
     document.getElementById("form10").reset();
     document.getElementById("mes").focus();
 }
