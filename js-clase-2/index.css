@@ -62,14 +62,12 @@ form.invert input {
 }
 
 p {
+  display: flex;
   margin: 2rem 3rem;
   max-width: 900px;
   text-align: justify;
   align-items: center;
-}
-
-p.nota {
-  font-size: .8rem;
+  justify-content: center;
 }
 
 p.nota {
@@ -85,7 +83,6 @@ p.resp {
   font-family: 'JetBrains Mono', monospace;
   font-weight: bold;
   color: var(--color1);
-  margin: 2rem 0;
   line-height: 1.5rem;
   font-size: .9rem;
 }

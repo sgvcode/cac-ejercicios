@@ -126,7 +126,7 @@
             >
           </tr>
       </table>
-      <p class="nota centrar">Además, si la persona tiene 30 años o menos, se cobra un 30% adicional del valor del aporte.</p>
+      <p class="nota centrar">* Además, si la persona tiene 30 años o menos, se cobra un 30% adicional del valor del aporte.</p>
       <form class="invert" id="form6">
         <input type="number" id="edadEmpleado" placeholder="Ingresa edad del Empleado">
         <input type="text" id="sueldoEmpleado" placeholder="Ingresa el sueldo percibido">
@@ -180,7 +180,7 @@
     </div>
     <!-- Ejercicio 9 -->
     <div class="ejercicio">
-      <p>9-  Realizá un programa que permita al usuario ingresar los lados a, b y c de un triángulo. La computadora informa si el triángulo es o no válido<sup>4</sup>. En caso afirmativo, además informa si es equilátero, isósceles o escaleno<sup>5</sup>.</p>
+      <p>9-  Realizá un programa que permita al usuario ingresar los lados a, b y c de un triángulo. La computadora informa si el triángulo es o no válido. En caso afirmativo, además informa si es equilátero, isósceles o escaleno.</p>
       <p class="nota">4 Según el teorema de desigualdad triangular, un triángulo es válido si se cumple que cada uno de los lados no puede ser más largo que la suma de los otros dos.<br>
         5 Un triángulo equilátero es aquel que tiene sus tres lados iguales. Un triángulo isósceles es aquel que tiene dos de sus lados iguales. Un triángulo escaleno es aquel que tiene sus tres lados desiguales.</p>
       <form class="invert" id="form8">
@@ -193,6 +193,41 @@
       <code>
         <ul>
           <li><span class="gris">//Código para salida por consola</span></li>
+        </ul>
+      </code>
+    </div>
+    <div class="ejercicio">
+      <p>10-  Realizá  un  programa  que  permita  al  usuario  ingresar  un  número  entero  entre 1 y 12. La computadora debe mostrar por pantalla el nombre del mes del año que representa tal número. Si se ingresa un número fuera de rango, debe mostrar un error.</p>
+      <form class="invert" id="form10">
+        <input type="number" id="mes" placeholder="Ingresa un nro de mes del 1 al 12">
+        <button type="button" onclick="capturarMes()">Calcular</button>
+      </form>
+      <p class="resp" id="mesMsg"></p>
+      <code>
+        <ul>
+          <li><span class="gris">//Código para salida por consola</span></li>
+          <li><span>const mes = parseInt(prompt(document.getElementById("mes")));</span></li>
+          <li><span>if (mes < 1 || mes > 12 || isNaN(mes) || !isFinite(mes)) {</span></li>
+          <li><span>alert("Debes ingresar un númer de mes de 1 a 12");</span></li>
+          <li><span class="tabOne2">document.getElementById("mes").focus();</span></li>
+          <li>}</li>
+          <li><span>const NOMBRE_MES = {</span></li>
+              <li><span class="tabOne">1: "Enero",</span></li>
+              <li><span class="tabOne">2: "Febrero",</span></li>
+              <li><span class="tabOne">3: "Marzo",</span></li>
+              <li><span class="tabOne">4: "Abril",</span></li>
+              <li><span class="tabOne">5: "Mayo",</span></li>
+              <li><span class="tabOne">6: "Junio",</span></li>
+              <li><span class="tabOne">7: "Julio",</span></li>
+              <li><span class="tabOne">8: "Agosto",</span></li>
+              <li><span class="tabOne">9: "Septiembre",</span></li>
+              <li><span class="tabOne">10: "Octubre",</span></li>
+              <li><span class="tabOne">11: "Noviembre",</span></li>
+              <li><span class="tabOne">12: "Diciembre"</span></li>
+          <li><span>}</span></li>
+          <li><span>const NOMBRE_MES_DEFAULT = "";</span></li>
+          <li><span>const nombreMes = NOMBRE_MES[mes] || NOMBRE_MES_DEFAULT;</span></li>
+          <li><span>console.log(nombreMes)</span></li>
         </ul>
       </code>
     </div>

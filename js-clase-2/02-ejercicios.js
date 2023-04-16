@@ -193,7 +193,7 @@ function capturarTriangulo() {
     const ladoC = parseInt(document.getElementById("ladoC").value);
 
     if ([ladoA, ladoB, ladoC].some(lado => isNaN(lado) || lado < 1)) {
-        alert("Ingresar un lado mayor que 1");
+        alert("Ingresar valores válidos para los lados del triángulo");
         if (isNaN(ladoA)) {
             document.getElementById("ladoA").focus();
         } else if (isNaN(ladoB)) {
@@ -202,6 +202,17 @@ function capturarTriangulo() {
             document.getElementById("ladoC").focus();
         }
         return;
+    }
+
+    if ((ladoA >= ladoB + ladoC) || (ladoB >= ladoA + ladoC) || (ladoC >= ladoA + ladoB)) {
+        alert("Ningún lado puede ser mayor que la suma de los 2 restantes.")
+        if (ladoA >= ladoB + ladoC) {
+            document.getElementById("ladoA").focus();
+        } else if (ladoB >= ladoA + ladoC) {
+            document.getElementById("ladoB").focus();
+        } else {
+            document.getElementById("ladoC").focus();
+        }
     }
 
     let trianguloValido = "";
@@ -218,4 +229,38 @@ function capturarTriangulo() {
     }
 
     document.getElementById("trianguloValidoMsg").innerHTML = trianguloValido;
+    document.getElementById("form9").reset();
+    document.getElementById
+}
+
+//Ejercicio 10
+function capturarMes() {
+    const mes = parseInt(document.getElementById("mes").value);
+
+    if (mes < 1 || mes > 12 || isNaN(mes) || !isFinite(mes)) {
+        alert("Debes ingresar un númer de mes de 1 a 12");
+        document.getElementById("mes").focus();
+    }
+
+    const NOMBRE_MES = {
+        1: "Enero",
+        2: "Febrero",
+        3: "Marzo",
+        4: "Abril",
+        5: "Mayo",
+        6: "Junio",
+        7: "Julio",
+        8: "Agosto",
+        9: "Septiembre",
+        10: "Octubre",
+        11: "Noviembre",
+        12: "Diciembre"
+    }
+
+    const NOMBRE_MES_DEFAULT = "";
+    const nombreMes = NOMBRE_MES[mes] || NOMBRE_MES_DEFAULT;
+
+    mesMsg.innerHTML = `Mes ${mes} corresponde a ${nombreMes}`;
+    document.getElementById("form10").reset();
+    document.getElementById("mes").focus();
 }
