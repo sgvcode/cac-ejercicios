@@ -49,7 +49,6 @@ function capturarMayor() {
     const mayorN = (n1 > n2) ? `${n1} es mayor que ${n2}` : ((n1 < n2) ? `${n2} es mayor que ${n1}` : "Ambos números son iguales");
     document.getElementById("mayorMsg").textContent = mayorN;
     document.getElementById("form3").reset();
-
 }
 
 //Ejercicio 4
@@ -78,42 +77,42 @@ function capturarMayor3() {
 
 //Ejercicio 5
 function capturarJubilacion() {
-    const edad = parseInt(document.querySelector("#edad").value);
-    const genero = document.querySelector("#genero").value.toUpperCase();
+    const edad = parseInt(document.getElementById("edad").value);
+    const genero = document.getElementById("genero").value.toUpperCase();
 
     if (edad < 1 || edad > 120 || isNaN(edad)) {
         alert("Ingresa tu edad dentro del rango [1 - 120]");
-        document.querySelector("#edad").focus();
+        document.getElementById("edad").focus();
         return;
     }
 
     if (genero !== "M" && genero !== "F") {
         alert("Género inexistente");
-        document.querySelector("#genero").focus();
+        document.getElementById("genero").focus();
         return;
     }
 
     const jubilados = ((genero === "M" && edad >= 65) || (genero === "F" && edad >= 60)) ? `Puedes jubilarte.` : `No puedes jubilarte.`
 
-    document.querySelector("#jubilacionMsg").textContent = `[${genero}/${edad} años] ${jubilados}`;
-    document.querySelector("#form5").reset();
-    document.querySelector("#edad").focus();
+    document.getElementById("jubilacionMsg").textContent = `[${genero}/${edad} años] ${jubilados}`;
+    document.getElementById("form5").reset();
+    document.getElementById("edad").focus();
 }
 
 //Ejercicio 6
 function capturarSindicato() {
-    const edadEmpleado = parseInt(document.querySelector("#edadEmpleado").value);
-    const sueldoEmpleado = parseInt(document.querySelector("#sueldoEmpleado").value);
-
+    const edadEmpleado = parseInt(document.getElementById("edadEmpleado").value);
+    const sueldoEmpleado = parseInt(document.getElementById("sueldoEmpleado").value);
     const descuento = [0.007, 0.014, 0.021, 0.028];
-    
-    if (isNaN(edadEmpleado) || isNaN(sueldoEmpleado)) {
+
+    if (isNaN(edadEmpleado) || isNaN(sueldoEmpleado) || !isFinite(edadEmpleado)) {
         alert("Ingresar un dato válido")
         if (isNaN(edadEmpleado)) {
-            document.querySelector("#edadEmpleado").focua();
+            document.getElementById("edadEmpleado").focus();
         } else {
-            document.querySelector("#sueldoEmpleado").focua();
+            document.getElementById("sueldoEmpleado").focus();
         }
+        return;
     }
 
     if (sueldoEmpleado < 20000) {
@@ -127,48 +126,62 @@ function capturarSindicato() {
     }
 
     const incrementoEdad = aporte * 0.3;
-
     const aporteSindicato = (edadEmpleado > 30) ? aporte : (aporte += incrementoEdad);
 
-    document.querySelector("#sindicatoMsg").innerHTML = `Con ${edadEmpleado} años y un sueldo de $${sueldoEmpleado}<br>aportas al sindicato $${aporteSindicato.toFixed(2)}`;
-
-    document.querySelector("#form6").reset();
-    document.querySelector("#edadEmpleado").value="";
+    document.getElementById("sindicatoMsg").innerHTML = `Con ${edadEmpleado} años y un sueldo de $${sueldoEmpleado}<br>aportas al sindicato $${aporteSindicato.toFixed(2)}`;
+    document.getElementById("form6").reset();
+    document.getElementById("edadEmpleado").value = "";
 }
 
-function capturarOrden(){
-const num1 = parseInt(document.querySelector("#num1").value);
-const num2 = parseInt(document.querySelector("#num2").value);
-const num3 = parseInt(document.querySelector("#num3").value);
+//Ejercicio 7
+function capturarOrden() {
+    const num1 = parseInt(document.getElementById("num1").value);
+    const num2 = parseInt(document.getElementById("num2").value);
+    const num3 = parseInt(document.getElementById("num3").value);
 
-if (isNaN(num1) || isNaN(num2) || isNaN(num3)) {
-    alert("Debes ingresar datos válidos");
-    if (isNaN(num1)) {
-        document.querySelector("#num1").focus();
-    } else if (isNaN(num2)) {
-        document.querySelector("#num2").focus();
-    } else {
-        document.querySelector("#num3").focus();
+    if (isNaN(num1) || isNaN(num2) || isNaN(num3) || !isFinite(num1)) {
+        alert("Debes ingresar datos válidos");
+        if (isNaN(num1)) {
+            document.getElementById("num1").focus();
+        } else if (isNaN(num2)) {
+            document.getElementById("num2").focus();
+        } else {
+            document.getElementById("num3").focus();
+        }
+        return;
     }
+
+    const numerosOrdenados = [num1, num2, num3].sort(function (a, b) {
+        return a - b;
+    });
+
+    ordenadosMsg.innerHTML = `[${num1},${num2},${num3}] en orden ascendente: [${numerosOrdenados}]`;
+    document.getElementById("form7").reset();
+    document.getElementById("num1").focus();
 }
 
-const numerosOrdenados = [num1, num2, num3].sort(function(a, b) {
-    return a - b;
-});
+//Ejercicio 8
+function capturarMayorDivisible() {
+    const div1 = parseInt(document.getElementById("div1").value);
+    const div2 = parseInt(document.getElementById("div2").value);
 
-ordenadosMsg.innerHTML = `[${num1},${num2},${num3}] en orden ascendente: [${numerosOrdenados}]`;
-document.querySelector("#form7").reset();
-document.querySelector("#num1").focus();
+    if (isNaN(div1) || isNaN(div2) || !isFinite(div1)) {
+        alert("Debes ingresar un número válido");
+        if (isNaN(div1)) {
+            document.getElementById("div1").focus();
+        } else {
+            document.getElementById("div2").focus();
+        }
+        return;
+    }
+
+    const mayor = [div1, div2].sort(function (a, b) {
+        return a - b;
+    })
+
+    console.log(mayor)
+
+    const esDivisible = (mayor[1] % mayor[0] === 0) ? `Si, ${mayor[1]} es divisible por ${mayor[0]}` : `No, ${mayor[1]} no es divisible por ${mayor[0]}`;
+
+    mayorDivisibleMsg.innerHTML = `${esDivisible} (=${(mayor[1] / mayor[0]).toFixed(2)})`;
 }
-// const num1 = parseInt(prompt("Ingrese el primer número:"));
-// const num2 = parseInt(prompt("Ingrese el segundo número:"));
-// const num3 = parseInt(prompt("Ingrese el tercer número:"));
-
-// const numerosOrdenados = [num1, num2, num3].sort(function(a, b) {
-//   return a - b;
-// });
-
-// alert("Los números ordenados son: " + numerosOrdenados.join(", "));
-
-
-
