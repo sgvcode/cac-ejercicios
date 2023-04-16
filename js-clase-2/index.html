@@ -126,7 +126,7 @@
             >
           </tr>
       </table>
-      <p>Además, si la persona tiene 30 años o menos, se cobra un 30% adicional del valor del aporte.</p>
+      <p class="nota centrar">Además, si la persona tiene 30 años o menos, se cobra un 30% adicional del valor del aporte.</p>
       <form class="invert" id="form6">
         <input type="number" id="edadEmpleado" placeholder="Ingresa edad del Empleado">
         <input type="text" id="sueldoEmpleado" placeholder="Ingresa el sueldo percibido">
@@ -172,6 +172,24 @@
         <button type="button" onclick="capturarMayorDivisible()">Calcular</button>
       </form>
       <p class="resp" id="mayorDivisibleMsg"></p>
+      <code>
+        <ul>
+          <li><span class="gris">//Código para salida por consola</span></li>
+        </ul>
+      </code>
+    </div>
+    <!-- Ejercicio 9 -->
+    <div class="ejercicio">
+      <p>9-  Realizá un programa que permita al usuario ingresar los lados a, b y c de un triángulo. La computadora informa si el triángulo es o no válido<sup>4</sup>. En caso afirmativo, además informa si es equilátero, isósceles o escaleno<sup>5</sup>.</p>
+      <p class="nota">4 Según el teorema de desigualdad triangular, un triángulo es válido si se cumple que cada uno de los lados no puede ser más largo que la suma de los otros dos.<br>
+        5 Un triángulo equilátero es aquel que tiene sus tres lados iguales. Un triángulo isósceles es aquel que tiene dos de sus lados iguales. Un triángulo escaleno es aquel que tiene sus tres lados desiguales.</p>
+      <form class="invert" id="form8">
+        <input type="number" id="ladoA" placeholder="Ingresa lado A de un triángulo">
+        <input type="number" id="ladoB" placeholder="Ingresa lado B de un triángulo">
+        <input type="number" id="ladoC" placeholder="Ingresa lado C de un triángulo">
+        <button type="button" onclick="capturarTriangulo()">Calcular</button>
+      </form>
+      <p class="resp" id="trianguloValidoMsg"></p>
       <code>
         <ul>
           <li><span class="gris">//Código para salida por consola</span></li>
