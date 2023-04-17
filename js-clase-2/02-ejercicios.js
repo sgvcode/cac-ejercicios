@@ -184,6 +184,8 @@ function capturarMayorDivisible() {
     const esDivisible = (mayor[1] % mayor[0] === 0) ? `${mayor[1]} es divisible por ${mayor[0]}` : `${mayor[1]} NO es divisible por ${mayor[0]}`;
 
     mayorDivisibleMsg.innerHTML = `${esDivisible}`;
+    document.getElementById("form8").reset();
+    document.getElementById("div1").focus();
 }
 
 //Ejercicio 9
@@ -204,28 +206,17 @@ function capturarTriangulo() {
         return;
     }
 
-    if ((ladoA > ladoB + ladoC) || (ladoB > ladoA + ladoC) || (ladoC > ladoA + ladoB)) {
-        alert("Ningún lado puede ser mayor que la suma de los 2 restantes.")
-        if (ladoA >= ladoB + ladoC) {
-            document.getElementById("ladoA").focus();
-        } else if (ladoB >= ladoA + ladoC) {
-            document.getElementById("ladoB").focus();
-        } else {
-            document.getElementById("ladoC").focus();
-        }
-    }
-
     let trianguloValido = "";
-    if (ladoA === ladoB && ladoB === ladoC) {
-        trianguloValido = "Es un triángulo EQUILATERO.";
-    } else if (ladoA !== ladoB && ladoA !== ladoC && ladoB !== ladoC) {
-        trianguloValido = "Es un triángulo ESCALENO.";
-    } else {
-        if ((ladoA < ladoB + ladoC && ladoB === ladoC) || (ladoB < ladoA + ladoC && ladoA === ladoC) || (ladoC < ladoA + ladoB && ladoA === ladoB)) {
+    if ((ladoA <= ladoB + ladoC) && (ladoB <= ladoA + ladoC) && (ladoC <= ladoA + ladoB)) {
+        if (ladoA === ladoB && ladoB === ladoC) {
+            trianguloValido = "Es un triángulo EQUILATERO.";
+        } else if (ladoA === ladoB || ladoB === ladoC || ladoA === ladoC) {
             trianguloValido = "Es un triángulo ISOSCELES.";
         } else {
-            trianguloValido = "No es un triángulo válido.";
+            trianguloValido = "Es un triángulo ESCALENO."
         }
+    } else {
+        trianguloValido = "NO es un triángulo válido.";
     }
 
     document.getElementById("trianguloValidoMsg").innerHTML = trianguloValido;
