@@ -126,7 +126,7 @@ function capturarSindicato() {
     }
 
     const incrementoEdad = aporte * 0.3;
-    const aporteSindicato = (edadEmpleado > 30) ? aporte : (aporte += incrementoEdad);
+    const aporteSindicato = (edadEmpleado > 30) ? aporte : (aporte + incrementoEdad);
 
     document.getElementById("sindicatoMsg").innerHTML = `Con ${edadEmpleado} años y un sueldo de $${sueldoEmpleado}<br>aportas al sindicato $${aporteSindicato.toFixed(2)}`;
     document.getElementById("form6").reset();
@@ -150,7 +150,7 @@ function capturarOrden() {
         }
         return;
     }
-
+    //Usamos función de comparación para ordenar los número en el array
     const numerosOrdenados = [num1, num2, num3].sort(function (a, b) {
         return a - b;
     });
@@ -204,7 +204,7 @@ function capturarTriangulo() {
         return;
     }
 
-    if ((ladoA >= ladoB + ladoC) || (ladoB >= ladoA + ladoC) || (ladoC >= ladoA + ladoB)) {
+    if ((ladoA > ladoB + ladoC) || (ladoB > ladoA + ladoC) || (ladoC > ladoA + ladoB)) {
         alert("Ningún lado puede ser mayor que la suma de los 2 restantes.")
         if (ladoA >= ladoB + ladoC) {
             document.getElementById("ladoA").focus();
@@ -217,20 +217,20 @@ function capturarTriangulo() {
 
     let trianguloValido = "";
     if (ladoA === ladoB && ladoB === ladoC) {
-        trianguloValido = "Es válido y es un triángulo EQUILATERO.";
+        trianguloValido = "Es un triángulo EQUILATERO.";
     } else if (ladoA !== ladoB && ladoA !== ladoC && ladoB !== ladoC) {
-        trianguloValido = "Es válido y es un triángulo ESCALENO.";
+        trianguloValido = "Es un triángulo ESCALENO.";
     } else {
         if ((ladoA < ladoB + ladoC && ladoB === ladoC) || (ladoB < ladoA + ladoC && ladoA === ladoC) || (ladoC < ladoA + ladoB && ladoA === ladoB)) {
-            trianguloValido = "Es válido y es un triángulo ISOSCELES.";
+            trianguloValido = "Es un triángulo ISOSCELES.";
         } else {
-            trianguloValido = "No es válido un triángulo.";
+            trianguloValido = "No es un triángulo válido.";
         }
     }
 
     document.getElementById("trianguloValidoMsg").innerHTML = trianguloValido;
     document.getElementById("form9").reset();
-    document.getElementById
+    document.getElementById("ladoA").focus();
 }
 
 //Ejercicio 10
@@ -242,7 +242,7 @@ function capturarMes() {
         document.getElementById("mes").focus();
         return;
     }
-
+    //Se crea objeto
     const NOMBRE_MES = {
         1: "Enero",
         2: "Febrero",
@@ -258,7 +258,6 @@ function capturarMes() {
         12: "Diciembre"
     }
 
-    const NOMBRE_MES_DEFAULT = "";
     const nombreMes = NOMBRE_MES[mes] ? NOMBRE_MES[mes].toUpperCase() : NOMBRE_MES_DEFAULT;
 
     mesMsg.innerHTML = `Mes '${mes}' corresponde a ${nombreMes}`;

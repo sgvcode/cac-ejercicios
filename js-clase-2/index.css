@@ -50,6 +50,10 @@ span.tabOne {
   padding-left: 20px;
 }
 
+span.tabTwo {
+  padding-left: 40px;
+}
+
 form.invert {
   display: flex;
   align-items: center;
@@ -134,7 +138,7 @@ code {
   background-color: rgb(38, 41, 46);
   color: white;
   width: 90%;
-  max-width: 900px;
+  max-width: 700px;
   margin: 0 auto;
   padding: 1rem;
   border-left: 5px solid var(--color2);

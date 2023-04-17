@@ -17,7 +17,8 @@
   <div class="contenido">
     <!-- Ejercicio 1 -->
     <div class="ejercicio">
-      <p>1- Realizá un programa que permita al usuario ingresar un número entero. La computadora debe indicar si se trata de un número par o impar.</p>
+      <p>1- Realizá un programa que permita al usuario ingresar un número entero. La computadora debe indicar si se
+        trata de un número par o impar.</p>
       <form id="form1">
         <input type="number" id="numerosTipo" placeholder="Ingresa un número">
         <button type="button" onclick="capturarEsPar()">Calcular</button>
@@ -26,12 +27,17 @@
       <code>
         <ul>
           <li><span class="gris">//Código para salida por consola</span></li>
+          <li><span>const numero = prompt("ingresa un numero entero: ");</span></li>
+          <li><span>tipo = numero % 2 === 0 ? "Es par" : "Es impar";</span></li>
+          <li><span>console.log(tipo);</span></li>
         </ul>
       </code>
     </div>
     <!-- Ejercicio 2 -->
     <div class="ejercicio">
-      <p>2- Realizá un programa que permita al usuario ingresar la cantidad de inscriptos a una conferencia y la cantidad de asientos disponibles en el auditorio. La computadora debe indicar si alcanzan los asientos, en caso contrario, indicar cuántos faltan para que todos los inscriptos puedan sentarse.</p>
+      <p>2- Realizá un programa que permita al usuario ingresar la cantidad de inscriptos a una conferencia y la
+        cantidad de asientos disponibles en el auditorio. La computadora debe indicar si alcanzan los asientos, en caso
+        contrario, indicar cuántos faltan para que todos los inscriptos puedan sentarse.</p>
       <form class="invert" id="form2">
         <input type="number" id="inscriptos" placeholder="Ingresa cantidad de inscriptos">
         <input type="number" id="asientos" placeholder="Ingresa asientos disponibles">
@@ -41,12 +47,19 @@
       <code>
         <ul>
           <li><span class="gris">//Código para salida por consola</span></li>
+          <li><span>const inscriptos = prompt("Cantidad de inscriptos? ");</span></li>
+          <li><span>const asientos = prompt("Cantidad de asientos? ");</span></li>
+          <li><span>hayDisponibles = asientos >= inscriptos 
+          <li><span class="tabOne">? "Hay asientos disponibles"</span></li> 
+          <li><span class="tabOne">: `Faltan ${inscriptos-asientos} asientos`;</span></li>
+          <li><span>console.log(hayDisponibles);</span></li>
         </ul>
       </code>
     </div>
     <!-- Ejercicio 3 -->
     <div class="ejercicio">
-      <p>3- Realizá un programa que permita al usuario ingresar dos números enteros. La computadora debe indicar cuál de ellos es el mayor.</p>
+      <p>3- Realizá un programa que permita al usuario ingresar dos números enteros. La computadora debe indicar cuál de
+        ellos es el mayor.</p>
       <form class="invert" id="form3">
         <input type="number" id="n1" placeholder="Ingresa 1º número entero">
         <input type="number" id="n2" placeholder="Ingresa 2º número entero">
@@ -56,12 +69,17 @@
       <code>
         <ul>
           <li><span class="gris">//Código para salida por consola</span></li>
+          <li><span>const n1 = prompt("Ingresa 1º nro entero: ");</span></li>
+          <li><span>const n2 = prompt("Ingresa 2º nro entero: ");</span></li>
+          <li><span>esMayor = (n1 > n2) ? n1 : (n1 < n2) ? n2 : "Son iguales";</span></li>
+          <li><span>console.log(esMayor);</span></li>
         </ul>
       </code>
     </div>
     <!-- Ejercicio 4 -->
     <div class="ejercicio">
-      <p>4- Realizá un programa que permita al usuario ingresar tres números enteros. La computadora debe indicar cuál de ellos es el mayor.</p>
+      <p>4- Realizá un programa que permita al usuario ingresar tres números enteros. La computadora debe indicar cuál
+        de ellos es el mayor.</p>
       <form class="invert" id="form4">
         <input type="number" id="n11" placeholder="Ingresa 1º número entero">
         <input type="number" id="n22" placeholder="Ingresa 2º número entero">
@@ -72,14 +90,22 @@
       <code>
         <ul>
           <li><span class="gris">//Código para salida por consola</span></li>
+          <li><span>const num1 = prompt("Ingresar 1º numero: ");
+          <li><span>const num2 = prompt("Ingresar 2º numero: ");</span></li>
+          <li><span>const num3 = prompt("Ingresar 3º numero: ");</span></li>
+          <li><span>const ordenados = [num1, num2, num3].sort(function(a, b){</span></li>
+          <li><span class="tabOne">return a - b</span></li>
+          <li><span>});</span></li>
+          <li><span>numeroMayor = ordenados[2];</span></li>
+          <li><span>console.log(numeroMayor);<span></li>
         </ul>
       </code>
     </div>
     <!-- Ejercicio 5 -->
     <div class="ejercicio">
-      <p>5- Realizá un programa que permita al usuario ingresar su edad (entre 1 y 120 años) y su género 
-        ('F' para mujeres, 'M' para hombres). La computadora debe indicar si la persona está en edad de 
-        jubilarse. En caso de haber ingresado valores erróneos (edad fuera de rango o género inválido), 
+      <p>5- Realizá un programa que permita al usuario ingresar su edad (entre 1 y 120 años) y su género
+        ('F' para mujeres, 'M' para hombres). La computadora debe indicar si la persona está en edad de
+        jubilarse. En caso de haber ingresado valores erróneos (edad fuera de rango o género inválido),
         informar tal situación.</p>
       <form class="invert" id="form5">
         <input type="number" id="edad" placeholder="Ingresa tu edad [1/120]">
@@ -90,43 +116,42 @@
       <code>
         <ul>
           <li><span class="gris">//Código para salida por consola</span></li>
+          <li><span>const edad = prompt("Ingresa tu edad (1/120): ");</span></li>
+          <li><span>const genero = prompt("Ingresa tu género (F/M): ").toUpperCase();</span></li>
+          <li><span>jubilados = ((genero === "M" && edad >= 65) || (genero === "F" && edad >= 60)) ? `Puedes jubilarte.` : `No puedes jubilarte.`</span></li>
+          <li><span>console.log(jubilados);</span></li>
         </ul>
       </code>
     </div>
     <!-- Ejercicio 6 -->
     <div class="ejercicio">
-      <p>6- Realizá un programa que permita al usuario ingresar la edad y el sueldo de cierto empleado. La 
-        computadora  muestra  el  monto  del  aporte  al  sindicato  que  se  debe  descontar  del  salario  del 
+      <p>6- Realizá un programa que permita al usuario ingresar la edad y el sueldo de cierto empleado. La
+        computadora muestra el monto del aporte al sindicato que se debe descontar del salario del
         empleado, según el siguiente cuadro:</p>
       <table>
-          <tr>
-            <th class="op1">Escala salarial</th>
-            <th>Porcentaje a descontar</th>
-          </tr>
-          <tr>
-            <td>Menos de $20000</td>
-            <td>0.7%</td>
-            <tr
-            >
-              <td>Entre $20000 y 29999</td>
-              <td>1.4%</td>
-            </tr
-            >
-            <tr
-            >
-              <td>Entre $30000 y 39999</td>
-              <td>2.1%</td>
-            </tr
-            >
-            <tr
-            >
-              <td>$40000 o más</td>
-              <td>2.8%</td>
-            </tr
-            >
-          </tr>
+        <tr>
+          <th class="op1">Escala salarial</th>
+          <th>Porcentaje a descontar</th>
+        </tr>
+        <tr>
+          <td>Menos de $20000</td>
+          <td>0.7%</td>
+        <tr>
+          <td>Entre $20000 y 29999</td>
+          <td>1.4%</td>
+        </tr>
+        <tr>
+          <td>Entre $30000 y 39999</td>
+          <td>2.1%</td>
+        </tr>
+        <tr>
+          <td>$40000 o más</td>
+          <td>2.8%</td>
+        </tr>
+        </tr>
       </table>
-      <p class="nota centrar">* Además, si la persona tiene 30 años o menos, se cobra un 30% adicional del valor del aporte.</p>
+      <p class="nota centrar">* Además, si la persona tiene 30 años o menos, se cobra un 30% adicional del valor del
+        aporte.</p>
       <form class="invert" id="form6">
         <input type="number" id="edadEmpleado" placeholder="Ingresa edad del Empleado">
         <input type="text" id="sueldoEmpleado" placeholder="Ingresa el sueldo percibido">
@@ -136,12 +161,27 @@
       <code>
         <ul>
           <li><span class="gris">//Código para salida por consola</span></li>
+          <li><span>const edad = prompt("Ingresa tu edad: ");<span></li>
+          <li><span>const sueldo = prompt("Ingresa tu sueldo: $");</span></li>
+          <li><span>const pct = [0.007, 0.014, 0.021, 0.028];</span></li>
+          <li><span>if (sueldo < 20000) {</span></li>
+          <li><span class="tabOne">aporte = sueldo * pct[0];</span></li>
+          <li><span>} else if (sueldo >= 20000 && sueldo < 29999) {</span></li>
+          <li><span class="tabOne">aporte = sueldo * pct[1];</span></li>
+          <li><span>} else if (sueldo >= 30000 && sueldo < 39999) {</span></li>
+          <li><span class="tabOne">aporte = sueldo * pct[2];</span></li>
+          <li><span>} else {</span></li>
+          <li><span class="tabOne">sueldo * pct[3];</span></li>
+          <li><span>}</span></li>
+          <li><span>const incrementoSub30 = aporte * 0.3;</span></li>
+          <li><span>aporteSindicato = (edad > 30) ? aporte : (aporte + incrementoSub30);</span></li>
+          <li><span>console.log("$" + aporteSindicato.toFixed(2));</span></li>
         </ul>
       </code>
     </div>
     <!-- Ejercicio 7 -->
     <div class="ejercicio">
-      <p>7- Realizá  un  programa  que  permita  al  usuario  ingresar  tres  números.  La  computadora  debe 
+      <p>7- Realizá un programa que permita al usuario ingresar tres números. La computadora debe
         mostrarlos ordenados de menor a mayor.</p>
       <form class="invert" id="form7">
         <input type="number" id="num1" placeholder="Ingresa 1º número">
@@ -165,7 +205,8 @@
       </code>
     </div>
     <div class="ejercicio">
-      <p>8- Realizá un programa que permita al usuario ingresar dos números enteros. La computadora debe indicar si el mayor es divisible por el menor.</p>
+      <p>8- Realizá un programa que permita al usuario ingresar dos números enteros. La computadora debe indicar si el
+        mayor es divisible por el menor.</p>
       <form class="invert" id="form8">
         <input type="number" id="div1" placeholder="Ingresa 1º número entero">
         <input type="number" id="div2" placeholder="Ingresa 2º número entero">
@@ -175,15 +216,26 @@
       <code>
         <ul>
           <li><span class="gris">//Código para salida por consola</span></li>
+          <li><span>const div1 = prompt("Ingresa 1º nro entero: ");</span></li>
+          <li><span>const div2 = prompt("Ingresa 1º nro entero: ");</span></li>
+          <li><span>const mayor = [div1, div2].sort(function (a, b) {</span></li>
+          <li><span class="tabOne">return a - b;</span></li>
+          <li><span>});</span></li>
+          <li><span>esDivisible = (mayor[1] % mayor[0] === 0) ? `${mayor[1]} es divisible por ${mayor[0]}` : `${mayor[1]} NO es divisible por ${mayor[0]}`;</span></li>
+          <li><span>console.log(esDivisible);</span></li>
         </ul>
       </code>
     </div>
     <!-- Ejercicio 9 -->
     <div class="ejercicio">
-      <p>9-  Realizá un programa que permita al usuario ingresar los lados a, b y c de un triángulo. La computadora informa si el triángulo es o no válido. En caso afirmativo, además informa si es equilátero, isósceles o escaleno.</p>
-      <p class="nota">4 Según el teorema de desigualdad triangular, un triángulo es válido si se cumple que cada uno de los lados no puede ser más largo que la suma de los otros dos.<br>
-        5 Un triángulo equilátero es aquel que tiene sus tres lados iguales. Un triángulo isósceles es aquel que tiene dos de sus lados iguales. Un triángulo escaleno es aquel que tiene sus tres lados desiguales.</p>
-      <form class="invert" id="form8">
+      <p>9- Realizá un programa que permita al usuario ingresar los lados a, b y c de un triángulo. La computadora
+        informa si el triángulo es o no válido. En caso afirmativo, además informa si es equilátero, isósceles o
+        escaleno.</p>
+      <p class="nota">4 Según el teorema de desigualdad triangular, un triángulo es válido si se cumple que cada uno de
+        los lados no puede ser más largo que la suma de los otros dos.<br>
+        5 Un triángulo equilátero es aquel que tiene sus tres lados iguales. Un triángulo isósceles es aquel que tiene
+        dos de sus lados iguales. Un triángulo escaleno es aquel que tiene sus tres lados desiguales.</p>
+      <form class="invert" id="form9">
         <input type="number" id="ladoA" placeholder="Ingresa lado A de un triángulo">
         <input type="number" id="ladoB" placeholder="Ingresa lado B de un triángulo">
         <input type="number" id="ladoC" placeholder="Ingresa lado C de un triángulo">
@@ -193,11 +245,27 @@
       <code>
         <ul>
           <li><span class="gris">//Código para salida por consola</span></li>
+          <li><span>const ladoA = parseInt(prompt("Ingrese el lado A del triángulo:"));</span></li>
+          <li><span>const ladoB = parseInt(prompt("Ingrese el lado B del triángulo:"));</span></li>
+          <li><span>const ladoC = parseInt(prompt("Ingrese el lado C del triángulo:"));</span></li>
+          <li><span>if (ladoA + ladoB > ladoC && ladoB + ladoC > ladoA && ladoA + ladoC > ladoB) {</span></li>
+          <li><span class="tabOne">  if (ladoA === ladoB && ladoB === ladoC) {</span></li>
+          <li><span class="tabTwo">    console.log("El triángulo es equilátero.");</span></li>
+          <li><span class="tabOne">  } else if (ladoA === ladoB || ladoB === ladoC || ladoA === ladoC) {</span></li>
+          <li><span class="tabTwo">    console.log("El triángulo es isósceles.");</span></li>
+          <li><span class="tabOne">  } else {</span></li>
+          <li><span class="tabTwo">    console.log("El triángulo es escaleno.");</span></li>
+          <li><span class="tabOne">  }</span></li>
+          <li><span>} else {</span></li>
+          <li><span>  console.log("Los lados ingresados no forman un triángulo válido.");</span></li>
+          <li><span>}</span></li>
         </ul>
       </code>
     </div>
     <div class="ejercicio">
-      <p>10-  Realizá  un  programa  que  permita  al  usuario  ingresar  un  número  entero  entre 1 y 12. La computadora debe mostrar por pantalla el nombre del mes del año que representa tal número. Si se ingresa un número fuera de rango, debe mostrar un error.</p>
+      <p>10- Realizá un programa que permita al usuario ingresar un número entero entre 1 y 12. La computadora debe
+        mostrar por pantalla el nombre del mes del año que representa tal número. Si se ingresa un número fuera de
+        rango, debe mostrar un error.</p>
       <form class="invert" id="form10">
         <input type="number" id="mes" placeholder="Ingresa un nro de mes del 1 al 12">
         <button type="button" onclick="capturarMes()">Calcular</button>
