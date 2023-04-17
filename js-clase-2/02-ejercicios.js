@@ -255,3 +255,30 @@ function capturarMes() {
     document.getElementById("form10").reset();
     document.getElementById("mes").focus();
 }
+
+// Ejercicio 11
+function capturarRomano() {
+    const romano = document.querySelector("#romano").value;
+
+    if (romano === ""){
+        alert("Ingresar un dato válido!");
+        return;
+    }
+
+    const NUMEROS_ROMANOS = {
+        "I": 1,
+        "V": 5,
+        "X": 10,
+        "L": 50,
+        "C": 100,
+        "D": 500,
+        "M": 1000
+    }
+
+    const numeroDecimal = NUMEROS_ROMANOS[romano.toUpperCase()];
+    const numeroDecimalMsg = numeroDecimal ? `${romano.toUpperCase()} equivale al número ${numeroDecimal}` : "No es un número romano válido";
+
+    document.getElementById("numeroDecimalMsg").innerHTML = numeroDecimalMsg;
+    document.getElementById("form11").reset();
+    document.getElementById("romano").focus();
+}

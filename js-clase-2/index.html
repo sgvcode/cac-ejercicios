@@ -299,6 +299,34 @@
         </ul>
       </code>
     </div>
+    <!-- Ejercicio 11 -->
+    <div class="ejercicio">
+      <p>1- Realizá un programa que permita al usuario ingresar un número entero. La computadora debe indicar si se
+        trata de un número par o impar.</p>
+      <form id="form11">
+        <input type="text" id="romano" placeholder="Ingresa un número romano">
+        <button type="button" onclick="capturarRomano()">Calcular</button>
+      </form class="one">
+      <p class="resp" id="numeroDecimalMsg"></p>
+      <code>
+        <ul>
+          <li><span class="gris">//Código para salida por consola</span></li>
+          <li><span>const romano = prompt("Ingresa un número romano: ");</span></li>
+          <li><span>const NUMEROS_ROMANOS = {</span></li>
+          <li><span class="tabOne">"I": 1,</span></li>
+          <li><span class="tabOne">"V": 5,</span></li>
+          <li><span class="tabOne">"X": 10,</span></li>
+          <li><span class="tabOne">"L": 50,</span></li>
+          <li><span class="tabOne">"C": 100,</span></li>
+          <li><span class="tabOne">"D": 500,</span></li>
+          <li><span class="tabOne">"M": 1000</span></li>
+          <li><span class="tabOne">}</span></li>
+          <li><span>const numeroDecimal = NUMEROS_ROMANOS[romano.toUpperCase()];</span></li>
+          <li><span>const numeroDecimalMsg = numeroDecimal ? `${romano.toUpperCase()} equivale al número ${numeroDecimal}` : "No es un número romano válido";</span></li>
+          <li><span>console.log(numeroDecimalMsg);</span></li>
+        </ul>
+      </code>
+    </div>
     <footer>
       <code>{SGVero} - CAC#23053</code>
     </footer>
