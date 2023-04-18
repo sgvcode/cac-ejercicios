@@ -1,4 +1,4 @@
-//Ejercicio 1
+// Ejercicio 1
 function capturarEsPar() {
     const numero = parseInt(document.getElementById("numerosTipo").value);
     if (isNaN(numero)) {
@@ -11,7 +11,7 @@ function capturarEsPar() {
     document.getElementById("numerosTipo").value = "";
 }
 
-//Ejercicio 2
+// Ejercicio 2
 function capturarAsientos() {
     const asientos = parseInt(document.getElementById("asientos").value);
     const inscriptos = parseInt(document.getElementById("inscriptos").value);
@@ -32,7 +32,7 @@ function capturarAsientos() {
     document.getElementById("asientos").focus();
 }
 
-//Ejercicio 3
+// Ejercicio 3
 function capturarMayor() {
     const n1 = parseInt(document.getElementById("n1").value);
     const n2 = parseInt(document.getElementById("n2").value);
@@ -51,7 +51,7 @@ function capturarMayor() {
     document.getElementById("form3").reset();
 }
 
-//Ejercicio 4
+// Ejercicio 4
 function capturarMayor3() {
     const n1 = parseInt(document.getElementById("n11").value);
     const n2 = parseInt(document.getElementById("n22").value);
@@ -75,7 +75,7 @@ function capturarMayor3() {
     document.getElementById("n11").focus();
 }
 
-//Ejercicio 5
+// Ejercicio 5
 function capturarJubilacion() {
     const edad = parseInt(document.getElementById("edad").value);
     const genero = document.getElementById("genero").value.toUpperCase();
@@ -99,7 +99,7 @@ function capturarJubilacion() {
     document.getElementById("edad").focus();
 }
 
-//Ejercicio 6
+// Ejercicio 6
 function capturarSindicato() {
     const edadEmpleado = parseInt(document.getElementById("edadEmpleado").value);
     const sueldoEmpleado = parseInt(document.getElementById("sueldoEmpleado").value);
@@ -133,7 +133,7 @@ function capturarSindicato() {
     document.getElementById("edadEmpleado").value = "";
 }
 
-//Ejercicio 7
+// Ejercicio 7
 function capturarOrden() {
     const num1 = parseInt(document.getElementById("num1").value);
     const num2 = parseInt(document.getElementById("num2").value);
@@ -160,7 +160,7 @@ function capturarOrden() {
     document.getElementById("num1").focus();
 }
 
-//Ejercicio 8
+// Ejercicio 8
 function capturarMayorDivisible() {
     const div1 = parseInt(document.getElementById("div1").value);
     const div2 = parseInt(document.getElementById("div2").value);
@@ -188,7 +188,7 @@ function capturarMayorDivisible() {
     document.getElementById("div1").focus();
 }
 
-//Ejercicio 9
+// Ejercicio 9
 function capturarTriangulo() {
     const ladoA = parseInt(document.getElementById("ladoA").value);
     const ladoB = parseInt(document.getElementById("ladoB").value);
@@ -224,7 +224,7 @@ function capturarTriangulo() {
     document.getElementById("ladoA").focus();
 }
 
-//Ejercicio 10
+// Ejercicio 10
 function capturarMes() {
     const mes = parseInt(document.getElementById("mes").value);
 
@@ -260,7 +260,7 @@ function capturarMes() {
 function capturarRomano() {
     const romano = document.querySelector("#romano").value;
 
-    if (romano === ""){
+    if (romano === "") {
         alert("Ingresar un dato válido!");
         return;
     }
@@ -281,4 +281,47 @@ function capturarRomano() {
     document.getElementById("numeroDecimalMsg").innerHTML = numeroDecimalMsg;
     document.getElementById("form11").reset();
     document.getElementById("romano").focus();
+}
+
+// Ejercicio 12
+function capturarFecha(){
+const fechaActual = new Date();
+const diaNac = parseInt(document.getElementById("diaNac").value);
+const mesNac = parseInt(document.getElementById("mesNac").value);
+console.log(diaNac, mesNac);
+
+const signosZodiaco = [
+'Aries',
+'Tauro',
+'Géminis',
+'Cáncer',
+'Leo',
+'Virgo',
+'Libra',
+'Escorpio',
+'Sagitario',
+'Capricornio',
+'Acuario',
+'Piscis'
+];
+
+const tuSigno = (mesNac === 3 && diaNac >= 21) || (mesNac === 4 && diaNac <=19) ? signosZodiaco[0] :
+    (mesNac === 4 && diaNac >= 20) || (mesNac === 5 && diaNac <= 20) ? signosZodiaco[1] :
+    (mesNac === 5 && diaNac >= 21) || (mesNac === 6 && diaNac <= 20) ? signosZodiaco[2] :
+    (mesNac === 6 && diaNac >= 21) || (mesNac === 7 && diaNac <= 22) ? signosZodiaco[3] :
+    (mesNac === 7 && diaNac >= 23) || (mesNac === 8 && diaNac <= 22) ? signosZodiaco[4] :
+    (mesNac === 8 && diaNac >= 23) || (mesNac === 9 && diaNac <= 22) ? signosZodiaco[5] :
+    (mesNac === 9 && diaNac >= 23) || (mesNac === 10 && diaNac <= 22) ? signosZodiaco[6] :
+    (mesNac === 10 && diaNac >= 23) || (mesNac === 11 && diaNac <= 21) ? signosZodiaco[7] :
+    (mesNac === 11 && diaNac >= 22) || (mesNac === 12 && diaNac <= 21) ? signosZodiaco[8] :
+    (mesNac === 12 && diaNac >= 22) || (mesNac === 1 && diaNac <= 19) ? signosZodiaco[9] :
+    (mesNac === 1 && diaNac >= 20) || (mesNac === 2 && diaNac <= 18) ? signosZodiaco[10] :
+    (mesNac === 2 && diaNac >= 19) || (mesNac === 3 && diaNac <= 20) ? signosZodiaco[11] :
+    "...";
+
+
+const signoMsg = document.getElementById("signoMsg");
+signoMsg.textContent = `${diaNac}/${mesNac} - Tu signo es: ${tuSigno}`;
+document.querySelector("#form12").reset();
+document.querySelector("#diaNac").focus();
 }
