@@ -311,33 +311,7 @@ const tuSigno = (mesNac === 3 && diaNac >= 21) || (mesNac === 4 && diaNac <=19) 
 
 
 const signoMsg = document.getElementById("signoMsg");
-signoMsg.textContent = `${diaNac}/${mesNac} - Tu signo es: ${tuSigno}`;
+signoMsg.textContent = `${diaNac}/${mesNac} - Tu signo es: ${tuSigno.toUpperCase()}`;
 document.querySelector("#form12").reset();
 document.querySelector("#diaNac").focus();
 }
-
-// Código optimizado para consola
-// const signosZodiaco = [
-//     'Capricornio', 'Acuario', 'Piscis', 'Aries', 'Tauro', 'Géminis',
-//     'Cáncer', 'Leo', 'Virgo', 'Libra', 'Escorpio', 'Sagitario'
-//   ];
-
-//   function obtenerSignoZodiacal(mes, dia) {
-//     const limiteDiaPorMes = [20, 19, 20, 20, 20, 21, 22, 22, 22, 22, 21, 21];
-//     const indice = mes - 1;
-//     if (dia <= limiteDiaPorMes[indice]) {
-//       return signosZodiaco[indice];
-//     }
-//     return signosZodiaco[(indice + 1) % 12];
-//   }
-
-//   const dia = parseInt(prompt("Ingresa el día de tu cumpleaños: "));
-//   const mes = parseInt(prompt("Ingresa el mes de tu cumpleaños (1/12): "));
-
-//   const tuSigno = obtenerSignoZodiacal(mes, dia);
-
-//   if (tuSigno) {
-//     console.log(`Tu signo es: ${tuSigno}`);
-//   } else {
-//     console.log("Fecha de nacimiento inválida");
-//   }
