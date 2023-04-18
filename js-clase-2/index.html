@@ -347,43 +347,21 @@
           <li><span>const dia = parseInt(prompt("Ingresa el día de tu cumpleaños: "));</span></li>
           <li><span>const mes = parseInt(prompt("Ingresa el mes de tu cumpleaños (1/12): "));</span></li>
           <li><span>const signosZodiaco = [</span></li>
-          <li><span class="tabOne">'Aries',</span></li>
-          <li><span class="tabOne">'Tauro',</span></li>
-          <li><span class="tabOne">'Géminis',</span></li>
-          <li><span class="tabOne">'Cáncer',</span></li>
-          <li><span class="tabOne">'Leo',</span></li>
-          <li><span class="tabOne">'Virgo',</span></li>
-          <li><span class="tabOne">'Libra',</span></li>
-          <li><span class="tabOne">'Escorpio',</span></li>
-          <li><span class="tabOne">'Sagitario',</span></li>
-          <li><span class="tabOne">'Capricornio',</span></li>
-          <li><span class="tabOne">'Acuario',</span></li>
-          <li><span class="tabOne">'Piscis'</span></li>
+          <li><span class="tabOne">'Aries', 'Tauro', 'Géminis', 'Cáncer', 'Leo', 'Virgo', 'Libra', 'Escorpio', 'Sagitario', 'Capricornio', 'Acuario', 'Piscis'</span></li>
           <li><span>];</span></li>
-          <li><span>const tuSigno = (mes === 3 && dia >= 21 || mes === 4 && dia <=19) ?</span></li>
-          <li><span class="tabOne">signosZodiaco[0] :</span></li>
-          <li><span>(mes === 4 && dia >= 20 || mes === 5 && dia <= 20) ?</span></li>
-          <li><span class="tabOne">signosZodiaco[1] :</span></li>
-          <li><span>(mes === 5 && dia >= 21 || mes === 6 && dia <= 20) ?</span></li>
-          <li><span class="tabOne">signosZodiaco[2] :</span></li>
-          <li><span>(mes === 6 && dia >= 21 || mes === 7 && dia <= 22) ?</span></li>
-          <li><span class="tabOne">signosZodiaco[3] :</span></li>
-          <li><span>(mes === 7 && dia >= 23 || mes === 8 && dia <= 22) ?</span></li>
-          <li><span class="tabOne">signosZodiaco[4] :</span></li>
-          <li><span>(mes === 8 && dia >= 23 || mes === 9 && dia <= 22) ?</span></li>
-          <li><span class="tabOne">signosZodiaco[5] :</span></li>
-          <li><span>(mes === 9 && dia >= 23 || mes === 10 && dia <= 22) ?</span></li>
-          <li><span class="tabOne">signosZodiaco[6] :</span></li>
-          <li><span>(mes === 10 && dia >= 23 || mes === 11 && dia <= 21) ?</span></li>
-          <li><span class="tabOne">signosZodiaco[7] :</span></li>
-          <li><span>(mes === 11 && dia >= 22 || mes === 12 && dia <= 21) ?</span></li>
-          <li><span class="tabOne">signosZodiaco[8] :</span></li>
-          <li><span>(mes === 12 && dia >= 22 || mes === 1 && dia <= 19) ?</span></li>
-          <li><span class="tabOne">signosZodiaco[9] :</span></li>
-          <li><span>(mes === 1 && dia >= 20 || mes === 2 && dia <= 18) ?</span></li>
-          <li><span class="tabOne">signosZodiaco[10] :</span></li>
-          <li><span>(mes === 2 && dia >= 19 || mes === 3 && dia <= 20) ?</span></li>
-          <li><span class="tabOne">signosZodiaco[11] : "";</span></li>
+          <li><span>const tuSigno = (mes === 3 && dia >= 21 || mes === 4 && dia <=19) ? signosZodiaco[0] :</span></li>
+          <li><span>(mes === 4 && dia >= 20 || mes === 5 && dia <= 20) ? signosZodiaco[1] :</span></li>
+          <li><span>(mes === 5 && dia >= 21 || mes === 6 && dia <= 20) ? signosZodiaco[2] :</span></li>
+          <li><span>(mes === 6 && dia >= 21 || mes === 7 && dia <= 22) ? signosZodiaco[3] :</span></li>
+          <li><span>(mes === 7 && dia >= 23 || mes === 8 && dia <= 22) ? signosZodiaco[4] :</span></li>
+          <li><span>(mes === 8 && dia >= 23 || mes === 9 && dia <= 22) ? signosZodiaco[5] :</span></li>
+          <li><span>(mes === 9 && dia >= 23 || mes === 10 && dia <= 22) ? signosZodiaco[6] :</span></li>
+          <li><span>(mes === 10 && dia >= 23 || mes === 11 && dia <= 21) ? signosZodiaco[7] :</span></li>
+          <li><span>(mes === 11 && dia >= 22 || mes === 12 && dia <= 21) ? signosZodiaco[8] :</span></li>
+          <li><span>(mes === 12 && dia >= 22 || mes === 1 && dia <= 19) ? signosZodiaco[9] :</span></li>
+          <li><span>(mes === 1 && dia >= 20 || mes === 2 && dia <= 18) ? signosZodiaco[10] :</span></li>
+          <li><span>(mes === 2 && dia >= 19 || mes === 3 && dia <= 20) ? signosZodiaco[11] :
+          <li><span>"";</span></li>
           <li><span>console.log(`Tu signo es: ${tuSigno}`);</span></li>
         </ul>
       </code>
