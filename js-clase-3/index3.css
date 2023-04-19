@@ -1,0 +1,183 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@100&family=Montserrat:wght@400&display=swap');
+
+:root {
+  --color1: rgb(151, 36, 174);
+  --color2: rgb(0, 217, 255);
+  --negro: #26292E;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 15px;
+  width: 100%;
+}
+
+.contenido {
+  width: 90%;
+  max-width: 900px;
+}
+
+header{
+  width: 100%;
+  margin: 1rem 0;
+  background-color: var(--color1);
+  margin: 0 0 1rem;
+  padding: 1rem 0;
+}
+h1 {
+  text-align: center;
+  color: white;
+}
+
+h1 span {
+  font-weight: lighter;
+  font-size: 1.5rem;
+  color: var(--color2);
+}
+
+form {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+span.tabOne {
+  padding-left: 20px;
+}
+
+span.tabTwo {
+  padding-left: 40px;
+}
+
+form.invert {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  gap: .5rem;
+}
+
+form.invert input {
+  padding: .5rem;
+}
+
+p {
+  display: flex;
+  margin: 2rem 3rem;
+  text-align: justify;
+  align-items: center;
+  justify-content: center;
+}
+
+p.nota {
+  font-size: .8rem;
+}
+
+p.centrar {
+  text-align: center;
+}
+
+p.resp {
+  text-align: center;
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: bold;
+  color: var(--color1);
+  line-height: 1.5rem;
+  font-size: .9rem;
+}
+
+input {
+  width: 20rem;
+  max-width: 600px;
+  background-color: white;
+  border: 1px solid var(--color1);
+  border-radius: .2rem;
+  padding: .5rem 0;
+  outline:none;
+  padding: .5rem;
+}
+
+input:focus {
+  animation: shake .3s;
+  border: 1px solid var(--color2);
+  outline: none;
+}
+
+@keyframes shake {
+  0%{transform: rotate(1deg);}
+  50%{ transform: rotate(2deg);}
+  100%{transform: rotate(0);}
+}
+
+form button {
+  padding: .5rem 1rem;
+  margin: 0  .2rem;
+  background-color: var(--color1);
+  border: none;
+  color: white;
+  text-transform: uppercase;
+  font-size: .7rem;
+  border-radius: .2rem;
+}
+
+form button:hover {
+  background-color: var(--color2);
+  cursor: pointer;
+}
+
+pre{
+  white-space: pre-wrap;
+}
+
+
+code {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  background-color: rgb(38, 41, 46);
+  color: var(--color2);
+  margin: 0 auto;
+  border-left: 5px solid var(--color2);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: .8rem;
+  line-height: 1.2rem;
+  padding: 1rem;
+}
+
+
+table{
+  /* width: 100%; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  margin-bottom: 2rem;
+  font-size: .8rem;
+  text-align: center;
+}
+
+td {
+  padding: 0.5rem;
+  border: 1px solid var(--color2);
+}
+
+th {
+  background-color: whitesmoke;
+}
+
+footer {
+  margin: 1rem 0 0;
+  color: white;
+  font-size: .8rem;
+  padding: 1rem 0;
+}

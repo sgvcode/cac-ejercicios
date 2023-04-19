@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="index3.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/atom-one-dark.min.css">
+
+  <title>Practica JS</title>
+</head>
+
+<body>
+  <header>
+    <h1>Prácticas de Javascript C-2 <span>...CAC#23053...</span></h1>
+  </header>
+  <!-- EJERCICIOS CLASE 1 -->
+  <div class="contenido">
+    <!-- Ejercicio 1 -->
+    <div class="ejercicio">
+      <p>1- Realizá un programa que muestre todos los números enteros del 1 al 100, y luego, los mismos
+        números, pero en orden inverso.</p>
+      <pre>
+        <code>
+// Mostrar los números del 1 al 100
+for (let i = 1; i <= 100; i++) {
+  console.log(i);
+}
+
+// Mostrar los mismos números en orden inverso
+for (let i = 100; i >= 1; i--) {
+  console.log(i);
+}
+        </code>
+      </pre>
+    </div>
+    <!-- Ejercicio 2 -->
+    <div class="ejercicio">
+      <p>2. Realizá un programa que permita al usuario ingresar dos números enteros num1y num2, donde el
+        primero siempre deberá ser menor o igual al segundo. La computadora debe mostrar la secuencia
+        de números existentes entre ambos</p>
+      <form class="invert" id="form2">
+        <input type="number" id="n1" placeholder="Ingresa un número (1/100)">
+        <input type="number" id="n2" placeholder="Ingresa un número >= que el anterior">
+        <button type="button" onclick="capturarSecuencia()">Calcular</button>
+      </form>
+      <p class="resp" id="seriesMsg"></p>
+      <pre>
+        <code>
+// Mostrar los números del 1 al 100</span>
+let n1 = parseInt(prompt("Ingresa un número: "));
+let n2 = parseInt(prompt("Ingresa otro número igual o mayor que el anterior: "));
+
+let serie1 = [];
+let serie2 = [];
+for (let i = n1; i <= n2; i++){
+  serie1.push(i);
+}
+for (let i = n1+1; i <= n2-1; i++){
+  serie2.push(i);
+}
+console.log(`Secuencia inclusiva entre ${n1} y ${n2}: "${serie1}"`);
+console.log(`Secuencia exclusiva entre ${n1} y ${n2}: "${serie2}"`);
+        </code>
+      </pre>
+      <footer>
+        <code>{SGVero} - CAC#23053</code>
+      </footer>
+  </div>
+    <script src="03-ejercicios.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+</body>
+
+</html>
