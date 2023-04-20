@@ -148,6 +148,33 @@ console.log(`La cantidad de edades impares menores de ${edadMinima} {cantEdadesO
         </code>
       </pre>
     </div>
+    <!-- Ejercicio 6 -->
+    <div class="ejercicio">
+      <p>6. Realizá un programa que permita al usuario ingresar un número entero cant. Acto seguido, que 
+        permita ingresar cant números reales, correspondientes a las ventas realizadas por cierto 
+        vendedor. La computadora debe mostrar el total de las ventas.</p>
+        <form class="invert" id="form6">
+          <label for="cant">Cantidad de ventas:</label>
+          <input type="number" id="cant">
+          <button type="button" onclick="calcularMonto()">Calcular ventas</button>
+        </form>
+        <p class="resp" id="ventasMsg"></p>
+      <pre>
+        <code>
+let cant = parseInt(prompt("Cantidad de ventas realizadas? "));
+let monto;
+let montoAcu = 0;
+let acumulados = [];
+
+for (i = 1; i <= cant; i++) {
+    monto = parseInt(prompt(`Ingresar cantidad de ventas realizadas: ${i}: `));
+    montoAcu = montoAcu + monto;
+    acumulados.push(monto);
+}
+console.log(`El monto total vendidos es: ${montoAcu}`)
+        </code>
+      </pre>
+    </div>
     <footer>
       <code>{SGVero} - CAC#23053</code>
     </footer>

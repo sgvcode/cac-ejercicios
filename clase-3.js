@@ -36,9 +36,9 @@ let acumulados = [];
 for (let cont = 1; cont <= cant; cont++) {
   monto = parseFloat(prompt(`Ingresar monto de ventas: ${cont}`));
   acu = acu + monto;
-  acumulados.push(monto)
-  console.log("Montos acumulados en " + cant + " ventas es de " + acumulados)
-  console.log(`El monto acumulado en ${cant} ventas es de [${acumulados}]`)
-  console.log(`Acumulado: ${acu}`);
+  acumulados.push(monto);
+  // console.log("Montos acumulados en " + cant + " ventas es de " + acumulados)
+  // console.log(`El monto acumulado en ${cant} ventas es de [${acumulados}]`)
+  // console.log(`Acumulado: ${acu}`);
 }
 console.log(`El monto total de las ventas es: ${acu}`);

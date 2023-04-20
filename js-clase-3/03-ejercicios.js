@@ -103,14 +103,12 @@ function capturarMultiplos() {
   document.getElementById("nNat").focus();
 }
 
-// Ejercicio 5
-const edadMinima = 18;
-let cantEdades = 5;
-let cantEdadesOk = 0;
-let edad;
-
+// Ejercicio 5 -------------------
 function capturarEdades() {
   let edades = [];
+  let cantEdadesOk = 0;
+  const edadMinima = 18;
+  const cantEdades = 5;
 
   for (let i = 1; i <= cantEdades; i++) {
     let inputEdad = document.getElementById("edad" + i);
@@ -119,11 +117,34 @@ function capturarEdades() {
 
     if ((edad % 2 != 0) && (edad > edadMinima)) {
       cantEdadesOk++;
-    } 
+    }
   }
-  const imparesSup18Msg = document.getElementById("imparesSup18Msg");
-  imparesSup18Msg.textContent = `La cantidad de edades impares menores de ${edadMinima} son ${cantEdadesOk}`;
 
-  document.getElementById("form5").reset();
+  const imparesSup18Msg = document.getElementById("imparesSup18Msg");
+  imparesSup18Msg.textContent = `La cantidad de edades impares mayores de ${edadMinima} son ${cantEdadesOk}`;
+
+  // Establecer los valores vacíos para realizar el programa de nuevo
+  for (let i = 1; i <= cantEdades; i++) {
+    document.getElementById("edad" + i).value = "";
+  }
+
   document.getElementById("edad1").focus();
+}
+
+// Ejercicio 6 ---------------------
+function calcularMonto() {
+  let cant = parseInt(document.getElementById("cant").value);
+  let monto;
+  let montoAcu = 0;
+  let acumulados = [];
+
+  for (i = 1; i <= cant; i++) {
+    monto = parseInt(prompt(`Ingresar monto de la venta ${i}: `));
+    montoAcu = montoAcu + monto;
+    acumulados.push(monto);
+  }
+  let ventasMsg = document.getElementById("ventasMsg");
+  ventasMsg.innerHTML = `El monto total por las ${cant} ventas es:<br> $${montoAcu}`;
+  document.getElementById("form6").reset();
+  document.getElementById("cant").focus();
 }
