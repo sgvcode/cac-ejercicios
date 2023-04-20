@@ -51,3 +51,79 @@ function capturarSecuencia() {
 //   seriesMsg.innerHTML = `Secuencia inclusiva entre ${n1} y ${n2}: "${serie1}"<br>
 //                         Secuencia exclusiva entre ${n1} y ${n2}: "${serie2}"`;
 // });
+
+// Ejercicio 3
+function capturarTablaMultiplicar() {
+  let multiplicando = parseInt(document.getElementById("multiplicando").value);
+  let multiplicadores = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+  isInputMult = document.getElementById("multiplicando");
+  let tabla = [];
+
+  if (isNaN(multiplicando) || multiplicando < 1 | multiplicando > 10) {
+    alert("Ingresa un número entre 1 y 10");
+    isInputMult.focus();
+  } else {
+    multiplicadores.forEach((multiplicador) => {
+      // Realizar la multiplicación y agregarla a la tabla
+      let resultado = multiplicando * multiplicador;
+      tabla.push(`${multiplicando} x ${multiplicador} = ${resultado}`);
+    });
+
+    let tablaMsg = document.getElementById("tablaMsg");
+    tablaMsg.innerHTML = `TABLA del ${multiplicando}<br>${tabla.join(`<br>`)}`;
+    document.getElementById("form3").reset();
+    isInputMult.focus();
+  }
+}
+
+// Ejercicio 4
+function capturarMultiplos() {
+  let nNat = parseInt(document.getElementById("nNat").value);
+  let multiplos = [];
+  let i = 1;
+  let form = document.getElementById("form4");
+
+  if (isNaN(nNat) || nNat > 100 || nNat < 1) {
+    alert("Ingresa un dato válido");
+    form.reset();
+    document.getElementById("nNat").focus();
+    return;
+  }
+
+  while (multiplos.length < nNat) {
+    if (i % 3 === 0 && i % 5 !== 0) {
+      multiplos.push(i);
+    }
+    i++;
+  }
+
+  let multiplosMsg = document.getElementById("multiplosMsg");
+  multiplosMsg.innerHTML = `Los primeros ${nNat} múltiplos de 3, excepto los múltiplos de 5, son:<br>${multiplos.join(", ")}`;
+  form.reset();
+  document.getElementById("nNat").focus();
+}
+
+// Ejercicio 5
+const edadMinima = 18;
+let cantEdades = 5;
+let cantEdadesOk = 0;
+let edad;
+
+function capturarEdades() {
+  let edades = [];
+
+  for (let i = 1; i <= cantEdades; i++) {
+    let inputEdad = document.getElementById("edad" + i);
+    let edad = parseInt(inputEdad.value);
+    edades.push(edad);
+
+    if ((edad % 2 != 0) && (edad > edadMinima)) {
+      cantEdadesOk++;
+    } 
+  }
+  const imparesSup18Msg = document.getElementById("imparesSup18Msg");
+  imparesSup18Msg.textContent = `La cantidad de edades impares menores de ${edadMinima} son ${cantEdadesOk}`;
+
+  document.getElementById("form5").reset();
+  document.getElementById("edad1").focus();
+}

@@ -44,19 +44,19 @@ h1 span {
   color: var(--color2);
 }
 
-form {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 8px;
-}
-
 span.tabOne {
   padding-left: 20px;
 }
 
 span.tabTwo {
   padding-left: 40px;
+}
+
+form {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 8px;
 }
 
 form.invert {
@@ -94,6 +94,7 @@ p.resp {
   color: var(--color1);
   line-height: 1.5rem;
   font-size: .9rem;
+  margin-bottom: 0;
 }
 
 input {
