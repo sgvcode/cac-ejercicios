@@ -211,7 +211,7 @@ function conWhile() {
   if (['S', 's'].includes(opcion)) {
     opcion = prompt('¿Deseás continuar? [S/N]');
   } else {
-    finalizarMsg.innerHTML = "Operación cancelada Opción: 'while'.";
+    finalizarMsg.innerHTML = "Validar con 'while' - Operación cancelada.";
   }
 }
 
@@ -229,6 +229,31 @@ function conDoWhile() {
   if (['S', 's'].includes(opcion)) {
     opcion = prompt('¿Deseás continuar? [S/N]');
   } else {
-    finalizarMsg.innerHTML = "Operación cancelada Opción: 'do-while'.";
+    finalizarMsg.innerHTML = "Validar con 'do-while' - Operación cancelada.";
+  }
+}
+
+function listaMaxMin() {
+  let unoADiez = 1;
+  let listaNumeros = [];
+  let max;
+  let min;
+  let listaMaxMinMsg = document.getElementById("listaMaxMinMsg");
+
+  while (unoADiez > 0 && unoADiez <= 10) {
+    unoADiez = parseInt(prompt("Ingresa un número del 1 al 10 (0 para terminar) "));
+    if (unoADiez >= 1 && unoADiez <= 10) {
+      listaNumeros.push(unoADiez);
+    }
+    max = Math.max(...listaNumeros);
+    min = Math.min(...listaNumeros);
+    if (unoADiez < 0 || unoADiez > 10 || isNaN(unoADiez)) {
+      unoADiez = parseInt(prompt("Número inválido, ingresa un número del 1 al 10 (0 para terminar) "));
+    }
+  }
+  if (listaNumeros.length >= 1) {
+    listaMaxMinMsg.innerHTML = `Los nros ingresados son "${listaNumeros}"<br>El máximo es: ${max}<br>El mínimo ${min}`;
+  } else {
+    listaMaxMinMsg.innerHTML = "No se ingresaron números válidos.";
   }
 }

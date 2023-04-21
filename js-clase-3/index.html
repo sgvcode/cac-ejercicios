@@ -355,6 +355,41 @@ if (['S', 's'].includes(opcion)) {
         </code>
       </pre>
     </div>
+    <!-- Ejercicio 13 -->
+    <div class="ejercicio">
+      <p>13. Realizá un programa que permita al usuario ingresar números hasta que se introduzca un 0. La computadora debe mostrar el número máximo y el número mínimo.</p>
+      <div class="form-cont">
+        <form class="form__group invert" id="form13">
+          <button type="button" onclick="listaMaxMin()">Mostrar Maximo y Minimo</button>
+        </form>
+      </div>
+      <p class="resp" id="listaMaxMinMsg"></p>
+      <pre>
+        <code>
+let unoADiez = 1;
+let listaNumeros = [];
+let max;
+let min;
+
+while (unoADiez > 0 && unoADiez <= 10) {
+    unoADiez = parseInt(prompt("Ingresa un número del 1 al 10 (0 para terminar) "));
+    if (unoADiez >= 1 && unoADiez <= 10) {
+        listaNumeros.push(unoADiez);
+    }
+    max = Math.max(...listaNumeros);
+    min = Math.min(...listaNumeros);
+    if (unoADiez < 0 || unoADiez > 10 || isNaN(unoADiez)) {
+      unoADiez = parseInt(prompt("Número inválido, ingresa un número del 1 al 10 (0 para terminar) "));
+    }
+}
+if (listaNumeros.length >= 1) {
+    console.log(`Los nros ingresados son ${listaNumeros}\nEl máximo es: ${max}\nEl mínimo {min}`);
+} else {
+    console.log("No se ingresaron números válidos.");
+}
+        </code>
+      </pre>
+    </div>
     <footer>
       <code>{SGVero} - CAC#23053</code>
     </footer>
