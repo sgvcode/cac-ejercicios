@@ -205,13 +205,13 @@ function conWhile() {
   do {
     opcion = prompt('¿Deseás continuar? [S/N]');
     if (!['S', 's', 'N', 'n'].includes(opcion)) {
-      alert('Ingresaste una opción inválida. Por favor, ingresá S o N.');
+      alert('Opción inválida. Ingresá S o N.');
     }
   } while (!['N', 'n'].includes(opcion));
   if (['S', 's'].includes(opcion)) {
     opcion = prompt('¿Deseás continuar? [S/N]');
   } else {
-    finalizarMsg.innerHTML = "Operación cancelada con 'while'.";
+    finalizarMsg.innerHTML = "Operación cancelada Opción: 'while'.";
   }
 }
 
@@ -223,12 +223,12 @@ function conDoWhile() {
   do {
     opcion = prompt('¿Deseás continuar? [S/N]');
     if (!['S', 's', 'N', 'n'].includes(opcion)) {
-      alert('Ingresaste una opción inválida. Por favor, ingresá S o N.');
+      alert('Opción inválida. Ingresá S o N.');
     }
   } while (!['N', 'n'].includes(opcion));
   if (['S', 's'].includes(opcion)) {
     opcion = prompt('¿Deseás continuar? [S/N]');
   } else {
-    finalizarMsg.innerHTML = "Operación cancelada con 'do-while'.";
+    finalizarMsg.innerHTML = "Operación cancelada Opción: 'do-while'.";
   }
 }

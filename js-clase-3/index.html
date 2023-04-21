@@ -330,7 +330,7 @@ let opcion = '';
 while (!['N', 'n'].includes(opcion)) {
   opcion = prompt('¿Deseás continuar? [S/N]');
   if (!['S', 's', 'N', 'n'].includes(opcion)) {
-    alert('Ingresaste una opción inválida. Por favor, ingresá S o N.');
+    alert('Opción inválida. Ingresá S o N.');
   }
 }
 if (['S', 's'].includes(opcion)) {
@@ -344,7 +344,7 @@ let opcion;
 do {
   opcion = prompt('¿Deseás continuar? [S/N]');
   if (!['S', 's', 'N', 'n'].includes(opcion)) {
-    alert('Ingresaste una opción inválida. Por favor, ingresá S o N.');
+    alert('Opción inválida. Ingresá S o N.');
   }
 } while (!['N', 'n'].includes(opcion));
 if (['S', 's'].includes(opcion)) {
