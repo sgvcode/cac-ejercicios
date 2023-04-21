@@ -313,6 +313,48 @@ while (nota < 0 || nota > 10 || nota === 1 || nota === 3) {
         </code>
       </pre>
     </div>
+    <!-- Ejercicio 12 -->
+    <div class="ejercicio">
+      <p>12. Realizá un programa que permita validar una opción ingresada. La computadora preguntará al usuario si desea continuar una operación de la forma "¿Deseás continuar? [S/N]". Se espera que el usuario ingrese una 'S' o una 'N' (incluir las minúsculas). La opción debe ser tantas veces ingresada como sean necesarias hasta que  quede comprendida dentro de las posibilidades esperadas. Realizá este ejercicio en dos versiones: con ciclo while y con ciclo do-while.</p>
+      <div class="form-cont">
+        <form class="form__group invert" id="form12">
+          <button type="button" onclick="conWhile()">  validad con while</button>
+          <button type="button" onclick="conDoWhile()">validad con do-while</button>
+        </form>
+      </div>
+      <p class="resp" id="finalizarMsg"></p>
+      <pre>
+        <code>
+// Opción con while
+let opcion = '';
+while (!['N', 'n'].includes(opcion)) {
+  opcion = prompt('¿Deseás continuar? [S/N]');
+  if (!['S', 's', 'N', 'n'].includes(opcion)) {
+    alert('Ingresaste una opción inválida. Por favor, ingresá S o N.');
+  }
+}
+if (['S', 's'].includes(opcion)) {
+  opcion = prompt('¿Deseás continuar? [S/N]');
+} else {
+  alert('Operación cancelada.');
+}
+
+//Opción con do-while
+let opcion;
+do {
+  opcion = prompt('¿Deseás continuar? [S/N]');
+  if (!['S', 's', 'N', 'n'].includes(opcion)) {
+    alert('Ingresaste una opción inválida. Por favor, ingresá S o N.');
+  }
+} while (!['N', 'n'].includes(opcion));
+if (['S', 's'].includes(opcion)) {
+  opcion = prompt('¿Deseás continuar? [S/N]');
+} else {
+  alert('Operación cancelada.');
+}
+        </code>
+      </pre>
+    </div>
     <footer>
       <code>{SGVero} - CAC#23053</code>
     </footer>

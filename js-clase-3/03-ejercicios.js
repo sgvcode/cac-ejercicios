@@ -195,3 +195,40 @@ function validarNotaN() {
     }
   }
 }
+
+// Ejercicio 12
+// Opción con while
+function conWhile() {
+  let opcion;
+  let finalizarMsg = document.getElementById("finalizarMsg");
+
+  do {
+    opcion = prompt('¿Deseás continuar? [S/N]');
+    if (!['S', 's', 'N', 'n'].includes(opcion)) {
+      alert('Ingresaste una opción inválida. Por favor, ingresá S o N.');
+    }
+  } while (!['N', 'n'].includes(opcion));
+  if (['S', 's'].includes(opcion)) {
+    opcion = prompt('¿Deseás continuar? [S/N]');
+  } else {
+    finalizarMsg.innerHTML = "Operación cancelada con 'while'.";
+  }
+}
+
+function conDoWhile() {
+  //Opción con do-while
+  let opcion;
+  let finalizarMsg = document.getElementById("finalizarMsg");
+
+  do {
+    opcion = prompt('¿Deseás continuar? [S/N]');
+    if (!['S', 's', 'N', 'n'].includes(opcion)) {
+      alert('Ingresaste una opción inválida. Por favor, ingresá S o N.');
+    }
+  } while (!['N', 'n'].includes(opcion));
+  if (['S', 's'].includes(opcion)) {
+    opcion = prompt('¿Deseás continuar? [S/N]');
+  } else {
+    finalizarMsg.innerHTML = "Operación cancelada con 'do-while'.";
+  }
+}

@@ -73,8 +73,12 @@ form.invert input {
 
 input::placeholder {
   color: var(--color2);
-  font-size: .9rem;
+  font-size: .8rem;
   font-family: 'Montserrat', sans-serif;;
+}
+
+input:focus::placeholder{
+  color:transparent;
 }
 
 p {
@@ -184,9 +188,10 @@ code {
   cursor: pointer;
   position: absolute;
   top: -.9rem;
-  left: 0rem;
+  left: 0;
   transform: translateY(20px);
   transition: transform .5s, color .3s;
+  font-size: .85rem;
 }
 
 .form__input:focus + .form__label,
