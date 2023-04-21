@@ -193,3 +193,13 @@ footer {
   font-size: .8rem;
   padding: 1rem 0;
 }
+
+footer a{
+  color: rgba(245, 245, 245, 0.749);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+footer a:hover {
+  color: var(--color2)
+}

@@ -390,8 +390,69 @@ if (listaNumeros.length >= 1) {
         </code>
       </pre>
     </div>
+    <!-- Ejercicio 14 -->
+    <div class="ejercicio">
+      <p>14. Realizá un programa que permita al usuario ingresar personas (para cada una, nombre y edad). La carga termina cuando en el nombre de la persona se ingresa un asterisco ('*'). La computadora debe indicar cómo se llama la persona más joven.</p>
+      <div class="form-cont">
+        <form class="form__group invert" id="form14">
+          <button type="button" onclick="listaPersonas()">Mostrar Persona</button>
+        </form>
+      </div>
+      <p class="resp" id="personaMsg"></p>
+      <pre>
+        <code>
+let nombre;
+let edad = 0;
+let personaMasJoven;
+let edadMasJoven = 120;
+
+while (nombre !== "*") {
+  nombre = prompt("Ingrese el nombre de la persona (* para terminar): ");
+  if (nombre === "*") {
+    break;
+  }
+  edad = parseInt(prompt(`Ingrese la edad de ${nombre}: `));
+  if (edad < edadMasJoven) {
+    personaMasJoven = nombre;
+    edadMasJoven = edad;
+  }
+}
+
+if (personaMasJoven !== "") {
+  console.log(`La persona más joven es ${personaMasJoven} con ${edadMasJoven} años.`);
+} else {
+  console.log("No se ingresaron personas.");
+}
+        </code>
+      </pre>
+    </div>
+    <!-- Ejercicio 15 -->
+    <div class="ejercicio">
+      <p>15. Realizá un programa que permita al usuario ingresar números mientras el promedio entre todos los ingresados sea menor a 20. La computadora debe indicar la cantidad de valores leídos.</p>
+      <div class="form-cont">
+        <form class="form__group invert" id="form15">
+          <button type="button" onclick="promedioMenorA20()">Calcular</button>
+        </form>
+      </div>
+      <p class="resp" id="leidosMsg"></p>
+      <pre>
+        <code>
+let numero = 0;
+let sumatoria = 0;
+let cantidad = 0;
+
+while (cantidad === 0 || sumatoria / cantidad < 20) {
+  numero = parseInt(prompt('Ingrese un número: '));
+  sumatoria += numero;
+  cantidad++;
+}
+
+console.log(`Se leyeron ${cantidad} valores.`);
+        </code>
+      </pre>
+    </div>
     <footer>
-      <code>{SGVero} - CAC#23053</code>
+      <code>SGVero | CAC#23053 | Docente: <a href="https://charlycimino.com"> Charly Cimino</a></code>
     </footer>
   </div>
   <script src="03-ejercicios.js"></script>

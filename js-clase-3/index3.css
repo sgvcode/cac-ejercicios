@@ -223,8 +223,25 @@ th {
 }
 
 footer {
+  flex-direction: column;
   margin: 1rem 0 0;
   color: white;
   font-size: .8rem;
   padding: 1rem 0;
+}
+
+footer a{
+  color: rgba(245, 245, 245, 0.552);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+footer a:hover {
+  color: var(--color2)
+}
+
+span.aha{
+  display: flex;
+  justify-content: right;
+  
 }

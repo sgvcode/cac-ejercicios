@@ -257,3 +257,47 @@ function listaMaxMin() {
     listaMaxMinMsg.innerHTML = "No se ingresaron números válidos.";
   }
 }
+
+// Ejercicio 14
+function listaPersonas() {
+  let nombre;
+  let edad = 0;
+  let personaMasJoven;
+  let edadMasJoven = 120;
+  let personaMsg = document.getElementById("personaMsg");
+
+  while (nombre !== "*") {
+    nombre = prompt("Ingrese el nombre de la persona (* para terminar): ");
+    if (nombre === "*") {
+      break;
+    }
+    edad = parseInt(prompt(`Ingrese la edad de ${nombre}: `));
+    if (edad < edadMasJoven) {
+      personaMasJoven = nombre;
+      edadMasJoven = edad;
+    }
+  }
+
+  if (personaMasJoven !== "") {
+    personaMsg.innerHTML = `La persona más joven es ${personaMasJoven} con ${edadMasJoven} años.`;
+  } else {
+    personaMsg.innerHTML = "No se ingresaron personas.";
+  }
+}
+
+// Ejercicios 15
+function promedioMenorA20() {
+  let numeros = [];
+  let suma = 0;
+  let cantidad = 0;
+  let leidosMsg = document.getElementById("leidosMsg");
+
+  while (cantidad === 0 || suma / cantidad < 20) {
+    let numero = parseInt(prompt("Ingrese un número: "));
+    numeros.push(numero);
+    suma += numero;
+    cantidad++;
+  }
+
+  leidosMsg.innerHTML = `Cantidad de valores leídos: ${cantidad}<br>Lista de números ingresados: ${numeros.join(", ")}`;
+}
