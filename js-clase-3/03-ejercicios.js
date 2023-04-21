@@ -25,43 +25,18 @@ function capturarSecuencia() {
     seriesMsg.innerHTML = `Inclusivo e/ ${n1} y ${n2}: "${serieI}"<br>
     Exclusivo e/ ${n1} y ${n2}: "${serieE}"`;
     document.getElementById("form2").reset();
-    document.getElementById("n1").focus();
   }
 }
-
-// const form = document.querySelector('form');
-// const serieMsg = document.getElementById('seriesMsg');
-
-// form.addEventListener('submit', (event) => {
-//   event.preventDefault(); // prevenir que la página se recargue
-
-//   let n1 = parseInt(form.elements['n1'].value);
-//   let n2 = parseInt(form.elements['n2'].value);
-
-//   let serie1 = [];
-//   let serie2 = [];
-
-//   for (let i = n1; i <= n2; i++){
-//     serie1.push(i);
-//   }
-//   for (let i = n1+1; i <= n2-1; i++){
-//     serie2.push(i);
-//   }
-
-//   seriesMsg.innerHTML = `Secuencia inclusiva entre ${n1} y ${n2}: "${serie1}"<br>
-//                         Secuencia exclusiva entre ${n1} y ${n2}: "${serie2}"`;
-// });
 
 // Ejercicio 3
 function capturarTablaMultiplicar() {
   let multiplicando = parseInt(document.getElementById("multiplicando").value);
   let multiplicadores = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-  isInputMult = document.getElementById("multiplicando");
   let tabla = [];
 
   if (isNaN(multiplicando) || multiplicando < 1 | multiplicando > 10) {
     alert("Ingresa un número entre 1 y 10");
-    isInputMult.focus();
+    document.getElementById("multiplicando").focus();
   } else {
     multiplicadores.forEach((multiplicador) => {
       // Realizar la multiplicación y agregarla a la tabla
@@ -72,7 +47,6 @@ function capturarTablaMultiplicar() {
     let tablaMsg = document.getElementById("tablaMsg");
     tablaMsg.innerHTML = `TABLA del ${multiplicando}<br>${tabla.join(`<br>`)}`;
     document.getElementById("form3").reset();
-    isInputMult.focus();
   }
 }
 
@@ -81,7 +55,6 @@ function capturarMultiplos() {
   let nNat = parseInt(document.getElementById("nNat").value);
   let multiplos = [];
   let i = 1;
-  let form = document.getElementById("form4");
 
   if (isNaN(nNat) || nNat > 100 || nNat < 1) {
     alert("Ingresa un dato válido");
@@ -99,8 +72,7 @@ function capturarMultiplos() {
 
   let multiplosMsg = document.getElementById("multiplosMsg");
   multiplosMsg.innerHTML = `Los primeros ${nNat} múltiplos de 3, excepto los múltiplos de 5, son:<br>${multiplos.join(", ")}`;
-  form.reset();
-  document.getElementById("nNat").focus();
+  document.getElementById("form4").reset();
 }
 
 // Ejercicio 5 -------------------
@@ -127,13 +99,11 @@ function capturarEdades() {
   for (let i = 1; i <= cantEdades; i++) {
     document.getElementById("edad" + i).value = "";
   }
-
-  document.getElementById("edad1").focus();
 }
 
 // Ejercicio 6 ---------------------
 function calcularMonto() {
-  let cant = parseInt(document.getElementById("cant").value);
+  let cant = document.getElementById("cant").value;
   let monto;
   let montoAcu = 0;
   let acumulados = [];
@@ -146,5 +116,82 @@ function calcularMonto() {
   let ventasMsg = document.getElementById("ventasMsg");
   ventasMsg.innerHTML = `El monto total por las ${cant} ventas es:<br> $${montoAcu}`;
   document.getElementById("form6").reset();
-  document.getElementById("cant").focus();
+}
+
+// Ejercicio 7
+
+function calcularAlturaPromedio() {
+  let cant1 = parseInt(document.getElementById("cant1").value);
+  let alturas;
+  let altAcu = 0;
+  let alturasAcumuladas = [];
+
+  for (i = 1; i <= cant1; i++) {
+    alturas = parseFloat(prompt(`Altura de jugador ${i}: `));
+    altAcu = altAcu + alturas;
+    alturasAcumuladas.push(alturas);
+  }
+
+  let alturaPromedio = altAcu / cant1;
+  console.log(`La estatura promedio de ${cant1} jugadores es ${alturaPromedio.toFixed(2)}m`);
+
+  let alturaPromedioMsg = document.getElementById("alturaPromedioMsg");
+  alturaPromedioMsg.innerHTML = `La estatura promedio de ${cant1} jugadores es ${alturaPromedio.toFixed(2)}m`;
+  document.getElementById("form7").reset();
+}
+
+// Ejercicio 8
+function capturarEnteros() {
+  //declaro variables de entrada de los datos
+  let cantInt = parseInt(document.getElementById("cantInt").value);
+  let numeros = [];
+  //resuelve el problema de recorrido de datos
+  for (let i = 1; i <= cantInt; i++) {
+    let num = parseInt(prompt(`Ingrese el número entero ${i}: `));
+    numeros.push(num);
+  }
+  //declaro variables que guarden lo que necesito del recorrido
+  let maxNum = numeros[0];
+  let maxPos = 1;
+  //especifico que resuelva otro hecho puntual
+  for (let i = 1; i < numeros.length; i++) {
+    if (numeros[i] > maxNum) {
+      maxNum = numeros[i];
+      maxPos = i + 1;
+    }
+  }
+  //resuelvo la respuesta por navegador
+  let enterosMsg = document.getElementById("enterosMsg");
+  enterosMsg.innerHTML = `El número mayor es ${maxNum} y apareció en la posición ${maxPos}.`;
+  document.getElementById("form8").reset();
+}
+
+// Ejercicio 9
+function capturarNatural() {
+  let nNatural = parseInt(document.getElementById("nNatural").value);
+  let factorial = 1;
+
+  for (let i = 1; i <= nNatural; i++) {
+    factorial *= i;
+  }
+
+  let factorialMsg = document.getElementById("factorialMsg");
+  factorialMsg.innerHTML = `El factorial de ${nNatural} es ${factorial}`;
+  document.getElementById("form9").reset();
+}
+
+// Ejercicio 11
+function validarNotaN() {
+  let notaN = -1;
+  let validarNotaNMsg = document.getElementById("validarNotaNMsg");
+
+  while (notaN <= 0 || notaN > 10 || notaN === 1 || notaN === 3) {
+    notaN = parseInt(prompt("Ingresa una nota: "));
+    if (notaN <= 0 || notaN > 10 || notaN === 1 || notaN === 3) {
+      alert("Nota inválida, ingresa una nota: ");
+    } else {
+      // alert(`La nota es ${notaN}`);
+      validarNotaNMsg.innerHTML = `La nota es ${notaN}`;
+    }
+  }
 }
