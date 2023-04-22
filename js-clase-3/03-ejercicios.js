@@ -294,7 +294,7 @@ function listaPersonas() {
   }
 
   if (personaMasJoven !== "") {
-    personaMsg.innerHTML = `La persona más joven es ${personaMasJoven} con ${edadMasJoven} años.`;
+    personaMsg.innerHTML = `La persona más joven es ${personaMasJoven}<br>(${edadMasJoven} años)`;
   } else {
     personaMsg.innerHTML = "No se ingresaron personas.";
   }
@@ -314,7 +314,7 @@ function promedioMenorA20() {
     cantidad++;
   }
 
-  leidosMsg.innerHTML = `Cantidad de valores leídos: ${cantidad}<br>Lista de números ingresados: ${numeros.join(", ")}`;
+  leidosMsg.innerHTML = `Cantidad de valores con promedio < 20 leídos: ${cantidad}<br>Lista de números ingresados: ${numeros.join(", ")}`;
 }
 
 // Ejercicio 16
@@ -326,9 +326,9 @@ function capturarNumerosE() {
     let numeroE = parseInt(prompt("Ingresa un número entero: "));
     numerosE.push(numeroE);
 
-    let opcion = prompt("¿Desea ingresar otro número? [S/N] ");
+    let opcion = prompt("¿Quieres ingresar otro número? [S/N] ");
     while (!validarOpcion(opcion)) {
-      opcion = prompt("Opción inválida. Ingrese 'S' o 'N' ");
+      opcion = prompt("Opción inválida. Ingresa 'S' o 'N' ");
     }
     seguirIngresando = (opcion.toUpperCase() === 'S');
   }
@@ -340,7 +340,7 @@ function capturarNumerosE() {
     }
   });
 
-  let porcentajePares = ((pares / numerosE.length) * 100).toFixed(3);
+  let porcentajePares = ((pares / numerosE.length) * 100).toFixed(2);
   let paresMsg = document.getElementById("paresMsg");
   paresMsg.innerHTML = `El porcentaje de números pares es ${porcentajePares}%<br>sobre ${numerosE.length} ingresados (${numerosE})`;
 
@@ -348,3 +348,5 @@ function capturarNumerosE() {
     return (opcion.toUpperCase() === 'S' || opcion.toUpperCase() === 'N');
   }
 }
+
+// Ejercicio 17

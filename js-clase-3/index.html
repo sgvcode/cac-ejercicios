@@ -19,7 +19,8 @@
   <div class="contenido">
     <!-- Ejercicio 1 -->
     <div class="ejercicio">
-      <p>1- Realizá un programa que muestre todos los números enteros del '1 al 100', y luego, los mismos números, pero en orden inverso.</p>
+      <p>1- Realizá un programa que muestre todos los números enteros del '1 al 100', y luego, los mismos números, pero
+        en orden inverso.</p>
       <pre>
         <code>
 // Mostrar los números del 1 al 100
@@ -36,11 +37,14 @@ for (let i = 100; i >= 1; i--) {
     </div>
     <!-- Ejercicio 2 -->
     <div class="ejercicio">
-      <p>2. Realizá un programa que permita al usuario ingresar dos números enteros 'num1' y 'num2', donde el primero siempre deberá ser menor o igual al segundo. La computadora debe mostrar la secuencia de números existentes entre ambos.</p>
+      <p>2. Realizá un programa que permita al usuario ingresar dos números enteros 'num1' y 'num2', donde el primero
+        siempre deberá ser menor o igual al segundo. La computadora debe mostrar la secuencia de números existentes
+        entre ambos.</p>
       <div>
         <form class="invert" id="form2">
           <input class="form__input" type="number" min="1" max="100" id="n1" placeholder="Ingresa un número (1/100)">
-          <input class="form__input" type="number" min="1" max="100" id="n2" placeholder="Ingresa un número >= que el anterior">
+          <input class="form__input" type="number" min="1" max="100" id="n2"
+            placeholder="Ingresa un número >= que el anterior">
           <button type="button" onclick="capturarSecuencia()">Calcular</button>
         </form>
       </div>
@@ -67,35 +71,33 @@ console.log(`Exclusiva entre ${n1} y ${n2}: "${serie2}"`);
     </div>
     <!-- Ejercicio 3 -->
     <div class="ejercicio">
-      <p>3. Realizá un programa que permita al usuario ingresar un número entero 'n' entre '1 y 10'. La computadora debe mostrar la tabla de multiplicar de 'n'.</p>
-     <div class="form-cont">
-       <form class="form__group invert" id="form3">
-         <input class="form__input" type="number" min="1" max="10" id="multiplicando" placeholder=" ">
-         <label for="multiplicando" class="form__label">Ingresa un número (1/10)</label>
-         <button type="button" onclick="capturarTablaMultiplicar()">Calcular</button>
-       </form>
-     </div>
+      <p>3. Realizá un programa que permita al usuario ingresar un número entero 'n' entre '1 y 10'. La computadora debe
+        mostrar la tabla de multiplicar de 'n'.</p>
+      <div class="form-cont">
+        <form class="form__group invert" id="form3">
+          <input class="form__input" type="number" min="1" max="10" id="multiplicando" placeholder=" ">
+          <label for="multiplicando" class="form__label">Ingresa un número (1/10)</label>
+          <button type="button" onclick="capturarTablaMultiplicar()">Calcular</button>
+        </form>
+      </div>
       <p class="resp" id="tablaMsg"></p>
       <pre>
         <code>
-let multiplicando = prompt("Ingresar numero entre 1 y 10 ");
-let multiplicadores = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-let tabla = [];
+let multiplicando = parseInt(prompt("Ingresa un número: "));
 
-multiplicadores.forEach((multiplicador) => {
-  // Realizar la multiplicación y agregarla a la tabla
-  let resultado = multiplicando * multiplicador;
-  tabla.push(`${multiplicando} x ${multiplicador} = ${resultado}`);
-});
-
-console.log(`Tabla del ${multiplicando}`);
-console.log(tabla.join(`\n`));
+function multiplicar() {
+    for (i = 1; i <= 10; i++) {
+        console.log(`${multiplicando} x ${i} = ${i * multiplicando}`)
+    }
+}
+multiplicar()
         </code>
       </pre>
     </div>
     <!-- Ejercicio 4 -->
     <div class="ejercicio">
-      <p>4. Realizá un programa que permita al usuario ingresar un número natural 'n'. La computadora debe mostrar los primeros 'n' múltiplos de '3' excepto aquellos que sean a la vez múltiplos de '5'.</p>
+      <p>4. Realizá un programa que permita al usuario ingresar un número natural 'n'. La computadora debe mostrar los
+        primeros 'n' múltiplos de '3' excepto aquellos que sean a la vez múltiplos de '5'.</p>
       <div class="form-cont">
         <form class="form__group invert" id="form4">
           <input class="form__input" type="number" min="1" id="nNat" placeholder=" ">
@@ -123,7 +125,8 @@ console.log(`Los primeros ${nNat} múltiplos de 3, excepto los múltiplos de 5 s
     </div>
     <!-- Ejercicio 5 -->
     <div class="ejercicio">
-      <p>5. Realizá un programa que permita al usuario ingresar 5 edades. La computadora debe indicar cuántas edades fueron valores impares mayores que '18'</p>
+      <p>5. Realizá un programa que permita al usuario ingresar 5 edades. La computadora debe indicar cuántas edades
+        fueron valores impares mayores que '18'</p>
       <div form-cont>
         <form class="form__group invert" id="form5">
           <input class="form__input" type="number" min="1" max="100" id="edad1" placeholder="Ingresa edad 1">
@@ -154,7 +157,9 @@ console.log(`La cantidad de edades impares menores de ${edadMinima} {cantEdadesO
     </div>
     <!-- Ejercicio 6 -->
     <div class="ejercicio">
-      <p>6. Realizá un programa que permita al usuario ingresar un número entero cant. Acto seguido, que permita ingresar cant números reales, correspondientes a las ventas realizadas por cierto vendedor. La computadora debe mostrar el total de las ventas.</p>
+      <p>6. Realizá un programa que permita al usuario ingresar un número entero cant. Acto seguido, que permita
+        ingresar cant números reales, correspondientes a las ventas realizadas por cierto vendedor. La computadora debe
+        mostrar el total de las ventas.</p>
       <div class="form-cont">
         <form class="form__group invert" id="form6">
           <input type="number" class="form__input" id="cant" placeholder=" ">
@@ -181,7 +186,9 @@ console.log(`El monto total vendidos es: ${montoAcu}`)
     </div>
     <!-- Ejercicio 7 -->
     <div class="ejercicio">
-      <p>7. Realizá un programa que permita al usuario ingresar un número entero 'cant'. Acto seguido, que permita ingresar 'cant' números reales, correspondientes a las estaturas de un equipo de jugadores de baloncesto (en metros). La computadora debe mostrar la estatura promedio.</p>
+      <p>7. Realizá un programa que permita al usuario ingresar un número entero 'cant'. Acto seguido, que permita
+        ingresar 'cant' números reales, correspondientes a las estaturas de un equipo de jugadores de baloncesto (en
+        metros). La computadora debe mostrar la estatura promedio.</p>
       <div class="form-cont">
         <form class="form__group invert" id="form7">
           <input type="number" id="cant1" class="form__input" placeholder=" ">
@@ -210,7 +217,9 @@ console.log(`La estatura promedio de ${cant1} jugadores es ${alturaPromedio.toFi
     </div>
     <!-- Ejercicio 8 -->
     <div class="ejercicio">
-      <p>8. Realizá un programa que permita al usuario ingresar un número entero cant. Acto seguido, que permita ingresar cantnúmeros enteros. La computadora debe mostrar cuál fue el mayor número y en qué posición apareció.</p>
+      <p>8. Realizá un programa que permita al usuario ingresar un número entero cant. Acto seguido, que permita
+        ingresar cantnúmeros enteros. La computadora debe mostrar cuál fue el mayor número y en qué posición apareció.
+      </p>
       <div class="form-cont">
         <form class="form__group invert" id="form8">
           <input type="number" id="cantInt" class="form__input" placeholder=" ">
@@ -244,8 +253,11 @@ console.log(`El número mayor es ${maxNum} y apareció en la posición ${maxPos}
     </div>
     <!-- Ejercicio 9 -->
     <div class="ejercicio">
-      <p>9. Realizá un programa que permita al usuario ingresar un número natural. La computadora debe mostrar el factorial(1) del número.</p>
-      <p class="nota">1 El factorial de un entero positivo n se define como el producto de todos los números enteros positivos desde 1 hasta n. Por ejemplo, el factorial de 5 se calcula como: 5! = 1x2x3x4x5 = 120. Tené en cuenta que no se puede calcular el 
+      <p>9. Realizá un programa que permita al usuario ingresar un número natural. La computadora debe mostrar el
+        factorial(1) del número.</p>
+      <p class="nota">1 El factorial de un entero positivo n se define como el producto de todos los números enteros
+        positivos desde 1 hasta n. Por ejemplo, el factorial de 5 se calcula como: 5! = 1x2x3x4x5 = 120. Tené en cuenta
+        que no se puede calcular el
         factorial de un número negativo.</p>
       <div class="form-cont">
         <form class="form__group invert" id="form9">
@@ -268,9 +280,11 @@ console.log(`El factorial de ${num} es ${factorial}`);
         </code>
       </pre>
     </div>
-  <!-- Ejercicio 10 -->
+    <!-- Ejercicio 10 -->
     <div class="ejercicio">
-      <p>10. Realizá un programa que permita validar una nota de examen. Se espera que la nota que el usuario ingrese sea un número comprendido entre 0 y 10. La misma debe ser tantas veces ingresada como sean necesarias hasta que quede comprendida dentro del rango descripto.</p>
+      <p>10. Realizá un programa que permita validar una nota de examen. Se espera que la nota que el usuario ingrese
+        sea un número comprendido entre 0 y 10. La misma debe ser tantas veces ingresada como sean necesarias hasta que
+        quede comprendida dentro del rango descripto.</p>
       <div class="form-cont">
         <form class="form__group invert" id="form10">
           <button type="button" onclick="validarNotas()">Validar Nota</button>
@@ -293,10 +307,10 @@ console.log(`La nota es ${notas}`);
     </div>
     <!-- Ejercicio 11 -->
     <div class="ejercicio">
-      <p>11. Realizá un programa que permita validar una nota de examen de la misma manera que el 
-        ejercicio anterior, pero con las siguientes nuevas directivas:<br/>
-        ▪ La nota 0 se reserva para los ausentes.<br/>
-        ▪ Las notas 1 y 3 no se suelen poner nunca.<br/>
+      <p>11. Realizá un programa que permita validar una nota de examen de la misma manera que el
+        ejercicio anterior, pero con las siguientes nuevas directivas:<br />
+        ▪ La nota 0 se reserva para los ausentes.<br />
+        ▪ Las notas 1 y 3 no se suelen poner nunca.<br />
         En resumen, las notas válidas deberán ser el 2 y el rango comprendido entre el 4 y el 10.</p>
       <div class="form-cont">
         <form class="form__group invert" id="form11">
@@ -321,49 +335,54 @@ while (nota < 0 || nota > 10 || nota === 1 || nota === 3) {
     </div>
     <!-- Ejercicio 12 -->
     <div class="ejercicio">
-      <p>12. Realizá un programa que permita validar una opción ingresada. La computadora preguntará al usuario si desea continuar una operación de la forma "¿Deseás continuar? [S/N]". Se espera que el usuario ingrese una 'S' o una 'N' (incluir las minúsculas). La opción debe ser tantas veces ingresada como sean necesarias hasta que  quede comprendida dentro de las posibilidades esperadas. Realizá este ejercicio en dos versiones: con ciclo while y con ciclo do-while.</p>
+      <p>12. Realizá un programa que permita validar una opción ingresada. La computadora preguntará al usuario si desea
+        continuar una operación de la forma "¿Deseás continuar? [S/N]". Se espera que el usuario ingrese una 'S' o una
+        'N' (incluir las minúsculas). La opción debe ser tantas veces ingresada como sean necesarias hasta que quede
+        comprendida dentro de las posibilidades esperadas. Realizá este ejercicio en dos versiones: con ciclo while y
+        con ciclo do-while.</p>
       <div class="form-cont">
         <form class="form__group invert" id="form12">
-          <button type="button" onclick="conWhile()">  validad con while</button>
+          <button type="button" onclick="conWhile()"> validad con while</button>
           <button type="button" onclick="conDoWhile()">validad con do-while</button>
         </form>
       </div>
       <p class="resp" id="finalizarMsg"></p>
       <pre>
         <code>
-// Opción con while
-let opcion = '';
-while (!['N', 'n'].includes(opcion)) {
-  opcion = prompt('¿Deseás continuar? [S/N]');
-  if (!['S', 's', 'N', 'n'].includes(opcion)) {
-    alert('Opción inválida. Ingresá S o N.');
+//Opción con while
+let continuar = "";
+while (!["N", "n"].includes(continuar)) {
+  continuar = prompt("¿Deseás continuar? [S/N] ");
+  if (!["S", "s", "N", "n"].includes(continuar)) {
+    alert("Opción inválida. Ingresá S o N. ");
   }
 }
-if (['S', 's'].includes(opcion)) {
-  opcion = prompt('¿Deseás continuar? [S/N]');
+if (["S", "s"].includes(continuar)) {
+  continuar = prompt("¿Deseás continuar? [S/N] ");
 } else {
-  alert('Operación cancelada.');
+  alert("Operación cancelada.");
 }
 
 //Opción con do-while
-let opcion;
+let continuar;
 do {
-  opcion = prompt('¿Deseás continuar? [S/N]');
-  if (!['S', 's', 'N', 'n'].includes(opcion)) {
-    alert('Opción inválida. Ingresá S o N.');
+  continuar = prompt("¿Deseás continuar? [S/N] ");
+  if (!["S", "s", "N", "n"].includes(continuar)) {
+    alert("Opción inválida. Ingresá S o N. ");
   }
-} while (!['N', 'n'].includes(opcion));
-if (['S', 's'].includes(opcion)) {
-  opcion = prompt('¿Deseás continuar? [S/N]');
+} while (!["N", "n"].includes(continuar));
+if (["S", "s"].includes(continuar)) {
+  continuar = prompt("¿Deseás continuar? [S/N] ");
 } else {
-  alert('Operación cancelada.');
+  alert("Operación cancelada.");
 }
         </code>
       </pre>
     </div>
     <!-- Ejercicio 13 -->
     <div class="ejercicio">
-      <p>13. Realizá un programa que permita al usuario ingresar números hasta que se introduzca un 0. La computadora debe mostrar el número máximo y el número mínimo.</p>
+      <p>13. Realizá un programa que permita al usuario ingresar números hasta que se introduzca un 0. La computadora
+        debe mostrar el número máximo y el número mínimo.</p>
       <div class="form-cont">
         <form class="form__group invert" id="form13">
           <button type="button" onclick="listaMaxMin()">Mostrar Maximo y Minimo</button>
@@ -398,7 +417,9 @@ if (listaNumeros.length >= 1) {
     </div>
     <!-- Ejercicio 14 -->
     <div class="ejercicio">
-      <p>14. Realizá un programa que permita al usuario ingresar personas (para cada una, nombre y edad). La carga termina cuando en el nombre de la persona se ingresa un asterisco ('*'). La computadora debe indicar cómo se llama la persona más joven.</p>
+      <p>14. Realizá un programa que permita al usuario ingresar personas (para cada una, nombre y edad). La carga
+        termina cuando en el nombre de la persona se ingresa un asterisco ('*'). La computadora debe indicar cómo se
+        llama la persona más joven.</p>
       <div class="form-cont">
         <form class="form__group invert" id="form14">
           <button type="button" onclick="listaPersonas()">Mostrar Persona</button>
@@ -434,7 +455,8 @@ if (personaMasJoven !== "") {
     </div>
     <!-- Ejercicio 15 -->
     <div class="ejercicio">
-      <p>15. Realizá un programa que permita al usuario ingresar números mientras el promedio entre todos los ingresados sea menor a 20. La computadora debe indicar la cantidad de valores leídos.</p>
+      <p>15. Realizá un programa que permita al usuario ingresar números mientras el promedio entre todos los ingresados
+        sea menor a 20. La computadora debe indicar la cantidad de valores leídos.</p>
       <div class="form-cont">
         <form class="form__group invert" id="form15">
           <button type="button" onclick="promedioMenorA20()">Calcular</button>
@@ -459,7 +481,10 @@ console.log(`Se leyeron ${cantidad} valores.`);
     </div>
     <!-- Ejercicio 16 -->
     <div class="ejercicio">
-      <p>16. Realizá un programa que permita al usuario ingresar números enteros. Por cada carga debe preguntar si se desea seguir ingresando, de la forma "¿Deseás ingresar otro número? [S/N]". La carga de datos finaliza cuando se detecta una 'n' o 'N'. Reutilizá el algoritmo realizado en el ejercicio 37) para validar la opción ingresada. La computadora debe mostrar el porcentaje de números pares ingresados.</p>
+      <p>16. Realizá un programa que permita al usuario ingresar números enteros. Por cada carga debe preguntar si se
+        desea seguir ingresando, de la forma "¿Deseás ingresar otro número? [S/N]". La carga de datos finaliza cuando se
+        detecta una 'n' o 'N'. Reutilizá el algoritmo realizado en el ejercicio 37) para validar la opción ingresada. La
+        computadora debe mostrar el porcentaje de números pares ingresados.</p>
       <div class="form-cont">
         <form class="form__group invert" id="form16">
           <button type="button" onclick="capturarNumerosE()">Calcular Leídos Pares</button>
@@ -495,6 +520,24 @@ console.log(`El porcentaje de números pares es ${porcentajePares}%`);
 function validarOpcion(opcion) {
   return (opcion.toUpperCase() === 'S' || opcion.toUpperCase() === 'N');
 }
+        </code>
+      </pre>
+    </div>
+    <!-- Ejercicio 17 -->
+    <div class="ejercicio">
+      <p>17. Realizá un programa que permita al usuario ingresar la cantidad de cierto artículo y el precio unitario de
+        dicho artículo. Por cada carga debe preguntar si se desea seguir ingresando de la forma "¿Deseás ingresar otro
+        artículo? [S/N]". La carga de datos finaliza cuando se detecta una 'n' o 'N'. Reutilizá el algoritmo realizado
+        en el ejercicio 37) para validar la opción ingresada. La computadora debe mostrar el monto total del ticket.</p>
+      <div class="form-cont">
+        <form class="form__group invert" id="form17">
+          <button type="button" onclick="capturarArticulos()">Monto del Ticket</button>
+        </form>
+      </div>
+      <p class="resp" id="articulosMsg"></p>
+      <pre>
+        <code>
+
         </code>
       </pre>
     </div>
