@@ -271,17 +271,23 @@ console.log(`El factorial de ${num} es ${factorial}`);
   <!-- Ejercicio 10 -->
     <div class="ejercicio">
       <p>10. Realizá un programa que permita validar una nota de examen. Se espera que la nota que el usuario ingrese sea un número comprendido entre 0 y 10. La misma debe ser tantas veces ingresada como sean necesarias hasta que quede comprendida dentro del rango descripto.</p>
+      <div class="form-cont">
+        <form class="form__group invert" id="form10">
+          <button type="button" onclick="validarNotas()">Validar Nota</button>
+        </form>
+      </div>
+      <p class="resp" id="validarNotaMsg"></p>
       <pre>
         <code>
-let nota = -1;
+let notas = -1;
 
-while (nota > 10 || nota < 0) {
-  nota = parseInt(prompt("Ingresa la nota del 1 al 10: "));
-  if (nota < 0 && nota > 10) {
+while (notas > 10 || notas < 0) {
+  notas = parseInt(prompt("Ingresa la nota del 1 al 10: "));
+  if (notas < 0 && notas > 10) {
     alert("La nota no es válida. Ingresa una nota ");
   }
 }
-console.log(`La nota es ${nota}`);
+console.log(`La nota es ${notas}`);
         </code>
       </pre>
     </div>
@@ -294,7 +300,7 @@ console.log(`La nota es ${nota}`);
         En resumen, las notas válidas deberán ser el 2 y el rango comprendido entre el 4 y el 10.</p>
       <div class="form-cont">
         <form class="form__group invert" id="form11">
-          <button type="button" onclick="validarNotaN()">Validar Nota</button>
+          <button type="button" onclick="validarNotaN()">Validar otra Nota</button>
         </form>
       </div>
       <p class="resp" id="validarNotaNMsg"></p>

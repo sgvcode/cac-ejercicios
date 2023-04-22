@@ -166,6 +166,21 @@ function capturarEnteros() {
   document.getElementById("form8").reset();
 }
 
+// Ejercicio 10
+function validarNotas() {
+  let notas = -1;
+
+  while (notas > 10 || notas < 0) {
+    notas = parseInt(prompt("Ingresa la nota del 1 al 10: "));
+    if (notas < 0 && notas > 10) {
+      alert("La nota no es válida. Ingresa una nota ");
+    }
+  }
+  console.log(`La nota es ${notas}`);
+  let validarNotaMsg = document.getElementById("validarNotaMsg");
+  validarNotaMsg.innerHTML = `La nota es ${notas}`;
+}
+
 // Ejercicio 9
 function capturarNatural() {
   let nNatural = parseInt(document.getElementById("nNatural").value);
@@ -293,7 +308,7 @@ function promedioMenorA20() {
   let leidosMsg = document.getElementById("leidosMsg");
 
   while (cantidad === 0 || suma / cantidad < 20) {
-    let numero = parseInt(prompt("Ingrese un número: "));
+    let numero = parseInt(prompt("Ingrese un número h/un promedio = '20': "));
     numeros.push(numero);
     suma += numero;
     cantidad++;
