@@ -301,3 +301,35 @@ function promedioMenorA20() {
 
   leidosMsg.innerHTML = `Cantidad de valores leídos: ${cantidad}<br>Lista de números ingresados: ${numeros.join(", ")}`;
 }
+
+// Ejercicio 16
+function capturarNumerosE() {
+  let numerosE = [];
+  let seguirIngresando = true;
+
+  while (seguirIngresando) {
+    let numeroE = parseInt(prompt("Ingresa un número entero: "));
+    numerosE.push(numeroE);
+
+    let opcion = prompt("¿Desea ingresar otro número? [S/N] ");
+    while (!validarOpcion(opcion)) {
+      opcion = prompt("Opción inválida. Ingrese 'S' o 'N' ");
+    }
+    seguirIngresando = (opcion.toUpperCase() === 'S');
+  }
+
+  let pares = 0;
+  numerosE.forEach(numeroE => {
+    if (numeroE % 2 === 0) {
+      pares++;
+    }
+  });
+
+  let porcentajePares = ((pares / numerosE.length) * 100).toFixed(3);
+  let paresMsg = document.getElementById("paresMsg");
+  paresMsg.innerHTML = `El porcentaje de números pares es ${porcentajePares}%<br>sobre ${numerosE.length} ingresados (${numerosE})`;
+
+  function validarOpcion(opcion) {
+    return (opcion.toUpperCase() === 'S' || opcion.toUpperCase() === 'N');
+  }
+}
