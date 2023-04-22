@@ -107,6 +107,12 @@ p.resp {
   margin-bottom: 0;
 }
 
+p.resultados{
+  display: flex;
+  flex-direction: column;
+}
+
+
 input {
   width: 20rem;
   max-width: 600px;
