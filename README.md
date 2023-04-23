@@ -1,8 +1,8 @@
 ## CAC#23053 Ejercicios ![JavaScript](https://img.shields.io/badge/-JavaScript-222222?style=flat&logo=JavaScript&logoColor=F7DF1E&label=)
 #### 🪧 [Indice de ejercicios](https://sgvcode.github.io/cac-ejercicios-javascript/)
-### 🌎 [clase 1 - Variables](https://cac-js-clase1.onrender.com)
-### 🌎 [clase 2 - Condicionales](https://cac-js-clase2.onrender.com)
-### 🌎 [clase 3 - Ciclos y Funciones](https://cac-js-clase3.onrender.com)
+#### 🌎 [clase 1 - Variables](https://cac-js-clase1.onrender.com)
+#### 🌎 [clase 2 - Condicionales](https://cac-js-clase2.onrender.com)
+#### 🌎 [clase 3 - Ciclos y Funciones](https://cac-js-clase3.onrender.com)
 <br />
 
 

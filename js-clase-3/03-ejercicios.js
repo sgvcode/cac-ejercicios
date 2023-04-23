@@ -1,19 +1,19 @@
 //Copiar código
 function copyToClipboard(codigo) {
-  var codigoText = document.querySelector(codigo + ' code').textContent;
-  navigator.clipboard.writeText(codigoText)
-    .then(() => {
-      var boton = document.querySelector(codigo + ' .btn');
-      boton.querySelector('.fa-copy').style.display = 'none';
-      boton.querySelector('.fa-check').style.display = 'inline-block';
-      setTimeout(function() {
-        boton.querySelector('.fa-copy').style.display = 'inline-block';
-        boton.querySelector('.fa-check').style.display = 'none';
-      }, 2000);
-    })
-    .catch((error) => {
-      console.error('Error al copiar al portapapeles:', error);
-    });
+    var codigoText = document.querySelector(codigo + ' code').textContent;
+    navigator.clipboard.writeText(codigoText)
+        .then(() => {
+            var boton = document.querySelector(codigo + ' .btn');
+            boton.querySelector('.fa-copy').style.display = 'none';
+            boton.querySelector('.fa-check').style.display = 'inline-block';
+            setTimeout(function () {
+                boton.querySelector('.fa-copy').style.display = 'inline-block';
+                boton.querySelector('.fa-check').style.display = 'none';
+            }, 2000);
+        })
+        .catch((error) => {
+            console.error('Error al copiar al portapapeles:', error);
+        });
 }
 
 // Ejercicio 2
@@ -472,3 +472,25 @@ form19.addEventListener("submit", function (event) {
         }
     }
 });
+
+// Ejercicio 20
+function capturarMatriz() {
+    const anchoMatriz = parseInt(document.getElementById("anchoMatriz").value);
+    const altoMatriz = parseInt(document.getElementById("altoMatriz").value);
+    let relleno = document.getElementById("rellenoMatriz").value;
+
+    // Crear la matriz de relleno
+    const matriz = [];
+    for (let i = 0; i < altoMatriz; i++) {
+        let fila = "";
+        for (let j = 0; j < anchoMatriz; j++) {
+            fila += relleno;
+        }
+        matriz.push(fila);
+    }
+
+    // Mostrar la matriz en el elemento correspondiente
+    const mostrarMatriz = document.getElementById("mostrarMatriz");
+    mostrarMatriz.innerHTML = matriz.join("<br>");
+    document.getElementById("form20").reset();
+}

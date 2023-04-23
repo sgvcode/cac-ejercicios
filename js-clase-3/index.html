@@ -700,6 +700,39 @@ capturarLogin();
         </code>
       </pre>
     </div>
+    <!-- Ejercicio 20 -->
+    <div class="ejercicio" id="20">
+      <p>20. Realizá un programa que permita al usuario ingresar dos números enteros que representen el ancho y el alto de una matriz de cruces. La computadora debe mostrar dicha matriz. </p>
+      <div class="form-cont">
+        <form class="form__group invert" id="form20">
+          <input type="number" id="anchoMatriz" class="form__input" placeholder="Ingresa el ancho de la matriz">
+          <input type="number" id="altoMatriz" class="form__input" placeholder="Ingresa el alto de la matriz">
+          <input type="text" id="rellenoMatriz" class="form__input" placeholder="Ingresa el relleno de la matriz (Ej: x)">
+          <button type="button" onclick="capturarMatriz()">Ver Matriz</button>
+        </form>
+      </div>
+      <p class="resp resultados" id="mostrarMatriz"></p>
+      <pre id="codigo20">
+        <button onclick="copyToClipboard('#codigo20')" class="btn"><i class="fa-regular fa-copy"></i><i class="fa-solid fa-check"></i></button>
+        <code>
+const anchoMatriz = parseInt(prompt("Ingresa el ancho de la matriz: "));
+const altoMatriz = parseInt(prompt("Ingresa el alto de la matriz: "));
+
+// Crear la matriz de "x"
+const matriz = [];
+for (let i = 0; i < altoMatriz; i++) {
+  let fila = "";
+  for (let j = 0; j < anchoMatriz; j++) {
+    fila += "X";
+  }
+  matriz.push(fila);
+}
+
+// Mostrar la matriz por consola
+console.log(matriz.join("\n"));
+        </code>
+      </pre>
+    </div>
     <footer>
       <code>SGVero | CAC#23053 | Docente:&nbsp;<a href="https://charlycimino.com" target="_blank">Charly Cimino</a></code>
     </footer>
