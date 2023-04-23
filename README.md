@@ -2,7 +2,9 @@
 ### 🌎 [clase 1 - Variables](https://cac-js-clase1.onrender.com)
 ### 🌎 [clase 2 - Condicionales](https://cac-js-clase2.onrender.com)
 ### 🌎 [clase 3 - Ciclos y Funciones](https://cac-js-clase3.onrender.com)
+<br />
 
-![brave_E9yKZup7re](https://user-images.githubusercontent.com/106033066/231346319-84d9df0b-afca-4c43-9a91-d9a5dd22f521.png)
-![brave_FsN9tBt2tp](https://user-images.githubusercontent.com/106033066/232187266-93e0c983-562b-4d18-8f8e-f80152c8f83b.png)
-![brave_QXXn3ceyww](https://user-images.githubusercontent.com/106033066/233234276-9875e07e-82a6-426d-93b4-6cbbaf5e166c.png)
+
+![brave_ljgOsykBSf](https://user-images.githubusercontent.com/106033066/233820264-a0f99bff-03e6-43c9-b09a-eac40b369c85.png)
+![brave_IZkcoCHaI7](https://user-images.githubusercontent.com/106033066/233820265-ca092811-79fe-4023-abce-69edd324034f.png)
+![brave_VJBZdS6G3E](https://user-images.githubusercontent.com/106033066/233820267-e8a84cc9-3d58-44fc-805a-a6b0d259e3d0.png)
