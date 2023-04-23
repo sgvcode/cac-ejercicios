@@ -1,9 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@100&family=Montserrat:wght@400&display=swap');
 
-:root {
+/* :root {
   --color1: rgb(137, 21, 0);
   --color2: orange;
   --negro: #26292E;
+} */
+
+:root {
+  --color1: rgb(49, 54, 63);
+  --color2: rgb(0, 229, 255);
+  --negro: #26292E;
+  --blanco: whitesmoke;
 }
 
 * {
@@ -129,6 +136,7 @@ form button {
 form button:hover {
   background-color: var(--color2);
   cursor: pointer;
+  color: var(--color1)
 }
 
 code {

@@ -1,9 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@100&family=Montserrat:wght@400&display=swap');
 
-:root {
+/* :root {
   --color1: rgb(151, 36, 174);
   --color2: rgb(0, 217, 255);
   --negro: #26292E;
+} */
+
+:root {
+  --color1: rgb(49, 54, 63);
+  --color2: rgb(190, 125, 255);
+  --negro: #26292E;
+  --blanco: whitesmoke;
 }
 
 * {
@@ -78,7 +85,7 @@ input::placeholder {
 }
 
 input:focus::placeholder{
-  color:transparent;
+  color: rgba(0, 0, 0, 0.214);
 }
 
 p {
