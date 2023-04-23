@@ -2,7 +2,7 @@
 #### 🪧 [Indice de ejercicios](https://sgvcode.github.io/cac-ejercicios-javascript/)
 #### 🌎 [clase 1 - Variables](https://cac-js-clase1.onrender.com)
 #### 🌎 [clase 2 - Condicionales](https://cac-js-clase2.onrender.com)
-#### 🌎 [clase 3 - Ciclos y Funciones](https://cac-js-clase3.onrender.com)
+#### 🌎 [clase 3 - Ciclos](https://cac-js-clase3.onrender.com)
 <br />
 
 
