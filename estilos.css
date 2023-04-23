@@ -24,7 +24,27 @@ header{
   margin: 0 auto;
 }
 
-h1, h3{
+menu ul{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  list-style: none;
+  padding: .5rem 0;
+  background-color: var(--color2);
+  font-size: .9rem;
+  font-weight: bold;
+}
+
+menu ul li a{
+  text-decoration: none;
+  color: var(--color1);
+}
+
+menu ul li a:hover {
+  color: var(--blanco);
+}
+
+h1, h3, h4{
   text-align: center;
   padding: .4rem 0;
   color: var(--blanco);
@@ -37,9 +57,44 @@ h1 span {
   color: var(--color2);
 }
 
-main h3 {
+main {
+  margin: 2rem 0;
+}
+
+main h3, h4 {
   color: var(--negro);
   font-weight: bold;
+}
+
+main h4.clase {
+  margin-bottom: 1rem;
+}
+
+main article.clases {
+  border: 1px solid var(--color2);
+  width: 90%;
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 3rem;
+}
+
+main article ul {
+  list-style: decimal;
+  font-size: .9rem;
+}
+
+main article ul li {
+  padding-bottom: 1.1rem;
+}
+
+main article ul a{
+  color: var(--color2);
+  font-size: .7rem;
+  text-decoration: none;
+}
+
+main article ul a:hover {
+  color: var(--negro);
 }
 
 footer {

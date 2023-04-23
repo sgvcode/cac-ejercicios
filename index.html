@@ -1,22 +1,88 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="estilos.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.8/clipboard.min.js"></script>
   <title>EJERCICIOS DE JAVASCRIPT - CAC#23053</title>
 </head>
+
 <body>
   <header>
     <h1>Javascript - Ejercicios | <span>CAC#23053</span></h1>
     <h3>Comisión: Carlos Cimino (2023)</h3>
   </header>
+  <menu>
+    <ul>
+      <li><a href="#clase1">Clase 1</a></li>
+      <li><a href="#clase2">Clase 2</a></li>
+      <li><a href="#clase3">Clase 3</a></li>
+      <li><a href="#clase4">Clase 4</a></li>
+    </ul>
+  </menu>
   <main class="ejercicios">
     <h3>Listado de ejercicios por Clase</h3>
+    <article class="clases">
+      <h4 class="clase">Clase 1 - GUÍA PRÁCTICA DE INTRODUCCIÓN <a href="js-clase-1/index.html">
+          <i class="fa-solid fa-eye fa-beat" style="color: #ffa600;"></i>
+        </a></h4>
+      <ul>
+        <li>Realizá un programa que permita al usuario ingresar su nombre. La computadora debe emitir una
+          salida con un mensaje de bienvenida que incluya el nombre ingresado. <a
+            href="/js-clase-1/index.html#1" target="_blank">VER</a></li>
+        <li>Realizá un programa que permita al usuario ingresar un número entero. La computadora debe
+          informar el número opuesto1 y el número inverso2 del ingresado. <a href="/js-clase-1/index.html#2" target="_blank">VER</a>
+        </li>
+        <li>Realizá un programa que permita al usuario ingresar 3 notas pertenecientes a tres trimestres
+          distintos para cierto alumno. La computadora debe mostrar la nota promedio. <a
+            href="/js-clase-1/index.html#3" target="_blank">VER</a></li>
+        <li>Realizá un programa que permita al usuario ingresar el valor salarial de una hora de trabajo y la
+          cantidad de horas trabajadas por día. La computadora debe mostrar el valor del salario semanal,
+          asumiendo que trabaja todos los días hábiles y media jornada los sábados. <a
+            href="/js-clase-1/index.html#4" target="_blank">VER</a></li>
+        <li>Realizá un programa que permita al usuario ingresar valores del mismo tipo para las variables a
+          y b. Una vez cargadas, la computadora debe mostrar ambas variables por pantalla, intercambiar
+          entre sí sus valores (que lo cargado en a quede en b, y viceversa), y volver a mostrarlas. <a
+            href="/js-clase-1/index.html#5" target="_blank">VER</a></li>
+        <li>Realizá un programa que permita al usuario ingresar el valor unitario de cierto artículo y la
+          cantidad de artículos vendidos por un vendedor, del cual se sabe que gana un sueldo fijo de $14000
+          más el 16% del monto total vendido. Con tales datos, la computadora debe calcular el sueldo
+          mensual del vendedor y mostrarlo. <a href="/js-clase-1/index.html#6" target="_blank">VER</a></li>
+        <li>Realizá un programa que permita al usuario ingresar el ancho y el largo de un terreno en metros
+          y el valor del metro cuadrado de tierra. La computadora debe mostrar el valor total del terreno y la
+          cantidad de metros de alambre que serían necesarios para cercarlo completamente en tres pasadas.
+          <a href="/js-clase-1/index.html#7" target="_blank">VER</a>
+        </li>
+        <li>Realizá un programa que permita al usuario ingresar dos números enteros. La computadora debe
+          mostrar los resultados de las 4 operaciones matemáticas básicas con tales números. <a
+            href="/js-clase-1/index.html#8" target="_blank">VER</a></li>
+        <li> Realizá un programa que permita al usuario ingresar dos números enteros, que representan las
+          medidas en grados de dos ángulos interiores de cierto triángulo. La computadora debe mostrar el
+          valor en grados del ángulo restante.3 <a href="/js-clase-1/index.html#9" target="_blank">VER</a></li>
+        <li>Realizá un programa que permita al usuario ingresar los nombres de tres inversores junto al
+          capital invertido por cada uno. La computadora debe informar qué porcentaje del total aportó cada
+          uno y cuál es el monto del total aportado entre los tres. <a href="/js-clase-1/index.html#10" target="_blank">VER</a></li>
+      </ul>
+    </article>
+    <button class="btn" data-clipboard-target="#codigo"><i class="fa-regular fa-copy"></i></button>
+    <pre id="codigo">
+      <code>
+        // Aquí va tu código
+        function chau() {
+          console.log('Chau, mundo!');
+        }
+      </code>
+    </pre>
+    
   </main>
   <footer>
     <code>SGVero | CAC#23053 | Docente:&nbsp;<a href="https://charlycimino.com" target="_blank">Charly Cimino</a></code>
   </footer>
+  <script src="app.js"></script>
+  <script src="https://kit.fontawesome.com/ad22120107.js" crossorigin="anonymous"></script>
 </body>
+
 </html>

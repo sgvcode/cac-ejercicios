@@ -119,7 +119,6 @@ p.resultados{
   flex-direction: column;
 }
 
-
 input {
   width: 20rem;
   max-width: 600px;
@@ -254,8 +253,26 @@ footer a:hover {
   color: var(--color2)
 }
 
-span.aha{
-  display: flex;
-  justify-content: right;
-  
+pre {
+  position: relative;
+}
+
+pre button.btn {
+  position: absolute;
+  right: 8px;
+  top: 45px;
+  background-color: transparent;
+  border: none;
+  color: var(--blanco);
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+pre button.btn:hover{
+  color: var(--color2);
+}
+
+.btn i.fa-check {
+  display: none;
+  color: var(--color2);
 }

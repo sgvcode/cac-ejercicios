@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="index3.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/atom-one-dark.min.css">
-
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.8/clipboard.min.js"></script>
   <title>Practica JS</title>
 </head>
 
@@ -22,7 +22,8 @@
       <p>1- Realizá un programa que muestre todos los números enteros del '1 al 100', y luego, los mismos números,
         pero
         en orden inverso.</p>
-      <pre>
+      <pre id="codigo1">
+        <button onclick="copyToClipboard('#codigo1')" class="btn"><i class="fa-regular fa-copy"></i><i class="fa-solid fa-check"></i></button>
         <code>
 // Mostrar los números del 1 al 100
 for (let i = 1; i <= 100; i++) {
@@ -51,8 +52,9 @@ for (let i = 100; i >= 1; i--) {
           <button type="button" onclick="capturarSecuencia()">Calcular</button>
         </form>
       </div>
-      <p class="resp" id="seriesMsg"></p>
-      <pre>
+     <p class="resp resultados" id="seriesMsg"></p>
+      <pre id="codigo2">
+        <button onclick="copyToClipboard('#codigo2')" class="btn"><i class="fa-regular fa-copy"></i><i class="fa-solid fa-check"></i></button>
         <code>
 let n1 = parseInt(prompt("Ingresa un número: "));
 let n2 = parseInt(prompt("Ingresa otro número igual o mayor que el anterior: "));
@@ -85,7 +87,8 @@ console.log(`Exclusiva entre ${n1} y ${n2}: "${serie2}"`);
         </form>
       </div>
       <p class="resp" id="tablaMsg"></p>
-      <pre>
+      <pre id="codigo3">
+        <button onclick="copyToClipboard('#codigo3')" class="btn"><i class="fa-regular fa-copy"></i><i class="fa-solid fa-check"></i></button>
         <code>
 let multiplicando = parseInt(prompt("Ingresa un número: "));
 
@@ -111,7 +114,8 @@ multiplicar()
         </form>
       </div>
       <p class="resp" id="multiplosMsg"></p>
-      <pre>
+      <pre id="codigo4">
+        <button onclick="copyToClipboard('#codigo4')" class="btn"><i class="fa-regular fa-copy"></i><i class="fa-solid fa-check"></i></button>
         <code>
 let nNat = prompt("Ingrese un número natural: ");
 let multiplos = [];
@@ -144,7 +148,8 @@ console.log(`Los primeros ${nNat} múltiplos de 3, excepto los múltiplos de 5 s
         </form>
       </div>
       <p class="resp" id="imparesSup18Msg"></p>
-      <pre>
+      <pre id="codigo5">
+        <button onclick="copyToClipboard('#codigo5')" class="btn"><i class="fa-regular fa-copy"></i><i class="fa-solid fa-check"></i></button>
         <code>
 const edadMinima = 18;
 let cantEdades = 5;
@@ -175,7 +180,8 @@ console.log(`La cantidad de edades impares menores de ${edadMinima} {cantEdadesO
         </form>
       </div>
       <p class="resp" id="ventasMsg"></p>
-      <pre>
+      <pre id="codigo6">
+        <button onclick="copyToClipboard('#codigo6')" class="btn"><i class="fa-regular fa-copy"></i><i class="fa-solid fa-check"></i></button>
         <code>
 let cant = parseInt(prompt("Cantidad de ventas realizadas? "));
 let monto;
@@ -205,7 +211,8 @@ console.log(`El monto total vendidos es: ${montoAcu}`)
         </form>
       </div>
       <p class="resp" id="alturaPromedioMsg"></p>
-      <pre>
+      <pre id="codigo7">
+        <button onclick="copyToClipboard('#codigo7')" class="btn"><i class="fa-regular fa-copy"></i><i class="fa-solid fa-check"></i></button>
         <code>
 let cant1 = parseInt(prompt('Nº de Jugadores? '));
 let alturas;
@@ -237,7 +244,8 @@ console.log(`La estatura promedio de ${cant1} jugadores es ${alturaPromedio.toFi
         </form>
       </div>
       <p class="resp" id="enterosMsg"></p>
-      <pre>
+      <pre id="codigo8">
+        <button onclick="copyToClipboard('#codigo8')" class="btn"><i class="fa-regular fa-copy"></i><i class="fa-solid fa-check"></i></button>
         <code>
 let cantInt = parseInt(prompt("Ingrese la cantidad de números enteros: "));
 let numeros = [];
@@ -278,7 +286,8 @@ console.log(`El número mayor es ${maxNum} y apareció en la posición ${maxPos}
         </form>
       </div>
       <p class="resp" id="factorialMsg"></p>
-      <pre>
+      <pre id="codigo9">
+        <button onclick="copyToClipboard('#codigo9')" class="btn"><i class="fa-regular fa-copy"></i><i class="fa-solid fa-check"></i></button>
         <code>
 let num = parseInt(prompt("Ingrese un número natural: "));
 let factorial = 1;
@@ -304,7 +313,8 @@ console.log(`El factorial de ${num} es ${factorial}`);
         </form>
       </div>
       <p class="resp" id="validarNotaMsg"></p>
-      <pre>
+      <pre id="codigo10">
+        <button onclick="copyToClipboard('#codigo10')" class="btn"><i class="fa-regular fa-copy"></i><i class="fa-solid fa-check"></i></button>
         <code>
 let notas = -1;
 
@@ -331,7 +341,8 @@ console.log(`La nota es ${notas}`);
         </form>
       </div>
       <p class="resp" id="validarNotaNMsg"></p>
-      <pre>
+      <pre id="codigo11">
+        <button onclick="copyToClipboard('#codigo11')" class="btn"><i class="fa-regular fa-copy"></i><i class="fa-solid fa-check"></i></button>
         <code>
 let nota = -1;
 
@@ -364,7 +375,8 @@ while (nota < 0 || nota > 10 || nota === 1 || nota === 3) {
         </form>
       </div>
       <p class="resp" id="finalizarMsg"></p>
-      <pre>
+      <pre id="codigo12">
+        <button onclick="copyToClipboard('#codigo12')" class="btn"><i class="fa-regular fa-copy"></i><i class="fa-solid fa-check"></i></button>
         <code>
 //Opción con while
 let continuar = "";
@@ -407,7 +419,8 @@ if (["S", "s"].includes(continuar)) {
         </form>
       </div>
       <p class="resp" id="listaMaxMinMsg"></p>
-      <pre>
+      <pre id="codigo13">
+        <button onclick="copyToClipboard('#codigo13')" class="btn"><i class="fa-regular fa-copy"></i><i class="fa-solid fa-check"></i></button>
         <code>
 let unoADiez = 1;
 let listaNumeros = [];
@@ -445,7 +458,8 @@ if (listaNumeros.length >= 1) {
         </form>
       </div>
       <p class="resp" id="personaMsg"></p>
-      <pre>
+      <pre id="codigo14">
+        <button onclick="copyToClipboard('#codigo14')" class="btn"><i class="fa-regular fa-copy"></i><i class="fa-solid fa-check"></i></button>
         <code>
 let nombre;
 let edad = 0;
@@ -483,7 +497,8 @@ if (personaMasJoven !== "") {
         </form>
       </div>
       <p class="resp" id="leidosMsg"></p>
-      <pre>
+      <pre id="codigo15">
+        <button onclick="copyToClipboard('#codigo15')" class="btn"><i class="fa-regular fa-copy"></i><i class="fa-solid fa-check"></i></button>
         <code>
 let numero = 0;
 let sumatoria = 0;
@@ -514,7 +529,8 @@ console.log(`Se leyeron ${cantidad} valores.`);
         </form>
       </div>
       <p class="resp" id="paresMsg"></p>
-      <pre>
+      <pre id="codigo16">
+        <button onclick="copyToClipboard('#codigo16')" class="btn"><i class="fa-regular fa-copy"></i><i class="fa-solid fa-check"></i></button>
         <code>
 let numerosE = [];
 let seguirIngresando = true;
@@ -562,7 +578,8 @@ function validarOpcion(opcion) {
         </form>
       </div>
       <p class="resp resultados" id="articulosMsg"></p>
-      <pre>
+      <pre id="codigo17">
+        <button onclick="copyToClipboard('#codigo17')" class="btn"><i class="fa-regular fa-copy"></i><i class="fa-solid fa-check"></i></button>
         <code>
 let continuar = true;
 let montoTotal = 0;
@@ -618,7 +635,8 @@ console.log("El monto total del ticket es: $" + montoTotal.toFixed(2));
         </form>
       </div>
       <p class="resp resultados" id="sueldoAnualMsg"></p>
-      <pre>
+      <pre id="codigo18">
+        <button onclick="copyToClipboard('#codigo18')" class="btn"><i class="fa-regular fa-copy"></i><i class="fa-solid fa-check"></i></button>
         <code>
 function calcularSueldoAnual() {
   let sueldosMensuales = [];
@@ -656,7 +674,8 @@ calcularSueldoAnual();
         </form>
       </div>
       <p class="resp resultados" id="loginMsg"></p>
-      <pre>
+      <pre id="codigo19">
+        <button onclick="copyToClipboard('#codigo19')" class="btn"><i class="fa-regular fa-copy"></i><i class="fa-solid fa-check"></i></button>
         <code>
 function capturarLogin() {
   let username = "";
@@ -686,6 +705,7 @@ capturarLogin();
     </footer>
   </div>
   <script src="03-ejercicios.js"></script>
+  <script src="https://kit.fontawesome.com/ad22120107.js" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
   <script>hljs.highlightAll();</script>
 </body>

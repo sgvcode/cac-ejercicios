@@ -1,3 +1,22 @@
+//Copiar código
+function copyToClipboard(codigo) {
+  var codigoText = document.querySelector(codigo + ' code').textContent;
+  navigator.clipboard.writeText(codigoText)
+    .then(() => {
+      var boton = document.querySelector(codigo + ' .btn');
+      boton.querySelector('.fa-copy').style.display = 'none';
+      boton.querySelector('.fa-check').style.display = 'inline-block';
+      setTimeout(function() {
+        boton.querySelector('.fa-copy').style.display = 'inline-block';
+        boton.querySelector('.fa-check').style.display = 'none';
+      }, 2000);
+    })
+    .catch((error) => {
+      console.error('Error al copiar al portapapeles:', error);
+    });
+}
+
+// Ejercicio 2
 function capturarSecuencia() {
     let n1 = parseInt(document.getElementById("n1").value);
     let n2 = parseInt(document.getElementById("n2").value);
@@ -200,7 +219,7 @@ function validarNotaN() {
     let notaN = -1;
     let validarNotaNMsg = document.getElementById("validarNotaNMsg");
 
-    while (notaN <= 0 || notaN > 10 || notaN === 1 || notaN === 3) {
+    while (isNaN(notaN) || notaN <= 0 || notaN > 10 || notaN === 1 || notaN === 3) {
         notaN = parseInt(prompt("Ingresa una nota: "));
         if (notaN <= 0 || notaN > 10 || notaN === 1 || notaN === 3) {
             alert("Nota inválida, ingresa una nota: ");
@@ -422,7 +441,7 @@ const loginMsg = document.getElementById("loginMsg");
 const maxIntentos = 3;
 let cuentaIntentos = 0;
 
-form19.addEventListener("submit", function(event) {
+form19.addEventListener("submit", function (event) {
     event.preventDefault(); // previene que se refresque la página
 
     const user = username.value;
