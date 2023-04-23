@@ -394,3 +394,62 @@ function capturarArticulos() {
     // Mostrar monto total del ticket
     articulosMsg.innerHTML += `El monto total del ticket es: $${montoTotal.toFixed(2)}`;
 }
+
+// Ejercicio 18
+function capturarSueldoAnual() {
+    let sueldosMensuales = [];
+    let sueldoTotal = 0;
+
+    for (let i = 1; i <= 12; i++) {
+        let sueldo = parseFloat(prompt(`Ingrese el sueldo del mes ${i}:`));
+        if (sueldo < 0) {
+            break;
+        } else {
+            sueldosMensuales.push(sueldo);
+            sueldoTotal += sueldo;
+        }
+    }
+
+    let sueldoAnualMsg = document.getElementById("sueldoAnualMsg");
+    sueldoAnualMsg.innerHTML = `El sueldo anual percibido es de $${sueldoTotal.toFixed(2)}<br>(${sueldosMensuales})`;
+}
+
+// Ejercicio 19
+const form19 = document.getElementById("form19");
+const username = document.getElementById("username");
+const password = document.getElementById("password");
+const loginMsg = document.getElementById("loginMsg");
+const maxIntentos = 3;
+let cuentaIntentos = 0;
+
+form19.addEventListener("submit", function(event) {
+    event.preventDefault(); // previene que se refresque la página
+
+    const user = username.value;
+    const pass = password.value;
+
+    if (user === "admin" && pass === "123456") {
+        // credenciales correctas
+        cuentaIntentos = 0; // reinicia el contador de intentos
+        form19.reset();
+        username.focus();
+        loginMsg.textContent = "Acceso concedido!";
+    } else {
+        // credenciales incorrectas
+        cuentaIntentos++;
+        const intentosRestantes = maxIntentos - cuentaIntentos;
+        if (intentosRestantes > 0) {
+            // quedan intentos disponibles
+            loginMsg.textContent = `Credenciales incorrectas. Te quedan ${intentosRestantes} intentos.`;
+            username.focus();
+            form19.reset();
+        } else {
+            // se agotaron los intentos
+            loginMsg.textContent = "Se ha bloqueado la cuenta";
+            form19.reset();
+            username.disabled = true; // desactiva el campo de usuario
+            password.disabled = true; // desactiva el campo de contraseña
+            document.querySelector("button[type=submit]").disabled = true; // desactiva el botón de envío
+        }
+    }
+});

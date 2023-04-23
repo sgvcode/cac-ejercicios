@@ -561,7 +561,7 @@ function validarOpcion(opcion) {
           <button type="button" onclick="capturarArticulos()">Monto del Ticket</button>
         </form>
       </div>
-        <p class="resp resultados" id="articulosMsg"></p>
+      <p class="resp resultados" id="articulosMsg"></p>
       <pre>
         <code>
 let continuar = true;
@@ -606,8 +606,83 @@ console.log("El monto total del ticket es: $" + montoTotal.toFixed(2));
         </code>
       </pre>
     </div>
+    <!-- Ejercicio 18 -->
+    <div class="ejercicio">
+      <p>18. Realizá un programa que permita al usuario ingresar 12 valores, de a uno por vez, que representan los
+        sueldos mensuales que percibió un empleado durante un año. Si durante la carga de los sueldos mensuales se
+        detecta un valor negativo, esto indica que aún no se ha cobrado el mes en curso, por lo tanto, deben dejar de
+        ingresarse datos. La computadora debe mostrar el sueldo anual percibido (total o parcial).</p>
+      <div class="form-cont">
+        <form class="form__group invert" id="form18">
+          <button type="button" onclick="capturarSueldoAnual()">Total Sueldos Cobrados</button>
+        </form>
+      </div>
+      <p class="resp resultados" id="sueldoAnualMsg"></p>
+      <pre>
+        <code>
+function calcularSueldoAnual() {
+  let sueldosMensuales = [];
+  let sueldoTotal = 0;
+
+  for (let i = 1; i <= 12; i++) {
+    let sueldo = parseFloat(prompt(`Ingrese el sueldo del mes ${i}: `));
+    if (sueldo < 0) {
+      break;
+    } else {
+      sueldosMensuales.push(sueldo);
+      sueldoTotal += sueldo;
+    }
+  }
+
+  alert(`El sueldo anual percibido es de $${sueldoTotal.toFixed(2)}`);
+}
+
+calcularSueldoAnual();
+        </code>
+      </pre>
+    </div>
+    <!-- Ejercicio 19 -->
+    <div class="ejercicio">
+      <p>19. Realizá un programa que permita la validación del ingreso a un sitio web. Teniendo ya precargados un nombre
+        de usuario ("admin") y una contraseña ("123456"), el programa debe permitir al usuario ingresar sus
+        credenciales. Si las mismas son erróneas, se volverán a pedir hasta un máximo de 3 intentos. Finalmente, la
+        computadora debe mostrar alguno de los siguientes mensajes según sea el caso: "Acceso concedido" o "Se ha
+        bloqueado la cuenta".</p>
+      <div class="form-cont">
+        <form class="form__group invert" id="form19">
+          <input type="text" id="username" class="form__input" placeholder="Nombre de usuario">
+          <input type="password" id="password" class="form__input" placeholder="Contraseña">
+          <button type="submit" onclick="capturarLogin()">Ingresar</button>
+        </form>
+      </div>
+      <p class="resp resultados" id="loginMsg"></p>
+      <pre>
+        <code>
+function capturarLogin() {
+  let username = "";
+  let password = "";
+
+  for (let i = 3; i >= 1; i--) {
+      username = prompt("Nombre de Usuario: ");
+      password = prompt("Password: ");
+      if (username !== "admin" || password !== "123456") {
+          if (i === 1) {
+              alert("Se ha bloqueado la cuenta");
+          } else {
+              alert(`Credenciales incorrectas. Intentos restantes: ${i - 1}`);
+          }
+      } else {
+          alert("Acceso concedido");
+          break;
+      }
+  }
+}
+capturarLogin();
+        </code>
+      </pre>
+    </div>
     <footer>
-      <code>SGVero | CAC#23053 | Docente: <a href="https://charlycimino.com"> Charly Cimino</a></code>
+      <code>SGVero | CAC#23053 | Docente:<a href="https://charlycimino.com">&nbsp;Charly Cimino</a></code>
     </footer>
   </div>
   <script src="03-ejercicios.js"></script>
