@@ -479,12 +479,18 @@ function capturarMatriz() {
     const altoMatriz = parseInt(document.getElementById("altoMatriz").value);
     let relleno = document.getElementById("rellenoMatriz").value;
 
+    // Establecer valor por defecto del relleno
+    relleno = relleno === "" ? "+" : relleno;
+
     // Crear la matriz de relleno
+    if (isNaN(altoMatriz) || isNaN(anchoMatriz)){
+        alert("Ingresar ancho y alto de la matriz");
+    }
     const matriz = [];
     for (let i = 0; i < altoMatriz; i++) {
         let fila = "";
         for (let j = 0; j < anchoMatriz; j++) {
-            fila += relleno;
+            fila += relleno.toUpperCase();
         }
         matriz.push(fila);
     }
