@@ -20,14 +20,15 @@ body {
 
 header{
   background-color: var(--color1);
-  height: 6rem;
+  height: auto;
   margin: 0 auto;
+  padding: 1rem 0;
 }
 
 menu ul{
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-evenly;
   list-style: none;
   padding: .5rem 0;
   background-color: var(--color2);
@@ -44,11 +45,16 @@ menu ul li a:hover {
   color: var(--blanco);
 }
 
-h1, h3, h4{
+h1, h3, h4, h5{
   text-align: center;
   padding: .4rem 0;
   color: var(--blanco);
   font-weight: 400;
+}
+
+h5 a{
+  color: var(--color2);
+  text-decoration: none;
 }
 
 h1 span {
@@ -58,10 +64,10 @@ h1 span {
 }
 
 main {
-  margin: 2rem 0;
+  margin: 1rem 0 5rem;
 }
 
-main h3, h4 {
+main h3, h4, h5 {
   color: var(--negro);
   font-weight: bold;
 }
@@ -75,7 +81,7 @@ main article.clases {
   width: 90%;
   max-width: 800px;
   margin: 2rem auto;
-  padding: 3rem;
+  padding: 2rem 3rem;
 }
 
 main article ul {
@@ -114,4 +120,8 @@ footer a {
 
 footer a:hover {
   color:var(--blanco);
+}
+
+#clase4 {
+  filter: grayscale(90%) brightness(120%);
 }

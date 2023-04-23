@@ -18,7 +18,7 @@
   <!-- EJERCICIOS CLASE 1 -->
   <div class="contenido">
     <!-- Ejercicio 1 -->
-    <div class="ejercicio">
+    <div class="ejercicio" id="1">
       <p>1- Realizá un programa que muestre todos los números enteros del '1 al 100', y luego, los mismos números,
         pero
         en orden inverso.</p>
@@ -38,7 +38,7 @@ for (let i = 100; i >= 1; i--) {
       </pre>
     </div>
     <!-- Ejercicio 2 -->
-    <div class="ejercicio">
+    <div class="ejercicio" id="2">
       <p>2. Realizá un programa que permita al usuario ingresar dos números enteros 'num1' y 'num2', donde el
         primero
         siempre deberá ser menor o igual al segundo. La computadora debe mostrar la secuencia de números
@@ -75,7 +75,7 @@ console.log(`Exclusiva entre ${n1} y ${n2}: "${serie2}"`);
       </pre>
     </div>
     <!-- Ejercicio 3 -->
-    <div class="ejercicio">
+    <div class="ejercicio" id="3">
       <p>3. Realizá un programa que permita al usuario ingresar un número entero 'n' entre '1 y 10'. La
         computadora debe
         mostrar la tabla de multiplicar de 'n'.</p>
@@ -102,7 +102,7 @@ multiplicar()
       </pre>
     </div>
     <!-- Ejercicio 4 -->
-    <div class="ejercicio">
+    <div class="ejercicio" id="4">
       <p>4. Realizá un programa que permita al usuario ingresar un número natural 'n'. La computadora debe mostrar
         los
         primeros 'n' múltiplos de '3' excepto aquellos que sean a la vez múltiplos de '5'.</p>
@@ -133,7 +133,7 @@ console.log(`Los primeros ${nNat} múltiplos de 3, excepto los múltiplos de 5 s
       </pre>
     </div>
     <!-- Ejercicio 5 -->
-    <div class="ejercicio">
+    <div class="ejercicio" id="5">
       <p>5. Realizá un programa que permita al usuario ingresar 5 edades. La computadora debe indicar cuántas
         edades
         fueron valores impares mayores que '18'</p>
@@ -167,7 +167,7 @@ console.log(`La cantidad de edades impares menores de ${edadMinima} {cantEdadesO
       </pre>
     </div>
     <!-- Ejercicio 6 -->
-    <div class="ejercicio">
+    <div class="ejercicio" id="6">
       <p>6. Realizá un programa que permita al usuario ingresar un número entero cant. Acto seguido, que permita
         ingresar cant números reales, correspondientes a las ventas realizadas por cierto vendedor. La
         computadora debe
@@ -198,7 +198,7 @@ console.log(`El monto total vendidos es: ${montoAcu}`)
       </pre>
     </div>
     <!-- Ejercicio 7 -->
-    <div class="ejercicio">
+    <div class="ejercicio" id="7">
       <p>7. Realizá un programa que permita al usuario ingresar un número entero 'cant'. Acto seguido, que permita
         ingresar 'cant' números reales, correspondientes a las estaturas de un equipo de jugadores de baloncesto
         (en
@@ -231,7 +231,7 @@ console.log(`La estatura promedio de ${cant1} jugadores es ${alturaPromedio.toFi
       </pre>
     </div>
     <!-- Ejercicio 8 -->
-    <div class="ejercicio">
+    <div class="ejercicio" id="8">
       <p>8. Realizá un programa que permita al usuario ingresar un número entero cant. Acto seguido, que permita
         ingresar cant números enteros. La computadora debe mostrar cuál fue el mayor número y en qué posición
         apareció.
@@ -269,7 +269,7 @@ console.log(`El número mayor es ${maxNum} y apareció en la posición ${maxPos}
       </pre>
     </div>
     <!-- Ejercicio 9 -->
-    <div class="ejercicio">
+    <div class="ejercicio" id="9">
       <p>9. Realizá un programa que permita al usuario ingresar un número natural. La computadora debe mostrar el
         factorial(1) del número.</p>
       <p class="nota">1 El factorial de un entero positivo n se define como el producto de todos los números
@@ -301,7 +301,7 @@ console.log(`El factorial de ${num} es ${factorial}`);
       </pre>
     </div>
     <!-- Ejercicio 10 -->
-    <div class="ejercicio">
+    <div class="ejercicio" id="10">
       <p>10. Realizá un programa que permita validar una nota de examen. Se espera que la nota que el usuario
         ingrese
         sea un número comprendido entre 0 y 10. La misma debe ser tantas veces ingresada como sean necesarias
@@ -329,7 +329,7 @@ console.log(`La nota es ${notas}`);
       </pre>
     </div>
     <!-- Ejercicio 11 -->
-    <div class="ejercicio">
+    <div class="ejercicio" id="11">
       <p>11. Realizá un programa que permita validar una nota de examen de la misma manera que el
         ejercicio anterior, pero con las siguientes nuevas directivas:<br />
         ▪ La nota 0 se reserva para los ausentes.<br />
@@ -358,7 +358,7 @@ while (nota < 0 || nota > 10 || nota === 1 || nota === 3) {
       </pre>
     </div>
     <!-- Ejercicio 12 -->
-    <div class="ejercicio">
+    <div class="ejercicio" id="12">
       <p>12. Realizá un programa que permita validar una opción ingresada. La computadora preguntará al usuario si
         desea
         continuar una operación de la forma "¿Deseás continuar? [S/N]". Se espera que el usuario ingrese una 'S'
@@ -409,7 +409,7 @@ if (["S", "s"].includes(continuar)) {
       </pre>
     </div>
     <!-- Ejercicio 13 -->
-    <div class="ejercicio">
+    <div class="ejercicio" id="13">
       <p>13. Realizá un programa que permita al usuario ingresar números hasta que se introduzca un 0. La
         computadora
         debe mostrar el número máximo y el número mínimo.</p>
@@ -447,7 +447,7 @@ if (listaNumeros.length >= 1) {
       </pre>
     </div>
     <!-- Ejercicio 14 -->
-    <div class="ejercicio">
+    <div class="ejercicio" id="14">
       <p>14. Realizá un programa que permita al usuario ingresar personas (para cada una, nombre y edad). La carga
         termina cuando en el nombre de la persona se ingresa un asterisco ('*'). La computadora debe indicar
         cómo se
@@ -487,7 +487,7 @@ if (personaMasJoven !== "") {
       </pre>
     </div>
     <!-- Ejercicio 15 -->
-    <div class="ejercicio">
+    <div class="ejercicio" id="15">
       <p>15. Realizá un programa que permita al usuario ingresar números mientras el promedio entre todos los
         ingresados
         sea menor a 20. La computadora debe indicar la cantidad de valores leídos.</p>
@@ -515,7 +515,7 @@ console.log(`Se leyeron ${cantidad} valores.`);
       </pre>
     </div>
     <!-- Ejercicio 16 -->
-    <div class="ejercicio">
+    <div class="ejercicio" id="16">
       <p>16. Realizá un programa que permita al usuario ingresar números enteros. Por cada carga debe preguntar si
         se
         desea seguir ingresando, de la forma "¿Deseás ingresar otro número? [S/N]". La carga de datos finaliza
@@ -563,7 +563,7 @@ function validarOpcion(opcion) {
       </pre>
     </div>
     <!-- Ejercicio 17 -->
-    <div class="ejercicio">
+    <div class="ejercicio" id="17">
       <p>17. Realizá un programa que permita al usuario ingresar la cantidad de cierto artículo y el precio
         unitario de
         dicho artículo. Por cada carga debe preguntar si se desea seguir ingresando de la forma "¿Deseás
@@ -624,7 +624,7 @@ console.log("El monto total del ticket es: $" + montoTotal.toFixed(2));
       </pre>
     </div>
     <!-- Ejercicio 18 -->
-    <div class="ejercicio">
+    <div class="ejercicio" id="18">
       <p>18. Realizá un programa que permita al usuario ingresar 12 valores, de a uno por vez, que representan los
         sueldos mensuales que percibió un empleado durante un año. Si durante la carga de los sueldos mensuales se
         detecta un valor negativo, esto indica que aún no se ha cobrado el mes en curso, por lo tanto, deben dejar de
@@ -660,7 +660,7 @@ calcularSueldoAnual();
       </pre>
     </div>
     <!-- Ejercicio 19 -->
-    <div class="ejercicio">
+    <div class="ejercicio" id="19">
       <p>19. Realizá un programa que permita la validación del ingreso a un sitio web. Teniendo ya precargados un nombre
         de usuario ("admin") y una contraseña ("123456"), el programa debe permitir al usuario ingresar sus
         credenciales. Si las mismas son erróneas, se volverán a pedir hasta un máximo de 3 intentos. Finalmente, la
