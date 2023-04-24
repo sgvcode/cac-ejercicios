@@ -702,7 +702,7 @@ capturarLogin();
     </div>
     <!-- Ejercicio 20 -->
     <div class="ejercicio" id="20">
-      <p>20. Realizá un programa que permita al usuario ingresar dos números enteros que representen el ancho y el alto de una matriz de cruces. La computadora debe mostrar dicha matriz. </p>
+      <p>20. Realizá un programa que permita al usuario ingresar dos números enteros que representen el ancho y el alto de una matriz de cruces. La computadora debe mostrar dicha matriz. Añadido: Si no se ingresa ningún relleno, por defecto es un cruz, sino, es rellenado a elección. </p>
       <div class="form-cont">
         <form class="form__group invert" id="form20">
           <input type="number" id="anchoMatriz" class="form__input" placeholder="Ingresa el ancho de la matriz">
@@ -730,6 +730,49 @@ for (let i = 0; i < altoMatriz; i++) {
 
 // Mostrar la matriz por consola
 console.log(matriz.join("\n"));
+        </code>
+      </pre>
+    </div>
+    <!-- Ejercicio 21 -->
+    <div class="ejercicio" id="20">
+      <p>21. Realizá un programa que permita al usuario ingresar un número de minutos. La computadora debe mostrar un cronómetro con el formato "mm:ss"desde "00:00"hasta un segundo antes del minuto ingresado.  </p>
+      <div class="form-cont">
+        <form class="form__group invert" id="form20">
+          <input type="number" max="10" min="1" id="cantidadMinutos" class="form__input" placeholder=" ">
+          <label for="cantidadMinutos" type="number" class="form__label">Ingresa la cantidad de minutos</label>
+          <button class="btnMini" type="button" onclick="iniciarCronometro()">Iniciar Cronometro</button>
+          <button class="btnMini" type="button" onclick="reiniciarCronometro()">Detener</button>
+        </form>
+      </div>
+      <p class="resp resultados" id="cronometro">00:00</p>
+      <pre id="codigo20">
+        <button onclick="copyToClipboard('#codigo20')" class="btn"><i class="fa-regular fa-copy"></i><i class="fa-solid fa-check"></i></button>
+        <code>
+// Pedimos al usuario que ingrese los minutos
+const minutos = parseInt(prompt("Ingresa la cantidad de minutos:"));
+
+// Convertimos los minutos a segundos
+const segundosTotales = minutos * 60;
+
+// Función que actualiza el cronómetro
+function actualizarCronometro(segundosRestantes) {
+  // Calculamos los minutos y segundos actuales
+  const minutosActuales = Math.floor(segundosRestantes / 60);
+  const segundosActuales = segundosRestantes % 60;
+
+  // Mostramos el tiempo actual en formato mm:ss
+  console.log(`${minutosActuales.toString().padStart(2, "0")}:${segundosActuales.toString().padStart(2, "0")}`);
+
+  // Si quedan segundos, programamos la siguiente actualización
+  if (segundosRestantes > 0) {
+    setTimeout(() => {
+      actualizarCronometro(segundosRestantes - 1);
+    }, 1000);
+  }
+}
+
+// Iniciamos el cronómetro
+actualizarCronometro(segundosTotales);
         </code>
       </pre>
     </div>

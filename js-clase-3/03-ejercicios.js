@@ -483,7 +483,7 @@ function capturarMatriz() {
     relleno = relleno === "" ? "+" : relleno;
 
     // Crear la matriz de relleno
-    if (isNaN(altoMatriz) || isNaN(anchoMatriz)){
+    if (isNaN(altoMatriz) || isNaN(anchoMatriz)) {
         alert("Ingresar ancho y alto de la matriz");
     }
     const matriz = [];
@@ -495,8 +495,57 @@ function capturarMatriz() {
         matriz.push(fila);
     }
 
-    // Mostrar la matriz en el elemento correspondiente
+    // Mostrar la matriz y vaciar formulario
     const mostrarMatriz = document.getElementById("mostrarMatriz");
     mostrarMatriz.innerHTML = matriz.join("<br>");
     document.getElementById("form20").reset();
+}
+
+// Ejercicio 21
+let intervalId; // Variable global para guardar el ID del intervalo
+let segundosRestantes; // Variable global para guardar los segundos restantes
+
+function iniciarCronometro() {
+  // Pedimos que ingrese los minutos
+  const minutos = parseInt(document.getElementById("cantidadMinutos").value);
+
+  // Convertimos los minutos a segundos
+  segundosRestantes = minutos * 60;
+
+  const cronometro = document.getElementById("cronometro");
+
+  // Función que actualiza el cronómetro
+  function actualizarCronometro() {
+    // Calculamos los minutos y segundos actuales
+    const minutosActuales = Math.floor(segundosRestantes / 60);
+    const segundosActuales = segundosRestantes % 60;
+
+    // Actualizamos el contenido 
+    cronometro.textContent = `${minutosActuales.toString().padStart(2, "0")}:${segundosActuales.toString().padStart(2, "0")}`;
+
+    // Si quedan segundos, programamos la siguiente actualización
+    if (segundosRestantes > 0) {
+      intervalId = setTimeout(() => {
+        segundosRestantes--;
+        actualizarCronometro();
+      }, 1000);
+    }
+  }
+
+  // Iniciamos el cronómetro
+  actualizarCronometro();
+}
+
+function detenerCronometro() {
+  // Detenemos el intervalo si existe
+  if (intervalId) {
+    clearInterval(intervalId);
+  }
+}
+
+function reiniciarCronometro() {
+  detenerCronometro(); // Detenemos el cronómetro actual
+  segundosRestantes = 0; // Reiniciamos los segundos restantes
+  const cronometro = document.getElementById("cronometro");
+  cronometro.textContent = "00:00"; // Reiniciamos el cronómetro en la pantalla
 }
