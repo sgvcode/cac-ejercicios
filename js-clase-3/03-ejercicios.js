@@ -506,46 +506,46 @@ let intervalId; // Variable global para guardar el ID del intervalo
 let segundosRestantes; // Variable global para guardar los segundos restantes
 
 function iniciarCronometro() {
-  // Pedimos que ingrese los minutos
-  const minutos = parseInt(document.getElementById("cantidadMinutos").value);
+    // Pedimos que ingrese los minutos
+    const minutos = parseInt(document.getElementById("cantidadMinutos").value);
 
-  // Convertimos los minutos a segundos
-  segundosRestantes = minutos * 60;
+    // Convertimos los minutos a segundos
+    segundosRestantes = minutos * 60;
 
-  const cronometro = document.getElementById("cronometro");
+    const cronometro = document.getElementById("cronometro");
 
-  // Función que actualiza el cronómetro
-  function actualizarCronometro() {
-    // Calculamos los minutos y segundos actuales
-    const minutosActuales = Math.floor(segundosRestantes / 60);
-    const segundosActuales = segundosRestantes % 60;
+    // Función que actualiza el cronómetro
+    function actualizarCronometro() {
+        // Calculamos los minutos y segundos actuales
+        const minutosActuales = Math.floor(segundosRestantes / 60);
+        const segundosActuales = segundosRestantes % 60;
 
-    // Actualizamos el contenido 
-    cronometro.textContent = `${minutosActuales.toString().padStart(2, "0")}:${segundosActuales.toString().padStart(2, "0")}`;
+        // Actualizamos el contenido 
+        cronometro.textContent = `${minutosActuales.toString().padStart(2, "0")}:${segundosActuales.toString().padStart(2, "0")}`;
 
-    // Si quedan segundos, programamos la siguiente actualización
-    if (segundosRestantes > 0) {
-      intervalId = setTimeout(() => {
-        segundosRestantes--;
-        actualizarCronometro();
-      }, 1000);
+        // Si quedan segundos, programamos la siguiente actualización
+        if (segundosRestantes > 0) {
+            intervalId = setTimeout(() => {
+                segundosRestantes--;
+                actualizarCronometro();
+            }, 1000);
+        }
     }
-  }
 
-  // Iniciamos el cronómetro
-  actualizarCronometro();
+    // Iniciamos el cronómetro
+    actualizarCronometro();
 }
 
 function detenerCronometro() {
-  // Detenemos el intervalo si existe
-  if (intervalId) {
-    clearInterval(intervalId);
-  }
+    // Detenemos el intervalo si existe
+    if (intervalId) {
+        clearInterval(intervalId);
+    }
 }
 
 function reiniciarCronometro() {
-  detenerCronometro(); // Detenemos el cronómetro actual
-  segundosRestantes = 0; // Reiniciamos los segundos restantes
-  const cronometro = document.getElementById("cronometro");
-  cronometro.textContent = "00:00"; // Reiniciamos el cronómetro en la pantalla
+    detenerCronometro(); // Detenemos el cronómetro actual
+    segundosRestantes = 0; // Reiniciamos los segundos restantes
+    const cronometro = document.getElementById("cronometro");
+    cronometro.textContent = "00:00"; // Reiniciamos el cronómetro en la pantalla
 }

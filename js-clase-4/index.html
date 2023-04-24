@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="index4.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/atom-one-dark.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.8/clipboard.min.js"></script>
+  <title>Practica JS</title>
+</head>
+
+<body>
+  <header>
+    <h1>Prácticas de Javascript C-4 <span>...CAC#23053...</span></h1>
+  </header>
+  <!-- EJERCICIOS CLASE 1 -->
+  <main class="contenido">
+    <h2>GUIA PRACTICA DE FUNCIONES</h2>
+    <h4>Definí las siguientes funciones, asegurándote su correcto funcionamiento con algunos tests. Asegurate de leer al menos dos veces los enunciados antes de intentar confeccionar las soluciones.</h4>
+    <h3>Definición y testeo de funciones</h3>
+    <!-- Ejercicio 1 -->
+    <div class="ejercicio" id="1">
+      <p>1- <span class="funct"> esPar</span>, que devuelva si un número entero dado como parámetro es par o no.</p>
+      <div class="form-cont">
+        <form class="form__group invert" id="form1">
+          <input type="number" id="num" class="form__input" placeholder=" ">
+          <label for="num" type="number" class="form__label">Ingresa un número</label>
+          <button type="button" onclick="capturarEjercicio1()">Es número Par?</button>
+        </form>
+      </div>
+      <p class="resp resultados" id="ejercicio1Msg"></p>
+
+      <!-- Inserción de Código JS -->
+      <pre id="codigo1">
+        <button onclick="copyToClipboard('#codigo1')" class="btn"><i class="fa-regular fa-copy"></i><i class="fa-solid fa-check"></i></button>
+        <code>
+  let num = parseInt(prompt("Ingresa un nro: "));
+
+  function esPar(num) {
+    if (num % 2 === 0 && num !== 0) {
+      return `'${num}' es Par`;
+    } else if (num === 0 || isNaN(num)){
+        return "Ingresa un número válido";
+    } else {
+      return `'${num}' No es Par`;
+    }
+  }
+  console.log(esPar(num))
+        </code>
+      </pre>
+    </div>
+
+    <!-- Ejercicio 2 -->
+    <div class="ejercicio" id="2">
+      <p>2- <span class="funct"> obtenerResto</span>, que devuelva el resto del cociente  entre  dos  números  enteros  dados como parámetros (sin usar el operador <span class="funct">%</span>).</p>
+      <div class="form-cont">
+        <form class="form__group invert" id="form2">
+          <input type="number" id="dividendo" class="form__input" placeholder="Ingresa el Dividendo: ">
+          <input type="number" id="divisor" class="form__input" placeholder="Ingresa el Divisor: ">
+          <button type="button" onclick="capturarEjercicio2()">Obtener el Resto</button>
+        </form>
+      </div>
+      <p class="resp resultados" id="ejercicio2Msg"></p>
+
+      <!-- Inserción de Código JS -->
+      <pre id="codigo2">
+        <button onclick="copyToClipboard('#codigo2')" class="btn"><i class="fa-regular fa-copy"></i><i class="fa-solid fa-check"></i></button>
+        <code>
+let dividendo = parseInt(prompt("Ingresa el dividendo: "));
+let divisor = parseInt(prompt("Ingresa el divisor: "));
+
+function obtenerResto(dividendo, divisor) {
+  let resto = dividendo;
+
+  while (resto >= divisor) {
+    resto -= divisor;
+  }
+
+  return resto;
+}
+console.log(obtenerResto(dividendo, divisor));
+        </code>
+      </pre>
+    </div>
+    <!-- Ejercicio 3 -->
+    <div class="ejercicio" id="3">
+      <p>3- <span class="funct"> imprimirSimbolo</span>, que imprima por consola nveces un caracter en la misma línea. Tanto <span class="funct">n</span> como el caracter se reciben como parámetro.</p>
+      <pre id="codigo3">
+        <button onclick="copyToClipboard('#codigo1')" class="btn"><i class="fa-regular fa-copy"></i><i class="fa-solid fa-check"></i></button>
+        <code>
+
+        </code>
+      </pre>
+    </div>
+    <!-- Ejercicio 4 -->
+    <div class="ejercicio" id="4">
+      <p>4- <span class="funct"> esVocal</span>, que devuelva si un caracter dado como parámetro es o no una letra vocal (contemplar mayúsculas y minúsculas).</p>
+      <pre id="codigo4">
+        <button onclick="copyToClipboard('#codigo1')" class="btn"><i class="fa-regular fa-copy"></i><i class="fa-solid fa-check"></i></button>
+        <code>
+
+        </code>
+      </pre>
+    </div>
+    <!-- Ejercicio 5 -->
+    <div class="ejercicio" id="5">
+      <p>5- <span class="funct"> mostrarSucesion</span>, que imprima por consola la sucesión de números inclusiva entre <span class="funct">a</span> y <span class="funct">b</span>, dados como parámetros.</p>
+      <pre id="codigo5">
+        <button onclick="copyToClipboard('#codigo1')" class="btn"><i class="fa-regular fa-copy"></i><i class="fa-solid fa-check"></i></button>
+        <code>
+
+        </code>
+      </pre>
+    </div>
+    <!-- Ejercicio 6 -->
+    <div class="ejercicio" id="6">
+      <p>6- <span class="funct"> esMultiplo</span>, que devuelva si un número entero es múltiplo de otro. Ambos son dados como parámetros.</p>
+      <pre id="codigo6">
+        <button onclick="copyToClipboard('#codigo1')" class="btn"><i class="fa-regular fa-copy"></i><i class="fa-solid fa-check"></i></button>
+        <code>
+
+        </code>
+      </pre>
+    </div>
+    <!-- Ejercicio 7 -->
+    <div class="ejercicio" id="7">
+      <p>7- <span class="funct"> cantDivisores</span>, que devuelva la cantidad de  divisores que posee un número entero dado como parámetro.</p>
+      <pre id="codigo7">
+        <button onclick="copyToClipboard('#codigo1')" class="btn"><i class="fa-regular fa-copy"></i><i class="fa-solid fa-check"></i></button>
+        <code>
+
+        </code>
+      </pre>
+    </div>
+    <!-- Ejercicio 8 -->
+    <div class="ejercicio" id="8">
+      <p>8- <span class="funct"> esPrimo</span>, que devuelva si un número entero dado como parámetro es o no primo.</p>
+      <pre id="codigo8">
+        <button onclick="copyToClipboard('#codigo1')" class="btn"><i class="fa-regular fa-copy"></i><i class="fa-solid fa-check"></i></button>
+        <code>
+
+        </code>
+      </pre>
+    </div>
+    <!-- Ejercicio 9 -->
+    <div class="ejercicio" id="9">
+      <p>9- <span class="funct"> mostrarNPrimos</span>, que muestre por la consola, separados por comas, los primeros n números primos. El valor de <span class="funct">n</span> se recibe como parámetro.</p>
+      <pre id="codigo9">
+        <button onclick="copyToClipboard('#codigo1')" class="btn"><i class="fa-regular fa-copy"></i><i class="fa-solid fa-check"></i></button>
+        <code>
+
+        </code>
+      </pre>
+    </div>
+    <!-- Ejercicio 10 -->
+    <div class="ejercicio" id="10">
+      <p>10- <span class="funct"> esNumeroPerfecto</span>, que devuelva si un número entero dado como parámetro es o no perfecto.</p>
+      <pre id="codigo10">
+        <button onclick="copyToClipboard('#codigo1')" class="btn"><i class="fa-regular fa-copy"></i><i class="fa-solid fa-check"></i></button>
+        <code>
+
+        </code>
+      </pre>
+    </div>
+    <h3>Desarrollo de programas modularizados</h3>
+    <!-- Ejercicio 11 -->
+    <div class="ejercicio" id="10">
+      <p>11- Realizá un programa que permita al usuario ingresar el valor unitario de cierto artículo y la cantidad de artículos vendidos por un vendedor, del cual se sabe que gana un sueldo fijo de $14000 más el 16% del monto total vendido. Con tales datos, la computadora debe calcular el monto a cobrar por el vendedor y mostrarlo.</p>
+      <pre id="codigo11">
+        <button onclick="copyToClipboard('#codigo1')" class="btn"><i class="fa-regular fa-copy"></i><i class="fa-solid fa-check"></i></button>
+        <code>
+
+        </code>
+      </pre>
+    </div>
+    <!-- Ejercicio 12 -->
+    <div class="ejercicio" id="10">
+      <p>12- Realizá un programa que permita al usuario ingresar su edad (entre <span class="funct">1</span> y <span class="funct">120</span> años) y su género (<span class="funct">'F'</span> o <span class="funct">'M'</span>). La computadora debe indicar si la persona está o no en edad de jubilarse.</p>
+      <pre id="codigo12">
+        <button onclick="copyToClipboard('#codigo1')" class="btn"><i class="fa-regular fa-copy"></i><i class="fa-solid fa-check"></i></button>
+        <code>
+
+        </code>
+      </pre>
+    </div>
+    <!-- Ejercicio 13 -->
+    <div class="ejercicio" id="10">
+      <p>13- Realizá un programa que permita al usuario ingresar la cantidad de cierto producto y el precio unitario de dicho producto. Por cada carga debe preguntar si se desea seguir ingresando de la forma <span class="funct">"¿Deseás ingresar otro artículo? [S/N]"</span>. La carga de datos finaliza cuando el usuario lo determine. La computadora debe mostrar el monto total del ticket.</p>
+      <pre id="codigo13">
+        <button onclick="copyToClipboard('#codigo1')" class="btn"><i class="fa-regular fa-copy"></i><i class="fa-solid fa-check"></i></button>
+        <code>
+
+        </code>
+      </pre>
+    </div>
+
+    <footer>
+      <code>SGVero | CAC#23053 | Docente:&nbsp;<a href="https://charlycimino.com" target="_blank">Charly Cimino</a></code>
+    </footer>
+  </main>
+  <script src="04-ejercicios.js"></script>
+  <script src="https://kit.fontawesome.com/ad22120107.js" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+  <script>hljs.highlightAll();</script>
+</body>
+
+</html>
