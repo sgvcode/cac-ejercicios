@@ -51,7 +51,23 @@ function capturarEjercicio2() {
 
     return resto;
   }
-  console.log(obtenerResto(dividendo, divisor));
   ejercicio2Msg.innerHTML = `Resto = ${obtenerResto(dividendo, divisor)}`;
   document.getElementById("form2").reset();
+}
+
+// Ejercicio 3 - Imprimir Símbolo n veces
+function capturarEjercicio3() {
+  let caracter = document.getElementById("caracter").value;
+  let n = document.getElementById("n").value;
+
+  function imprimirSimbolo(caracter, n) {
+    let resultado = "";
+    for (let i = 0; i < n; i++) {
+      resultado += caracter + " ";
+    }
+    return resultado
+  }
+  let ejercicio3Msg = document.getElementById("ejercicio3Msg");
+  ejercicio3Msg.innerHTML = `${imprimirSimbolo(caracter, n)}<br>Se imprimieron ${n} '${caracter}'`;
+  document.getElementById("form3").reset();
 }
