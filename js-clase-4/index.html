@@ -38,18 +38,18 @@
       <pre id="codigo1">
         <button onclick="copyToClipboard('#codigo1')" class="btn"><i class="fa-regular fa-copy"></i><i class="fa-solid fa-check"></i></button>
         <code>
-  let num = parseInt(prompt("Ingresa un nro: "));
+let num = parseInt(prompt("Ingresa un nro: "));
 
-  function esPar(num) {
-    if (num % 2 === 0 && num !== 0) {
-      return `'${num}' es Par`;
-    } else if (num === 0 || isNaN(num)){
-        return "Ingresa un número válido";
-    } else {
-      return `'${num}' No es Par`;
-    }
+function esPar(num) {
+  if (num % 2 === 0 && num !== 0) {
+    return `'${num}' es Par`;
+  } else if (num === 0 || isNaN(num)){
+      return "Ingresa un número válido";
+  } else {
+    return `'${num}' No es Par`;
   }
-  console.log(esPar(num))
+}
+esPar(num)
         </code>
       </pre>
     </section>
@@ -86,7 +86,7 @@ function obtenerResto(dividendo, divisor) {
 
   return resto;
 }
-console.log(obtenerResto(dividendo, divisor));
+obtenerResto(dividendo, divisor);
         </code>
       </pre>
     </section>
@@ -118,8 +118,7 @@ function imprimirSimbolo(caracter, n) {
   }
   return resultado;
 }
-
-console.log(imprimirSimbolo(caracter, n));
+imprimirSimbolo(caracter, n);
         </code>
       </pre>
     </section>
@@ -156,8 +155,7 @@ function esVocal(caracter) {
     return false;
   }
 }
-
-console.log(esVocal(caracter));
+esVocal(caracter);
         </code>
       </pre>
     </section>
