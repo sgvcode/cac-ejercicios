@@ -71,3 +71,27 @@ function capturarEjercicio3() {
   ejercicio3Msg.innerHTML = `${imprimirSimbolo(caracter, n)}<br>Se imprimieron ${n} '${caracter}'`;
   document.getElementById("form3").reset();
 }
+
+// Ejercicio 4 - Validar si es Vocal
+function capturarEjercicio4() {
+  let caracter1 = document.getElementById("caracter1").value;
+  let ejercicio4Msg = document.getElementById("ejercicio4Msg");
+
+function esVocal(caracter1) {
+  // Convertir el caracter a mayúsculas para contemplar ambos casos
+  caracter1 = caracter1.toUpperCase();
+
+  // Definir un array con las vocales en mayúsculas
+  const vocales = ["A", "E", "I", "O", "U"];
+
+  // Verificar si el caracter se encuentra en el array de vocales
+  if (vocales.includes(caracter1)) {
+    return `'${caracter1}' es Vocal`;
+  } else {
+    return `'${caracter1}' No es Vocal`;
+  }
+}
+
+ejercicio4Msg.innerHTML = (esVocal(caracter1));
+document.getElementById("form4").reset();
+}

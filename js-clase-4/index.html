@@ -93,7 +93,8 @@ console.log(obtenerResto(dividendo, divisor));
 
     <!-- Ejercicio 3 -->
     <section class="ejercicio" id="3">
-      <p>3- <span class="funct"> imprimirSimbolo</span>, que imprima por consola <span class="funct"> n</span> veces un caracter en la misma línea. Tanto <span class="funct">n</span> como el caracter se reciben como parámetro.</p>
+      <p>3- <span class="funct"> imprimirSimbolo</span>, que imprima por consola <span class="funct"> n</span> veces un
+        caracter en la misma línea. Tanto <span class="funct">n</span> como el caracter se reciben como parámetro.</p>
       <div class="form-cont">
         <form class="form__group invert" id="form3">
           <input type="text" id="caracter" class="form__input" placeholder="Ingresa un caracter: ">
@@ -115,10 +116,10 @@ function imprimirSimbolo(caracter, n) {
   for (let i = 0; i < n; i++) {
     resultado += caracter + " ";
   }
-  console.log(resultado);
+  return resultado;
 }
 
-imprimirSimbolo(caracter, n);
+console.log(imprimirSimbolo(caracter, n));
         </code>
       </pre>
     </section>
@@ -127,10 +128,36 @@ imprimirSimbolo(caracter, n);
     <section class="ejercicio" id="4">
       <p>4- <span class="funct"> esVocal</span>, que devuelva si un caracter dado como parámetro es o no una letra vocal
         (contemplar mayúsculas y minúsculas).</p>
+      <div class="form-cont">
+        <form class="form__group invert" id="form4">
+          <input type="text" id="caracter1" class="form__input" placeholder="Ingresa un caracter: ">
+          <button type="button" onclick="capturarEjercicio4()">Validad si es Vocal</button>
+        </form>
+      </div>
+      <p class="resp resultados" id="ejercicio4Msg"></p>
+
+      <!-- Inserción de Código JS -->
       <pre id="codigo4">
         <button onclick="copyToClipboard('#codigo4')" class="btn"><i class="fa-regular fa-copy"></i><i class="fa-solid fa-check"></i></button>
         <code>
+let caracter = prompt("Ingresa un caracter: ");
 
+function esVocal(caracter) {
+  // Convertir el caracter a mayúsculas para contemplar ambos casos
+  caracter = caracter.toUpperCase();
+
+  // Definir un array con las vocales en mayúsculas
+  const vocales = ["A", "E", "I", "O", "U"];
+
+  // Verificar si el caracter se encuentra en el array de vocales
+  if (vocales.includes(caracter)) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+console.log(esVocal(caracter));
         </code>
       </pre>
     </section>
