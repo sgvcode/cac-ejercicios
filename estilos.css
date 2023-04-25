@@ -121,7 +121,3 @@ footer a {
 footer a:hover {
   color:var(--blanco);
 }
-
-#clase4 {
-  filter: grayscale(90%) brightness(120%);
-}
