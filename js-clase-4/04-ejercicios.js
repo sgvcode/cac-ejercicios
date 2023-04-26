@@ -77,21 +77,60 @@ function capturarEjercicio4() {
   let caracter1 = document.getElementById("caracter1").value;
   let ejercicio4Msg = document.getElementById("ejercicio4Msg");
 
-function esVocal(caracter1) {
-  // Convertir el caracter a mayúsculas para contemplar ambos casos
-  caracter1 = caracter1.toUpperCase();
+  function esVocal(caracter1) {
+    // Convertir el caracter a mayúsculas para contemplar ambos casos
+    caracter1 = caracter1.toUpperCase();
 
-  // Definir un array con las vocales en mayúsculas
-  const vocales = ["A", "E", "I", "O", "U"];
+    // Definir un array con las vocales en mayúsculas
+    const vocales = ["A", "E", "I", "O", "U"];
 
-  // Verificar si el caracter se encuentra en el array de vocales
-  if (vocales.includes(caracter1)) {
-    return `'${caracter1}' es Vocal`;
-  } else {
-    return `'${caracter1}' No es Vocal`;
+    // Verificar si el caracter se encuentra en el array de vocales
+    if (vocales.includes(caracter1)) {
+      return `'${caracter1}' es Vocal`;
+    } else {
+      return `'${caracter1}' No es Vocal`;
+    }
   }
+
+  ejercicio4Msg.innerHTML = (esVocal(caracter1));
+  document.getElementById("form4").reset();
 }
 
-ejercicio4Msg.innerHTML = (esVocal(caracter1));
-document.getElementById("form4").reset();
+
+// Ejercicio 5 Mostrar sucesión
+function capturarEjercicio5() {
+  let a = parseInt(document.getElementById("a").value);
+  let b = parseInt(document.getElementById("b").value);
+  let itera = parseInt(document.getElementById("itera").value);
+  let ejercicio5Msg = document.getElementById("ejercicio5Msg");
+  let sucesion = [];
+
+  function mostrarSucesion() {
+
+
+    for (i = a; i <= b; i += itera) {
+      sucesion.push(i);
+    }
+    return sucesion.join(", ");
+  }
+  ejercicio5Msg.innerHTML = `Sucesión entre ${a} y ${b} => [${(mostrarSucesion())}]`;
+  document.getElementById("form5").reset();
+}
+
+// Ejercicio 6 - Es múltiplo
+function capturarEjercicio6() {
+  let numeroM = parseInt(document.getElementById("numeroM").value);
+  let multiplo = parseInt(document.getElementById("multiplo").value);
+
+  function esMultiplo() {
+    if (numeroM % multiplo === 0) {
+      return `${numeroM} es múltiplo de ${multiplo}`;
+    } else {
+      return `${numeroM} NO es múltiplo de ${multiplo}`
+    }
+  }
+
+  let ejercicio6Msg = document.getElementById("ejercicio6Msg");
+  ejercicio6Msg.innerHTML = esMultiplo();
+  document.getElementById("form6").reset();
 }

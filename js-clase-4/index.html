@@ -40,7 +40,7 @@
         <code>
 let num = parseInt(prompt("Ingresa un nro: "));
 
-function esPar(num) {
+function esPar() {
   if (num % 2 === 0 && num !== 0) {
     return `'${num}' es Par`;
   } else if (num === 0 || isNaN(num)){
@@ -49,7 +49,7 @@ function esPar(num) {
     return `'${num}' No es Par`;
   }
 }
-esPar(num)
+console.log(esPar());
         </code>
       </pre>
     </section>
@@ -63,8 +63,8 @@ esPar(num)
       </div>
       <div class="form-cont">
         <form class="form__group invert" id="form2">
-          <input type="number" id="dividendo" class="form__input" placeholder="Ingresa el Dividendo: ">
-          <input type="number" id="divisor" class="form__input" placeholder="Ingresa el Divisor: ">
+          <input type="number" id="dividendo" class="form__input" placeholder="Ingresa el Dividendo">
+          <input type="number" id="divisor" class="form__input" placeholder="Ingresa el Divisor">
           <button type="button" onclick="capturarEjercicio2()">Obtener el Resto</button>
         </form>
       </div>
@@ -77,7 +77,7 @@ esPar(num)
 let dividendo = parseInt(prompt("Ingresa el dividendo: "));
 let divisor = parseInt(prompt("Ingresa el divisor: "));
 
-function obtenerResto(dividendo, divisor) {
+function obtenerResto() {
   let resto = dividendo;
 
   while (resto >= divisor) {
@@ -86,7 +86,7 @@ function obtenerResto(dividendo, divisor) {
 
   return resto;
 }
-obtenerResto(dividendo, divisor);
+console.log(obtenerResto());
         </code>
       </pre>
     </section>
@@ -97,8 +97,8 @@ obtenerResto(dividendo, divisor);
         caracter en la misma línea. Tanto <span class="funct">n</span> como el caracter se reciben como parámetro.</p>
       <div class="form-cont">
         <form class="form__group invert" id="form3">
-          <input type="text" id="caracter" class="form__input" placeholder="Ingresa un caracter: ">
-          <input type="number" id="n" class="form__input" placeholder="Ingresa en nro de repeticiones: ">
+          <input type="text" id="caracter" class="form__input" placeholder="Ingresa un caracter">
+          <input type="number" id="n" class="form__input" placeholder="Ingresa en nro de repeticiones">
           <button type="button" onclick="capturarEjercicio3()">Mostrar Símbolos</button>
         </form>
       </div>
@@ -111,14 +111,14 @@ obtenerResto(dividendo, divisor);
 let caracter = prompt("Ingresa un caracter: ");
 let n = prompt("Ingresa la cantidad de repeticiones: ");
 
-function imprimirSimbolo(caracter, n) {
+function imprimirSimbolo() {
   let resultado = "";
   for (let i = 0; i < n; i++) {
     resultado += caracter + " ";
   }
   return resultado;
 }
-imprimirSimbolo(caracter, n);
+console.log(imprimirSimbolo());
         </code>
       </pre>
     </section>
@@ -129,7 +129,7 @@ imprimirSimbolo(caracter, n);
         (contemplar mayúsculas y minúsculas).</p>
       <div class="form-cont">
         <form class="form__group invert" id="form4">
-          <input type="text" id="caracter1" class="form__input" placeholder="Ingresa un caracter: ">
+          <input type="text" id="caracter1" class="form__input" placeholder="Ingresa un caracter">
           <button type="button" onclick="capturarEjercicio4()">Validad si es Vocal</button>
         </form>
       </div>
@@ -150,12 +150,12 @@ function esVocal(caracter) {
 
   // Verificar si el caracter se encuentra en el array de vocales
   if (vocales.includes(caracter)) {
-    return true;
+    return "es Vocal";
   } else {
-    return false;
+    return "No es Vocal";
   }
 }
-esVocal(caracter);
+console.log(esVocal(caracter));
         </code>
       </pre>
     </section>
@@ -165,10 +165,31 @@ esVocal(caracter);
       <p>5- <span class="funct"> mostrarSucesion</span>, que imprima por consola la sucesión de números inclusiva entre
         <span class="funct">a</span> y <span class="funct">b</span>, dados como parámetros.
       </p>
+      <div class="form-cont">
+        <form class="form__group invert" id="form5">
+          <input type="numero" id="a" class="form__input" placeholder="Ingresa el 1º número">
+          <input type="number" id="b" class="form__input" placeholder="Ingresa el 2º número">
+          <input type="number" id="itera" class="form__input" placeholder="Cada cuanto itera?">
+          <button type="button" onclick="capturarEjercicio5()">Mostrar Sucesion</button>
+        </form>
+      </div>
+      <p class="resp resultados" id="ejercicio5Msg"></p>
+
+      <!-- Inserción de Código JS -->
       <pre id="codigo5">
         <button onclick="copyToClipboard('#codigo5')" class="btn"><i class="fa-regular fa-copy"></i><i class="fa-solid fa-check"></i></button>
         <code>
+let a = parseInt(prompt("Ingresa 1º número: "));
+let b = parseInt(prompt("Ingresa 2º número: "));
+let sucesion = [];
 
+function mostrarSucesion() {
+  for (i = a; i <= b; i++) {
+    sucesion.push(i);
+  }
+  return sucesion.join(", ");
+}
+console.log(mostrarSucesion());
         </code>
       </pre>
     </section>
@@ -177,10 +198,30 @@ esVocal(caracter);
     <section class="ejercicio" id="6">
       <p>6- <span class="funct"> esMultiplo</span>, que devuelva si un número entero es múltiplo de otro. Ambos son
         dados como parámetros.</p>
+      <div class="form-cont">
+        <form class="form__group invert" id="form6">
+          <input type="numero" id="numeroM" class="form__input" placeholder="Ingresa un número">
+          <input type="number" id="multiplo" class="form__input" placeholder="Ingresa el múltiplo">
+          <button type="button" onclick="capturarEjercicio6()">Mostrar Sucesion</button>
+        </form>
+      </div>
+      <p class="resp resultados" id="ejercicio6Msg"></p>
+
+      <!-- Inserción de Código JS -->
       <pre id="codigo6">
         <button onclick="copyToClipboard('#codigo6')" class="btn"><i class="fa-regular fa-copy"></i><i class="fa-solid fa-check"></i></button>
         <code>
+let numero = parseInt(prompt("Ingresa un número: "));
+let multiplo = parseInt(prompt("Ingresa el múltiplo: "));
 
+function esMultiplo() {
+  if (numero % multiplo === 0) {
+    return "Es múltiplo";
+  } else {
+    return "No es múltiplo";
+  }
+}
+console.log(esMultiplo());
         </code>
       </pre>
     </section>
