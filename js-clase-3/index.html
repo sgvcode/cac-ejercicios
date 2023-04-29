@@ -52,7 +52,7 @@ for (let i = 100; i >= 1; i--) {
           <button type="button" onclick="capturarSecuencia()">Calcular</button>
         </form>
       </div>
-     <p class="resp resultados" id="seriesMsg"></p>
+      <p class="resp resultados" id="seriesMsg"></p>
       <pre id="codigo2">
         <button onclick="copyToClipboard('#codigo2')" class="btn"><i class="fa-regular fa-copy"></i><i class="fa-solid fa-check"></i></button>
         <code>
@@ -702,12 +702,15 @@ capturarLogin();
     </div>
     <!-- Ejercicio 20 -->
     <div class="ejercicio" id="20">
-      <p>20. Realizá un programa que permita al usuario ingresar dos números enteros que representen el ancho y el alto de una matriz de cruces. La computadora debe mostrar dicha matriz. Añadido: Si no se ingresa ningún relleno, por defecto es un cruz, sino, es rellenado a elección. </p>
+      <p>20. Realizá un programa que permita al usuario ingresar dos números enteros que representen el ancho y el alto
+        de una matriz de cruces. La computadora debe mostrar dicha matriz. Añadido: Si no se ingresa ningún relleno, por
+        defecto es un cruz, sino, es rellenado a elección. </p>
       <div class="form-cont">
         <form class="form__group invert" id="form20">
           <input type="number" id="anchoMatriz" class="form__input" placeholder="Ingresa el ancho de la matriz">
           <input type="number" id="altoMatriz" class="form__input" placeholder="Ingresa el alto de la matriz">
-          <input type="text" id="rellenoMatriz" class="form__input" placeholder="Ingresa el relleno de la matriz (Ej: x)">
+          <input type="text" id="rellenoMatriz" class="form__input"
+            placeholder="Ingresa el relleno de la matriz (Ej: x)">
           <button type="button" onclick="capturarMatriz()">Ver Matriz</button>
         </form>
       </div>
@@ -735,7 +738,8 @@ console.log(matriz.join("\n"));
     </div>
     <!-- Ejercicio 21 -->
     <div class="ejercicio" id="20">
-      <p>21. Realizá un programa que permita al usuario ingresar un número de minutos. La computadora debe mostrar un cronómetro con el formato "mm:ss"desde "00:00"hasta un segundo antes del minuto ingresado.  </p>
+      <p>21. Realizá un programa que permita al usuario ingresar un número de minutos. La computadora debe mostrar un
+        cronómetro con el formato "mm:ss"desde "00:00"hasta un segundo antes del minuto ingresado. </p>
       <div class="form-cont">
         <form class="form__group invert" id="form20">
           <input type="number" max="10" min="1" id="cantidadMinutos" class="form__input" placeholder=" ">
@@ -776,7 +780,7 @@ actualizarCronometro(segundosTotales);
         </code>
       </pre>
     </div>
-    <button class="indice-btn" onclick="window.location.href = '../index.html';" title="Indice de Ejercicios"><i class="fa-solid fa-bars fa-shake"></button>
+    <button class="indice-btn" onclick="window.location.href = '../index.html';" title="Indice de Ejercicios"><i class="fa-solid fa-bars fa-shake"></i></button>
     <footer>
       <code>SGVero | CAC#23053 | Docente:&nbsp;<a href="https://charlycimino.com" target="_blank">Charly Cimino</a></code>
     </footer>
