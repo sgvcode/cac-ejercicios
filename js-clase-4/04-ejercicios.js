@@ -123,10 +123,11 @@ function capturarEjercicio6() {
   let multiplo = parseInt(document.getElementById("multiplo").value);
 
   function esMultiplo() {
+    let result = numeroM / multiplo;
     if (numeroM % multiplo === 0) {
-      return `${numeroM} es múltiplo de ${multiplo}`;
+      return `${numeroM} es múltiplo de ${multiplo} (${result})`;
     } else {
-      return `${numeroM} NO es múltiplo de ${multiplo}`
+      return `${numeroM} NO es múltiplo de ${multiplo}`;
     }
   }
 
@@ -134,3 +135,137 @@ function capturarEjercicio6() {
   ejercicio6Msg.innerHTML = esMultiplo();
   document.getElementById("form6").reset();
 }
+
+/* Ejercicio 7 - Determinar cantidada de divisores de un número
+    Se convierten los negativos a positivos y se muestran en valor absoluto
+    Se añade en la salida la lista de los divisores
+    Declaro la función fuera de mi función capturarEjercicio7() para poder llamarla en otros ejercicios
+*/
+function cantDivisores(numD) {
+  if (numD < 0) {
+    numD = numD * -1;
+  }
+  let divisores = [];
+  for (let i = 1; i <= numD; i++) {
+    if (numD % i === 0) {
+      divisores.push(i);
+    }
+  }
+  return divisores;
+}
+
+function capturarEjercicio7() {
+  let numeroDiv = parseInt(document.getElementById("numeroDiv").value);
+  let ejercicio7Msg = document.getElementById("ejercicio7Msg");
+
+  ejercicio7Msg.innerHTML = `'${Math.abs(numeroDiv)}' tiene '${cantDivisores(numeroDiv).length}' divisores: '${cantDivisores(numeroDiv).join(", ")}'`;
+  document.getElementById("form7").reset();
+}
+
+//Ejercicio 8 - Determinar si un número es Primo
+//Declaro la función fuera de mi función capturarEjercicio8() para poder llamarla en otros ejercicios
+function esPrimo(numPo) {
+  if (cantDivisores(numPo).length === 2) {
+    return `'${numPo}' es un número primo`;
+  } else {
+    return `'${numPo}' No es un número primo`;
+  }
+}
+
+function capturarEjercicio8() {
+  let numeroP = parseInt(document.getElementById("numeroP").value);
+  let ejercicio8Msg = document.getElementById("ejercicio8Msg");
+
+  ejercicio8Msg.innerHTML = esPrimo(numeroP);
+  document.getElementById("form8").reset();
+}
+
+// Ejercicio 9 - Mostrar los primeros 'n' numeros primos
+function esPrimoOk(numD) {
+  if (cantDivisores(numD).length === 2) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+function mostrarNPrimos(n) {
+  let cont = 1;
+  let x = 2;
+  let numerosPrimos = [];
+  while (cont <= n) {
+    if (esPrimoOk(x)) {
+      numerosPrimos.push(x);
+      cont++;
+    }
+    x++;
+  }
+  return numerosPrimos;
+}
+
+function capturarEjercicio9() {
+  let numeroNP = parseInt(document.getElementById("numeroNP").value);
+  let ejercicio9Msg = document.getElementById("ejercicio9Msg");
+
+  ejercicio9Msg.innerHTML = `Los primeros '${numeroNP}' números primos son:<br> '${mostrarNPrimos(numeroNP).join(", ")}'`;
+  document.getElementById("form9").reset();
+}
+
+// Ejercicio 10 - Validar si un número es número perfecto
+function esNumeroPerfecto(perfecto) {
+  let divisores = cantDivisores(perfecto);
+  let suma = 0;
+  for (let i = 0; i < divisores.length; i++) {
+    suma += divisores[i];
+  }
+  if (suma === perfecto * 2) {
+    return `'${perfecto}' es número perfecto`
+  } else {
+    return `'${perfecto}' NO es número perfecto`
+  }
+}
+
+console.log(esNumeroPerfecto(6));
+
+function capturarEjercicio10() {
+  let perfecto = parseInt(document.getElementById("perfecto").value);
+  let ejercicio10Msg = document.getElementById("ejercicio10Msg");
+
+  ejercicio10Msg.innerHTML = `${esNumeroPerfecto(perfecto)}`
+  document.getElementById("form10").reset();
+}
+
+// Ejercicio 11 - Salario total
+function capturarEjercicio11() {
+  let salario = 14000;
+  let comision = 0.16;
+
+  let cantidadVentas = parseInt(document.getElementById("cantidadVentas").value);
+  let precioUnitario = parseFloat(document.getElementById("precioUnitario").value);
+
+  function salarioTotal() {
+    return salarioTotal = salario + (cantidadVentas * precioUnitario * comision);
+  }
+
+  let ejercicio11Msg = document.getElementById("ejercicio11Msg");
+  ejercicio11Msg.innerHTML = `Tu salario total es de: '$${salarioTotal(cantidadVentas, precioUnitario)}'`;
+  document.getElementById("form11").reset();
+}
+
+
+
+// Ejercicio 12 - Validar si está en edad de jubilarse
+function capturarEjercicio12() {
+  let tuEdad = parseInt(document.getElementById("tuEdad").value);
+  let tuGenero = document.getElementById("tuGenero").value.toUpperCase();
+
+  function puedeJubilarse(tuEdad, tuGenero) {
+    let jubilable = ((tuGenero === "M" && tuEdad >= 65) || (tuGenero === "F" && tuEdad >= 60)) ? `Podés jubilarte.` : `No podés jubilarte todavía.`
+    return jubilable;
+  }
+
+  let ejercicio12Msg = document.getElementById("ejercicio12Msg");
+  ejercicio12Msg.innerHTML = puedeJubilarse(tuEdad, tuGenero);
+  document.getElementById("form12").reset();
+}
+

@@ -49,7 +49,7 @@ function esPar() {
     return `'${num}' No es Par`;
   }
 }
-console.log(esPar());
+console.log(esPar(num));
         </code>
       </pre>
     </section>
@@ -58,8 +58,7 @@ console.log(esPar());
     <section class="ejercicio" id="2">
       <div class="enunciados">
         <p>2- <span class="funct"> obtenerResto</span>, que devuelva el resto del cociente entre dos números enteros
-          dados
-          como parámetros (sin usar el operador <span class="funct">%</span>).</p>
+          dados como parámetros (sin usar el operador <span class="funct">%</span>).</p>
       </div>
       <div class="form-cont">
         <form class="form__group invert" id="form2">
@@ -86,7 +85,7 @@ function obtenerResto() {
 
   return resto;
 }
-console.log(obtenerResto());
+console.log(obtenerResto(dividendo, divisor));
         </code>
       </pre>
     </section>
@@ -118,7 +117,7 @@ function imprimirSimbolo() {
   }
   return resultado;
 }
-console.log(imprimirSimbolo());
+console.log(imprimirSimbolo(caracter, n));
         </code>
       </pre>
     </section>
@@ -129,7 +128,8 @@ console.log(imprimirSimbolo());
         (contemplar mayúsculas y minúsculas).</p>
       <div class="form-cont">
         <form class="form__group invert" id="form4">
-          <input type="text" id="caracter1" class="form__input" placeholder="Ingresa un caracter">
+          <input type="text" id="caracter1" class="form__input" placeholder=" ">
+          <label for="caracter1" type="number" class="form__label">Ingresa un caracter</label>
           <button type="button" onclick="capturarEjercicio4()">Validad si es Vocal</button>
         </form>
       </div>
@@ -189,7 +189,7 @@ function mostrarSucesion() {
   }
   return sucesion.join(", ");
 }
-console.log(mostrarSucesion());
+console.log(mostrarSucesion(a, b));
         </code>
       </pre>
     </section>
@@ -202,7 +202,7 @@ console.log(mostrarSucesion());
         <form class="form__group invert" id="form6">
           <input type="numero" id="numeroM" class="form__input" placeholder="Ingresa un número">
           <input type="number" id="multiplo" class="form__input" placeholder="Ingresa el múltiplo">
-          <button type="button" onclick="capturarEjercicio6()">Mostrar Sucesion</button>
+          <button type="button" onclick="capturarEjercicio6()">validar multiplo</button>
         </form>
       </div>
       <p class="resp resultados" id="ejercicio6Msg"></p>
@@ -221,7 +221,7 @@ function esMultiplo() {
     return "No es múltiplo";
   }
 }
-console.log(esMultiplo());
+console.log(esMultiplo(numero, multiplo));
         </code>
       </pre>
     </section>
@@ -230,10 +230,34 @@ console.log(esMultiplo());
     <section class="ejercicio" id="7">
       <p>7- <span class="funct"> cantDivisores</span>, que devuelva la cantidad de divisores que posee un número entero
         dado como parámetro.</p>
+      <div class="form-cont">
+        <form class="form__group invert" id="form7">
+          <input type="numero" id="numeroDiv" class="form__input" placeholder=" ">
+          <label for="numeroDiv" type="number" class="form__label">Ingresa un número entero</label>
+          <button type="button" onclick="capturarEjercicio7()">Cantidad de Divisores</button>
+        </form>
+      </div>
+      <p class="resp resultados" id="ejercicio7Msg"></p>
+
+      <!-- Inserción de Código JS -->
       <pre id="codigo7">
         <button onclick="copyToClipboard('#codigo7')" class="btn"><i class="fa-regular fa-copy"></i><i class="fa-solid fa-check"></i></button>
         <code>
+let num = parseInt(prompt("Ingresa un número entero: "));
 
+function cantDivisores() {
+  if (num < 0) {
+      num = num * -1;
+  }
+  let contDivisores = 0; //no 1 porque muestra 1 divisor +
+  for (let i = 1; i <= num; i++) {
+      if (num % i === 0) {
+          contDivisores++;
+      }
+  }
+  return contDivisores;
+}
+console.log(cantDivisores(num));
         </code>
       </pre>
     </section>
@@ -241,10 +265,26 @@ console.log(esMultiplo());
     <!-- Ejercicio 8 -->
     <section class="ejercicio" id="8">
       <p>8- <span class="funct"> esPrimo</span>, que devuelva si un número entero dado como parámetro es o no primo.</p>
+      <div class="form-cont">
+        <form class="form__group invert" id="form8">
+          <input type="numero" id="numeroP" class="form__input" placeholder=" ">
+          <label for="numeroP" type="number" class="form__label">Ingresa un número entero</label>
+          <button type="button" onclick="capturarEjercicio8()">validar numero primo</button>
+        </form>
+      </div>
+      <p class="resp resultados" id="ejercicio8Msg"></p>
+
+      <!-- Inserción de Código JS -->
       <pre id="codigo8">
         <button onclick="copyToClipboard('#codigo8')" class="btn"><i class="fa-regular fa-copy"></i><i class="fa-solid fa-check"></i></button>
         <code>
+let num = parseInt(prompt("Ingresa un número entero: "));
 
+function esPrimo(num) {
+  return cantDivisores(num) === 2; //función del ejercicio anterior
+}
+
+console.log(esPrimo(num))
         </code>
       </pre>
     </section>
@@ -253,10 +293,36 @@ console.log(esMultiplo());
     <section class="ejercicio" id="9">
       <p>9- <span class="funct"> mostrarNPrimos</span>, que muestre por la consola, separados por comas, los primeros n
         números primos. El valor de <span class="funct">n</span> se recibe como parámetro.</p>
+      <div class="form-cont">
+        <form class="form__group invert" id="form9">
+          <input type="numero" id="numeroNP" class="form__input" placeholder=" ">
+          <label for="numeroNP" type="number" class="form__label">Ingresa un número entero</label>
+          <button type="button" onclick="capturarEjercicio9()">Cantidad de Nº primos</button>
+        </form>
+      </div>
+      <p class="resp resultados" id="ejercicio9Msg"></p>
+
+      <!-- Inserción de Código JS -->
       <pre id="codigo9">
         <button onclick="copyToClipboard('#codigo9')" class="btn"><i class="fa-regular fa-copy"></i><i class="fa-solid fa-check"></i></button>
         <code>
+let n = parseInt(prompt("Ingresa un número entero: "));
 
+function mostrarNPrimos() {
+  let cont = 1;
+  let x = 2;
+  let numerosPrimos = [];
+  while (cont <= n) {
+    if (esPrimoOk(x)) {
+      numerosPrimos.push(x);
+      cont++;
+    }
+    x++;
+  }
+  return numerosPrimos;
+}
+
+console.log(mostrarNPrimos(n));
         </code>
       </pre>
     </section>
@@ -265,43 +331,100 @@ console.log(esMultiplo());
     <section class="ejercicio" id="10">
       <p>10- <span class="funct"> esNumeroPerfecto</span>, que devuelva si un número entero dado como parámetro es o no
         perfecto.</p>
+      <div class="form-cont">
+        <form class="form__group invert" id="form10">
+          <input type="numero" id="perfecto" class="form__input" placeholder=" ">
+          <label for="perfecto" type="number" class="form__label">Ingresa un número entero</label>
+          <button type="button" onclick="capturarEjercicio10()">Validar número perfecto</button>
+        </form>
+      </div>
+      <p class="resp resultados" id="ejercicio10Msg"></p>
+
+      <!-- Inserción de Código JS -->
       <pre id="codigo10">
         <button onclick="copyToClipboard('#codigo10')" class="btn"><i class="fa-regular fa-copy"></i><i class="fa-solid fa-check"></i></button>
         <code>
+let perfecto = parseInt(prompt("Ingresa un número entero: "));
+function esNumeroPerfecto() {
+  let divisores = cantDivisores(perfecto);
+  let suma = 0;
+  for (let i = 0; i < divisores.length; i++) {
+    suma += divisores[i];
+  }
+  return suma === perfecto * 2;
+}
 
+console.log(esNumeroPerfecto(perfecto));
         </code>
       </pre>
     </section>
     <h3>Desarrollo de programas modularizados</h3>
 
     <!-- Ejercicio 11 -->
-    <section class="ejercicio" id="10">
+    <section class="ejercicio" id="11">
       <p>11- Realizá un programa que permita al usuario ingresar el valor unitario de cierto artículo y la cantidad de
         artículos vendidos por un vendedor, del cual se sabe que gana un sueldo fijo de $14000 más el 16% del monto
         total vendido. Con tales datos, la computadora debe calcular el monto a cobrar por el vendedor y mostrarlo.</p>
+      <div class="form-cont">
+        <form class="form__group invert" id="form11">
+          <input type="number" id="cantidadVentas" class="form__input" placeholder="Cuántos productos vendiste? ">
+          <input type="number" id="precioUnitario" class="form__input" placeholder="Ingresa el precio unitario del producto: ">
+          <button type="button" onclick="capturarEjercicio11()">Calcular salario total</button>
+        </form>
+      </div>
+      <p class="resp resultados" id="ejercicio11Msg"></p>
+
+      <!-- Inserción de Código JS -->
       <pre id="codigo11">
         <button onclick="copyToClipboard('#codigo11')" class="btn"><i class="fa-regular fa-copy"></i><i class="fa-solid fa-check"></i></button>
         <code>
+let salario = 14000;
+let comision = 0.16;
 
+let cantidadVentas = parseInt(prompt("Ingresa la cantidad de  productos vendidos: "));
+let precioUnitario = parseFloat(prompt("Ingresa el precio unitario del producto vendido: "));
+
+function salarioTotal(cantidadVentas, precioUnitario) {
+    return salarioTotal = salario + (cantidadVentas * precioUnitario * comision);
+}
+
+console.log(salarioTotal(cantidadVentas, precioUnitario));
         </code>
       </pre>
     </section>
 
     <!-- Ejercicio 12 -->
-    <section class="ejercicio" id="10">
+    <section class="ejercicio" id="12">
       <p>12- Realizá un programa que permita al usuario ingresar su edad (entre <span class="funct">1</span> y <span
           class="funct">120</span> años) y su género (<span class="funct">'F'</span> o <span class="funct">'M'</span>).
         La computadora debe indicar si la persona está o no en edad de jubilarse.</p>
+        <div class="form-cont">
+          <form class="form__group invert" id="form12">
+            <input type="numero" id="tuEdad" class="form__input" placeholder="Ingresa tu edad ">
+            <input type="text" id="tuGenero" class="form__input" placeholder="Ingresa tu género ('F/M')">
+            <button type="button" onclick="capturarEjercicio12()">podes jubilarte?</button>
+          </form>
+        </div>
+        <p class="resp resultados" id="ejercicio12Msg"></p>
+  
+        <!-- Inserción de Código JS -->
       <pre id="codigo12">
         <button onclick="copyToClipboard('#codigo12')" class="btn"><i class="fa-regular fa-copy"></i><i class="fa-solid fa-check"></i></button>
         <code>
+let edad = parseInt(prompt("Ingresa tu edad (1/120): "));
+let genero = prompt("Ingresa tu género (F/M): ").toUpperCase();
 
+function puedeJubilarse(edad, genero) {
+    let jubilable = ((genero === "M" && edad >= 65) || (genero === "F" && edad >= 60)) ? `Puedes jubilarte.` : `No puedes jubilarte.`
+    return jubilable;
+}
+console.log(puedeJubilarse(edad, genero));
         </code>
       </pre>
     </section>
 
     <!-- Ejercicio 13 -->
-    <section class="ejercicio" id="10">
+    <section class="ejercicio" id="13">
       <p>13- Realizá un programa que permita al usuario ingresar la cantidad de cierto producto y el precio unitario de
         dicho producto. Por cada carga debe preguntar si se desea seguir ingresando de la forma <span
           class="funct">"¿Deseás ingresar otro artículo? [S/N]"</span>. La carga de datos finaliza cuando el usuario lo
