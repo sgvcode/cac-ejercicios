@@ -259,8 +259,16 @@ function capturarEjercicio12() {
   let tuEdad = parseInt(document.getElementById("tuEdad").value);
   let tuGenero = document.getElementById("tuGenero").value.toUpperCase();
 
+  // Validar que tuGenero sea "F" o "M"
+  if (tuGenero !== "F" && tuGenero !== "M") {
+    alert("Por favor, ingrese F o M en el campo género.");
+    document.getElementById("tuGenero").value = "";
+    document.getElementById("tuGenero").focus();
+    return;
+  }
+
   function puedeJubilarse(tuEdad, tuGenero) {
-    let jubilable = ((tuGenero === "M" && tuEdad >= 65) || (tuGenero === "F" && tuEdad >= 60)) ? `Podés jubilarte.` : `No podés jubilarte todavía.`
+    let jubilable = ((tuGenero === "M" && tuEdad >= 65) || (tuGenero === "F" && tuEdad >= 60)) ? `'${tuGenero}' / '${tuEdad} años': Podés jubilarte.` : `'${tuGenero}' / '${tuEdad} años': No podés jubilarte todavía.`
     return jubilable;
   }
 
@@ -268,4 +276,44 @@ function capturarEjercicio12() {
   ejercicio12Msg.innerHTML = puedeJubilarse(tuEdad, tuGenero);
   document.getElementById("form12").reset();
 }
+
+
+// Ejercicio 13 - Ingreso de datos y monto unitario
+function capturarEjercicio13() {
+  function ingresarProducto() {
+    let ventas = parseInt(prompt("Ingresa la CANTIDAD de productos VENDIDOS: "));
+    let precio = parseFloat(prompt("Ingresa el PRECIO UNITARIO del producto vendido: "));
+    return { ventas, precio };
+  }
+
+  let listaProductos = [];
+  let ingresarMas = "S";
+
+  while (ingresarMas === "S") {
+    let producto = ingresarProducto();
+    listaProductos.push(producto);
+    ingresarMas = prompt("¿Deseás ingresar OTRO ARTICULO? [S/N]").toUpperCase();
+    while (ingresarMas !== "S" && ingresarMas !== "N") {
+      alert("Por favor, ingresa S o N.");
+      ingresarMas = prompt("¿Deseás ingresar otro artículo? [S/N]").toUpperCase();
+    }
+  }
+
+  let total = 0;
+  let cantidadTotal = 0;
+  let precioPromedio = 0;
+
+  for (let i = 0; i < listaProductos.length; i++) {
+    cantidadTotal += listaProductos[i].ventas;
+    total += listaProductos[i].ventas * listaProductos[i].precio;
+  }
+
+  precioPromedio = total / cantidadTotal;
+
+  let ejercicio13Msg = document.getElementById("ejercicio13Msg");
+  ejercicio13Msg.innerHTML = `El monto total del ticket es: '$${total.toFixed(2)}'<br><br>
+  Cantidad total de productos vendidos: '${cantidadTotal} unidades'<br>
+  Precio promedio de los productos vendidos: '$${precioPromedio.toFixed(2)}'`;
+}
+
 

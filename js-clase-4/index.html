@@ -368,7 +368,8 @@ console.log(esNumeroPerfecto(perfecto));
       <div class="form-cont">
         <form class="form__group invert" id="form11">
           <input type="number" id="cantidadVentas" class="form__input" placeholder="Cuántos productos vendiste? ">
-          <input type="number" id="precioUnitario" class="form__input" placeholder="Ingresa el precio unitario del producto: ">
+          <input type="number" id="precioUnitario" class="form__input"
+            placeholder="Ingresa el precio unitario del producto: ">
           <button type="button" onclick="capturarEjercicio11()">Calcular salario total</button>
         </form>
       </div>
@@ -398,16 +399,16 @@ console.log(salarioTotal(cantidadVentas, precioUnitario));
       <p>12- Realizá un programa que permita al usuario ingresar su edad (entre <span class="funct">1</span> y <span
           class="funct">120</span> años) y su género (<span class="funct">'F'</span> o <span class="funct">'M'</span>).
         La computadora debe indicar si la persona está o no en edad de jubilarse.</p>
-        <div class="form-cont">
-          <form class="form__group invert" id="form12">
-            <input type="numero" id="tuEdad" class="form__input" placeholder="Ingresa tu edad ">
-            <input type="text" id="tuGenero" class="form__input" placeholder="Ingresa tu género ('F/M')">
-            <button type="button" onclick="capturarEjercicio12()">podes jubilarte?</button>
-          </form>
-        </div>
-        <p class="resp resultados" id="ejercicio12Msg"></p>
-  
-        <!-- Inserción de Código JS -->
+      <div class="form-cont">
+        <form class="form__group invert" id="form12">
+          <input type="numero" id="tuEdad" class="form__input" placeholder="Ingresa tu edad ">
+          <input type="text" id="tuGenero" class="form__input" placeholder="Ingresa tu género ('F/M')">
+          <button type="button" onclick="capturarEjercicio12()">podes jubilarte?</button>
+        </form>
+      </div>
+      <p class="resp resultados" id="ejercicio12Msg"></p>
+
+      <!-- Inserción de Código JS -->
       <pre id="codigo12">
         <button onclick="copyToClipboard('#codigo12')" class="btn"><i class="fa-regular fa-copy"></i><i class="fa-solid fa-check"></i></button>
         <code>
@@ -429,10 +430,35 @@ console.log(puedeJubilarse(edad, genero));
         dicho producto. Por cada carga debe preguntar si se desea seguir ingresando de la forma <span
           class="funct">"¿Deseás ingresar otro artículo? [S/N]"</span>. La carga de datos finaliza cuando el usuario lo
         determine. La computadora debe mostrar el monto total del ticket.</p>
+      <div class="form-cont">
+        <form class="form__group invert" id="form13">
+          <button type="button" onclick="capturarEjercicio13()">Monto total del ticket</button>
+        </form>
+      </div>
+      <p class="resp resultados" id="ejercicio13Msg"></p>
+
+      <!-- Inserción de Código JS -->
       <pre id="codigo13">
         <button onclick="copyToClipboard('#codigo13')" class="btn"><i class="fa-regular fa-copy"></i><i class="fa-solid fa-check"></i></button>
         <code>
+let listaProductos = [];
+let ingresarMas = "S";
 
+while (ingresarMas === "S") {
+  let cantidadVentas = parseInt(prompt("Ingresa la cantidad de productos vendidos: "));
+  let precioUnitario = parseFloat(prompt("Ingresa el precio unitario del producto vendido: "));
+
+  listaProductos.push({cantidadVentas, precioUnitario});
+
+  ingresarMas = prompt("¿Deseás ingresar otro artículo? [S/N]").toUpperCase();
+}
+
+let total = 0;
+for (let i = 0; i < listaProductos.length; i++) {
+  total += listaProductos[i].cantidadVentas * listaProductos[i].precioUnitario;
+}
+
+console.log(`El monto total del ticket es: $${total.toFixed(2)}`);
         </code>
       </pre>
     </section>
