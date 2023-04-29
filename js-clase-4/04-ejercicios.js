@@ -105,14 +105,25 @@ function capturarEjercicio5() {
   let ejercicio5Msg = document.getElementById("ejercicio5Msg");
   let sucesion = [];
 
-  function mostrarSucesion() {
-
-
-    for (i = a; i <= b; i += itera) {
-      sucesion.push(i);
-    }
-    return sucesion.join(", ");
+  if (isNaN(itera) || itera <= 0) {
+    itera = 1;
   }
+
+  function mostrarSucesion() {
+    if (isNaN(a) || isNaN(b)) {
+      return "Debe ingresar un valor para 'a' y 'b'";
+    } else if (b <= a) {
+      return "El valor de 'b' debe ser mayor que el valor de 'a'";
+    } else if (itera > 5) {
+      return "El valor de 'itera' debe estar entre 1 y 5";
+    } else {
+      for (i = a; i <= b; i += itera) {
+        sucesion.push(i);
+      }
+      return sucesion.join(", ");
+    }
+  }
+
   ejercicio5Msg.innerHTML = `Sucesión entre ${a} y ${b} => [${(mostrarSucesion())}]`;
   document.getElementById("form5").reset();
 }
