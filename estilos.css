@@ -18,14 +18,14 @@ body {
   min-height: 100%;
 }
 
-header{
+header {
   background-color: var(--color1);
   height: auto;
   margin: 0 auto;
   padding: 1rem 0;
 }
 
-menu ul{
+menu ul {
   display: flex;
   align-items: center;
   justify-content: space-evenly;
@@ -36,7 +36,7 @@ menu ul{
   font-weight: bold;
 }
 
-menu ul li a{
+menu ul li a {
   text-decoration: none;
   color: var(--color1);
 }
@@ -45,14 +45,17 @@ menu ul li a:hover {
   color: var(--blanco);
 }
 
-h1, h3, h4, h5{
+h1,
+h3,
+h4,
+h5 {
   text-align: center;
   padding: .4rem 0;
   color: var(--blanco);
   font-weight: 400;
 }
 
-h5 a{
+h5 a {
   color: var(--color2);
   text-decoration: none;
 }
@@ -67,7 +70,9 @@ main {
   margin: 1rem 0 5rem;
 }
 
-main h3, h4, h5 {
+main h3,
+h4,
+h5 {
   color: var(--negro);
   font-weight: bold;
 }
@@ -93,7 +98,7 @@ main article ul li {
   padding-bottom: 1.1rem;
 }
 
-main article ul a{
+main article ul a {
   color: var(--color2);
   font-size: .7rem;
   text-decoration: none;
@@ -114,10 +119,10 @@ footer {
 }
 
 footer a {
-  color:var(--color1);
+  color: var(--color1);
   text-decoration: none;
 }
 
 footer a:hover {
-  color:var(--blanco);
+  color: var(--blanco);
 }
