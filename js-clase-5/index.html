@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="index5.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/atom-one-dark.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.8/clipboard.min.js"></script>
+  <title>Practica JS</title>
+</head>
+
+<body>
+  <header>
+    <h1>Prácticas de Javascript C-5 <span>...CAC#23053...</span></h1>
+  </header>
+  <!------- EJERCICIOS CLASE 5 ------->
+  <main class="contenido">
+    <h2>GUIA PRACTICA DE ARRAYS</h2>
+    <h3>Definición y testeo de funciones</h3>
+
+    <!-- Ejercicio 1 -->
+    <section class="ejercicio" id="1">
+      <div class="enunciados">
+        <p>1- Realizá un programa que permita al usuario ingresar 10 números enteros. La computadora debe mostrar el promedio de los mismos y cuáles fueron los valores ingresados que lo superaron.</p>
+      </div>
+      <div class="form-cont">
+        <form class="form__group invert" id="form1">
+          <button type="button" onclick="capturar1()">mostrar promedio</button>
+        </form>
+      </div>
+      <p class="resp resultados" id="resultado1"></p>
+
+      <!-- Inserción de Código JS -->
+      <pre id="codigo1">
+        <button onclick="copyToClipboard('#codigo1')" class="btn"><i class="fa-regular fa-copy"></i><i class="fa-solid fa-check"></i></button>
+        <code>
+let numeros = [];
+let suma = 0;
+
+for (let i = 0; i < 10; i++) {
+  numeros.push(parseInt(prompt(`Ingrese el número ${i + 1}:`)));
+}
+
+// Suma, promedio y mayores al promedio
+for (let i = 0; i < numeros.length; i++) {
+  suma += numeros[i];
+}
+
+let promedio = suma / numeros.length;
+
+let mayoresAlPromedio = [];
+
+for (let i = 0; i < numeros.length; i++) {
+  if (numeros[i] > promedio) {
+    mayoresAlPromedio.push(numeros[i]);
+  }
+}
+
+console.log(`El promedio de los números ingresados es: ${promedio}`);
+console.log(`Los valores ingresados que superan el promedio son: ${mayoresAlPromedio.join(", ")}`);
+        </code>
+      </pre>
+    </section>
+    <footer>
+      <code class="code-footer">SGVero | CAC#23053 | Docente:&nbsp;<a href="https://charlycimino.com" target="_blank">Charly Cimino</a></code>
+    </footer>
+  </main>
+  <button class="indice-btn" onclick="window.location.href = '../index.html';" title="Indice de Ejercicios"><i class="fa-solid fa-bars fa-shake"></i></button>
+  <script src="05-ejercicios.js"></script>
+  <script src="https://kit.fontawesome.com/ad22120107.js" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+  <script>hljs.highlightAll();</script>
+</body>
+
+</html>

@@ -78,13 +78,10 @@ function capturarEjercicio4() {
   let ejercicio4Msg = document.getElementById("ejercicio4Msg");
 
   function esVocal(caracter1) {
-    // Convertir el caracter a mayúsculas para contemplar ambos casos
     caracter1 = caracter1.toUpperCase();
 
-    // Definir un array con las vocales en mayúsculas
     const vocales = ["A", "E", "I", "O", "U"];
 
-    // Verificar si el caracter se encuentra en el array de vocales
     if (vocales.includes(caracter1)) {
       return `'${caracter1}' es Vocal`;
     } else {

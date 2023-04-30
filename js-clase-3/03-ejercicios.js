@@ -58,7 +58,6 @@ function capturarTablaMultiplicar() {
         document.getElementById("multiplicando").focus();
     } else {
         multiplicadores.forEach((multiplicador) => {
-            // Realizar la multiplicación y agregarla a la tabla
             let resultado = multiplicando * multiplicador;
             tabla.push(`${multiplicando} x ${multiplicador} = ${resultado}`);
         });
@@ -114,7 +113,6 @@ function capturarEdades() {
     const imparesSup18Msg = document.getElementById("imparesSup18Msg");
     imparesSup18Msg.textContent = `La cantidad de edades impares mayores de ${edadMinima} son ${cantEdadesOk}`;
 
-    // Establecer los valores vacíos para realizar el programa de nuevo
     for (let i = 1; i <= cantEdades; i++) {
         document.getElementById("edad" + i).value = "";
     }
@@ -161,25 +159,24 @@ function calcularAlturaPromedio() {
 
 // Ejercicio 8
 function capturarEnteros() {
-    //declaro variables de entrada de los datos
     let cantInt = parseInt(document.getElementById("cantInt").value);
     let numeros = [];
-    //resuelve el problema de recorrido de datos
+
     for (let i = 1; i <= cantInt; i++) {
         let num = parseInt(prompt(`Ingrese el número entero ${i}: `));
         numeros.push(num);
     }
-    //declaro variables que guarden lo que necesito del recorrido
+
     let maxNum = numeros[0];
     let maxPos = 1;
-    //especifico que resuelva otro hecho puntual
+
     for (let i = 1; i < numeros.length; i++) {
         if (numeros[i] > maxNum) {
             maxNum = numeros[i];
             maxPos = i + 1;
         }
     }
-    //resuelvo la respuesta por navegador
+
     let enterosMsg = document.getElementById("enterosMsg");
     enterosMsg.innerHTML = `El número mayor es ${maxNum} y apareció en la posición ${maxPos}.`;
     document.getElementById("form8").reset();
@@ -448,18 +445,18 @@ form19.addEventListener("submit", function (event) {
     const pass = password.value;
 
     if (user === "admin" && pass === "123456") {
-        // credenciales correctas
+        // datos correctos
         cuentaIntentos = 0; // reinicia el contador de intentos
         form19.reset();
         username.focus();
         loginMsg.textContent = "Acceso concedido!";
     } else {
-        // credenciales incorrectas
+        // datos incorrectas
         cuentaIntentos++;
         const intentosRestantes = maxIntentos - cuentaIntentos;
         if (intentosRestantes > 0) {
             // quedan intentos disponibles
-            loginMsg.textContent = `Credenciales incorrectas. Te quedan ${intentosRestantes} intentos.`;
+            loginMsg.textContent = `Datos incorrectos. Te quedan ${intentosRestantes} intentos.`;
             username.focus();
             form19.reset();
         } else {
@@ -503,7 +500,7 @@ function capturarMatriz() {
 
 // Ejercicio 21
 let intervalId; // Variable global para guardar el ID del intervalo
-let segundosRestantes; // Variable global para guardar los segundos restantes
+let segundosRestantes;
 
 function iniciarCronometro() {
     // Pedimos que ingrese los minutos
@@ -520,7 +517,7 @@ function iniciarCronometro() {
         const minutosActuales = Math.floor(segundosRestantes / 60);
         const segundosActuales = segundosRestantes % 60;
 
-        // Actualizamos el contenido 
+        // Actualizamos el contenido
         cronometro.textContent = `${minutosActuales.toString().padStart(2, "0")}:${segundosActuales.toString().padStart(2, "0")}`;
 
         // Si quedan segundos, programamos la siguiente actualización
