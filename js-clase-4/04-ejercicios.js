@@ -270,7 +270,6 @@ function capturarEjercicio12() {
   let tuEdad = parseInt(document.getElementById("tuEdad").value);
   let tuGenero = document.getElementById("tuGenero").value.toUpperCase();
 
-  // Validar que tuGenero sea "F" o "M"
   if (tuGenero !== "F" && tuGenero !== "M") {
     alert("Por favor, ingrese F o M en el campo género.");
     document.getElementById("tuGenero").value = "";

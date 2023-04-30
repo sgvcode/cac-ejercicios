@@ -141,7 +141,8 @@ p.resultados{
   display: flex;
   flex-direction: column;
   margin: 2rem 0 0;
-  color: var(--color2);
+  color: var(--color1);
+  padding: 1rem 0;
 }
 
 input {
