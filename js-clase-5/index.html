@@ -20,7 +20,7 @@
     <h2>GUIA PRACTICA DE ARRAYS</h2>
     <h3>Definición y testeo de funciones</h3>
 
-    <!-- Ejercicio 1 -->
+  <!-- Ejercicio 1 -->
     <section class="ejercicio" id="1">
       <div class="enunciados">
         <p>1- Realizá un programa que permita al usuario ingresar 10 números enteros. La computadora debe mostrar el promedio de los mismos y cuáles fueron los valores ingresados que lo superaron.</p>
@@ -36,33 +36,117 @@
       <pre id="codigo1">
         <button onclick="copyToClipboard('#codigo1')" class="btn"><i class="fa-regular fa-copy"></i><i class="fa-solid fa-check"></i></button>
         <code>
-let numeros = [];
-let suma = 0;
-
-for (let i = 0; i < 10; i++) {
-  numeros.push(parseInt(prompt(`Ingrese el número ${i + 1}:`)));
+function promedio(numeros) {
+  return (numeros.length == 0 ? 0 : sumatoria(numeros) / numeros.length);
 }
 
-// Suma, promedio y mayores al promedio
-for (let i = 0; i < numeros.length; i++) {
-  suma += numeros[i];
-}
-
-let promedio = suma / numeros.length;
-
-let mayoresAlPromedio = [];
-
-for (let i = 0; i < numeros.length; i++) {
-  if (numeros[i] > promedio) {
-    mayoresAlPromedio.push(numeros[i]);
+function sumatoria(numeros) {
+  let acu = 0;
+  for (const numero of numeros) {
+    acu += numero;
   }
+  return acu;
 }
 
-console.log(`El promedio de los números ingresados es: ${promedio}`);
-console.log(`Los valores ingresados que superan el promedio son: ${mayoresAlPromedio.join(", ")}`);
+function mostrarMayoresQue(numeros, valorASuperar) {
+  let mayores = [];
+  for (const numero of numeros) {
+      if (numero > valorASuperar) {
+          mayores.push(numero);
+      }
+  }
+  return mayores;
+}
+
+let misNumeros = [];
+// Ingresar los 10 números
+for (let i = 0; i < 10; i++) {
+    misNumeros.push(parseInt(prompt(`ingresar número ${i + 1}: `)));
+}
+
+console.log(`El promedio de ${misNumeros} es: ${miPromedio}`);
+console.log(`Los valores que superan el promedio son: ${mostrarMayoresQue(misNumeros, promedio(misNumeros))}`);
         </code>
       </pre>
     </section>
+
+  <!-- Ejercicio 2 -->
+    <section class="ejercicio" id="2">
+      <div class="enunciados">
+        <p>2- Realizá un programa que permita al usuario ingresar 10 números enteros. La computadora debe mostrar aquellos que sean múltiplos del último número ingresado.</p>
+      </div>
+      <div class="form-cont">
+        <form class="form__group invert" id="form2">
+          <button type="button" onclick="capturar2()">mostrar multiplos</button>
+        </form>
+      </div>
+      <p class="resp resultados" id="resultado2"></p>
+
+      <!-- Inserción de Código JS -->
+      <pre id="codigo2">
+        <button onclick="copyToClipboard('#codigo2')" class="btn"><i class="fa-regular fa-copy"></i><i class="fa-solid fa-check"></i></button>
+        <code>
+let numerosM = [];
+for (let i = 0; i < 10; i++) {
+  let numM = parseInt(prompt(`Ingrese el número ${i+1}:`));
+  numerosM.push(numM);
+}
+
+let ultimoNumero = numerosM[numerosM.length-1];
+
+// Filtramos los multiplos del ultimo
+let multiplos = numerosM.filter(numM => numM % ultimoNumero === 0);
+
+console.log(`Los múltiplos de ${ultimoNumero} son: ${multiplos.join(", ")}`);
+        </code>
+      </pre>
+    </section>
+
+  <!-- Ejercicio 3 -->
+    <section class="ejercicio" id="3">
+      <div class="enunciados">
+        <p>3- Realizá un programa que permita al usuario ingresar 10 números enteros. La computadora debe mostrar el valor máximo y la cantidad de veces que se ingresó tal valor.</p>
+      </div>
+      <div class="form-cont">
+        <form class="form__group invert" id="form3">
+          <button type="button" onclick="capturar3()">mostrar maximos</button>
+        </form>
+      </div>
+      <p class="resp resultados" id="resultado3"></p>
+
+      <!-- Inserción de Código JS -->
+      <pre id="codigo3">
+        <button onclick="copyToClipboard('#codigo3')" class="btn"><i class="fa-regular fa-copy"></i><i class="fa-solid fa-check"></i></button>
+        <code>
+function valorMaximo(numeros) {
+  return Math.max(...numeros);
+}
+
+let numeros = [];
+
+for (let i = 0; i < 10; i++) {
+  let numero = parseInt(prompt(`Ingrese el número ${i + 1}:`));
+  if (isNaN(numero) || numero === null) {
+    numeros.push(0);
+  } else {
+    numeros.push(numero);
+  }
+}
+
+let contador = 0;
+
+for (let i = 0; i < numeros.length; i++) {
+  if (numeros[i] === valorMaximo(numeros);) {
+    contador++;
+  }
+}
+
+console.log(`El valor máximo ingresado es: ${valorMaximo(numeros);}`);
+console.log(`El número máximo aparece ${contador} veces en el array [${numeros.join(", ")}].`);
+        </code>
+      </pre>
+    </section>
+
     <footer>
       <code class="code-footer">SGVero | CAC#23053 | Docente:&nbsp;<a href="https://charlycimino.com" target="_blank">Charly Cimino</a></code>
     </footer>
