@@ -150,10 +150,8 @@ function calcularAlturaPromedio() {
     }
 
     let alturaPromedio = altAcu / cant1;
-    console.log(`La estatura promedio de ${cant1} jugadores es ${alturaPromedio.toFixed(2)}m`);
 
-    let alturaPromedioMsg = document.getElementById("alturaPromedioMsg");
-    alturaPromedioMsg.innerHTML = `La estatura promedio de ${cant1} jugadores es ${alturaPromedio.toFixed(2)}m`;
+    document.getElementById("alturaPromedioMsg").innerHTML = `Alturas ingresadas: [${alturasAcumuladas.join(", ")}]<br>El promedio de altura de ${cant1} jugadores es '${alturaPromedio.toFixed(2)}m'`;
     document.getElementById("form7").reset();
 }
 
@@ -182,21 +180,6 @@ function capturarEnteros() {
     document.getElementById("form8").reset();
 }
 
-// Ejercicio 10
-function validarNotas() {
-    let notas = -1;
-
-    while (notas > 10 || notas < 0) {
-        notas = parseInt(prompt("Ingresa la nota del 1 al 10: "));
-        if (notas < 0 && notas > 10) {
-            alert("La nota no es válida. Ingresa una nota ");
-        }
-    }
-    console.log(`La nota es ${notas}`);
-    let validarNotaMsg = document.getElementById("validarNotaMsg");
-    validarNotaMsg.innerHTML = `La nota es ${notas}`;
-}
-
 // Ejercicio 9
 function capturarNatural() {
     let nNatural = parseInt(document.getElementById("nNatural").value);
@@ -211,108 +194,115 @@ function capturarNatural() {
     document.getElementById("form9").reset();
 }
 
+// Ejercicio 10
+function validarNotas() {
+    let notas;
+    do {
+        notas = parseFloat(prompt("Ingrese la nota del examen (entre 0 y 10): "));
+    } while (notas < 0 || notas > 10);
+
+    document.getElementById("validarNotaMsg").innerHTML = `La nota es ${notas}`;
+}
+
 // Ejercicio 11
 function validarNotaN() {
-    let notaN = -1;
-    let validarNotaNMsg = document.getElementById("validarNotaNMsg");
+    let notaN = parseInt(prompt("Ingresa una nota: "));
 
-    while (isNaN(notaN) || notaN <= 0 || notaN > 10 || notaN === 1 || notaN === 3) {
-        notaN = parseInt(prompt("Ingresa una nota: "));
-        if (notaN <= 0 || notaN > 10 || notaN === 1 || notaN === 3) {
-            alert("Nota inválida, ingresa una nota: ");
-        } else {
-            // alert(`La nota es ${notaN}`);
-            validarNotaNMsg.innerHTML = `La nota es ${notaN}`;
-        }
+    while (isNaN(notaN) || notaN <= 1 || notaN > 10 || notaN === 3) {
+        notaN = parseInt(prompt("Nota inválida. Ingresa una nota: "));
     }
+    document.getElementById("validarNotaNMsg").innerHTML = `La nota es '${notaN}'`;
 }
 
 // Ejercicio 12
 // Opción con while
 function conWhile() {
-    let opcion;
-    let finalizarMsg = document.getElementById("finalizarMsg");
-
-    do {
-        opcion = prompt('¿Deseás continuar? [S/N]');
-        if (!['S', 's', 'N', 'n'].includes(opcion)) {
-            alert('Opción inválida. Ingresá S o N.');
+    let opcion = "";
+    while (!["n"].includes(opcion.toLowerCase())) {
+        opcion = prompt("¿Deseás opcion? [S/N] ");
+        if (!["s", "n"].includes(opcion.toLowerCase())) {
+            alert("Opción inválida. Ingresá S o N. ");
         }
-    } while (!['N', 'n'].includes(opcion));
-    if (['S', 's'].includes(opcion)) {
-        opcion = prompt('¿Deseás continuar? [S/N]');
+    }
+    if (["s"].includes(opcion.toLowerCase())) {
+        opcion = prompt("¿Deseás opcion? [S/N] ");
     } else {
-        finalizarMsg.innerHTML = "Validar con 'while' - Operación cancelada.";
+        alert("Operación cancelada.");
     }
 }
 
 function conDoWhile() {
     //Opción con do-while
     let opcion;
-    let finalizarMsg = document.getElementById("finalizarMsg");
-
     do {
-        opcion = prompt('¿Deseás continuar? [S/N]');
-        if (!['S', 's', 'N', 'n'].includes(opcion)) {
-            alert('Opción inválida. Ingresá S o N.');
+        opcion = prompt("¿Deseás opcion? [S/N] ").toLowerCase();
+        if (!["s", "n"].includes(opcion)) {
+            alert("Opción inválida. Ingresá S o N. ");
         }
-    } while (!['N', 'n'].includes(opcion));
-    if (['S', 's'].includes(opcion)) {
-        opcion = prompt('¿Deseás continuar? [S/N]');
+    } while (!["n"].includes(opcion));
+    if (opcion === "s") {
+        opcion = prompt("¿Deseás opcion? [S/N] ").toLowerCase();
     } else {
-        finalizarMsg.innerHTML = "Validar con 'do-while' - Operación cancelada.";
+        alert("Operación cancelada.");
     }
 }
 
+// Ejercicio 13
+
 function listaMaxMin() {
-    let unoADiez = 1;
     let listaNumeros = [];
+    let unoAMil;
     let max;
     let min;
-    let listaMaxMinMsg = document.getElementById("listaMaxMinMsg");
+    let continuar = true;
+    let mensaje = document.getElementById("listaMaxMinMsg");
 
-    while (unoADiez > 0 && unoADiez <= 10) {
-        unoADiez = parseInt(prompt("Ingresa un número del 1 al 10 (0 para terminar) "));
-        if (unoADiez >= 1 && unoADiez <= 10) {
-            listaNumeros.push(unoADiez);
-        }
-        max = Math.max(...listaNumeros);
-        min = Math.min(...listaNumeros);
-        if (unoADiez < 0 || unoADiez > 10 || isNaN(unoADiez)) {
-            unoADiez = parseInt(prompt("Número inválido, ingresa un número del 1 al 10 (0 para terminar) "));
+    while (continuar) {
+        unoAMil = parseInt(prompt("Ingresa un número del 1 al 1000 (0 para terminar) "));
+        if (unoAMil >= 1 && unoAMil <= 1000 && !isNaN(unoAMil)) {
+            listaNumeros.push(unoAMil);
+        } else if (unoAMil !== 0) {
+            alert("Número inválido.");
+        } else {
+            continuar = false;
         }
     }
+
     if (listaNumeros.length >= 1) {
-        listaMaxMinMsg.innerHTML = `Los nros ingresados son "${listaNumeros}"<br>El máximo es: ${max}<br>El mínimo ${min}`;
+        max = Math.max(...listaNumeros);
+        min = Math.min(...listaNumeros);
+        mensaje.innerHTML = `Los nros ingresados son [${listaNumeros.join(", ")}]<br>El máximo es: ${max}<br>El mínimo es: ${min}`;
     } else {
-        listaMaxMinMsg.innerHTML = "No se ingresaron números válidos.";
+        mensaje.innerHTML = "No se ingresaron números válidos.";
     }
 }
 
 // Ejercicio 14
 function listaPersonas() {
-    let nombre;
-    let edad = 0;
-    let personaMasJoven;
-    let edadMasJoven = 120;
-    let personaMsg = document.getElementById("personaMsg");
 
-    while (nombre !== "*") {
-        nombre = prompt("Ingrese el nombre de la persona (* para terminar): ");
-        if (nombre === "*") {
-            break;
+    const EDAD_MAXIMA = 120;
+    let nombre, edad;
+
+    let minimo = EDAD_MAXIMA
+    let nombreMasJoven;
+
+    nombre = prompt(`Ingresa el nombre de la persona ('*' para terminar): `);
+    while (nombre != "*") {
+        edad = parseInt(prompt(`Ingrese edad para ${nombre}: `));
+
+        while (!(edad > 0 && edad <= EDAD_MAXIMA)) {
+            edad = parseInt(prompt(`Error. Ingresa la edad de ${nombre}: `));
         }
-        edad = parseInt(prompt(`Ingrese la edad de ${nombre}: `));
-        if (edad < edadMasJoven) {
-            personaMasJoven = nombre;
-            edadMasJoven = edad;
+        if (edad <= minimo) {
+            minimo = edad;
+            nombreMasJoven = nombre;
         }
+        nombre = prompt(`Ingrese otro nombre ('*' para terminar): `);
     }
-
-    if (personaMasJoven !== "") {
-        personaMsg.innerHTML = `La persona más joven es ${personaMasJoven}<br>(${edadMasJoven} años)`;
+    if (nombreMasJoven != undefined) {
+        document.getElementById("personaMsg").innerHTML = `El más joven es ${nombreMasJoven} con ${minimo} años`;
     } else {
-        personaMsg.innerHTML = "No se ingresaron personas.";
+        document.getElementById("personaMsg").innerHTML = "No se ingresó ninguna edad";
     }
 }
 
@@ -330,7 +320,7 @@ function promedioMenorA20() {
         cantidad++;
     }
 
-    leidosMsg.innerHTML = `Cantidad de valores con promedio < 20 leídos: ${cantidad}<br>Lista de números ingresados: ${numeros.join(", ")}`;
+    leidosMsg.innerHTML = `Cantidad de valores con promedio < 20 leídos: ${cantidad - 1}<br>Sumando ${numeros[numeros.length - 1]} excedería el promedio mínimo deseado<br>Lista de números que cumplen: [${numeros.slice(0, -1).join(", ")}]`;
 }
 
 // Ejercicio 16
@@ -367,67 +357,109 @@ function capturarNumerosE() {
 
 // Ejercicio 17
 function capturarArticulos() {
-    let continuar = true;
-    let montoTotal = 0;
-    let articulos = [];
+    let seguirCargando = true;
+    let total = 0;
+    let compras = [];
 
-    while (continuar) {
-        let nombre = prompt("Ingresa el nombre del artículo: ");
-        let cantidad = parseInt(prompt("Ingresa la cantidad de artículos: "));
-        let precio = parseFloat(prompt("Ingresa el precio unitario del artículo: "));
+    while (seguirCargando) {
+        let nombre = prompt("Ingrese el nombre del artículo:");
+        let cantidad;
+        let precio;
 
-        // Validar que se ingresen los datos
-        while (isNaN(cantidad) || isNaN(precio) || cantidad <= 0 || precio <= 0 || nombre === "") {
-            nombre = prompt("Ingresa un nombre de artículo válido: ");
-            cantidad = parseInt(prompt("Ingresa una cantidad válida de artículos: "));
-            precio = parseFloat(prompt("Ingresa un precio unitario válido: "));
-        }
+        do {
+            cantidad = parseInt(prompt("Ingrese la cantidad de unidades del artículo:"));
+            if (isNaN(cantidad) || cantidad <= 0) {
+                alert("La cantidad ingresada no es válida");
+            }
+        } while (isNaN(cantidad) || cantidad <= 0);
 
-        articulos.push({ nombre, cantidad, precio });
+        do {
+            precio = parseFloat(prompt("Ingrese el precio unitario del artículo:"));
+            if (isNaN(precio) || precio <= 0) {
+                alert("El precio ingresado no es válido");
+            }
+        } while (isNaN(precio) || precio <= 0);
 
-        montoTotal += cantidad * precio;
+        total += cantidad * precio;
 
-        let seguirIngresando = prompt("¿Queres ingresar otro artículo? [S/N]").toUpperCase();
+        compras.push(`${nombre}: ${cantidad} por $${precio.toFixed(2)}`);
 
-        // Validar que se ingrese una opción válida
-        while (seguirIngresando !== "S" && seguirIngresando !== "N") {
-            seguirIngresando = prompt("Ingresa una opción válida [S/N]").toUpperCase();
-        }
+        let opcion;
 
-        if (seguirIngresando === "N") {
-            continuar = false;
+        do {
+            opcion = prompt("¿Desea ingresar otro artículo? [S/N]").toLowerCase();
+            if (opcion !== "s" && opcion !== "n") {
+                alert("Opción inválida.");
+            }
+        } while (opcion !== "s" && opcion !== "n");
+
+        if (opcion === "n") {
+            seguirCargando = false;
         }
     }
 
-    // Mostrar lista de artículos, cantidad y monto de cada ingreso
-    let articulosMsg = document.getElementById("articulosMsg");
-    articulosMsg.innerHTML = `Parciales:<br>`;
-    articulos.forEach((articulo, index) => {
-        articulosMsg.innerHTML += `'${articulo.nombre}'- ${articulo.cantidad} x $${articulo.precio.toFixed(2)} = $${(articulo.cantidad * articulo.precio).toFixed(2)}<br>`;
-    });
-    articulosMsg.innerHTML += "";
+    document.getElementById("articulosMsg").innerHTML = `Se ingresaron:<br>${compras.join('<br>')}<br><br>El total del ticket es de $${total.toFixed(2)}`;
+    // let continuar = true;
+    // let montoTotal = 0;
+    // let articulos = [];
 
-    // Mostrar monto total del ticket
-    articulosMsg.innerHTML += `El monto total del ticket es: $${montoTotal.toFixed(2)}`;
+    // while (continuar) {
+    //     let nombre = prompt("Ingresa el nombre del artículo: ");
+    //     let cantidad = parseInt(prompt("Ingresa la cantidad de artículos: "));
+    //     let precio = parseFloat(prompt("Ingresa el precio unitario del artículo: "));
+
+    //     // Validar que se ingresen los datos
+    //     while (isNaN(cantidad) || isNaN(precio) || cantidad <= 0 || precio <= 0 || nombre === "") {
+    //         nombre = prompt("Ingresa un nombre de artículo válido: ");
+    //         cantidad = parseInt(prompt("Ingresa una cantidad válida de artículos: "));
+    //         precio = parseFloat(prompt("Ingresa un precio unitario válido: "));
+    //     }
+
+    //     articulos.push({ nombre, cantidad, precio });
+
+    //     montoTotal += cantidad * precio;
+
+    //     let seguirIngresando = prompt("¿Queres ingresar otro artículo? [S/N]").toUpperCase();
+
+    //     // Validar que se ingrese una opción válida
+    //     while (seguirIngresando !== "S" && seguirIngresando !== "N") {
+    //         seguirIngresando = prompt("Ingresa una opción válida [S/N]").toUpperCase();
+    //     }
+
+    //     if (seguirIngresando === "N") {
+    //         continuar = false;
+    //     }
+    // }
+
+    // // Mostrar lista de artículos, cantidad y monto de cada ingreso
+    // let articulosMsg = document.getElementById("articulosMsg");
+    // articulosMsg.innerHTML = `Parciales:<br>`;
+    // articulos.forEach((articulo, index) => {
+    //     articulosMsg.innerHTML += `'${articulo.nombre}'- ${articulo.cantidad} x $${articulo.precio.toFixed(2)} = $${(articulo.cantidad * articulo.precio).toFixed(2)}<br>`;
+    // });
+    // articulosMsg.innerHTML += "";
+
+    // // Mostrar monto total del ticket
+    // articulosMsg.innerHTML += `El monto total del ticket es: $${montoTotal.toFixed(2)}`;
 }
 
 // Ejercicio 18
 function capturarSueldoAnual() {
     let sueldosMensuales = [];
     let sueldoTotal = 0;
+    let continuar = true; // variable de control
 
-    for (let i = 1; i <= 12; i++) {
-        let sueldo = parseFloat(prompt(`Ingrese el sueldo del mes ${i}:`));
+    for (let i = 1; i <= 12 && continuar; i++) {
+        let sueldo = parseFloat(prompt(`Ingrese el sueldo del mes ${i}: `));
         if (sueldo < 0) {
-            break;
+            continuar = false; // si el sueldo es negativo, detenemos el bucle
         } else {
             sueldosMensuales.push(sueldo);
             sueldoTotal += sueldo;
         }
     }
 
-    let sueldoAnualMsg = document.getElementById("sueldoAnualMsg");
-    sueldoAnualMsg.innerHTML = `El sueldo anual percibido es de $${sueldoTotal.toFixed(2)}<br>(${sueldosMensuales})`;
+    sueldoAnualMsg.innerHTML = `El sueldo anual percibido es de $${sueldoTotal.toFixed(2)}<br>(${sueldosMensuales.join(", ")})`;
 }
 
 // Ejercicio 19
@@ -545,4 +577,5 @@ function reiniciarCronometro() {
     segundosRestantes = 0; // Reiniciamos los segundos restantes
     const cronometro = document.getElementById("cronometro");
     cronometro.textContent = "00:00"; // Reiniciamos el cronómetro en la pantalla
+    document.getElementById("form21").reset();
 }

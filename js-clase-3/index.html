@@ -214,17 +214,19 @@ console.log(`El monto total vendidos es: ${montoAcu}`)
       <pre id="codigo7">
         <button onclick="copyToClipboard('#codigo7')" class="btn"><i class="fa-regular fa-copy"></i><i class="fa-solid fa-check"></i></button>
         <code>
+//Corregido promedio fuera del ciclo
 let cant1 = parseInt(prompt('Nº de Jugadores? '));
 let alturas;
 let altAcu = 0;
 let alturasAcumuladas = [];
 
 for (i = 1; i <= cant1; i++) {
-  alturas = parseFloat(prompt(`Altura de jugador ${i}: `));
-  altAcu = altAcu + alturas;
-  alturasAcumuladas.push(alturas);
-  alturaPromedio = altAcu / cant1;
+    alturas = parseFloat(prompt(`Altura de jugador ${i}: `));
+    altAcu = altAcu + alturas;
+    alturasAcumuladas.push(alturas);
 }
+
+let alturaPromedio = altAcu / cant1;
 
 console.log(`La estatura promedio de ${cant1} jugadores es ${alturaPromedio.toFixed(2)}m`);
         </code>
@@ -315,15 +317,14 @@ console.log(`El factorial de ${num} es ${factorial}`);
       <p class="resp" id="validarNotaMsg"></p>
       <pre id="codigo10">
         <button onclick="copyToClipboard('#codigo10')" class="btn"><i class="fa-regular fa-copy"></i><i class="fa-solid fa-check"></i></button>
-        <code>
-let notas = -1;
+      <code>
+//Corregido usando do-while sin 'if'
+let notas;
 
-while (notas > 10 || notas < 0) {
-  notas = parseInt(prompt("Ingresa la nota del 1 al 10: "));
-  if (notas < 0 && notas > 10) {
-    alert("La nota no es válida. Ingresa una nota ");
-  }
-}
+do {
+    notas = parseFloat(prompt("Ingrese la nota del examen (entre 0 y 10): "));
+} while (notas < 0 || notas > 10);
+
 console.log(`La nota es ${notas}`);
         </code>
       </pre>
@@ -344,16 +345,13 @@ console.log(`La nota es ${notas}`);
       <pre id="codigo11">
         <button onclick="copyToClipboard('#codigo11')" class="btn"><i class="fa-regular fa-copy"></i><i class="fa-solid fa-check"></i></button>
         <code>
-let nota = -1;
+//Corregido integrando '0' como nó válido
+let nota = parseInt(prompt("Ingresa una nota: "));
 
-while (nota < 0 || nota > 10 || nota === 1 || nota === 3) {
+while (isNaN(nota) || nota <= 1 || nota > 10 || nota === 3) {
   nota = parseInt(prompt("Nota inválida. Ingresa una nota: "));
-  if (nota === 0) {
-    alert("0 Reservada para los ausentes");
-  } else {
-    alert(`La nota es ${nota}`);
-  }
 }
+alert(`La nota es ${nota}`);
         </code>
       </pre>
     </div>
@@ -378,30 +376,31 @@ while (nota < 0 || nota > 10 || nota === 1 || nota === 3) {
       <pre id="codigo12">
         <button onclick="copyToClipboard('#codigo12')" class="btn"><i class="fa-regular fa-copy"></i><i class="fa-solid fa-check"></i></button>
         <code>
+//Corregidos con to.LowerCase() para evitar repetición de letras
 //Opción con while
-let continuar = "";
-while (!["N", "n"].includes(continuar)) {
-  continuar = prompt("¿Deseás continuar? [S/N] ");
-  if (!["S", "s", "N", "n"].includes(continuar)) {
+let opcion = "";
+while (!["n"].includes(opcion.toLowerCase())) {
+  opcion = prompt("¿Deseás opcion? [S/N] ");
+  if (!["s", "n"].includes(opcion.toLowerCase())) {
     alert("Opción inválida. Ingresá S o N. ");
   }
 }
-if (["S", "s"].includes(continuar)) {
-  continuar = prompt("¿Deseás continuar? [S/N] ");
+if (["s"].includes(opcion.toLowerCase())) {
+  opcion = prompt("¿Deseás opcion? [S/N] ");
 } else {
   alert("Operación cancelada.");
 }
 
 //Opción con do-while
-let continuar;
+let opcion;
 do {
-  continuar = prompt("¿Deseás continuar? [S/N] ");
-  if (!["S", "s", "N", "n"].includes(continuar)) {
+  opcion = prompt("¿Deseás opcion? [S/N] ").toLowerCase();
+  if (!["s", "n"].includes(opcion)) {
     alert("Opción inválida. Ingresá S o N. ");
   }
-} while (!["N", "n"].includes(continuar));
-if (["S", "s"].includes(continuar)) {
-  continuar = prompt("¿Deseás continuar? [S/N] ");
+} while (!["n"].includes(opcion));
+if (opcion === "s") {
+  opcion = prompt("¿Deseás opcion? [S/N] ").toLowerCase();
 } else {
   alert("Operación cancelada.");
 }
@@ -422,24 +421,28 @@ if (["S", "s"].includes(continuar)) {
       <pre id="codigo13">
         <button onclick="copyToClipboard('#codigo13')" class="btn"><i class="fa-regular fa-copy"></i><i class="fa-solid fa-check"></i></button>
         <code>
-let unoADiez = 1;
+//Corregido while/if para no repetir condicion
 let listaNumeros = [];
+let unoAMil;
 let max;
 let min;
+let continuar = true;
 
-while (unoADiez > 0 && unoADiez <= 10) {
-    unoADiez = parseInt(prompt("Ingresa un número del 1 al 10 (0 para terminar) "));
-    if (unoADiez >= 1 && unoADiez <= 10) {
-        listaNumeros.push(unoADiez);
-    }
-    max = Math.max(...listaNumeros);
-    min = Math.min(...listaNumeros);
-    if (unoADiez < 0 || unoADiez > 10 || isNaN(unoADiez)) {
-      unoADiez = parseInt(prompt("Número inválido, ingresa un número del 1 al 10 (0 para terminar) "));
+while (continuar) {
+    unoAMil = parseInt(prompt("Ingresa un número del 1 al 1000 (0 para terminar) "));
+    if (unoAMil >= 1 && unoAMil <= 1000 && !isNaN(unoAMil)) {
+        listaNumeros.push(unoAMil);
+    } else if (unoAMil !== 0) {
+        alert("Número inválido.");
+    } else {
+        continuar = false;
     }
 }
+
 if (listaNumeros.length >= 1) {
-    console.log(`Los nros ingresados son ${listaNumeros}\nEl máximo es: ${max}\nEl mínimo {min}`);
+    max = Math.max(...listaNumeros);
+    min = Math.min(...listaNumeros);
+    console.log(`Los nros ingresados son [${listaNumeros.join(", ")}]\nEl máximo es: ${max}\nEl mínimo es: ${min}`);
 } else {
     console.log("No se ingresaron números válidos.");
 }
@@ -461,27 +464,30 @@ if (listaNumeros.length >= 1) {
       <pre id="codigo14">
         <button onclick="copyToClipboard('#codigo14')" class="btn"><i class="fa-regular fa-copy"></i><i class="fa-solid fa-check"></i></button>
         <code>
-let nombre;
-let edad = 0;
-let personaMasJoven;
-let edadMasJoven = 120;
+//Usando modelo clase sin break ni continue en el ciclo
+const EDAD_MAXIMA = 120;
+let nombre, edad;
 
-while (nombre !== "*") {
-  nombre = prompt("Ingrese el nombre de la persona (* para terminar): ");
-  if (nombre === "*") {
-    break;
-  }
-  edad = parseInt(prompt(`Ingrese la edad de ${nombre}: `));
-  if (edad < edadMasJoven) {
-    personaMasJoven = nombre;
-    edadMasJoven = edad;
-  }
+let minimo = EDAD_MAXIMA
+let nombreMasJoven;
+
+nombre = prompt(`Ingresa el nombre de la persona ('*' para terminar): `);
+while(nombre != "*") {
+    edad = parseInt(prompt(`Ingrese edad para ${nombre}: `));
+
+    while ( !(edad > 0 && edad <= EDAD_MAXIMA) ) {
+        edad = parseInt(prompt(`Error. Ingresa la edad de ${nombre}: `));
+    }
+    if (edad <= minimo) {
+        minimo = edad;
+        nombreMasJoven = nombre;
+    }
+    nombre = prompt(`Ingrese otro nombre ('*' para terminar): `);
 }
-
-if (personaMasJoven !== "") {
-  console.log(`La persona más joven es ${personaMasJoven} con ${edadMasJoven} años.`);
+if (nombreMasJoven != undefined) {
+    console.log(`El más joven es ${nombreMasJoven} con ${minimo} años`);
 } else {
-  console.log("No se ingresaron personas.");
+    console.log("No se ingresó ninguna edad");
 }
         </code>
       </pre>
@@ -500,17 +506,20 @@ if (personaMasJoven !== "") {
       <pre id="codigo15">
         <button onclick="copyToClipboard('#codigo15')" class="btn"><i class="fa-regular fa-copy"></i><i class="fa-solid fa-check"></i></button>
         <code>
+// Corregido. Descarta el último nro que rompe el promedio en el conteo
 let numero = 0;
 let sumatoria = 0;
 let cantidad = 0;
+let numeros = [];
 
 while (cantidad === 0 || sumatoria / cantidad < 20) {
   numero = parseInt(prompt('Ingrese un número: '));
+  numeros.push(numero); // agregar el número al array
   sumatoria += numero;
   cantidad++;
 }
 
-console.log(`Se leyeron ${cantidad} valores.`);
+console.log(`Cantidad de valores con promedio < 20 leídos: ${cantidad-1}\nSumando [${numeros[numeros.length - 1]}] excedería el promedio mínimo deseado\nLista de números que cumplen: [${numeros.slice(0,-1)}]`);
         </code>
       </pre>
     </div>
@@ -581,45 +590,45 @@ function validarOpcion(opcion) {
       <pre id="codigo17">
         <button onclick="copyToClipboard('#codigo17')" class="btn"><i class="fa-regular fa-copy"></i><i class="fa-solid fa-check"></i></button>
         <code>
-let continuar = true;
-let montoTotal = 0;
-let articulos = [];
+//Corregido para no repetir código
+let seguirCargando = true;
+let total = 0;
 
-while (continuar) {
-  let nombre = prompt("Ingresa el nombre del artículo: ");
-  let cantidad = parseInt(prompt("Ingresa la cantidad de artículos: "));
-  let precio = parseFloat(prompt("Ingresa el precio unitario del artículo: "));
+while (seguirCargando) {
+  let cantidad;
+  let precio;
 
-  // Validar que se ingresen los datos
-  while (isNaN(cantidad) || isNaN(precio) || cantidad <= 0 || precio <= 0 || nombre === "") {
-    nombre = prompt("Ingresa un nombre de artículo válido: ");
-    cantidad = parseInt(prompt("Ingresa una cantidad válida de artículos: "));
-    precio = parseFloat(prompt("Ingresa un precio unitario válido: "));
-  }
+  do {
+    cantidad = parseInt(prompt("Ingresa la cantidad artículos: "));
+    if (isNaN(cantidad) || cantidad <= 0) {
+      alert("La cantidad ingresada no es válida");
+    }
+  } while (isNaN(cantidad) || cantidad <= 0);
 
-  articulos.push({ nombre, cantidad, precio });
+  do {
+    precio = parseFloat(prompt("Ingresa el precio unitario: "));
+    if (isNaN(precio) || precio <= 0) {
+      alert("El precio ingresado no es válido");
+    }
+  } while (isNaN(precio) || precio <= 0);
 
-  montoTotal += cantidad * precio;
+  total += cantidad * precio;
 
-  let seguirIngresando = prompt("¿Queres ingresar otro artículo? [S/N]").toUpperCase();
+  let opcion;
 
-  // Validar que se ingrese una opción válida
-  while (seguirIngresando !== "S" && seguirIngresando !== "N") {
-    seguirIngresando = prompt("Ingresa una opción válida [S/N]").toUpperCase();
-  }
+  do {
+    opcion = prompt("¿Queres ingresar otro artículo? [S/N] ").toLowerCase();
+    if (opcion !== "s" && opcion !== "n") {
+      alert("Opción inválida.");
+    }
+  } while (opcion !== "s" && opcion !== "n");
 
-  if (seguirIngresando === "N") {
-    continuar = false;
+  if (opcion === "n") {
+    seguirCargando = false;
   }
 }
 
-//Añadir que muestre lista de artículo, cantidad y monto de cada ingreso
-console.log("Parciales:");
-articulos.forEach((articulo, index) => {
-  console.log(`Artículo '${articulo.nombre}'- ${articulo.cantidad} x $${articulo.precio.toFixed(2)} = $${(articulo.cantidad * articulo.precio).toFixed(2)}`);
-});
-
-console.log("El monto total del ticket es: $" + montoTotal.toFixed(2));
+console.log(`El total de su compra es de $${total.toFixed(2)}`);
         </code>
       </pre>
     </div>
@@ -638,24 +647,22 @@ console.log("El monto total del ticket es: $" + montoTotal.toFixed(2));
       <pre id="codigo18">
         <button onclick="copyToClipboard('#codigo18')" class="btn"><i class="fa-regular fa-copy"></i><i class="fa-solid fa-check"></i></button>
         <code>
-function calcularSueldoAnual() {
-  let sueldosMensuales = [];
-  let sueldoTotal = 0;
+//Corregido sin break detro de for
+let sueldosMensuales = [];
+let sueldoTotal = 0;
+let continuar = true; // variable de control
 
-  for (let i = 1; i <= 12; i++) {
-    let sueldo = parseFloat(prompt(`Ingrese el sueldo del mes ${i}: `));
-    if (sueldo < 0) {
-      break;
-    } else {
-      sueldosMensuales.push(sueldo);
-      sueldoTotal += sueldo;
-    }
+for (let i = 1; i <= 12 && continuar; i++) {
+  let sueldo = parseFloat(prompt(`Ingrese el sueldo del mes ${i}: `));
+  if (sueldo < 0) {
+    continuar = false; // si el sueldo es negativo, detenemos el bucle
+  } else {
+    sueldosMensuales.push(sueldo);
+    sueldoTotal += sueldo;
   }
-
-  alert(`El sueldo anual percibido es de $${sueldoTotal.toFixed(2)}`);
 }
 
-calcularSueldoAnual();
+console.log(`El sueldo anual percibido es de $${sueldoTotal.toFixed(2)}`);
         </code>
       </pre>
     </div>
@@ -677,26 +684,27 @@ calcularSueldoAnual();
       <pre id="codigo19">
         <button onclick="copyToClipboard('#codigo19')" class="btn"><i class="fa-regular fa-copy"></i><i class="fa-solid fa-check"></i></button>
         <code>
-function capturarLogin() {
-  let username = "";
-  let password = "";
+//Corregido para sacar break de for
+let username = "";
+let password = "";
+let i = 3;
 
-  for (let i = 3; i >= 1; i--) {
-      username = prompt("Nombre de Usuario: ");
-      password = prompt("Password: ");
-      if (username !== "admin" || password !== "123456") {
-          if (i === 1) {
-              alert("Se ha bloqueado la cuenta");
-          } else {
-              alert(`Credenciales incorrectas. Intentos restantes: ${i - 1}`);
-          }
-      } else {
-          alert("Acceso concedido");
-          break;
-      }
+while (i > 0) {
+  username = prompt("Nombre de Usuario: ");
+  password = prompt("Password: ");
+
+  if (username === "admin" && password === "123456") {
+    alert("Acceso concedido");
+    i = 0; // i en 0 para salir del bucle
+  } else {
+    if (i === 1) {
+      alert("Se ha bloqueado la cuenta");
+    } else {
+      alert(`Credenciales incorrectas. Intentos restantes: ${i - 1}`);
+    }
+    i--; // Reduce el contador de intentos
   }
 }
-capturarLogin();
         </code>
       </pre>
     </div>
@@ -718,11 +726,11 @@ capturarLogin();
       <pre id="codigo20">
         <button onclick="copyToClipboard('#codigo20')" class="btn"><i class="fa-regular fa-copy"></i><i class="fa-solid fa-check"></i></button>
         <code>
-const anchoMatriz = parseInt(prompt("Ingresa el ancho de la matriz: "));
-const altoMatriz = parseInt(prompt("Ingresa el alto de la matriz: "));
+let anchoMatriz = parseInt(prompt("Ingresa el ancho de la matriz: "));
+let altoMatriz = parseInt(prompt("Ingresa el alto de la matriz: "));
 
 // Crear la matriz de "x"
-const matriz = [];
+let matriz = [];
 for (let i = 0; i < altoMatriz; i++) {
   let fila = "";
   for (let j = 0; j < anchoMatriz; j++) {
@@ -739,9 +747,9 @@ console.log(matriz.join("\n"));
     <!-- Ejercicio 21 -->
     <div class="ejercicio" id="20">
       <p>21. Realizá un programa que permita al usuario ingresar un número de minutos. La computadora debe mostrar un
-        cronómetro con el formato "mm:ss"desde "00:00"hasta un segundo antes del minuto ingresado. </p>
+        cronómetro con el formato "mm:ss" desde "00:00" hasta un segundo antes del minuto ingresado. </p>
       <div class="form-cont">
-        <form class="form__group invert" id="form20">
+        <form class="form__group invert" id="form21">
           <input type="number" max="10" min="1" id="cantidadMinutos" class="form__input" placeholder=" ">
           <label for="cantidadMinutos" type="number" class="form__label">Ingresa la cantidad de minutos</label>
           <button class="btnMini" type="button" onclick="iniciarCronometro()">Iniciar Cronometro</button>
@@ -780,7 +788,8 @@ actualizarCronometro(segundosTotales);
         </code>
       </pre>
     </div>
-    <button class="indice-btn" onclick="window.location.href = '../index.html';" title="Indice de Ejercicios"><i class="fa-solid fa-bars fa-shake"></i></button>
+    <button class="indice-btn" onclick="window.location.href = '../index.html';" title="Indice de Ejercicios"><i
+        class="fa-solid fa-bars fa-shake"></i></button>
     <footer>
       <code>SGVero | CAC#23053 | Docente:&nbsp;<a href="https://charlycimino.com" target="_blank">Charly Cimino</a></code>
     </footer>
