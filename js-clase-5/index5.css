@@ -31,7 +31,6 @@ body {
 header{
   width: 100%;
   margin: 1rem 0;
-  background-color: var(--color1);
   padding: 1rem 0;
   margin: 0;
 }
@@ -189,7 +188,7 @@ code {
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  background-color: rgb(38, 41, 46);
+  background-color: var(--color1);
   color: var(--blanco);
   margin: 0 auto 1rem;
   border-left: 5px solid var(--color2);
@@ -258,9 +257,9 @@ th {
 
 .img {
   width: 100%;
-  margin: 0 0 -34px;
+  margin: 0 0 -37px;
   z-index: 1;
-  filter:grayscale(100%) opacity(85%);
+  /* filter: contrast(115%) brightness(95%); */
 }
 
 footer {
