@@ -70,9 +70,9 @@ function capturar1() {
   }
 
   let resultado1 = document.getElementById("resultado1");
-  resultado1.innerHTML = `[${numeros.join(", ")}]<br>
+  resultado1.innerHTML = `[${numeros.join(", ")}]<br><br>
   El promedio de los números ingresados es: <br>'${promedio}'<br>
-  Los número que superan el promedio son: <br>${mayoresAlPromedio.join(", ")}`;
+  Los número que superan el promedio son: <br>'${mayoresAlPromedio.join(", ")}'`;
   document.getElementById("form1").reset();
 }
 
@@ -104,7 +104,7 @@ function capturar2() {
     }
   }
 
-  document.getElementById("resultado2").innerHTML = `[${numerosM}]<br>Los múltiplos de ${ultimoNumero} son: ${multiplos.join(", ")}`;
+  document.getElementById("resultado2").innerHTML = `[${numerosM}]<br><br>Los múltiplos de ${ultimoNumero} son: '${multiplos.join(", ")}'`;
 }
 
 // Ejercicio 3
@@ -133,7 +133,7 @@ function capturar3() {
     }
   }
 
-  document.getElementById("resultado3").innerHTML = `El valor máximo ingresado es: '${maximo}.'<br><br>El número máximo se ingresó '${contador}' veces<br>[${numeros.join(", ")}]`;
+  document.getElementById("resultado3").innerHTML = `El valor máximo ingresado es: '${maximo}'<br><br>Cantidad de veces ingresado: '${contador}' veces<br>[${numeros.join(", ")}]`;
 }
 
 // Ejercicio 4
