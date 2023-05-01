@@ -133,7 +133,7 @@ function capturar3() {
     }
   }
 
-  document.getElementById("resultado3").innerHTML = `El valor máximo ingresado es: '${maximo}'<br><br>Cantidad de veces ingresado: '${contador}' veces<br>[${numeros.join(", ")}]`;
+  document.getElementById("resultado3").innerHTML = `El valor máximo ingresado es: '${maximo}'<br><br>Cantidad de veces ingresado: '${contador}'<br>[${numeros.join(", ")}]`;
 }
 
 // Ejercicio 4
