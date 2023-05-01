@@ -41,13 +41,7 @@
 let num = parseInt(prompt("Ingresa un nro: "));
 
 function esPar() {
-  if (num % 2 === 0 && num !== 0) {
-    return `'${num}' es Par`;
-  } else if (num === 0 || isNaN(num)){
-      return "Ingresa un número válido";
-  } else {
-    return `'${num}' No es Par`;
-  }
+  return num % 2 === 0 && num !== 0;
 }
 console.log(esPar(num));
         </code>
@@ -76,7 +70,7 @@ console.log(esPar(num));
 let dividendo = parseInt(prompt("Ingresa el dividendo: "));
 let divisor = parseInt(prompt("Ingresa el divisor: "));
 
-function obtenerResto() {
+function obtenerResto(dividendo, divisor) {
   let resto = dividendo;
 
   while (resto >= divisor) {
@@ -110,7 +104,7 @@ console.log(obtenerResto(dividendo, divisor));
 let caracter = prompt("Ingresa un caracter: ");
 let n = prompt("Ingresa la cantidad de repeticiones: ");
 
-function imprimirSimbolo() {
+function imprimirSimbolo(caracter, n) {
   let resultado = "";
   for (let i = 0; i < n; i++) {
     resultado += caracter + " ";
@@ -142,18 +136,11 @@ console.log(imprimirSimbolo(caracter, n));
 let caracter = prompt("Ingresa un caracter: ");
 
 function esVocal(caracter) {
-  // Convertir el caracter a mayúsculas para contemplar ambos casos
   caracter = caracter.toUpperCase();
 
-  // Definir un array con las vocales en mayúsculas
   const vocales = ["A", "E", "I", "O", "U"];
 
-  // Verificar si el caracter se encuentra en el array de vocales
-  if (vocales.includes(caracter)) {
-    return "es Vocal";
-  } else {
-    return "No es Vocal";
-  }
+  return vocales.includes(caracter);
 }
 console.log(esVocal(caracter));
         </code>
@@ -183,7 +170,7 @@ let a = parseInt(prompt("Ingresa 1º número: "));
 let b = parseInt(prompt("Ingresa 2º número: "));
 let sucesion = [];
 
-function mostrarSucesion() {
+function mostrarSucesion(a, b) {
   for (i = a; i <= b; i++) {
     sucesion.push(i);
   }
@@ -214,7 +201,7 @@ console.log(mostrarSucesion(a, b));
 let numero = parseInt(prompt("Ingresa un número: "));
 let multiplo = parseInt(prompt("Ingresa el múltiplo: "));
 
-function esMultiplo() {
+function esMultiplo(numero, multiplo) {
   if (numero % multiplo === 0) {
     return "Es múltiplo";
   } else {
@@ -245,7 +232,7 @@ console.log(esMultiplo(numero, multiplo));
         <code>
 let num = parseInt(prompt("Ingresa un número entero: "));
 
-function cantDivisores() {
+function cantDivisores(num) {
   if (num < 0) {
       num = num * -1;
   }
@@ -308,12 +295,33 @@ console.log(esPrimo(num))
         <code>
 let n = parseInt(prompt("Ingresa un número entero: "));
 
-function mostrarNPrimos() {
+function cantDivisores(numD) {
+  if (numD < 0) {
+    numD = numD * -1;
+  }
+  let divisores = [];
+  for (let i = 1; i <= numD; i++) {
+    if (numD % i === 0) {
+      divisores.push(i);
+    }
+  }
+  return divisores;
+}
+
+function esPrimo(num) {
+  if (cantDivisores(num).length === 2) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+function mostrarNPrimos(n) {
   let cont = 1;
   let x = 2;
   let numerosPrimos = [];
   while (cont <= n) {
-    if (esPrimoOk(x)) {
+    if (esPrimo(x)) {
       numerosPrimos.push(x);
       cont++;
     }
@@ -345,7 +353,8 @@ console.log(mostrarNPrimos(n));
         <button onclick="copyToClipboard('#codigo10')" class="btn"><i class="fa-regular fa-copy"></i><i class="fa-solid fa-check"></i></button>
         <code>
 let perfecto = parseInt(prompt("Ingresa un número entero: "));
-function esNumeroPerfecto() {
+
+function esNumeroPerfecto(perfecto) {
   let divisores = cantDivisores(perfecto);
   let suma = 0;
   for (let i = 0; i < divisores.length; i++) {
@@ -379,14 +388,13 @@ console.log(esNumeroPerfecto(perfecto));
       <pre id="codigo11">
         <button onclick="copyToClipboard('#codigo11')" class="btn"><i class="fa-regular fa-copy"></i><i class="fa-solid fa-check"></i></button>
         <code>
-let salario = 14000;
-let comision = 0.16;
-
 let cantidadVentas = parseInt(prompt("Ingresa la cantidad de  productos vendidos: "));
 let precioUnitario = parseFloat(prompt("Ingresa el precio unitario del producto vendido: "));
 
 function salarioTotal(cantidadVentas, precioUnitario) {
-    return salarioTotal = salario + (cantidadVentas * precioUnitario * comision);
+  const salario = 14000;
+  const comision = 0.16;
+  return salarioTotal = salario + (cantidadVentas * precioUnitario * comision);
 }
 
 console.log(salarioTotal(cantidadVentas, precioUnitario));
@@ -441,33 +449,59 @@ console.log(puedeJubilarse(edad, genero));
       <pre id="codigo13">
         <button onclick="copyToClipboard('#codigo13')" class="btn"><i class="fa-regular fa-copy"></i><i class="fa-solid fa-check"></i></button>
         <code class="code-footer">
-let listaProductos = [];
-let ingresarMas = "S";
+function preguntarSN(pregunta) {
+  let respuesta;
 
-while (ingresarMas === "S") {
+  do {
+    respuesta = prompt(`${pregunta} [S/N] `).toUpperCase();
+  } while (respuesta !== "S" && respuesta !== "N");
+
+  return respuesta === "S";
+}
+
+function calcularPromedio(listaNum) {
+  let suma = 0;
+  for (let i = 0; i < listaNum.length; i++) {
+    suma += listaNum[i];
+  }
+  return suma / listaNum.length;
+}
+
+let listaProductos = [];
+let ingresarMas = true;
+
+while (ingresarMas) {
   let cantidadVentas = parseInt(prompt("Ingresa la cantidad de productos vendidos: "));
   let precioUnitario = parseFloat(prompt("Ingresa el precio unitario del producto vendido: "));
 
   listaProductos.push({cantidadVentas, precioUnitario});
 
-  ingresarMas = prompt("¿Deseás ingresar otro artículo? [S/N]").toUpperCase();
+  ingresarMas = preguntarSN("¿Deseás ingresar otro artículo?");
 }
 
 let total = 0;
+let precios = [];
+
 for (let i = 0; i < listaProductos.length; i++) {
   total += listaProductos[i].cantidadVentas * listaProductos[i].precioUnitario;
+  precios.push(listaProductos[i].precioUnitario);
 }
 
+let precioPromedio = calcularPromedio(precios);
+
 console.log(`El monto total del ticket es: $${total.toFixed(2)}`);
+console.log(`El precio promedio de los productos es de $${precioPromedio.toFixed(2)}`);
         </code>
       </pre>
     </section>
-  
+
     <footer>
-      <code class="code-footer">SGVero | CAC#23053 | Docente:&nbsp;<a href="https://charlycimino.com" target="_blank">Charly Cimino</a></code>
+      <code
+        class="code-footer">SGVero | CAC#23053 | Docente:&nbsp;<a href="https://charlycimino.com" target="_blank">Charly Cimino</a></code>
     </footer>
   </main>
-  <button class="indice-btn" onclick="window.location.href = '../index.html';" title="Indice de Ejercicios"><i class="fa-solid fa-bars fa-shake"></i></button>
+  <button class="indice-btn" onclick="window.location.href = '../index.html';" title="Indice de Ejercicios"><i
+      class="fa-solid fa-bars fa-shake"></i></button>
   <script src="04-ejercicios.js"></script>
   <script src="https://kit.fontawesome.com/ad22120107.js" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>

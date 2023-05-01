@@ -287,40 +287,51 @@ function capturarEjercicio12() {
 
 // Ejercicio 13 - Ingreso de datos y monto unitario
 function capturarEjercicio13() {
-  function ingresarProducto() {
-    let ventas = parseInt(prompt("Ingresa la CANTIDAD de productos VENDIDOS: "));
-    let precio = parseFloat(prompt("Ingresa el PRECIO UNITARIO del producto vendido: "));
-    return { ventas, precio };
+
+  function preguntarSN(pregunta) {
+    let respuesta;
+
+    do {
+      respuesta = prompt(`${pregunta} [S/N] `).toUpperCase();
+    } while (respuesta !== "S" && respuesta !== "N");
+
+    return respuesta === "S";
+  }
+
+  function calcularPromedio(listaNum) {
+    let suma = 0;
+    for (let i = 0; i < listaNum.length; i++) {
+      suma += listaNum[i];
+    }
+    return suma / listaNum.length;
   }
 
   let listaProductos = [];
-  let ingresarMas = "S";
+  let ingresarMas = true;
 
-  while (ingresarMas === "S") {
-    let producto = ingresarProducto();
-    listaProductos.push(producto);
-    ingresarMas = prompt("¿Deseás ingresar OTRO ARTICULO? [S/N]").toUpperCase();
-    while (ingresarMas !== "S" && ingresarMas !== "N") {
-      alert("Por favor, ingresa S o N.");
-      ingresarMas = prompt("¿Deseás ingresar otro artículo? [S/N]").toUpperCase();
-    }
+  while (ingresarMas) {
+    let cantidadVentas = parseInt(prompt("Ingresa la cantidad de productos vendidos: "));
+    let precioUnitario = parseFloat(prompt("Ingresa el precio unitario del producto vendido: "));
+
+    listaProductos.push({ cantidadVentas, precioUnitario });
+
+    ingresarMas = preguntarSN("¿Deseás ingresar otro artículo?");
   }
 
   let total = 0;
+  let precios = [];
   let cantidadTotal = 0;
-  let precioPromedio = 0;
 
   for (let i = 0; i < listaProductos.length; i++) {
-    cantidadTotal += listaProductos[i].ventas;
-    total += listaProductos[i].ventas * listaProductos[i].precio;
+    total += listaProductos[i].cantidadVentas * listaProductos[i].precioUnitario;
+    precios.push(listaProductos[i].precioUnitario);
+    cantidadTotal += listaProductos[i].cantidadVentas;
   }
 
-  precioPromedio = total / cantidadTotal;
+  let precioPromedio = calcularPromedio(precios);
 
   let ejercicio13Msg = document.getElementById("ejercicio13Msg");
   ejercicio13Msg.innerHTML = `El monto total del ticket es: '$${total.toFixed(2)}'<br><br>
   Cantidad total de productos vendidos: '${cantidadTotal} unidades'<br>
   Precio promedio de los productos vendidos: '$${precioPromedio.toFixed(2)}'`;
 }
-
-

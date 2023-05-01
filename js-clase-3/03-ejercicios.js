@@ -453,11 +453,16 @@ function capturarSueldoAnual() {
         let sueldo = parseFloat(prompt(`Ingrese el sueldo del mes ${i}: `));
         if (sueldo < 0) {
             continuar = false; // si el sueldo es negativo, detenemos el bucle
+        } else if (isNaN(sueldo)) {
+            sueldo = 0;
+            continuar = true;
         } else {
             sueldosMensuales.push(sueldo);
             sueldoTotal += sueldo;
         }
     }
+
+    console.log(`El sueldo anual percibido es de $${sueldoTotal.toFixed(2)}`);
 
     sueldoAnualMsg.innerHTML = `El sueldo anual percibido es de $${sueldoTotal.toFixed(2)}<br>(${sueldosMensuales.join(", ")})`;
 }
