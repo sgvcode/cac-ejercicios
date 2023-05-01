@@ -131,7 +131,7 @@ code {
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  background-color: rgb(38, 41, 46);
+  background-color: var(--color1);
   color: white;
   width: 90%;
   max-width: 900px;
@@ -178,6 +178,14 @@ footer a{
 
 footer a:hover {
   color: var(--color2)
+}
+
+.img {
+  display: flex;
+  width: 90%;
+  max-width: 900px;
+  margin: 2rem auto -37px;
+  z-index: 1;
 }
 
 .indice-btn {

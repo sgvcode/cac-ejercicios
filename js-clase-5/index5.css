@@ -31,6 +31,7 @@ body {
 header{
   width: 100%;
   margin: 1rem 0;
+  background-color: var(--color1);
   padding: 1rem 0;
   margin: 0;
 }
@@ -257,9 +258,8 @@ th {
 
 .img {
   width: 100%;
-  margin: 0 0 -37px;
+  margin-bottom: -37px;
   z-index: 1;
-  /* filter: contrast(115%) brightness(95%); */
 }
 
 footer {

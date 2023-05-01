@@ -123,6 +123,13 @@ footer {
   width: 100%;
 }
 
+.img {
+  display: flex;
+  width: 90%;
+  max-width: 700px;
+  margin: auto;
+}
+
 footer a {
   color: var(--color1);
   text-decoration: none;
