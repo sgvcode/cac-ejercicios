@@ -86,16 +86,29 @@ console.log(`Los valores que superan el promedio son: ${mostrarMayoresQue(misNum
       <pre id="codigo2">
         <button onclick="copyToClipboard('#codigo2')" class="btn"><i class="fa-regular fa-copy"></i><i class="fa-solid fa-check"></i></button>
         <code>
+function esMultiplo(num, divisor) {
+  return num % divisor === 0;
+}
+
+function ultimoElemento(arr) {
+  return arr[arr.length - 1];
+}
+
 let numerosM = [];
 for (let i = 0; i < 10; i++) {
   let numM = parseInt(prompt(`Ingrese el número ${i+1}:`));
   numerosM.push(numM);
 }
 
-let ultimoNumero = numerosM[numerosM.length-1];
+let ultimoNumero = ultimoElemento(numeroM);
 
-// Filtramos los multiplos del ultimo
-let multiplos = numerosM.filter(numM => numM % ultimoNumero === 0);
+let multiplos = [];
+
+for (let i = 0; i < numerosM.length; i++) {
+  if (esMultiplo(numerosM[i], ultimoNumero)) {
+    multiplos.push(numerosM[i]);
+  }
+}
 
 console.log(`Los múltiplos de ${ultimoNumero} son: ${multiplos.join(", ")}`);
         </code>

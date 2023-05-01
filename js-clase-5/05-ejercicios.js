@@ -32,9 +32,9 @@ function sumatoria(numeros) {
 function mostrarMayoresQue(numeros, valorASuperar) {
   let mayores = [];
   for (const numero of numeros) {
-      if (numero > valorASuperar) {
-          mayores.push(numero);
-      }
+    if (numero > valorASuperar) {
+      mayores.push(numero);
+    }
   }
   return mayores;
 }
@@ -79,31 +79,32 @@ function capturar1() {
 // Ejercicio 2
 
 function capturar2() {
-  let numerosM = [];
 
-  for (let i = 0; i < 10; i++) {
-    let numM = prompt(`Ingrese el número ${i + 1}:`);
-    if (numM === '') {
-      numM = 0;
-    }
-    numerosM.push(parseInt(numM));
+  function esMultiplo(num, divisor) {
+    return num % divisor === 0;
   }
 
-  let ultimoNumero = numerosM[numerosM.length - 1];
+  function ultimoElemento(arr) {
+    return arr[arr.length - 1];
+  }
+
+  let numerosM = [];
+  for (let i = 0; i < 10; i++) {
+    let numM = parseInt(prompt(`Ingrese el número ${i + 1}:`));
+    numerosM.push(numM);
+  }
+
+  let ultimoNumero = ultimoElemento(numeroM);
+
   let multiplos = [];
 
-  if (ultimoNumero === 0) {
-    multiplos = ['-'];
-  } else {
-    numerosM.forEach(numM => {
-      if (numM % ultimoNumero === 0) {
-        multiplos.push(numM);
-      }
-    });
+  for (let i = 0; i < numerosM.length; i++) {
+    if (esMultiplo(numerosM[i], ultimoNumero)) {
+      multiplos.push(numerosM[i]);
+    }
   }
 
-  let resultado2 = document.getElementById("resultado2");
-  resultado2.innerHTML = `[${numerosM}]<br>Los múltiplos de ${ultimoNumero} son: ${multiplos.join(", ")}`;
+  document.getElementById("resultado2").innerHTML = `[${numerosM}]<br>Los múltiplos de ${ultimoNumero} son: ${multiplos.join(", ")}`;
 }
 
 // Ejercicio 3
@@ -132,6 +133,5 @@ function capturar3() {
     }
   }
 
-  let resultado3 = document.getElementById("resultado3");
-  resultado3.innerHTML = `El valor máximo ingresado es: ${maximo}.<br>El número máximo aparece ${contador} veces en el array<br>[${numeros.join(", ")}]`;
+  document.getElementById("resultado3").innerHTML = `El valor máximo ingresado es: '${maximo}.'<br><br>El número máximo se ingresó '${contador}' veces<br>[${numeros.join(", ")}]`;
 }
