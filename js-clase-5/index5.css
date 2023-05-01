@@ -134,9 +134,9 @@ p.resp {
 p.resultados{
   display: flex;
   flex-direction: column;
-  margin: 2rem 0 0;
+  margin-top: 2rem;
   color: var(--color1);
-  padding: 1rem 0;
+  /* padding: 1rem 0; */
 }
 
 input {
@@ -256,12 +256,20 @@ th {
   background-color: whitesmoke;
 }
 
+.img {
+  width: 100%;
+  margin: 0 0 -34px;
+  z-index: 1;
+  filter:grayscale(100%) opacity(85%);
+}
+
 footer {
   flex-direction: column;
   margin: 1rem 0 0;
   color: white;
   font-size: .8rem;
   padding: 1rem 0;
+  z-index: 150;
 }
 
 footer a{

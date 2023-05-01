@@ -193,7 +193,52 @@ console.log(sumaPares);
         </code>
       </pre>
     </section>
+  
+    <!-- Ejercicio 5 -->
+    <section class="ejercicio" id="5">
+      <div class="enunciados">
+        <p>5- Realizá un programa que permita al usuario ingresar 9 caracteres. La computadora debe <span class="funct">invertir el contenido del array de caracteres sin usar un array auxiliar</span>. Luego, mostrarlo.</p>
+      </div>
+      <div class="form-cont">
+        <form class="form__group invert" id="form5">
+          <button type="button" onclick="capturar5()">mostrar array invertido</button>
+        </form>
+      </div>
+      <p class="resp resultados" id="resultado5"></p>
 
+      <!-- Inserción de Código JS -->
+      <pre id="codigo5">
+        <button onclick="copyToClipboard('#codigo5')" class="btn"><i class="fa-regular fa-copy"></i><i class="fa-solid fa-check"></i></button>
+        <code>
+let limite = 9;
+let consulta = "Ingresa caracter";
+
+function cargarArray(limite) {
+  let miArray = [];
+  for (i = 0; i < limite; i++) {
+    let elementos = prompt(`${consulta} ${i + 1}: `);
+    miArray.push(elementos);
+  }
+  return miArray;
+}
+
+function invertirArray(array) {
+  let arrayInvertido = [];
+  for (let i = array.length - 1; i >= 0; i--) {
+    arrayInvertido.push(array[i]);
+  }
+  return arrayInvertido;
+}
+
+let miArray = cargarArray(limite);
+console.log(`Original: ${miArray}`);
+
+let arrayInvertido = invertirArray(miArray);
+console.log(`Invertido: ${arrayInvertido}`);
+        </code>
+      </pre>
+    </section>
+    <img class="img" src="https://image.shutterstock.com/image-vector/crowd-cheer-people-celebrate-silhouette-260nw-1515884153.jpg" alt="Happy">
     <footer>
       <code class="code-footer">SGVero | CAC#23053 | Docente:&nbsp;<a href="https://charlycimino.com" target="_blank">Charly Cimino</a></code>
     </footer>

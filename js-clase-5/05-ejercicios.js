@@ -104,7 +104,7 @@ function capturar2() {
     }
   }
 
-  document.getElementById("resultado2").innerHTML = `[${numerosM}]<br><br>Los múltiplos de ${ultimoNumero} son: '${multiplos.join(", ")}'`;
+  document.getElementById("resultado2").innerHTML = `[${numerosM.join(", ")}]<br><br>Los múltiplos de ${ultimoNumero} son: '${multiplos.join(", ")}'`;
 }
 
 // Ejercicio 3
@@ -133,7 +133,7 @@ function capturar3() {
     }
   }
 
-  document.getElementById("resultado3").innerHTML = `El valor máximo ingresado es: '${maximo}'<br><br>Cantidad de veces ingresado: '${contador}'<br>[${numeros.join(", ")}]`;
+  document.getElementById("resultado3").innerHTML = `El valor máximo ingresado es: '${maximo}'<br>Cantidad de veces ingresado: '${contador}'<br><br>[${numeros.join(", ")}]`;
 }
 
 // Ejercicio 4
@@ -162,4 +162,35 @@ function capturar4() {
   document.getElementById("resultado4").innerHTML = `La suma de los números en posiciones pares es: '${sumaPares}'<br><br>
   Los números ingresados son:<br>[${numeros.join(", ")}]<br>
     Los números que se suman son: '${numerosSumados.join(", ")}'`;
+}
+
+// Ejercicio 5
+function capturar5() {
+  let limite = 9;
+  let consulta = "Ingresa caracter";
+
+  function cargarArray(limite) {
+    let miArray = [];
+    for (i = 0; i < limite; i++) {
+      let elementos = prompt(`${consulta} ${i + 1}: `);
+      miArray.push(elementos);
+    }
+    return miArray;
+  }
+
+  function invertirArray(array) {
+    let arrayInvertido = [];
+    for (let i = array.length - 1; i >= 0; i--) {
+      arrayInvertido.push(array[i]);
+    }
+    return arrayInvertido;
+  }
+
+  let miArray = cargarArray(limite);
+  console.log("Array original:", miArray);
+
+  let arrayInvertido = invertirArray(miArray);
+  console.log("Array invertido:", arrayInvertido);
+
+  document.getElementById("resultado5").innerHTML = `${miArray.join(" | ")}<br>${arrayInvertido.join(" | ")}`;
 }
