@@ -654,8 +654,11 @@ let continuar = true; // variable de control
 
 for (let i = 1; i <= 12 && continuar; i++) {
   let sueldo = parseFloat(prompt(`Ingrese el sueldo del mes ${i}: `));
-  if (sueldo < 0 || isNaN(sueldo)) {
-    continuar = false; // si el sueldo es negativo o vacio, detenemos el bucle
+  if (sueldo < 0) {
+    continuar = false; // si el sueldo es negativo, detenemos el bucle
+  } else if (isNaN(sueldo)){
+    sueldo = 0;
+    continuar = true;
   } else {
     sueldosMensuales.push(sueldo);
     sueldoTotal += sueldo;
