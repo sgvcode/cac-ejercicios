@@ -84,8 +84,8 @@ function capturar2() {
     return num % divisor === 0;
   }
 
-  function ultimoElemento(arr) {
-    return arr[arr.length - 1];
+  function ultimoElemento(num) {
+    return num[num.length - 1];
   }
 
   let numerosM = [];
@@ -94,7 +94,7 @@ function capturar2() {
     numerosM.push(numM);
   }
 
-  let ultimoNumero = ultimoElemento(numeroM);
+  let ultimoNumero = ultimoElemento(numerosM);
 
   let multiplos = [];
 
