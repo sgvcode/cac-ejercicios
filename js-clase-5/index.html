@@ -23,7 +23,7 @@
   <!-- Ejercicio 1 -->
     <section class="ejercicio" id="1">
       <div class="enunciados">
-        <p>1- Realizá un programa que permita al usuario ingresar 10 números enteros. La computadora debe mostrar el promedio de los mismos y cuáles fueron los valores ingresados que lo superaron.</p>
+        <p>1- Realizá un programa que permita al usuario ingresar 10 números enteros. La computadora debe mostrar el <span class="funct">promedio de los mismos y cuáles fueron los valores ingresados que lo superaron</span>.</p>
       </div>
       <div class="form-cont">
         <form class="form__group invert" id="form1">
@@ -73,7 +73,7 @@ console.log(`Los valores que superan el promedio son: ${mostrarMayoresQue(misNum
   <!-- Ejercicio 2 -->
     <section class="ejercicio" id="2">
       <div class="enunciados">
-        <p>2- Realizá un programa que permita al usuario ingresar 10 números enteros. La computadora debe mostrar aquellos que sean múltiplos del último número ingresado.</p>
+        <p>2- Realizá un programa que permita al usuario ingresar 10 números enteros. La computadora debe mostrar aquellos que sean <span class="funct">múltiplos del último número ingresado</span>.</p>
       </div>
       <div class="form-cont">
         <form class="form__group invert" id="form2">
@@ -118,7 +118,7 @@ console.log(`Los múltiplos de ${ultimoNumero} son: ${multiplos.join(", ")}`);
   <!-- Ejercicio 3 -->
     <section class="ejercicio" id="3">
       <div class="enunciados">
-        <p>3- Realizá un programa que permita al usuario ingresar 10 números enteros. La computadora debe mostrar el valor máximo y la cantidad de veces que se ingresó tal valor.</p>
+        <p>3- Realizá un programa que permita al usuario ingresar 10 números enteros. La computadora debe mostrar el <span class="funct">valor máximo y la cantidad de veces que se ingresó tal valor</span>.</p>
       </div>
       <div class="form-cont">
         <form class="form__group invert" id="form3">
@@ -160,6 +160,40 @@ console.log(`El número máximo aparece ${contador} veces en el array [${numeros
       </pre>
     </section>
 
+  <!-- Ejercicio 4 -->
+    <section class="ejercicio" id="4">
+      <div class="enunciados">
+        <p>4- Realizá un programa que permita al usuario ingresar 10 números enteros. La computadora debe mostrar la <span class="funct">suma de los números ingresados en las posiciones pares.</span></p>
+      </div>
+      <div class="form-cont">
+        <form class="form__group invert" id="form4">
+          <button type="button" onclick="capturar4()">mostrar maximos</button>
+        </form>
+      </div>
+      <p class="resp resultados" id="resultado4"></p>
+
+      <!-- Inserción de Código JS -->
+      <pre id="codigo4">
+        <button onclick="copyToClipboard('#codigo4')" class="btn"><i class="fa-regular fa-copy"></i><i class="fa-solid fa-check"></i></button>
+        <code>
+let sumaPares = 0;
+let numeros = [];
+
+for (let i = 1; i <= 10; i++) {
+  let numero = parseInt(prompt(`Número ${i}: `));
+  numeros.push(numero);
+
+  // Si la posición del número es par y no es 0, lo sumamos a la variable suma
+  if (i % 2 === 0 && numero !== 0) {
+    sumaPares += numero;
+  }
+}
+
+console.log(sumaPares);
+        </code>
+      </pre>
+    </section>
+
     <footer>
       <code class="code-footer">SGVero | CAC#23053 | Docente:&nbsp;<a href="https://charlycimino.com" target="_blank">Charly Cimino</a></code>
     </footer>
@@ -172,3 +206,4 @@ console.log(`El número máximo aparece ${contador} veces en el array [${numeros
 </body>
 
 </html>
+

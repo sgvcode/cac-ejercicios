@@ -135,3 +135,31 @@ function capturar3() {
 
   document.getElementById("resultado3").innerHTML = `El valor máximo ingresado es: '${maximo}.'<br><br>El número máximo se ingresó '${contador}' veces<br>[${numeros.join(", ")}]`;
 }
+
+// Ejercicio 4
+function capturar4() {
+  let sumaPares = 0;
+  let numeros = [];
+
+  for (let i = 1; i <= 10; i++) {
+    let numero = parseInt(prompt(`Número ${i}: `));
+    numeros.push(numero);
+
+    // Si la posición del número es par y no es 0, lo sumamos a la variable suma
+    if (i % 2 === 0 && numero !== 0) {
+      sumaPares += numero;
+    }
+  }
+
+  let numerosSumados = [];
+  for (let i = 1; i < numeros.length; i += 2) {
+    let numero = numeros[i];
+    if (numero !== 0) {
+      numerosSumados.push(numero);
+    }
+  }
+
+  document.getElementById("resultado4").innerHTML = `La suma de los números en posiciones pares es: '${sumaPares}'<br><br>
+  Los números ingresados son:<br>[${numeros.join(", ")}]<br>
+    Los números que se suman son: '${numerosSumados.join(", ")}'`;
+}
