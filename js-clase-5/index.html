@@ -20,10 +20,12 @@
     <h2>GUIA PRACTICA DE ARRAYS</h2>
     <h3>Definición y testeo de funciones</h3>
 
-  <!-- Ejercicio 1 -->
+    <!-- Ejercicio 1 -->
     <section class="ejercicio" id="1">
       <div class="enunciados">
-        <p>1- Realizá un programa que permita al usuario ingresar 10 números enteros. La computadora debe mostrar el <span class="funct">promedio de los mismos y cuáles fueron los valores ingresados que lo superaron</span>.</p>
+        <p>1- Realizá un programa que permita al usuario ingresar 10 números enteros. La computadora debe mostrar el
+          <span class="funct">promedio de los mismos y cuáles fueron los valores ingresados que lo superaron</span>.
+        </p>
       </div>
       <div class="form-cont">
         <form class="form__group invert" id="form1">
@@ -70,10 +72,11 @@ console.log(`Los valores que superan el promedio son: ${mostrarMayoresQue(misNum
       </pre>
     </section>
 
-  <!-- Ejercicio 2 -->
+    <!-- Ejercicio 2 -->
     <section class="ejercicio" id="2">
       <div class="enunciados">
-        <p>2- Realizá un programa que permita al usuario ingresar 10 números enteros. La computadora debe mostrar aquellos que sean <span class="funct">múltiplos del último número ingresado</span>.</p>
+        <p>2- Realizá un programa que permita al usuario ingresar 10 números enteros. La computadora debe mostrar
+          aquellos que sean <span class="funct">múltiplos del último número ingresado</span>.</p>
       </div>
       <div class="form-cont">
         <form class="form__group invert" id="form2">
@@ -115,10 +118,12 @@ console.log(`Los múltiplos de ${ultimoNumero} son: ${multiplos.join(", ")}`);
       </pre>
     </section>
 
-  <!-- Ejercicio 3 -->
+    <!-- Ejercicio 3 -->
     <section class="ejercicio" id="3">
       <div class="enunciados">
-        <p>3- Realizá un programa que permita al usuario ingresar 10 números enteros. La computadora debe mostrar el <span class="funct">valor máximo y la cantidad de veces que se ingresó tal valor</span>.</p>
+        <p>3- Realizá un programa que permita al usuario ingresar 10 números enteros. La computadora debe mostrar el
+          <span class="funct">valor máximo y la cantidad de veces que se ingresó tal valor</span>.
+        </p>
       </div>
       <div class="form-cont">
         <form class="form__group invert" id="form3">
@@ -160,10 +165,12 @@ console.log(`El número máximo aparece ${contador} veces en el array [${numeros
       </pre>
     </section>
 
-  <!-- Ejercicio 4 -->
+    <!-- Ejercicio 4 -->
     <section class="ejercicio" id="4">
       <div class="enunciados">
-        <p>4- Realizá un programa que permita al usuario ingresar 10 números enteros. La computadora debe mostrar la <span class="funct">suma de los números ingresados en las posiciones pares.</span></p>
+        <p>4- Realizá un programa que permita al usuario ingresar 10 números enteros. La computadora debe mostrar la
+          <span class="funct">suma de los números ingresados en las posiciones pares.</span>
+        </p>
       </div>
       <div class="form-cont">
         <form class="form__group invert" id="form4">
@@ -193,11 +200,13 @@ console.log(sumaPares);
         </code>
       </pre>
     </section>
-  
+
     <!-- Ejercicio 5 -->
     <section class="ejercicio" id="5">
       <div class="enunciados">
-        <p>5- Realizá un programa que permita al usuario ingresar 9 caracteres. La computadora debe <span class="funct">invertir el contenido del array de caracteres sin usar un array auxiliar</span>. Luego, mostrarlo.</p>
+        <p>5- Realizá un programa que permita al usuario ingresar 9 caracteres. La computadora debe <span
+            class="funct">invertir el contenido del array de caracteres sin usar un array auxiliar</span>. Luego,
+          mostrarlo.</p>
       </div>
       <div class="form-cont">
         <form class="form__group invert" id="form5">
@@ -238,12 +247,84 @@ console.log(`Invertido: ${arrayInvertido}`);
         </code>
       </pre>
     </section>
-    <img class="img" src="/img.svg" alt="Happy">
+
+    <!-- Ejercicio 6 -->
+    <section class="ejercicio" id="6">
+      <div class="enunciados">
+        <p>6- Realizá un programa que permita al usuario ingresar 9 caracteres. La computadora debe <span
+            class="funct">rotar un lugar hacia la derecha el contenido del array</span> de caracteres sin usar un array
+          auxiliar. Luego, mostrarlo.</p>
+      </div>
+      <div class="form-cont">
+        <form class="form__group invert" id="form6">
+          <button type="button" onclick="capturar6()">mostrar array rotado</button>
+        </form>
+      </div>
+      <p class="resp resultados" id="resultado6"></p>
+
+      <!-- Inserción de Código JS -->
+      <pre id="codigo6">
+        <button onclick="copyToClipboard('#codigo6')" class="btn"><i class="fa-regular fa-copy"></i><i class="fa-solid fa-check"></i></button>
+        <code>
+let limite = 9;
+let consulta = "Ingresa caracter";
+
+function cargarArray(limite) {
+  let miArray = [];
+  for (i = 0; i < limite; i++) {
+    let elementos = prompt(`${consulta} ${i + 1}: `);
+    miArray.push(elementos);
+  }
+  return miArray;
+}
+
+function rotarArrayDerecha(rotado) {
+  let ultimoElemento = rotado[rotado.length - 1];
+  for (let i = rotado.length - 1; i >= 1; i--) {
+    rotado[i] = rotado[i - 1];
+  }
+  rotado[0] = ultimoElemento;
+  return rotado;
+}
+
+let miArray = cargarArray(limite);
+console.log(`Original: ${miArray}`);
+
+let arrayRotadoDerecha = rotarArrayDerecha(miArray);
+console.log(`Rotado: ${arrayRotadoDerecha}`);
+        </code>
+      </pre>
+    </section>
+
+    <!-- Ejercicio 7 -->
+    <section class="ejercicio" id="7">
+      <div class="enunciados">
+        <p>7- Realizá un programa que permita al usuario ingresar 9 caracteres. La computadora debe indicar <span
+            class="funct">si la palabra representada es o no un palíndromo</span>.</p>
+      </div>
+      <div class="form-cont">
+        <form class="form__group invert" id="form7">
+          <button type="button" onclick="capturar7()">¿es palíndromo?</button>
+        </form>
+      </div>
+      <p class="resp resultados" id="resultado7"></p>
+
+      <!-- Inserción de Código JS -->
+      <pre id="codigo7">
+        <button onclick="copyToClipboard('#codigo7')" class="btn"><i class="fa-regular fa-copy"></i><i class="fa-solid fa-check"></i></button>
+        <code>
+
+        </code>
+      </pre>
+    </section>
+    <img class="img" src="../img.svg" alt="Happy">
     <footer>
-      <code class="code-footer">SGVero | CAC#23053 | Docente:&nbsp;<a href="https://charlycimino.com" target="_blank">Charly Cimino</a></code>
+      <code
+        class="code-footer">SGVero | CAC#23053 | Docente:&nbsp;<a href="https://charlycimino.com" target="_blank">Charly Cimino</a></code>
     </footer>
   </main>
-  <button class="indice-btn" onclick="window.location.href = '../index.html';" title="Indice de Ejercicios"><i class="fa-solid fa-bars fa-shake"></i></button>
+  <button class="indice-btn" onclick="window.location.href = '../index.html';" title="Indice de Ejercicios"><i
+      class="fa-solid fa-bars fa-shake"></i></button>
   <script src="05-ejercicios.js"></script>
   <script src="https://kit.fontawesome.com/ad22120107.js" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
@@ -251,4 +332,3 @@ console.log(`Invertido: ${arrayInvertido}`);
 </body>
 
 </html>
-

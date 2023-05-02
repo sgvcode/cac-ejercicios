@@ -192,5 +192,71 @@ function capturar5() {
   let arrayInvertido = invertirArray(miArray);
   console.log("Array invertido:", arrayInvertido);
 
-  document.getElementById("resultado5").innerHTML = `${miArray.join(" | ")}<br>${arrayInvertido.join(" | ")}`;
+  document.getElementById("resultado5").innerHTML = `${miArray.join(" | ").toUpperCase()}<br>${arrayInvertido.join(" | ").toUpperCase()}`;
+}
+
+// Ejercicio 6
+function capturar6() {
+  let limite = 9;
+  let consulta = "Ingresa caracter";
+
+  function cargarArray(limite) {
+    let miArray = [];
+    for (i = 0; i < limite; i++) {
+      let elementos = prompt(`${consulta} ${i + 1}: `);
+      miArray.push(elementos);
+    }
+    return miArray;
+  }
+
+  function rotarArrayDerecha(rotado) {
+    rotado = [...rotado]; // crea una copia del arreglo para evitar que la salida de ambas funciones sean iguales y rotadas
+    let ultimoElemento = rotado[rotado.length - 1];
+    for (let i = rotado.length - 1; i >= 1; i--) {
+      rotado[i] = rotado[i - 1];
+    }
+    rotado[0] = ultimoElemento;
+    return rotado;
+  }
+
+  let miArray = cargarArray(limite);
+  console.log(`Original: ${miArray}`);
+
+  let arrayRotadoDerecha = rotarArrayDerecha(miArray);
+  console.log(`Rotado: ${arrayRotadoDerecha}`);
+
+  document.getElementById("resultado6").innerHTML = `${miArray.join(" | ").toUpperCase()}<br>${arrayRotadoDerecha.join(" | ").toUpperCase()}`;
+}
+
+// Ejercicio 7
+function capturar7() {
+  let limite = 9;
+  let consulta = "Ingresa caracter";
+
+  function cargarArray(limite) {
+    let miArray = [];
+    for (i = 0; i < limite; i++) {
+      let elementos = prompt(`${consulta} ${i + 1}: `);
+      miArray.push(elementos);
+    }
+    return miArray;
+  }
+
+  function invertirArray(array) {
+    let arrayInvertido = [];
+    for (let i = array.length - 1; i >= 0; i--) {
+      arrayInvertido.push(array[i]);
+    }
+    return arrayInvertido;
+  }
+
+  let miArray = cargarArray(limite);
+  console.log("Array original:", miArray);
+
+  let arrayInvertido = invertirArray(miArray);
+  console.log("Array invertido:", arrayInvertido);
+
+  let palindromo = miArray.join("") === arrayInvertido.join("") ? "Si" : "No";
+
+  document.getElementById("resultado7").innerHTML = `${miArray.join(" ").toUpperCase()}<br>${arrayInvertido.join(" ").toUpperCase()}<br>¿Es palíndromo? '${palindromo}'`;
 }
