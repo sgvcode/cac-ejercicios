@@ -164,19 +164,37 @@ function capturar4() {
     Los números que se suman son: '${numerosSumados.join(", ")}'`;
 }
 
+// FUNCION GLOBLA cargarArray(limite, consulta)
+
+function cargarArray(limite, consulta) {
+  let miArray = [];
+  for (i = 0; i < limite; i++) {
+    let elementos = "";
+    while (elementos.length !== 1) {
+      elementos = prompt(`${consulta} ${i + 1}: `);
+    }
+    miArray.push(elementos);
+  }
+  return miArray;
+}
+// -------------------------------------------------
+
 // Ejercicio 5
 function capturar5() {
   let limite = 9;
   let consulta = "Ingresa caracter";
 
-  function cargarArray(limite) {
-    let miArray = [];
-    for (i = 0; i < limite; i++) {
-      let elementos = prompt(`${consulta} ${i + 1}: `);
-      miArray.push(elementos);
-    }
-    return miArray;
-  }
+  // function cargarArray(limite) {
+  //   let miArray = [];
+  //   for (i = 0; i < limite; i++) {
+  //     let elementos = "";
+  //     while (elementos.length !== 1) {
+  //       elementos = prompt(`${consulta} ${i + 1}: `);
+  //     }
+  //     miArray.push(elementos);
+  //   }
+  //   return miArray;
+  // }
 
   function invertirArray(array) {
     let arrayInvertido = [];
@@ -200,14 +218,17 @@ function capturar6() {
   let limite = 9;
   let consulta = "Ingresa caracter";
 
-  function cargarArray(limite) {
-    let miArray = [];
-    for (i = 0; i < limite; i++) {
-      let elementos = prompt(`${consulta} ${i + 1}: `);
-      miArray.push(elementos);
-    }
-    return miArray;
-  }
+  // function cargarArray(limite) {
+  //   let miArray = [];
+  //   for (i = 0; i < limite; i++) {
+  //     let elementos = "";
+  //     while (elementos.length !== 1) {
+  //       elementos = prompt(`${consulta} ${i + 1}: `);
+  //     }
+  //     miArray.push(elementos);
+  //   }
+  //   return miArray;
+  // }
 
   function rotarArrayDerecha(rotado) {
     rotado = [...rotado]; // crea una copia del arreglo para evitar que la salida de ambas funciones sean iguales y rotadas
@@ -233,17 +254,17 @@ function capturar7() {
   let limite = 9;
   let consulta = "Ingresa caracter";
 
-  function cargarArray(limite) {
-    let miArray = [];
-    for (i = 0; i < limite; i++) {
-      let elementos = "";
-      while (elementos.length !== 1) {
-        elementos = prompt(`${consulta} ${i + 1}: `);
-      }
-      miArray.push(elementos);
-    }
-    return miArray;
-  }
+  // function cargarArray(limite) {
+  //   let miArray = [];
+  //   for (i = 0; i < limite; i++) {
+  //     let elementos = "";
+  //     while (elementos.length !== 1) {
+  //       elementos = prompt(`${consulta} ${i + 1}: `);
+  //     }
+  //     miArray.push(elementos);
+  //   }
+  //   return miArray;
+  // }
 
   function invertirArray(array) {
     let arrayInvertido = [];
