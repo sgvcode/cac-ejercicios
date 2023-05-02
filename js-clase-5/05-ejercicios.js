@@ -236,7 +236,10 @@ function capturar7() {
   function cargarArray(limite) {
     let miArray = [];
     for (i = 0; i < limite; i++) {
-      let elementos = prompt(`${consulta} ${i + 1}: `);
+      let elementos = "";
+      while (elementos.length !== 1) {
+        elementos = prompt(`${consulta} ${i + 1}: `);
+      }
       miArray.push(elementos);
     }
     return miArray;
@@ -258,5 +261,5 @@ function capturar7() {
 
   let palindromo = miArray.join("") === arrayInvertido.join("") ? "Si" : "No";
 
-  document.getElementById("resultado7").innerHTML = `${miArray.join(" ").toUpperCase()}<br>${arrayInvertido.join(" ").toUpperCase()}<br>¿Es palíndromo? '${palindromo}'`;
+  document.getElementById("resultado7").innerHTML = `'${palindromo}'<br><br>${miArray.join(" ").toUpperCase()}<br>${arrayInvertido.join(" ").toUpperCase()}`;
 }

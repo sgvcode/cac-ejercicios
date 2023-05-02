@@ -169,12 +169,11 @@ console.log(`El número máximo aparece ${contador} veces en el array [${numeros
     <section class="ejercicio" id="4">
       <div class="enunciados">
         <p>4- Realizá un programa que permita al usuario ingresar 10 números enteros. La computadora debe mostrar la
-          <span class="funct">suma de los números ingresados en las posiciones pares.</span>
-        </p>
+          <span class="funct">suma de los números ingresados en las posiciones pares.</span></p>
       </div>
       <div class="form-cont">
         <form class="form__group invert" id="form4">
-          <button type="button" onclick="capturar4()">mostrar maximos</button>
+          <button type="button" onclick="capturar4()">mostrar posiciones pares</button>
         </form>
       </div>
       <p class="resp resultados" id="resultado4"></p>
@@ -299,8 +298,8 @@ console.log(`Rotado: ${arrayRotadoDerecha}`);
     <!-- Ejercicio 7 -->
     <section class="ejercicio" id="7">
       <div class="enunciados">
-        <p>7- Realizá un programa que permita al usuario ingresar 9 caracteres. La computadora debe indicar <span
-            class="funct">si la palabra representada es o no un palíndromo</span>.</p>
+        <p>7- Realizá un programa que permita al usuario ingresar 9 caracteres. La computadora debe indicar <span class="funct">si la palabra representada es o no un palíndromo</span>.</p>
+        <p class="nota">Ej: reconocer, sometemos, aibofobia</p>
       </div>
       <div class="form-cont">
         <form class="form__group invert" id="form7">
@@ -313,7 +312,34 @@ console.log(`Rotado: ${arrayRotadoDerecha}`);
       <pre id="codigo7">
         <button onclick="copyToClipboard('#codigo7')" class="btn"><i class="fa-regular fa-copy"></i><i class="fa-solid fa-check"></i></button>
         <code>
+let limite = 9;
+let consulta = "Ingresa caracter";
 
+  function cargarArray(limite) {
+    let miArray = [];
+    for (i = 0; i < limite; i++) {
+      let elementos = "";
+      while (elementos.length !== 1) {
+        elementos = prompt(`${consulta} ${i + 1}: `);
+      }
+      miArray.push(elementos);
+    }
+    return miArray;
+  }
+
+  function invertirArray(array) {
+    let arrayInvertido = [];
+    for (let i = array.length - 1; i >= 0; i--) {
+      arrayInvertido.push(array[i]);
+    }
+    return arrayInvertido;
+  }
+
+  let miArray = cargarArray(limite);
+  let arrayInvertido = invertirArray(miArray);
+  let palindromo = miArray.join("") === arrayInvertido.join("")
+
+  console.log(palindromo);
         </code>
       </pre>
     </section>
