@@ -182,6 +182,10 @@ form button:hover {
   cursor: pointer;
 }
 
+form button.simil {
+  width: 60%;
+}
+
 pre{
   white-space: pre-wrap;
 }

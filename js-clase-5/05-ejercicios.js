@@ -28,7 +28,8 @@ function sumatoria(numeros) {
   }
   return acu;
 }
-
+// --------------------------------------------------------------------------
+// Función Mostrar Mayores Que...
 function mostrarMayoresQue(numeros, valorASuperar) {
   let mayores = [];
   for (const numero of numeros) {
@@ -38,6 +39,27 @@ function mostrarMayoresQue(numeros, valorASuperar) {
   }
   return mayores;
 }
+// --------------------------------------------------------------------------
+// FUNCION GLOBAL cargarArray(limite, consulta)
+
+function cargarArray(limite, consulta) {
+  limite;
+  let miArray = [];
+  for (i = 0; i < limite; i++) {
+    let elementos = "";
+    while (elementos.length !== 1) {
+      elementos = prompt(`${consulta} ${i + 1}: `);
+    }
+    miArray.push(elementos);
+  }
+  return miArray;
+}
+// ---------------------------------------------------------------------------
+// FUNCION MOSTRAR RESULTADOS
+function mostrarResultados(resultadoN) {
+  return document.getElementById(resultadoN);
+}
+// ---------------------------------------------------------------------------
 
 // Ejercicio 1
 
@@ -164,37 +186,12 @@ function capturar4() {
     Los números que se suman son: '${numerosSumados.join(", ")}'`;
 }
 
-// FUNCION GLOBLA cargarArray(limite, consulta)
-
-function cargarArray(limite, consulta) {
-  let miArray = [];
-  for (i = 0; i < limite; i++) {
-    let elementos = "";
-    while (elementos.length !== 1) {
-      elementos = prompt(`${consulta} ${i + 1}: `);
-    }
-    miArray.push(elementos);
-  }
-  return miArray;
-}
-// -------------------------------------------------
 
 // Ejercicio 5
 function capturar5() {
   let limite = 9;
   let consulta = "Ingresa caracter";
-
-  // function cargarArray(limite) {
-  //   let miArray = [];
-  //   for (i = 0; i < limite; i++) {
-  //     let elementos = "";
-  //     while (elementos.length !== 1) {
-  //       elementos = prompt(`${consulta} ${i + 1}: `);
-  //     }
-  //     miArray.push(elementos);
-  //   }
-  //   return miArray;
-  // }
+  let resultado = (mostrarResultados("resultado5"));
 
   function invertirArray(array) {
     let arrayInvertido = [];
@@ -204,31 +201,20 @@ function capturar5() {
     return arrayInvertido;
   }
 
-  let miArray = cargarArray(limite);
+  let miArray = cargarArray(limite, consulta);
   console.log("Array original:", miArray);
 
   let arrayInvertido = invertirArray(miArray);
   console.log("Array invertido:", arrayInvertido);
 
-  document.getElementById("resultado5").innerHTML = `${miArray.join(" | ").toUpperCase()}<br>${arrayInvertido.join(" | ").toUpperCase()}`;
+  resultado.innerHTML = `${miArray.join(" • ").toUpperCase()}<br><span style='background-color: rgb(94, 150, 60); color: white'>${arrayInvertido.join(" • ").toUpperCase()}</span>`;
 }
 
 // Ejercicio 6
 function capturar6() {
   let limite = 9;
   let consulta = "Ingresa caracter";
-
-  // function cargarArray(limite) {
-  //   let miArray = [];
-  //   for (i = 0; i < limite; i++) {
-  //     let elementos = "";
-  //     while (elementos.length !== 1) {
-  //       elementos = prompt(`${consulta} ${i + 1}: `);
-  //     }
-  //     miArray.push(elementos);
-  //   }
-  //   return miArray;
-  // }
+  let resultado = mostrarResultados("resultado6");
 
   function rotarArrayDerecha(rotado) {
     rotado = [...rotado]; // crea una copia del arreglo para evitar que la salida de ambas funciones sean iguales y rotadas
@@ -240,31 +226,20 @@ function capturar6() {
     return rotado;
   }
 
-  let miArray = cargarArray(limite);
+  let miArray = cargarArray(limite, consulta);
   console.log(`Original: ${miArray}`);
 
   let arrayRotadoDerecha = rotarArrayDerecha(miArray);
   console.log(`Rotado: ${arrayRotadoDerecha}`);
 
-  document.getElementById("resultado6").innerHTML = `${miArray.join(" | ").toUpperCase()}<br>${arrayRotadoDerecha.join(" | ").toUpperCase()}`;
+  resultado.innerHTML = `${miArray.join(" • ").toUpperCase()}<br><span style='background-color: rgb(94, 150, 60); color: white'>${arrayRotadoDerecha.join(" • ").toUpperCase()}</span>`;
 }
 
 // Ejercicio 7
 function capturar7() {
   let limite = 9;
   let consulta = "Ingresa caracter";
-
-  // function cargarArray(limite) {
-  //   let miArray = [];
-  //   for (i = 0; i < limite; i++) {
-  //     let elementos = "";
-  //     while (elementos.length !== 1) {
-  //       elementos = prompt(`${consulta} ${i + 1}: `);
-  //     }
-  //     miArray.push(elementos);
-  //   }
-  //   return miArray;
-  // }
+  let resultado = mostrarResultados("resultado7");
 
   function invertirArray(array) {
     let arrayInvertido = [];
@@ -274,7 +249,7 @@ function capturar7() {
     return arrayInvertido;
   }
 
-  let miArray = cargarArray(limite);
+  let miArray = cargarArray(limite, consulta);
   console.log("Array original:", miArray);
 
   let arrayInvertido = invertirArray(miArray);
@@ -282,5 +257,30 @@ function capturar7() {
 
   let palindromo = miArray.join("") === arrayInvertido.join("") ? "Si" : "No";
 
-  document.getElementById("resultado7").innerHTML = `'${palindromo}'<br><br>${miArray.join(" ").toUpperCase()}<br>${arrayInvertido.join(" ").toUpperCase()}`;
+  resultado.innerHTML = `<span style='color: rgb(94, 150, 60)'>'${palindromo}'</span><br>${miArray.join("").toUpperCase()}<br><span style='background-color: rgb(94, 150, 60); color: white'>${arrayInvertido.join("").toUpperCase()}</span>`;
+}
+
+// Ejercicio 8
+function capturar8() {
+  let limite = 9;
+  let consulta = "Ingresa caracter";
+  let resultado = mostrarResultados("resultado8");
+
+  function obtenerCaracteresUnicos(array) {
+    let caracteresUnicos = [];
+    for (let i = 0; i < array.length; i++) {
+      if (!caracteresUnicos.includes(array[i])) {
+        caracteresUnicos.push(array[i]);
+      }
+    }
+    return caracteresUnicos;
+  }
+
+  let miArray = cargarArray(limite, consulta);
+  console.log("Array original:", miArray);
+
+  let caracteresUnicos = obtenerCaracteresUnicos(miArray);
+  console.log("Caracteres únicos:", caracteresUnicos);
+
+  resultado.innerHTML = `${miArray.join(" • ").toUpperCase()}<br><span style='background-color: rgb(94, 150, 60); color: white'>${caracteresUnicos.join(" • ").toUpperCase()}</span>`;
 }

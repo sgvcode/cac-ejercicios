@@ -343,6 +343,112 @@ let consulta = "Ingresa caracter";
         </code>
       </pre>
     </section>
+
+    <!-- Ejercicio 8 -->
+    <section class="ejercicio" id="8">
+      <div class="enunciados">
+        <p>8- Realizá un programa que permita al usuario ingresar 9 caracteres. La computadora debe <span class="funct">mostrarlos sin repetidos</span>.</p>
+      </div>
+      <div class="form-cont">
+        <form class="form__group invert" id="form8">
+          <button type="button" onclick="capturar8()">mostrar caracteres unicos</button>
+        </form>
+      </div>
+      <p class="resp resultados" id="resultado8"></p>
+
+      <!-- Inserción de Código JS -->
+      <pre id="codigo8">
+        <button onclick="copyToClipboard('#codigo8')" class="btn"><i class="fa-regular fa-copy"></i><i class="fa-solid fa-check"></i></button>
+        <code>
+let limite = 9;
+let consulta = "Ingresa caracter";
+
+  function cargarArray(limite) {
+    let miArray = [];
+    for (i = 0; i < limite; i++) {
+      let elementos = prompt(`${consulta} ${i + 1}: `);
+      miArray.push(elementos);
+    }
+    return miArray;
+  }
+
+  function obtenerCaracteresUnicos(array) {
+    let caracteresUnicos = [];
+    for (let i = 0; i < array.length; i++) {
+      if (!caracteresUnicos.includes(array[i])) {
+        caracteresUnicos.push(array[i]);
+      }
+    }
+    return caracteresUnicos;
+  }
+
+  let miArray = cargarArray(limite, consulta);
+  console.log("Original:", miArray);
+
+  let caracteresUnicos = obtenerCaracteresUnicos(miArray);
+  console.log("Unicos:", caracteresUnicos);
+        </code>
+      </pre>
+    </section>
+
+    <!-- Ejercicio 9 -->
+    <section class="ejercicio" id="9">
+      <div class="enunciados">
+        <p>9- Realizá un programa que permita al usuario ingresar 2 vectores de caracteres, no necesariamente de la misma longitud, que representan dos conjuntos sin valores repetidos. La computadora debe mostrar:</p>
+      </div>
+      <div class="form-cont">
+        <form class="form__group invert" id="form9">
+          <button class="simil" type="button" onclick="capturar9()">unión</button>
+          <button class="simil" type="button" onclick="capturar9()">intersección</button>
+          <button class="simil" type="button" onclick="capturar9()">diferencia</button>
+          <button class="simil" type="button" onclick="capturar9()">diferencia simétrica</button>
+        </form>
+      </div>
+      <p class="resp resultados" id="resultado9"></p>
+
+      <!-- Inserción de Código JS -->
+      <pre id="codigo9">
+        <button onclick="copyToClipboard('#codigo9')" class="btn"><i class="fa-regular fa-copy"></i><i class="fa-solid fa-check"></i></button>
+        <code>
+function cargarArray(limite, consulta) {
+  let miArray = [];
+  for (i = 0; i < limite; i++) {
+    let elementos = "";
+    while (elementos.length !== 1) {
+      elementos = prompt(`${consulta} ${i + 1}: `);
+    }
+    miArray.push(elementos);
+  }
+  return miArray;
+}
+
+function unionArray(array1, array2) {
+  let union = [];
+  for (let i = 0; i < array1.length; i++) {
+    if (!union.includes(array1[i])) {
+      union.push(array1[i]);
+    }
+  }
+  for (let i = 0; i < array2.length; i++) {
+    if (!union.includes(array2[i])) {
+      union.push(array2[i]);
+    }
+  }
+  return union.join(" • ");
+}
+
+let limiteArray1 = parseInt(prompt("Cantidad de caracteres 1º Vector?  "));
+let array1 = cargarArray(limiteArray1, "Ingrese el elemento");
+
+let limiteArray2 = parseInt(prompt("Cantidad de caracteres 2º Vector? "));
+let array2 = cargarArray(limiteArray2, "Ingrese el elemento");
+
+let union = unionArray(array1, array2).toUpperCase();
+
+console.log("La unión de los conjuntos es: " + union);
+        </code>
+      </pre>
+    </section>
     <img class="img" src="../img.svg" alt="Happy">
     <footer>
       <code
