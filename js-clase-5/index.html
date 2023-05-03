@@ -442,10 +442,19 @@ function unionArray(array1, array2) {
   return union.join(" • ");
 }
 
-let limiteArray1 = parseInt(prompt("Cantidad de caracteres 1º Vector?  "));
+let limiteArray1 = NaN;
+let limiteArray2;
+
+while (isNaN(parseInt(limiteArray1))) {
+  limiteArray1 = parseInt(prompt("Cantidad de caracteres 1º Vector?  "));
+}
+
 let array1 = cargarArray(limiteArray1, "Ingrese el caracter");
 
-let limiteArray2 = parseInt(prompt("Cantidad de caracteres 2º Vector? "));
+while (isNaN(parseInt(limiteArray2))) {
+  limiteArray2 = parseInt(prompt("Cantidad de caracteres 2º Vector? "));
+}
+
 let array2 = cargarArray(limiteArray2, "Ingrese el caracter");
 
 let union = unionArray(array1, array2).toUpperCase();
@@ -476,10 +485,19 @@ function interseccionArray(array1, array2) {
   return interseccion.join(" • ");
 }
 
-let limiteArray1 = parseInt(prompt("Cantidad de caracteres 1º Vector? "));
+let limiteArray1 = NaN;
+let limiteArray2;
+
+while (isNaN(parseInt(limiteArray1))) {
+  limiteArray1 = parseInt(prompt("Cantidad de caracteres 1º Vector?  "));
+}
+
 let array1 = cargarArray(limiteArray1, "Ingrese el caracter");
 
-let limiteArray2 = parseInt(prompt("Cantidad de caracteres 2º Vector? "));
+while (isNaN(parseInt(limiteArray2))) {
+  limiteArray2 = parseInt(prompt("Cantidad de caracteres 2º Vector? "));
+}
+
 let array2 = cargarArray(limiteArray2, "Ingrese el caracter");
 
 let interseccion = interseccionArray(array1, array2).toUpperCase();
@@ -510,10 +528,19 @@ function mostrarDiferencia(array1, array2) {
   return diferencia.join(" • ");
 }
 
-let limiteArray1 = parseInt(prompt("Cantidad de caracteres 1º Vector? "));
+let limiteArray1 = NaN;
+let limiteArray2;
+
+while (isNaN(parseInt(limiteArray1))) {
+  limiteArray1 = parseInt(prompt("Cantidad de caracteres 1º Vector?  "));
+}
+
 let array1 = cargarArray(limiteArray1, "Ingrese el caracter");
 
-let limiteArray2 = parseInt(prompt("Cantidad de caracteres 2º Vector? "));
+while (isNaN(parseInt(limiteArray2))) {
+  limiteArray2 = parseInt(prompt("Cantidad de caracteres 2º Vector? "));
+}
+
 let array2 = cargarArray(limiteArray2, "Ingrese el caracter");
 
 let diferencia = mostrarDiferencia(array1, array2).toUpperCase();
@@ -549,10 +576,19 @@ function mostrarDiferenciaSimetrica(array1, array2) {
   return diferenciaSimetrica.join(" • ");
 }
 
-let limiteArray1 = parseInt(prompt("Cantidad de caracteres 1º Vector? "));
+let limiteArray1 = NaN;
+let limiteArray2;
+
+while (isNaN(parseInt(limiteArray1))) {
+  limiteArray1 = parseInt(prompt("Cantidad de caracteres 1º Vector?  "));
+}
+
 let array1 = cargarArray(limiteArray1, "Ingrese el caracter");
 
-let limiteArray2 = parseInt(prompt("Cantidad de caracteres 2º Vector? "));
+while (isNaN(parseInt(limiteArray2))) {
+  limiteArray2 = parseInt(prompt("Cantidad de caracteres 2º Vector? "));
+}
+
 let array2 = cargarArray(limiteArray2, "Ingrese el caracter");
 
 let diferenciaSimetrica = mostrarDiferenciaSimetrica(array1, array2).toUpperCase();

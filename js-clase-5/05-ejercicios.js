@@ -42,30 +42,51 @@ function mostrarMayoresQue(numeros, valorASuperar) {
 // --------------------------------------------------------------------------
 // FUNCION GLOBAL cargarArray(limite, consulta)
 
+// function cargarArray(limite, consulta) {
+//   limite;
+//   let miArray = [];
+//   for (i = 0; i < limite; i++) {
+//     let elementos = "";
+//     while (elementos.length !== 1) {
+//       elementos = prompt(`${consulta} ${i + 1}: `);
+//     }
+//     miArray.push(elementos);
+//   }
+//   return miArray;
+// }
 function cargarArray(limite, consulta) {
-  limite;
   let miArray = [];
   for (i = 0; i < limite; i++) {
     let elementos = "";
     while (elementos.length !== 1) {
       elementos = prompt(`${consulta} ${i + 1}: `);
+      if (elementos === null) {
+        throw new Error("Ejecución terminada por el usuario");
+      }
     }
     miArray.push(elementos);
   }
   return miArray;
 }
+
 // ---------------------------------------------------------------------------
 // FUNCION MOSTRAR RESULTADOS
 function mostrarResultados(resultadoN) {
   return document.getElementById(resultadoN);
 }
 // ---------------------------------------------------------------------------
+// FUNCION ESTILOS DE SALIDA RESULTADOS
+function generarEstiloResultado() {
+  let estilo = `<span style='margin-top: .5rem;width: auto;border-left:5px solid rgb(94, 150, 60);border-right:5px solid rgb(49, 54, 63);font-weight: normal;padding: .3rem 0;background-color: rgb(49, 54, 63); color: white'>`;
+  return estilo;
+}
 
 // Ejercicio 1
 
 function capturar1() {
   let numeros = [];
   let suma = 0;
+  let resultado = mostrarResultados("resultado1")
 
   for (let i = 0; i < 10; i++) {
     let numero = parseInt(prompt(`Ingrese el número ${i + 1}:`));
@@ -91,10 +112,8 @@ function capturar1() {
     }
   }
 
-  let resultado1 = document.getElementById("resultado1");
-  resultado1.innerHTML = `[${numeros.join(", ")}]<br><br>
-  El promedio de los números ingresados es: <br>'${promedio}'<br>
-  Los número que superan el promedio son: <br>'${mayoresAlPromedio.join(", ")}'`;
+  resultado.innerHTML = `[${numeros.join(", ")}]<br>${generarEstiloResultado()}El promedio de los números ingresados es: <br>'${promedio}'<br>
+  Los número que superan el promedio son: <br>'${mayoresAlPromedio.join(", ")}'</span>`;
   document.getElementById("form1").reset();
 }
 
@@ -112,7 +131,10 @@ function capturar2() {
 
   let numerosM = [];
   for (let i = 0; i < 10; i++) {
-    let numM = parseInt(prompt(`Ingrese el número ${i + 1}:`));
+    let numM = parseInt(prompt(`Ingresa el número ${i + 1}:`));
+    while (isNaN(numM)) {
+      numM = parseInt(prompt(`No ingresaste un número, por favor ingresa el número ${i + 1} nuevamente:`));
+    }
     numerosM.push(numM);
   }
 
@@ -126,7 +148,7 @@ function capturar2() {
     }
   }
 
-  document.getElementById("resultado2").innerHTML = `[${numerosM.join(", ")}]<br><br>Los múltiplos de ${ultimoNumero} son: '${multiplos.join(", ")}'`;
+  document.getElementById("resultado2").innerHTML = `[${numerosM.join(", ")}]<br>${generarEstiloResultado()}Los múltiplos de ${ultimoNumero} son: '${multiplos.join(", ")}'</span>`;
 }
 
 // Ejercicio 3
@@ -139,12 +161,12 @@ function capturar3() {
 
   for (let i = 0; i < 10; i++) {
     let numero = parseInt(prompt(`Ingrese el número ${i + 1}:`));
-    if (isNaN(numero) || numero === null) {
-      numeros.push(0);
-    } else {
-      numeros.push(numero);
+    while (isNaN(numero)) {
+      numero = parseInt(prompt(`No ingresaste un número, por favor ingresa el número ${i + 1} nuevamente:`));
     }
+    numeros.push(numero);
   }
+
 
   let maximo = valorMaximo(numeros);
   let contador = 0;
@@ -155,7 +177,7 @@ function capturar3() {
     }
   }
 
-  document.getElementById("resultado3").innerHTML = `El valor máximo ingresado es: '${maximo}'<br>Cantidad de veces ingresado: '${contador}'<br><br>[${numeros.join(", ")}]`;
+  document.getElementById("resultado3").innerHTML = `[${numeros.join(", ")}]<br>${generarEstiloResultado()}El valor máximo ingresado es: '${maximo}'<br>Cantidad de veces ingresado: '${contador}'</span>`;
 }
 
 // Ejercicio 4
@@ -165,6 +187,9 @@ function capturar4() {
 
   for (let i = 1; i <= 10; i++) {
     let numero = parseInt(prompt(`Número ${i}: `));
+    while (isNaN(numero)) {
+      numero = parseInt(prompt(`No ingresaste un número, por favor ingresa el número ${i + 1} nuevamente:`));
+    }
     numeros.push(numero);
 
     // Si la posición del número es par y no es 0, lo sumamos a la variable suma
@@ -181,9 +206,7 @@ function capturar4() {
     }
   }
 
-  document.getElementById("resultado4").innerHTML = `La suma de los números en posiciones pares es: '${sumaPares}'<br><br>
-  Los números ingresados son:<br>[${numeros.join(", ")}]<br>
-    Los números que se suman son: '${numerosSumados.join(", ")}'`;
+  document.getElementById("resultado4").innerHTML = `[${numeros.join(", ")}]<br>${generarEstiloResultado()}La suma de los números en posiciones pares es: '${sumaPares}'<br>Los números que se suman son: '${numerosSumados.join(", ")}'</span>`;
 }
 
 
@@ -207,7 +230,7 @@ function capturar5() {
   let arrayInvertido = invertirArray(miArray);
   console.log("Array invertido:", arrayInvertido);
 
-  resultado.innerHTML = `${miArray.join(" • ").toUpperCase()}<br><span style='background-color: rgb(94, 150, 60); color: white'>${arrayInvertido.join(" • ").toUpperCase()}</span>`;
+  resultado.innerHTML = `${miArray.join(" · ").toUpperCase()}<br>${generarEstiloResultado()}${arrayInvertido.join(" · ").toUpperCase()}</span>`;
 }
 
 // Ejercicio 6
@@ -232,7 +255,7 @@ function capturar6() {
   let arrayRotadoDerecha = rotarArrayDerecha(miArray);
   console.log(`Rotado: ${arrayRotadoDerecha}`);
 
-  resultado.innerHTML = `${miArray.join(" • ").toUpperCase()}<br><span style='background-color: rgb(94, 150, 60); color: white'>${arrayRotadoDerecha.join(" • ").toUpperCase()}</span>`;
+  resultado.innerHTML = `${miArray.join(" · ").toUpperCase()}<br>${generarEstiloResultado()}${arrayRotadoDerecha.join(" · ").toUpperCase()}</span>`;
 }
 
 // Ejercicio 7
@@ -257,7 +280,7 @@ function capturar7() {
 
   let palindromo = miArray.join("") === arrayInvertido.join("") ? "Si" : "No";
 
-  resultado.innerHTML = `<span style='color: rgb(94, 150, 60)'>'${palindromo}'</span><br>${miArray.join("").toUpperCase()}<br><span style='background-color: rgb(94, 150, 60); color: white'>${arrayInvertido.join("").toUpperCase()}</span>`;
+  resultado.innerHTML = `${generarEstiloResultado()}'${palindromo}'</span><br>${miArray.join("").toUpperCase()}<br>${generarEstiloResultado()}${arrayInvertido.join("").toUpperCase()}</span>`;
 }
 
 // Ejercicio 8
@@ -282,7 +305,7 @@ function capturar8() {
   let caracteresUnicos = obtenerCaracteresUnicos(miArray);
   console.log("Caracteres únicos:", caracteresUnicos);
 
-  resultado.innerHTML = `${miArray.join(" • ").toUpperCase()}<br><span style='background-color: rgb(94, 150, 60); color: white'>${caracteresUnicos.join(" • ").toUpperCase()}</span>`;
+  resultado.innerHTML = `${miArray.join(" · ").toUpperCase()}<br>${generarEstiloResultado()}${caracteresUnicos.join(" · ").toUpperCase()}</span>`;
 }
 
 // Ejercicio 9
@@ -310,20 +333,29 @@ function capturar9Union() {
           union.push(array2[i]);
         }
       }
-      return union.join(" • ");
+      return union.join(" · ");
     }
 
-    let limiteArray1 = parseInt(prompt("Cantidad de caracteres 1º Vector?  "));
+    let limiteArray1 = NaN;
+    let limiteArray2;
+
+    while (isNaN(parseInt(limiteArray1))) {
+      limiteArray1 = parseInt(prompt("Cantidad de caracteres 1º Vector?  "));
+    }
+
     let array1 = cargarArray(limiteArray1, "Ingrese el caracter");
 
-    let limiteArray2 = parseInt(prompt("Cantidad de caracteres 2º Vector? "));
+    while (isNaN(parseInt(limiteArray2))) {
+      limiteArray2 = parseInt(prompt("Cantidad de caracteres 2º Vector? "));
+    }
+
     let array2 = cargarArray(limiteArray2, "Ingrese el caracter");
 
     let union = unionArray(array1, array2).toUpperCase();
 
-    resultado.innerHTML = `La UNION de los VECTORES es:<br>
-    <span style='background-color: rgb(94, 150, 60); color: white'>${union}</span>`;
-  }, 200); // espera 2 segundos (2000 ms) antes de ejecutar la función de cálculo
+    resultado.innerHTML = `La UNION de '${array1.join("·").toUpperCase()}' y '${array2.join("·").toUpperCase()}':<br>
+    ${generarEstiloResultado()}${union}</span>`;
+  }, 200);
 }
 
 
@@ -359,19 +391,27 @@ function capturar9Interseccion() {
           interseccion.push(array1[i]);
         }
       }
-      return interseccion.join(" • ");
+      return interseccion.join(" · ");
     }
 
-    let limiteArray1 = parseInt(prompt("Cantidad de caracteres 1º Vector? "));
+    let limiteArray1 = NaN;
+    let limiteArray2;
+
+    while (isNaN(parseInt(limiteArray1))) {
+      limiteArray1 = parseInt(prompt("Cantidad de caracteres 1º Vector?  "));
+    }
+
     let array1 = cargarArray(limiteArray1, "Ingrese el caracter");
 
-    let limiteArray2 = parseInt(prompt("Cantidad de caracteres 2º Vector? "));
+    while (isNaN(parseInt(limiteArray2))) {
+      limiteArray2 = parseInt(prompt("Cantidad de caracteres 2º Vector? "));
+    }
+
     let array2 = cargarArray(limiteArray2, "Ingrese el caracter");
 
     let interseccion = interseccionArray(array1, array2).toUpperCase();
 
-    resultado.innerHTML = `La INTERSECCION de los VECTORES es:<br>
-    <span style='background-color: rgb(94, 150, 60); color: white'>${interseccion}</span>`;
+    resultado.innerHTML = `La INTERSECCION de '${array1.join("·").toUpperCase()}' y '${array2.join("·").toUpperCase()}':<br>${generarEstiloResultado()}${interseccion}</span>`;
   }, 200);
 }
 
@@ -406,19 +446,27 @@ function capturar9Diferencia() {
           diferencia.push(array1[i]);
         }
       }
-      return diferencia.join(" • ");
+      return diferencia.join(" · ");
     }
 
-    let limiteArray1 = parseInt(prompt("Cantidad de caracteres 1º Vector? "));
+    let limiteArray1 = NaN;
+    let limiteArray2;
+
+    while (isNaN(parseInt(limiteArray1))) {
+      limiteArray1 = parseInt(prompt("Cantidad de caracteres 1º Vector?  "));
+    }
+
     let array1 = cargarArray(limiteArray1, "Ingrese el caracter");
 
-    let limiteArray2 = parseInt(prompt("Cantidad de caracteres 2º Vector? "));
+    while (isNaN(parseInt(limiteArray2))) {
+      limiteArray2 = parseInt(prompt("Cantidad de caracteres 2º Vector? "));
+    }
+
     let array2 = cargarArray(limiteArray2, "Ingrese el caracter");
 
     let diferencia = mostrarDiferencia(array1, array2).toUpperCase();
 
-    resultado.innerHTML = `La DIFERENCIA de los VECTORES es:<br>
-    <span style='background-color: rgb(94, 150, 60); color: white'>${diferencia}</span>`;
+    resultado.innerHTML = `La DIFERENCIA de '${array1.join("·").toUpperCase()}' y '${array2.join("·").toUpperCase()}':<br>${generarEstiloResultado()}${diferencia}</span>`;
   }, 200);
 }
 
@@ -433,7 +481,7 @@ function capturar9DiferenciaSim() {
 
   setTimeout(() => {
     let resultado = mostrarResultados("resultado9");
-    
+
     function cargarArray(limite, consulta) {
       let miArray = [];
       for (i = 0; i < limite; i++) {
@@ -458,18 +506,26 @@ function capturar9DiferenciaSim() {
           diferenciaSimetrica.push(array2[i]);
         }
       }
-      return diferenciaSimetrica.join(" • ");
+      return diferenciaSimetrica.join(" · ");
     }
 
-    let limiteArray1 = parseInt(prompt("Cantidad de caracteres 1º Vector? "));
+    let limiteArray1 = NaN;
+    let limiteArray2;
+
+    while (isNaN(parseInt(limiteArray1))) {
+      limiteArray1 = parseInt(prompt("Cantidad de caracteres 1º Vector?  "));
+    }
+
     let array1 = cargarArray(limiteArray1, "Ingrese el caracter");
 
-    let limiteArray2 = parseInt(prompt("Cantidad de caracteres 2º Vector? "));
+    while (isNaN(parseInt(limiteArray2))) {
+      limiteArray2 = parseInt(prompt("Cantidad de caracteres 2º Vector? "));
+    }
+
     let array2 = cargarArray(limiteArray2, "Ingrese el caracter");
 
     let diferenciaSimetrica = mostrarDiferenciaSimetrica(array1, array2).toUpperCase();
 
-    resultado.innerHTML = `La DIFERENCIA SIMETRICA de los VECTORES es:<br>
-    <span style='background-color: rgb(94, 150, 60); color: white'>${diferenciaSimetrica}</span>`;
+    resultado.innerHTML = `La DIEERENCIA SIMETRICA de '${array1.join("·").toUpperCase()}' y '${array2.join("·").toUpperCase()}':<br>${generarEstiloResultado()}${diferenciaSimetrica}</span>`;
   }, 200);
 }
