@@ -41,19 +41,6 @@ function mostrarMayoresQue(numeros, valorASuperar) {
 }
 // --------------------------------------------------------------------------
 // FUNCION GLOBAL cargarArray(limite, consulta)
-
-// function cargarArray(limite, consulta) {
-//   limite;
-//   let miArray = [];
-//   for (i = 0; i < limite; i++) {
-//     let elementos = "";
-//     while (elementos.length !== 1) {
-//       elementos = prompt(`${consulta} ${i + 1}: `);
-//     }
-//     miArray.push(elementos);
-//   }
-//   return miArray;
-// }
 function cargarArray(limite, consulta) {
   let miArray = [];
   for (i = 0; i < limite; i++) {
@@ -316,7 +303,7 @@ function capturar9Union() {
     document.getElementById("interseccion").style.display = "none";
     document.getElementById("diferencia").style.display = "none";
     document.getElementById("diferenciaSim").style.display = "none";
-  }, 10); // espera 1 segundo (1000 ms) antes de mostrar el código oculto
+  }, 10);
 
   setTimeout(function () {
     let resultado = mostrarResultados("resultado9");
@@ -526,6 +513,6 @@ function capturar9DiferenciaSim() {
 
     let diferenciaSimetrica = mostrarDiferenciaSimetrica(array1, array2).toUpperCase();
 
-    resultado.innerHTML = `La DIEERENCIA SIMETRICA de '${array1.join("·").toUpperCase()}' y '${array2.join("·").toUpperCase()}':<br>${generarEstiloResultado()}${diferenciaSimetrica}</span>`;
+    resultado.innerHTML = `La DIFERENCIA SIMETRICA de '${array1.join("·").toUpperCase()}' y '${array2.join("·").toUpperCase()}':<br>${generarEstiloResultado()}${diferenciaSimetrica}</span>`;
   }, 200);
 }
