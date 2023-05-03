@@ -284,3 +284,34 @@ function capturar8() {
 
   resultado.innerHTML = `${miArray.join(" • ").toUpperCase()}<br><span style='background-color: rgb(94, 150, 60); color: white'>${caracteresUnicos.join(" • ").toUpperCase()}</span>`;
 }
+
+// Ejercicio 9
+function capturar9() {
+  let resultado = mostrarResultados("resultado9");
+
+  function unionArray(array1, array2) {
+    let union = [];
+    for (let i = 0; i < array1.length; i++) {
+      if (!union.includes(array1[i])) {
+        union.push(array1[i]);
+      }
+    }
+    for (let i = 0; i < array2.length; i++) {
+      if (!union.includes(array2[i])) {
+        union.push(array2[i]);
+      }
+    }
+    return union.join(" • ");
+  }
+
+  let limiteArray1 = parseInt(prompt("Cantidad de caracteres 1º Vector?  "));
+  let array1 = cargarArray(limiteArray1, "Ingrese el caracter");
+
+  let limiteArray2 = parseInt(prompt("Cantidad de caracteres 2º Vector? "));
+  let array2 = cargarArray(limiteArray2, "Ingrese el caracter");
+
+  let union = unionArray(array1, array2).toUpperCase();
+
+  resultado.innerHTML = `La UNION de los VECTORES es:<br>
+  <span style='background-color: rgb(94, 150, 60); color: white'>${union}</span>`;
+}
