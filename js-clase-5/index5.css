@@ -205,6 +205,18 @@ code {
   padding: 1rem;
 }
 
+code#interseccion {
+  margin-top: -1.1rem;
+}
+
+code#diferencia {
+  margin-top: -2.2rem;
+}
+
+code#diferenciaSim {
+  margin-top: -3.3rem;
+}
+
 .form-cont {
   width: 20rem;
   margin: 3rem auto 0;

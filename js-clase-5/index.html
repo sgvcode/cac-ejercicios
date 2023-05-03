@@ -169,7 +169,8 @@ console.log(`El número máximo aparece ${contador} veces en el array [${numeros
     <section class="ejercicio" id="4">
       <div class="enunciados">
         <p>4- Realizá un programa que permita al usuario ingresar 10 números enteros. La computadora debe mostrar la
-          <span class="funct">suma de los números ingresados en las posiciones pares.</span></p>
+          <span class="funct">suma de los números ingresados en las posiciones pares.</span>
+        </p>
       </div>
       <div class="form-cont">
         <form class="form__group invert" id="form4">
@@ -298,7 +299,8 @@ console.log(`Rotado: ${arrayRotadoDerecha}`);
     <!-- Ejercicio 7 -->
     <section class="ejercicio" id="7">
       <div class="enunciados">
-        <p>7- Realizá un programa que permita al usuario ingresar 9 caracteres. La computadora debe indicar <span class="funct">si la palabra representada es o no un palíndromo</span>.</p>
+        <p>7- Realizá un programa que permita al usuario ingresar 9 caracteres. La computadora debe indicar <span
+            class="funct">si la palabra representada es o no un palíndromo</span>.</p>
         <p class="nota">Ej: reconocer, sometemos, aibofobia</p>
       </div>
       <div class="form-cont">
@@ -347,7 +349,8 @@ let consulta = "Ingresa caracter";
     <!-- Ejercicio 8 -->
     <section class="ejercicio" id="8">
       <div class="enunciados">
-        <p>8- Realizá un programa que permita al usuario ingresar 9 caracteres. La computadora debe <span class="funct">mostrarlos sin repetidos</span>.</p>
+        <p>8- Realizá un programa que permita al usuario ingresar 9 caracteres. La computadora debe <span
+            class="funct">mostrarlos sin repetidos</span>.</p>
       </div>
       <div class="form-cont">
         <form class="form__group invert" id="form8">
@@ -394,14 +397,15 @@ let consulta = "Ingresa caracter";
     <!-- Ejercicio 9 -->
     <section class="ejercicio" id="9">
       <div class="enunciados">
-        <p>9- Realizá un programa que permita al usuario ingresar 2 vectores de caracteres, no necesariamente de la misma longitud, que representan dos conjuntos sin valores repetidos. La computadora debe mostrar:</p>
+        <p>9- Realizá un programa que permita al usuario ingresar 2 vectores de caracteres, no necesariamente de la
+          misma longitud, que representan dos conjuntos sin valores repetidos. La computadora debe mostrar:</p>
       </div>
       <div class="form-cont">
         <form class="form__group invert" id="form9">
-          <button class="simil" type="button" onclick="capturar9()">unión</button>
-          <button class="simil" type="button" onclick="capturar9()">intersección</button>
-          <button class="simil" type="button" onclick="capturar9()">diferencia</button>
-          <button class="simil" type="button" onclick="capturar9()">diferencia simétrica</button>
+          <button class="simil" type="button" onclick="capturar9Union()">unión</button>
+          <button class="simil" type="button" onclick="capturar9Interseccion()">intersección</button>
+          <button class="simil" type="button" onclick="capturar9Diferencia()">diferencia</button>
+          <button class="simil" type="button" onclick="capturar9DiferenciaSim()">diferencia simétrica</button>
         </form>
       </div>
       <p class="resp resultados" id="resultado9"></p>
@@ -409,7 +413,8 @@ let consulta = "Ingresa caracter";
       <!-- Inserción de Código JS -->
       <pre id="codigo9">
         <button onclick="copyToClipboard('#codigo9')" class="btn"><i class="fa-regular fa-copy"></i><i class="fa-solid fa-check"></i></button>
-        <code>
+        <code id="union">
+// Función Union de Arrays
 function cargarArray(limite, consulta) {
   let miArray = [];
   for (i = 0; i < limite; i++) {
@@ -446,6 +451,113 @@ let array2 = cargarArray(limiteArray2, "Ingrese el caracter");
 let union = unionArray(array1, array2).toUpperCase();
 
 console.log("La unión de los conjuntos es: " + union);
+        </code>
+        <code id="interseccion" style="display:none">
+// Función Mostrar Intersección de Arrays
+function cargarArray(limite, consulta) {
+  let miArray = [];
+  for (i = 0; i < limite; i++) {
+    let elementos = "";
+    while (elementos.length !== 1) {
+      elementos = prompt(`${consulta} ${i + 1}: `);
+    }
+    miArray.push(elementos);
+  }
+  return miArray;
+}
+
+function interseccionArray(array1, array2) {
+  let interseccion = [];
+  for (let i = 0; i < array1.length; i++) {
+    if (array2.includes(array1[i]) && !interseccion.includes(array1[i])) {
+      interseccion.push(array1[i]);
+    }
+  }
+  return interseccion.join(" • ");
+}
+
+let limiteArray1 = parseInt(prompt("Cantidad de caracteres 1º Vector? "));
+let array1 = cargarArray(limiteArray1, "Ingrese el caracter");
+
+let limiteArray2 = parseInt(prompt("Cantidad de caracteres 2º Vector? "));
+let array2 = cargarArray(limiteArray2, "Ingrese el caracter");
+
+let interseccion = interseccionArray(array1, array2).toUpperCase();
+
+console.log("La intersección de los conjuntos es: " + interseccion);
+        </code>
+        <code id="diferencia" style="display:none">
+// Función mostrar Diferencia de Arrays
+function cargarArray(limite, consulta) {
+  let miArray = [];
+  for (i = 0; i < limite; i++) {
+    let elementos = "";
+    while (elementos.length !== 1) {
+      elementos = prompt(`${consulta} ${i + 1}: `);
+    }
+    miArray.push(elementos);
+  }
+  return miArray;
+}
+
+function mostrarDiferencia(array1, array2) {
+  let diferencia = [];
+  for (let i = 0; i < array1.length; i++) {
+    if (!array2.includes(array1[i])) {
+      diferencia.push(array1[i]);
+    }
+  }
+  return diferencia.join(" • ");
+}
+
+let limiteArray1 = parseInt(prompt("Cantidad de caracteres 1º Vector? "));
+let array1 = cargarArray(limiteArray1, "Ingrese el caracter");
+
+let limiteArray2 = parseInt(prompt("Cantidad de caracteres 2º Vector? "));
+let array2 = cargarArray(limiteArray2, "Ingrese el caracter");
+
+let diferencia = mostrarDiferencia(array1, array2).toUpperCase();
+
+console.log("La diferencia del conjunto 1 con el conjunto 2 es: " + diferencia);
+        </code>
+        <code id="diferenciaSim" style="display:none">
+// Función mostrar Diferencia Simétrica de Arrays
+function cargarArray(limite, consulta) {
+  let miArray = [];
+  for (i = 0; i < limite; i++) {
+    let elementos = "";
+    while (elementos.length !== 1) {
+      elementos = prompt(`${consulta} ${i + 1}: `);
+    }
+    miArray.push(elementos);
+  }
+  return miArray;
+}
+
+function mostrarDiferenciaSimetrica(array1, array2) {
+  let diferenciaSimetrica = [];
+  for (let i = 0; i < array1.length; i++) {
+    if (!array2.includes(array1[i])) {
+      diferenciaSimetrica.push(array1[i]);
+    }
+  }
+  for (let i = 0; i < array2.length; i++) {
+    if (!array1.includes(array2[i])) {
+      diferenciaSimetrica.push(array2[i]);
+    }
+  }
+  return diferenciaSimetrica.join(" • ");
+}
+
+let limiteArray1 = parseInt(prompt("Cantidad de caracteres 1º Vector? "));
+let array1 = cargarArray(limiteArray1, "Ingrese el caracter");
+
+let limiteArray2 = parseInt(prompt("Cantidad de caracteres 2º Vector? "));
+let array2 = cargarArray(limiteArray2, "Ingrese el caracter");
+
+let diferenciaSimetrica = mostrarDiferenciaSimetrica(array1, array2).toUpperCase();
+
+console.log("La diferencia simétrica de los conjuntos es: " + diferenciaSimetrica);
         </code>
       </pre>
     </section>

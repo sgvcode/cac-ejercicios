@@ -286,32 +286,190 @@ function capturar8() {
 }
 
 // Ejercicio 9
-function capturar9() {
-  let resultado = mostrarResultados("resultado9");
+// Union de arrays
+function capturar9Union() {
+  setTimeout(function () {
+    document.getElementById("union").style.display = "block";
+    document.getElementById("interseccion").style.display = "none";
+    document.getElementById("diferencia").style.display = "none";
+    document.getElementById("diferenciaSim").style.display = "none";
+  }, 10); // espera 1 segundo (1000 ms) antes de mostrar el código oculto
 
-  function unionArray(array1, array2) {
-    let union = [];
-    for (let i = 0; i < array1.length; i++) {
-      if (!union.includes(array1[i])) {
-        union.push(array1[i]);
+  setTimeout(function () {
+    let resultado = mostrarResultados("resultado9");
+
+    function unionArray(array1, array2) {
+      let union = [];
+      for (let i = 0; i < array1.length; i++) {
+        if (!union.includes(array1[i])) {
+          union.push(array1[i]);
+        }
       }
-    }
-    for (let i = 0; i < array2.length; i++) {
-      if (!union.includes(array2[i])) {
-        union.push(array2[i]);
+      for (let i = 0; i < array2.length; i++) {
+        if (!union.includes(array2[i])) {
+          union.push(array2[i]);
+        }
       }
+      return union.join(" • ");
     }
-    return union.join(" • ");
-  }
 
-  let limiteArray1 = parseInt(prompt("Cantidad de caracteres 1º Vector?  "));
-  let array1 = cargarArray(limiteArray1, "Ingrese el caracter");
+    let limiteArray1 = parseInt(prompt("Cantidad de caracteres 1º Vector?  "));
+    let array1 = cargarArray(limiteArray1, "Ingrese el caracter");
 
-  let limiteArray2 = parseInt(prompt("Cantidad de caracteres 2º Vector? "));
-  let array2 = cargarArray(limiteArray2, "Ingrese el caracter");
+    let limiteArray2 = parseInt(prompt("Cantidad de caracteres 2º Vector? "));
+    let array2 = cargarArray(limiteArray2, "Ingrese el caracter");
 
-  let union = unionArray(array1, array2).toUpperCase();
+    let union = unionArray(array1, array2).toUpperCase();
 
-  resultado.innerHTML = `La UNION de los VECTORES es:<br>
-  <span style='background-color: rgb(94, 150, 60); color: white'>${union}</span>`;
+    resultado.innerHTML = `La UNION de los VECTORES es:<br>
+    <span style='background-color: rgb(94, 150, 60); color: white'>${union}</span>`;
+  }, 200); // espera 2 segundos (2000 ms) antes de ejecutar la función de cálculo
+}
+
+
+// Interseccion de arrays
+function capturar9Interseccion() {
+  setTimeout(() => {
+    document.getElementById("union").style.display = "none";
+    document.getElementById("interseccion").style.display = "block";
+    document.getElementById("diferencia").style.display = "none";
+    document.getElementById("diferenciaSim").style.display = "none";
+  }, 10);
+
+
+  setTimeout(() => {
+    let resultado = mostrarResultados("resultado9");
+
+    function cargarArray(limite, consulta) {
+      let miArray = [];
+      for (i = 0; i < limite; i++) {
+        let elementos = "";
+        while (elementos.length !== 1) {
+          elementos = prompt(`${consulta} ${i + 1}: `);
+        }
+        miArray.push(elementos);
+      }
+      return miArray;
+    }
+
+    function interseccionArray(array1, array2) {
+      let interseccion = [];
+      for (let i = 0; i < array1.length; i++) {
+        if (array2.includes(array1[i]) && !interseccion.includes(array1[i])) {
+          interseccion.push(array1[i]);
+        }
+      }
+      return interseccion.join(" • ");
+    }
+
+    let limiteArray1 = parseInt(prompt("Cantidad de caracteres 1º Vector? "));
+    let array1 = cargarArray(limiteArray1, "Ingrese el caracter");
+
+    let limiteArray2 = parseInt(prompt("Cantidad de caracteres 2º Vector? "));
+    let array2 = cargarArray(limiteArray2, "Ingrese el caracter");
+
+    let interseccion = interseccionArray(array1, array2).toUpperCase();
+
+    resultado.innerHTML = `La INTERSECCION de los VECTORES es:<br>
+    <span style='background-color: rgb(94, 150, 60); color: white'>${interseccion}</span>`;
+  }, 200);
+}
+
+// Diferencia de arrays
+function capturar9Diferencia() {
+  setTimeout(() => {
+    document.getElementById("union").style.display = "none";
+    document.getElementById("interseccion").style.display = "none";
+    document.getElementById("diferencia").style.display = "block";
+    document.getElementById("diferenciaSim").style.display = "none";
+  }, 10);
+
+  setTimeout(() => {
+    let resultado = mostrarResultados("resultado9");
+
+    function cargarArray(limite, consulta) {
+      let miArray = [];
+      for (i = 0; i < limite; i++) {
+        let elementos = "";
+        while (elementos.length !== 1) {
+          elementos = prompt(`${consulta} ${i + 1}: `);
+        }
+        miArray.push(elementos);
+      }
+      return miArray;
+    }
+
+    function mostrarDiferencia(array1, array2) {
+      let diferencia = [];
+      for (let i = 0; i < array1.length; i++) {
+        if (!array2.includes(array1[i])) {
+          diferencia.push(array1[i]);
+        }
+      }
+      return diferencia.join(" • ");
+    }
+
+    let limiteArray1 = parseInt(prompt("Cantidad de caracteres 1º Vector? "));
+    let array1 = cargarArray(limiteArray1, "Ingrese el caracter");
+
+    let limiteArray2 = parseInt(prompt("Cantidad de caracteres 2º Vector? "));
+    let array2 = cargarArray(limiteArray2, "Ingrese el caracter");
+
+    let diferencia = mostrarDiferencia(array1, array2).toUpperCase();
+
+    resultado.innerHTML = `La DIFERENCIA de los VECTORES es:<br>
+    <span style='background-color: rgb(94, 150, 60); color: white'>${diferencia}</span>`;
+  }, 200);
+}
+
+// Diferencia Simétrica de arrays
+function capturar9DiferenciaSim() {
+  setTimeout(() => {
+    document.getElementById("union").style.display = "none";
+    document.getElementById("interseccion").style.display = "none";
+    document.getElementById("diferencia").style.display = "none";
+    document.getElementById("diferenciaSim").style.display = "block";
+  }, 10);
+
+  setTimeout(() => {
+    let resultado = mostrarResultados("resultado9");
+    
+    function cargarArray(limite, consulta) {
+      let miArray = [];
+      for (i = 0; i < limite; i++) {
+        let elementos = "";
+        while (elementos.length !== 1) {
+          elementos = prompt(`${consulta} ${i + 1}: `);
+        }
+        miArray.push(elementos);
+      }
+      return miArray;
+    }
+
+    function mostrarDiferenciaSimetrica(array1, array2) {
+      let diferenciaSimetrica = [];
+      for (let i = 0; i < array1.length; i++) {
+        if (!array2.includes(array1[i])) {
+          diferenciaSimetrica.push(array1[i]);
+        }
+      }
+      for (let i = 0; i < array2.length; i++) {
+        if (!array1.includes(array2[i])) {
+          diferenciaSimetrica.push(array2[i]);
+        }
+      }
+      return diferenciaSimetrica.join(" • ");
+    }
+
+    let limiteArray1 = parseInt(prompt("Cantidad de caracteres 1º Vector? "));
+    let array1 = cargarArray(limiteArray1, "Ingrese el caracter");
+
+    let limiteArray2 = parseInt(prompt("Cantidad de caracteres 2º Vector? "));
+    let array2 = cargarArray(limiteArray2, "Ingrese el caracter");
+
+    let diferenciaSimetrica = mostrarDiferenciaSimetrica(array1, array2).toUpperCase();
+
+    resultado.innerHTML = `La DIFERENCIA SIMETRICA de los VECTORES es:<br>
+    <span style='background-color: rgb(94, 150, 60); color: white'>${diferenciaSimetrica}</span>`;
+  }, 200);
 }
