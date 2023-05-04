@@ -93,11 +93,21 @@ function capturar1() {
 
 
   for (let i = 0; i < 10; i++) {
-    let numero = parseInt(prompt(`Ingrese el número ${i + 1}:`));
-    if (isNaN(numero) || numero === null) {
-      numeros.push(0);
-    } else {
-      numeros.push(numero);
+    let continuar = true;
+
+    while (continuar) {
+      let numero = prompt(`Ingrese el número ${i + 1}:`);
+
+      if (numero === null) {
+        return;
+      }
+
+      if (numero === "" || isNaN(numero)) {
+        continuar = confirm(`"${numero}" no es un número válido. ¿Desea ingresar otro número?`);
+      } else {
+        numeros.push(Number(numero));
+        continuar = false;
+      }
     }
   }
 
@@ -203,16 +213,22 @@ function capturar4() {
   let sumaPares = 0;
   let numeros = [];
 
-  for (let i = 1; i <= 10; i++) {
-    let numero = parseInt(prompt(`Número ${i}: `));
-    while (isNaN(numero)) {
-      numero = parseInt(prompt(`No ingresaste un número, por favor ingresa el número ${i + 1} nuevamente:`));
-    }
-    numeros.push(numero);
+  for (let i = 0; i < 10; i++) {
+    let continuar = true;
 
-    // Si la posición del número es par y no es 0, lo sumamos a la variable suma
-    if (i % 2 === 0 && numero !== 0) {
-      sumaPares += numero;
+    while (continuar) {
+      let numero = prompt(`Ingrese el número ${i + 1}:`);
+
+      if (numero === null) {
+        return;
+      }
+
+      if (numero === "" || isNaN(numero)) {
+        continuar = confirm(`"${numero}" no es un número válido. ¿Desea ingresar otro número?`);
+      } else {
+        numeros.push(Number(numero));
+        continuar = false;
+      }
     }
   }
 
