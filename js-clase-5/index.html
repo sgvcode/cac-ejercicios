@@ -20,12 +20,30 @@
     <h2>GUIA PRACTICA DE ARRAYS</h2>
     <h3>Definición y testeo de funciones</h3>
 
+    <!-- Ejercicio 1a -->
+    <section class="ejercicio" id="1a">
+      <div class="enunciados">
+        <p>1a- Realizá un programa que permita al usuario ingresar 'cant' de números enteros. La computadora debe
+          mostrar el <span class="funct">promedio de los mismos y cuáles fueron los valores ingresados que lo
+            superaron</span>.
+        </p>
+      </div>
+      <div class="form-cont">
+        <form class="form__group invert" id="form1a">
+          <input type="number" class="form__input" id="limiteNum" placeholder="Cuantos número ingresaras?">
+          <input type="text" class="form__input" id="inputCadenaNum"
+            placeholder="Ingresar los números separados por 'coma'">
+          <small id="cantidadIngresados"></small>
+          <button type="button" onclick="capturar1a()">mostrar subcadenas</button>
+        </form>
+      </div>
+      <p class="resp resultados" id="resultado1a"></p>
+    </section>
+
     <!-- Ejercicio 1 -->
     <section class="ejercicio" id="1">
       <div class="enunciados">
-        <p>1- Realizá un programa que permita al usuario ingresar 10 números enteros. La computadora debe mostrar el
-          <span class="funct">promedio de los mismos y cuáles fueron los valores ingresados que lo superaron</span>.
-        </p>
+        <p>OPCION CON INGRESO POR PROMPT DE 10 NUMEROS</p>
       </div>
       <div class="form-cont">
         <form class="form__group invert" id="form1">
@@ -598,24 +616,43 @@ console.log("La diferencia simétrica de los conjuntos es: " + diferenciaSimetri
       </pre>
     </section>
 
-    <!-- Ejercicio 10 -->
-    <section class="ejercicio" id="10">
+    <!-- Ejercicio 15 -->
+    <section class="ejercicio" id="15">
       <div class="enunciados">
-        <p>10- Realizá un programa que permita al usuario ingresar 9 caracteres. La computadora debe <span
-            class="funct">mostrarlos sin repetidos</span>.</p>
+        <p>15- Realizá un programa que permita al usuario ingresar una cadena que represente una frase/oración. La
+          computadora debe <span class="funct">mostrarla enteramente en mayúsculas</span>.</p>
       </div>
       <div class="form-cont">
-        <form class="form__group invert" id="form10">
-          <button type="button" onclick="capturar10()">mostrar caracteres unicos</button>
+        <form class="form__group invert" id="form15">
+          <input type="text" class="form__input" id="inputCadena" placeholder=" ">
+          <label class="form__label" for="inputCadena">Ingresar un texto</label>
+          <button type="button" onclick="capturar15()">mostrar subcadenas</button>
         </form>
       </div>
-      <p class="resp resultados" id="resultado10"></p>
+      <p class="resp resultados" id="resultado15"></p>
 
       <!-- Inserción de Código JS -->
-      <pre id="codigo10">
-        <button onclick="copyToClipboard('#codigo10')" class="btn"><i class="fa-regular fa-copy"></i><i class="fa-solid fa-check"></i></button>
+      <pre id="codigo15">
+        <button onclick="copyToClipboard('#codigo15')" class="btn"><i class="fa-regular fa-copy"></i><i class="fa-solid fa-check"></i></button>
         <code>
+function splitCadena(inputCadena, ignorarEsp){
+  // Separa los caracteres
+  let arrayCadena;
+  if (ignorarEsp === "S") { // Eliminar espacios y separar
+    arrayCadena = inputCadena.replace(/\s+/g, "").split("");
+    arrayCadena = arrayCadena.join(",").toUpperCase();
+  } else { // Separar caracteres con espacios
+    arrayCadena = inputCadena.split(" ");
+    arrayCadena = arrayCadena.join(" ");
+  }
+  return arrayCadena;
+  }
 
+  let input = prompt("Ingresa una cadena de caracteres: ");
+  let esp = prompt("¿Quieres ignorar los espacios? S/N ").toUpperCase();
+  let miArray = splitCadena(input, esp);
+
+  console.log(miArray.toUpperCase());
         </code>
       </pre>
     </section>

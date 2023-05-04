@@ -83,14 +83,72 @@ function generarEstiloResultado() {
   return estilo;
 }
 // ---------------------------------------------------------------------------
+// Función Split Cadena de caracteres
+function splitCadena(inputCadena, ignorarEsp) {
+  // Separar los caracteres o las palabras dependiendo de la respuesta del usuario
+  let arrayCadena;
+  if (ignorarEsp === "S" || ignorarEsp === "") {
+    // Eliminar espacios y separar caracteres con coma
+    arrayCadena = inputCadena.replace(/\s+/g, "").split("");
+    arrayCadena = arrayCadena.join("·").toUpperCase();
+  } else {
+    // Separar caracteres con espacios
+    arrayCadena = inputCadena.split(" ");
+    arrayCadena = arrayCadena.join(" ");
+  }
+  return arrayCadena;
+}
+// --------------------------------------------------------------------------------
+// Función Split
+function splitCadenaNum(inputCadenaNum, limiteNum) {
+  let arrayCadenaNum = inputCadenaNum.split(",");
+  arrayCadenaNum = arrayCadenaNum.map(num => parseInt(num.trim()));
+  if (limiteNum && arrayCadenaNum.length > limiteNum) {
+    arrayCadenaNum.length = limiteNum;
+  }
+  return arrayCadenaNum;
+}
+// ----------------------------------------------------------------------------------
+
+// Ejercicio 1a
+function capturar1a() {
+  let numeros = [];
+
+  let inputCadenaNum = document.getElementById("inputCadenaNum").value;
+  let limiteNum = parseInt(document.getElementById("limiteNum").value);
+  numeros = splitCadenaNum(inputCadenaNum, limiteNum);
+
+  let suma = 0;
+  let resultado = mostrarResultados("resultado1a");
+
+  // Establecer el contenido del elemento <small> con la cantidad de números
+  document.getElementById("cantidadIngresados").textContent = `Se computan los primeros ${limiteNum} números`;
+
+  // Suma, promedio y mayores al promedio
+  for (let i = 0; i < numeros.length; i++) {
+    suma += numeros[i];
+  }
+
+  let promedio = suma / numeros.length;
+
+  let mayoresAlPromedio = [];
+
+  for (let i = 0; i < numeros.length; i++) {
+    if (numeros[i] > promedio) {
+      mayoresAlPromedio.push(numeros[i]);
+    }
+  }
+
+  resultado.innerHTML = `[${numeros.join(", ")}]<br>${generarEstiloResultado()}El promedio de los números ingresados es: <br>'${promedio.toFixed(2)}'<br>
+  Los número que superan el promedio son: <br>'${mayoresAlPromedio.join(", ")}'</span>`;
+  document.getElementById("form1a").reset();
+}
 
 // Ejercicio 1
 function capturar1() {
   let numeros = [];
   let suma = 0;
   let resultado = mostrarResultados("resultado1");
-  let detenerPrompt = detenerConEsc();
-
 
   for (let i = 0; i < 10; i++) {
     let continuar = true;
@@ -563,3 +621,19 @@ function capturar9DiferenciaSim() {
     resultado.innerHTML = `La DIFERENCIA SIMETRICA de '${array1.join("·").toUpperCase()}' y '${array2.join("·").toUpperCase()}':<br>${generarEstiloResultado()}${diferenciaSimetrica}</span>`;
   }, 200);
 }
+
+// Ejercicio 15
+function capturar15() {
+  let inputCadena = document.querySelector("#inputCadena").value.toUpperCase();
+  let ignorarEsp = prompt("¿Quieres ignorar los espacios? S/N ").toUpperCase();
+  // let ignorarEsp = "";
+  let resultadoArray = splitCadena(inputCadena, ignorarEsp);
+  let resultado = document.querySelector("#resultado15");
+
+  resultado.innerHTML = `${generarEstiloResultado()}${resultadoArray}`;
+
+  document.getElementById("form15").reset();
+}
+
+// Ejercicio 10
+
