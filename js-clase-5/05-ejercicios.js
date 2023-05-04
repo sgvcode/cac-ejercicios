@@ -16,17 +16,27 @@ function copyToClipboard(codigo) {
     });
 }
 //--------------------------------------------------------------------------
-// Función Sumatoria
-function promedio(numeros) {
-  return (numeros.length == 0 ? 0 : sumatoria(numeros) / numeros.length);
+// Función para detener ejecución con 'Esc'
+function detenerConEsc() {
+  document.addEventListener('keydown', function (event) {
+    if (event.key === 'Escape') {
+      // Cancelar la ejecución de la función actual
+      throw new Error('La ejecución de la función fue cancelada por el usuario.');
+    }
+  });
 }
-
+// -------------------------------------------------------------------------
+// Función Sumatoria
 function sumatoria(numeros) {
   let acu = 0;
   for (const numero of numeros) {
     acu += numero;
   }
   return acu;
+}
+// Función Promedio
+function promedio(numeros) {
+  return (numeros.length == 0 ? 0 : sumatoria(numeros) / numeros.length);
 }
 // --------------------------------------------------------------------------
 // Función Mostrar Mayores Que...
@@ -38,6 +48,11 @@ function mostrarMayoresQue(numeros, valorASuperar) {
     }
   }
   return mayores;
+}
+// --------------------------------------------------------------------------
+// Función Valor Máximo
+function valorMaximo(numeros) {
+  return Math.max(...numeros);
 }
 // --------------------------------------------------------------------------
 // FUNCION GLOBAL cargarArray(limite, consulta)
@@ -67,13 +82,15 @@ function generarEstiloResultado() {
   let estilo = `<span style='margin-top: .5rem;width: auto;border-left:5px solid rgb(94, 150, 60);border-right:5px solid rgb(49, 54, 63);font-weight: normal;padding: .3rem 0;background-color: rgb(49, 54, 63); color: white'>`;
   return estilo;
 }
+// ---------------------------------------------------------------------------
 
 // Ejercicio 1
-
 function capturar1() {
   let numeros = [];
   let suma = 0;
-  let resultado = mostrarResultados("resultado1")
+  let resultado = mostrarResultados("resultado1");
+  let detenerPrompt = detenerConEsc();
+
 
   for (let i = 0; i < 10; i++) {
     let numero = parseInt(prompt(`Ingrese el número ${i + 1}:`));
@@ -105,7 +122,6 @@ function capturar1() {
 }
 
 // Ejercicio 2
-
 function capturar2() {
 
   function esMultiplo(num, divisor) {
@@ -117,12 +133,24 @@ function capturar2() {
   }
 
   let numerosM = [];
+
   for (let i = 0; i < 10; i++) {
-    let numM = parseInt(prompt(`Ingresa el número ${i + 1}:`));
-    while (isNaN(numM)) {
-      numM = parseInt(prompt(`No ingresaste un número, por favor ingresa el número ${i + 1} nuevamente:`));
+    let continuar = true;
+
+    while (continuar) {
+      let numero = prompt(`Ingrese el número ${i + 1}:`);
+
+      if (numero === null) {
+        return;
+      }
+
+      if (numero === "" || isNaN(numero)) {
+        continuar = confirm(`"${numero}" no es un número válido. ¿Desea ingresar otro número?`);
+      } else {
+        numerosM.push(Number(numero));
+        continuar = false;
+      }
     }
-    numerosM.push(numM);
   }
 
   let ultimoNumero = ultimoElemento(numerosM);
@@ -130,42 +158,45 @@ function capturar2() {
   let multiplos = [];
 
   for (let i = 0; i < numerosM.length; i++) {
-    if (esMultiplo(numerosM[i], ultimoNumero)) {
-      multiplos.push(numerosM[i]);
+    let num = numerosM[i];
+    if (esMultiplo(num, ultimoNumero) && !multiplos.includes(num)) {
+      multiplos.push(num);
     }
   }
 
-  document.getElementById("resultado2").innerHTML = `[${numerosM.join(", ")}]<br>${generarEstiloResultado()}Los múltiplos de ${ultimoNumero} son: '${multiplos.join(", ")}'</span>`;
+  document.getElementById("resultado2").innerHTML = `[${numerosM.join(", ")}]<br>${generarEstiloResultado()}Múltiplos de ${ultimoNumero} ingresados: '${multiplos.join(", ")}'</span>`;
 }
 
 // Ejercicio 3
-function valorMaximo(numeros) {
-  return Math.max(...numeros);
-}
-
 function capturar3() {
   let numeros = [];
+  let resultado = mostrarResultados("resultado3");
 
   for (let i = 0; i < 10; i++) {
-    let numero = parseInt(prompt(`Ingrese el número ${i + 1}:`));
-    while (isNaN(numero)) {
-      numero = parseInt(prompt(`No ingresaste un número, por favor ingresa el número ${i + 1} nuevamente:`));
-    }
-    numeros.push(numero);
-  }
+    let continuar = true;
 
+    while (continuar) {
+      let numero = prompt(`Ingrese el número ${i + 1}:`);
+
+      if (numero === null) {
+        return;
+      }
+
+      if (numero === "" || isNaN(numero)) {
+        continuar = confirm(`"${numero}" no es un número válido. ¿Desea ingresar otro número?`);
+      } else {
+        numeros.push(Number(numero));
+        continuar = false;
+      }
+    }
+  }
 
   let maximo = valorMaximo(numeros);
-  let contador = 0;
+  let contador = numeros.filter(num => num === maximo).length;
 
-  for (let i = 0; i < numeros.length; i++) {
-    if (numeros[i] === maximo) {
-      contador++;
-    }
-  }
-
-  document.getElementById("resultado3").innerHTML = `[${numeros.join(", ")}]<br>${generarEstiloResultado()}El valor máximo ingresado es: '${maximo}'<br>Cantidad de veces ingresado: '${contador}'</span>`;
+  resultado.innerHTML = `[${numeros.join(", ")}]<br>${generarEstiloResultado()}El valor máximo ingresado es: '${maximo}'<br>Cantidad de veces ingresado: '${contador}'</span>`;
 }
+
 
 // Ejercicio 4
 function capturar4() {
