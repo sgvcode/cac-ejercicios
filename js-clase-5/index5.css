@@ -58,6 +58,13 @@ h4 {
   color: var(--color2);
 }
 
+
+section.alternativo {
+  background-color: whitesmoke;
+  margin-bottom: 2rem;
+  padding: 1rem 0 0;
+}
+
 .enunciados {
   display: flex;
   flex-wrap: wrap;

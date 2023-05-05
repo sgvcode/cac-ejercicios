@@ -20,30 +20,11 @@
     <h2>GUIA PRACTICA DE ARRAYS</h2>
     <h3>Definición y testeo de funciones</h3>
 
-    <!-- Ejercicio 1a -->
-    <section class="ejercicio" id="1a">
-      <div class="enunciados">
-        <p>1a- Realizá un programa que permita al usuario ingresar 'cant' de números enteros. La computadora debe
-          mostrar el <span class="funct">promedio de los mismos y cuáles fueron los valores ingresados que lo
-            superaron</span>.
-        </p>
-      </div>
-      <div class="form-cont">
-        <form class="form__group invert" id="form1a">
-          <input type="number" class="form__input" id="limiteNum" placeholder="Cuantos número ingresaras?">
-          <input type="text" class="form__input" id="inputCadenaNum"
-            placeholder="Ingresar los números separados por 'coma'">
-          <small id="cantidadIngresados"></small>
-          <button type="button" onclick="capturar1a()">mostrar subcadenas</button>
-        </form>
-      </div>
-      <p class="resp resultados" id="resultado1a"></p>
-    </section>
-
     <!-- Ejercicio 1 -->
     <section class="ejercicio" id="1">
       <div class="enunciados">
-        <p>OPCION CON INGRESO POR PROMPT DE 10 NUMEROS</p>
+        <p>1- Realizá un programa que permita al usuario ingresar 10 números enteros. La computadora debe mostrar el
+          <span class="funct">promedio de los mismos y cuáles fueron los valores ingresados que lo superaron</span>.</p>
       </div>
       <div class="form-cont">
         <form class="form__group invert" id="form1">
@@ -88,6 +69,23 @@ console.log(`El promedio de ${misNumeros} es: ${miPromedio}`);
 console.log(`Los valores que superan el promedio son: ${mostrarMayoresQue(misNumeros, promedio(misNumeros))}`);
         </code>
       </pre>
+    </section>
+
+    <!-- Ejercicio 1a -->
+    <section class="ejercicio alternativo" id="1a">
+      <p class="centrar">OPCION con elección de cantidad de NUMEROS</p>
+      <div class="enunciados">
+      </div>
+      <div class="form-cont">
+        <form class="form__group invert" id="form1a">
+          <input type="number" class="form__input" id="limiteNum" placeholder="Cuantos número ingresaras?">
+          <input type="text" class="form__input" id="inputCadenaNum"
+            placeholder="Ingresar los números separados por 'coma'">
+          <small id="cantidadIngresados"></small>
+          <button type="button" onclick="capturar1a()">mostrar subcadenas</button>
+        </form>
+      </div>
+      <p class="resp resultados" id="resultado1a"></p><br>
     </section>
 
     <!-- Ejercicio 2 -->
@@ -335,31 +333,31 @@ console.log(`Rotado: ${arrayRotadoDerecha}`);
 let limite = 9;
 let consulta = "Ingresa caracter";
 
-  function cargarArray(limite) {
-    let miArray = [];
-    for (i = 0; i < limite; i++) {
-      let elementos = "";
-      while (elementos.length !== 1) {
-        elementos = prompt(`${consulta} ${i + 1}: `);
-      }
-      miArray.push(elementos);
+function cargarArray(limite) {
+  let miArray = [];
+  for (i = 0; i < limite; i++) {
+    let elementos = "";
+    while (elementos.length !== 1) {
+      elementos = prompt(`${consulta} ${i + 1}: `);
     }
-    return miArray;
+    miArray.push(elementos);
   }
+  return miArray;
+}
 
-  function invertirArray(array) {
-    let arrayInvertido = [];
-    for (let i = array.length - 1; i >= 0; i--) {
-      arrayInvertido.push(array[i]);
-    }
-    return arrayInvertido;
+function invertirArray(array) {
+  let arrayInvertido = [];
+  for (let i = array.length - 1; i >= 0; i--) {
+    arrayInvertido.push(array[i]);
   }
+  return arrayInvertido;
+}
 
-  let miArray = cargarArray(limite);
-  let arrayInvertido = invertirArray(miArray);
-  let palindromo = miArray.join("") === arrayInvertido.join("")
+let miArray = cargarArray(limite);
+let arrayInvertido = invertirArray(miArray);
+let palindromo = miArray.join("") === arrayInvertido.join("")
 
-  console.log(palindromo);
+console.log(palindromo);
         </code>
       </pre>
     </section>
@@ -384,30 +382,30 @@ let consulta = "Ingresa caracter";
 let limite = 9;
 let consulta = "Ingresa caracter";
 
-  function cargarArray(limite) {
-    let miArray = [];
-    for (i = 0; i < limite; i++) {
-      let elementos = prompt(`${consulta} ${i + 1}: `);
-      miArray.push(elementos);
-    }
-    return miArray;
+function cargarArray(limite) {
+  let miArray = [];
+  for (i = 0; i < limite; i++) {
+    let elementos = prompt(`${consulta} ${i + 1}: `);
+    miArray.push(elementos);
   }
+  return miArray;
+}
 
-  function obtenerCaracteresUnicos(array) {
-    let caracteresUnicos = [];
-    for (let i = 0; i < array.length; i++) {
-      if (!caracteresUnicos.includes(array[i])) {
-        caracteresUnicos.push(array[i]);
-      }
+function obtenerCaracteresUnicos(array) {
+  let caracteresUnicos = [];
+  for (let i = 0; i < array.length; i++) {
+    if (!caracteresUnicos.includes(array[i])) {
+      caracteresUnicos.push(array[i]);
     }
-    return caracteresUnicos;
   }
+  return caracteresUnicos;
+}
 
-  let miArray = cargarArray(limite, consulta);
-  console.log("Original:", miArray);
+let miArray = cargarArray(limite, consulta);
+console.log("Original:", miArray);
 
-  let caracteresUnicos = obtenerCaracteresUnicos(miArray);
-  console.log("Unicos:", caracteresUnicos);
+let caracteresUnicos = obtenerCaracteresUnicos(miArray);
+console.log("Unicos:", caracteresUnicos);
         </code>
       </pre>
     </section>
@@ -616,6 +614,184 @@ console.log("La diferencia simétrica de los conjuntos es: " + diferenciaSimetri
       </pre>
     </section>
 
+    <!-- Ejercicio 10 -->
+    <section class="ejercicio" id="10">
+      <div class="enunciados">
+        <p>10- Realizá un programa que permita al usuario ingresar una cadena. La computadora debe <span class="funct">mostrar las dos subcadenas formadas por las posiciones pares e impares</span>, respectivamente, de la cadena ingresada.</p>
+        <p class="nota">Ejemplo: Ingresa <span class="funct">"Tfernígoo"</span>, debe devolver <span class="funct">"Tengo" "frío"</span>.</p>
+      </div>
+      <div class="form-cont">
+        <form class="form__group invert" id="form10">
+          <input type="text" class="form__input" id="inputCadenaC" placeholder=" ">
+          <label class="form__label" for="inputCadenaC">Ingresa una cadena</label>
+          <button type="button" onclick="capturar10()">mostrar subcadenas</button>
+        </form>
+      </div>
+      <p class="resp resultados" id="resultado10"></p>
+
+      <!-- Inserción de Código JS -->
+      <pre id="codigo10">
+        <button onclick="copyToClipboard('#codigo10')" class="btn"><i class="fa-regular fa-copy"></i><i class="fa-solid fa-check"></i></button>
+        <code>
+let inputCadena = prompt("Ingresa una cadena:");
+let subcadenaPares = "";
+let subcadenaImpares = "";
+
+for (let i = 0; i < inputCadena.length; i++) {
+  if (i % 2 === 0) {
+    subcadenaPares += inputCadena.charAt(i);
+  } else {
+    subcadenaImpares += inputCadena.charAt(i);
+  }
+}
+
+console.log(`Subcadena de posiciones pares: ${subcadenaPares}`);
+console.log(`Subcadena de posiciones impares: ${subcadenaImpares}`);
+        </code>
+      </pre>
+    </section>
+
+    <!-- Ejercicio 11 -->
+    <section class="ejercicio" id="11">
+      <div class="enunciados">
+        <p>11- Realizá un programa que permita al usuario ingresar una cadena. La computadora debe <span class="funct">mostrar las cantidades de cada vocal (cuántas 'A', cuántas 'E'…).</span>.</p>
+      </div>
+      <div class="form-cont">
+        <form class="form__group invert" id="form11">
+          <input type="text" class="form__input" id="cantVocales" placeholder=" ">
+          <label class="form__label" for="cantVocales">Ingresa una cadena de caracteres</label>
+          <button type="button" onclick="capturar11()">mostrar cantidad</button>
+        </form>
+      </div>
+      <p class="resp resultados" id="resultado11"></p>
+
+      <!-- Inserción de Código JS -->
+      <pre id="codigo11">
+        <button onclick="copyToClipboard('#codigo11')" class="btn"><i class="fa-regular fa-copy"></i><i class="fa-solid fa-check"></i></button>
+        <code>
+let inputCadena = prompt("Ingrese una cadena: ");
+let cadena = inputCadena.toUpperCase();
+let vocales = {'A': 0, 'E': 0, 'I': 0, 'O': 0, 'U': 0};
+
+for (let i = 0; i < cadena.length; i++) {
+  let letra = cadena.charAt(i);
+  if (letra in vocales) {
+    vocales[letra]++;
+  }
+}
+
+console.log("Cantidad de cada vocal:");
+console.log(`A: ${vocales['A']}`);
+console.log(`E: ${vocales['E']}`);
+console.log(`I: ${vocales['I']}`);
+console.log(`O: ${vocales['O']}`);
+console.log(`U: ${vocales['U']}`);
+        </code>
+      </pre>
+    </section>
+
+    <!-- Ejercicio 12 -->
+    <section class="ejercicio" id="12">
+      <div class="enunciados">
+        <p>12- Realizá un programa que permita al usuario ingresar una cadena que represente una frase/oración. La
+          computadora debe <span class="funct">mostrar la cantidad total de palabras</span>.</p>
+      </div>
+      <div class="form-cont">
+        <form class="form__group invert" id="form12">
+          <input type="text" class="form__input" id="cantidadPalabras" placeholder=" ">
+          <label class="form__label" for="cantidadPalabras">Ingresa una frase u oración</label>
+          <button type="button" onclick="capturar12()">mostrar longitud promedio</button>
+        </form>
+      </div>
+      <p class="resp resultados" id="resultado12"></p>
+
+      <!-- Inserción de Código JS -->
+      <pre id="codigo12">
+        <button onclick="copyToClipboard('#codigo12')" class="btn"><i class="fa-regular fa-copy"></i><i class="fa-solid fa-check"></i></button>
+        <code>
+let inputCantidadPalabras = prompt("Ingresa una frase u oración: ");
+let palabras = inputCantidadPalabras.split(" ");
+
+console.log(`La cantidad total de palabras es: ${palabras.length}`);
+        </code>
+      </pre>
+    </section>
+
+    <!-- Ejercicio 13 -->
+    <section class="ejercicio" id="13">
+      <div class="enunciados">
+        <p>13- Realizá un programa que permita al usuario ingresar una cadena que represente una frase/oración. La
+          computadora debe <span class="funct">mostrar la longitud promedio de caracteres que tienen las
+            palabras</span>.</p>
+      </div>
+      <div class="form-cont">
+        <form class="form__group invert" id="form13">
+          <input type="text" class="form__input" id="inputPromedioPalabra" placeholder=" ">
+          <label class="form__label" for="inputPromedioPalabra">Ingresa una frase u oración</label>
+          <button type="button" onclick="capturar13()">mostrar longitud promedio</button>
+        </form>
+      </div>
+      <p class="resp resultados" id="resultado13"></p>
+
+      <!-- Inserción de Código JS -->
+      <pre id="codigo13">
+        <button onclick="copyToClipboard('#codigo13')" class="btn"><i class="fa-regular fa-copy"></i><i class="fa-solid fa-check"></i></button>
+        <code>
+let PromedioPalabra = prompt("Ingrese una frase u oración:");
+let palabras = PromedioPalabra.split(" ");
+let totalCaracteres = 0;
+
+for (let i = 0; i < palabras.length; i++) {
+  totalCaracteres += palabras[i].length;
+}
+
+let longitudPromedio = totalCaracteres / palabras.length;
+
+console.log(`La longitud promedio de las palabras es ${longitudPromedio.toFixed(2)}`);
+        </code>
+      </pre>
+    </section>
+
+    <!-- Ejercicio 14 -->
+    <section class="ejercicio" id="14">
+      <div class="enunciados">
+        <p>14- Realizá un programa que permita al usuario ingresar una cadena que represente una frase/oración. La
+          computadora debe mostrar un listado de <span class="funct">todos los pares de palabras consecutivas en los
+            cuales la primera palabra termina con la inicial de la segunda</span>.</p>
+        <p class="nota">Ejemplo: "Estoy ya en condiciones para aprobar vectores".</p>
+      </div>
+      <div class="form-cont">
+        <form class="form__group invert" id="form14">
+          <input type="text" class="form__input" id="inputFrase" placeholder=" ">
+          <label class="form__label" for="inputFrase">Ingresa una frase u oración</label>
+          <button type="button" onclick="capturar14()">mostrar subcadenas</button>
+        </form>
+      </div>
+      <p class="resp resultados" id="resultado14"></p>
+
+      <!-- Inserción de Código JS -->
+      <pre id="codigo14">
+        <button onclick="copyToClipboard('#codigo14')" class="btn"><i class="fa-regular fa-copy"></i><i class="fa-solid fa-check"></i></button>
+        <code>
+let inputFrase = prompt("Ingrese una frase: ");
+let palabras = inputFrase.split(" ");
+let paresConsecutivos = [];
+
+for (let i = 0; i < palabras.length - 1; i++) {
+  let palabra1 = palabras[i];
+  let palabra2 = palabras[i + 1];
+
+  if (palabra1.slice(-1).toUpperCase() === palabra2.charAt(0).toUpperCase()) {
+    paresConsecutivos.push(palabra1 + " " + palabra2);
+  }
+}
+
+console.log("Pares de palabras consecutivas:");
+console.log(paresConsecutivos);
+        </code>
+      </pre>
+    </section>
+
     <!-- Ejercicio 15 -->
     <section class="ejercicio" id="15">
       <div class="enunciados">
@@ -625,8 +801,8 @@ console.log("La diferencia simétrica de los conjuntos es: " + diferenciaSimetri
       <div class="form-cont">
         <form class="form__group invert" id="form15">
           <input type="text" class="form__input" id="inputCadena" placeholder=" ">
-          <label class="form__label" for="inputCadena">Ingresar un texto</label>
-          <button type="button" onclick="capturar15()">mostrar subcadenas</button>
+          <label class="form__label" for="inputCadena">Ingresa una frase u oración</label>
+          <button type="button" onclick="capturar15()">mostrar en mayusculas</button>
         </form>
       </div>
       <p class="resp resultados" id="resultado15"></p>
@@ -638,21 +814,81 @@ console.log("La diferencia simétrica de los conjuntos es: " + diferenciaSimetri
 function splitCadena(inputCadena, ignorarEsp){
   // Separa los caracteres
   let arrayCadena;
-  if (ignorarEsp === "S") { // Eliminar espacios y separar
+  if (ignorarEsp === "S") { // Elimina espacios y separa
     arrayCadena = inputCadena.replace(/\s+/g, "").split("");
     arrayCadena = arrayCadena.join(",").toUpperCase();
-  } else { // Separar caracteres con espacios
+  } else { // Separa con espacios
     arrayCadena = inputCadena.split(" ");
     arrayCadena = arrayCadena.join(" ");
   }
   return arrayCadena;
+}
+
+let input = prompt("Ingresa una cadena de caracteres: ");
+let esp = prompt("¿Querés ignorar los espacios? S/N ").toUpperCase();
+let miArray = splitCadena(input, esp);
+
+console.log(miArray.toUpperCase());
+        </code>
+      </pre>
+    </section>
+    
+    <!-- Ejercicio 16 -->
+    <section class="ejercicio" id="16">
+      <div class="enunciados">
+        <p>16- Realizá  un  programa  que  permita  al  usuario  ingresar  una  cadena  que  represente  una frase/oración y un número entero positivo que indique el desplazamiento. La computadora debe <span class="funct">cifrar la cadena (solo letras) utilizando el cifrado César y mostrar cómo quedó</spanZ.</p>
+      </div>
+      <div class="form-cont">
+        <form class="form__group invert" id="form16">
+          <input type="text" class="form__input" id="inputCadenaCesar" placeholder="Ingresa una frase u oración">
+          <input type="number" class="form__input" id="desplazamiento" placeholder="Cuántos caracteres va a desplazar?">
+          <button type="button" onclick="capturar16()">mostrar codigo césar</button>
+        </form>
+      </div>
+      <p class="resp resultados" id="resultado16"></p>
+
+      <!-- Inserción de Código JS -->
+      <pre id="codigo16">
+        <button onclick="copyToClipboard('#codigo16')" class="btn"><i class="fa-regular fa-copy"></i><i class="fa-solid fa-check"></i></button>
+        <code>
+<!-- let inputCadena = prompt("Ingresa una cadena:");
+let desplazamiento = parseInt(prompt("Ingresa un número para desplazar caracteres:"));
+let cifrado = [];
+
+for (let i = 0; i < inputCadena.length; i++) {
+  let letra = inputCadena.charAt(i);
+
+  if (letra.match(/[a-zA-Z]/)) {
+    let codigo = letra.charCodeAt(0);
+    let cifradoCodigo = (codigo - 65 + desplazamiento) % 26 + 65;
+    let cifradoLetra = String.fromCharCode(cifradoCodigo);
+    cifrado.push(cifradoLetra);
+  } else {
+    cifrado.push(letra);
+  }
+}
+
+let resultado = cifrado.join("");
+console.log(`La cadena cifrada es: ${resultado}`); -->
+let inputCadena = prompt("Ingrese una cadena:");
+let desplazamiento = parseInt(prompt("Ingrese un número entero positivo para el desplazamiento:"));
+
+let cifrado = "";
+
+for (let i = 0; i < inputCadena.length; i++) {
+  let letra = inputCadena[i];
+  let codigo = letra.charCodeAt(0); //Para devolver cód Unicode
+
+  if (codigo >= 65 && codigo <= 90) { // Letra mayúscula
+    codigo = ((codigo - 65 + desplazamiento) % 26) + 65;
+  } else if (codigo >= 97 && codigo <= 122) { // Letra minúscula
+    codigo = ((codigo - 97 + desplazamiento) % 26) + 97;
   }
 
-  let input = prompt("Ingresa una cadena de caracteres: ");
-  let esp = prompt("¿Quieres ignorar los espacios? S/N ").toUpperCase();
-  let miArray = splitCadena(input, esp);
+  cifrado += String.fromCharCode(codigo);
+}
 
-  console.log(miArray.toUpperCase());
+console.log(`La cadena cifrada es: ${cifrado}`);
         </code>
       </pre>
     </section>

@@ -122,7 +122,7 @@ function capturar1a() {
   let resultado = mostrarResultados("resultado1a");
 
   // Establecer el contenido del elemento <small> con la cantidad de números
-  document.getElementById("cantidadIngresados").textContent = `Se computan los primeros ${limiteNum} números`;
+  document.getElementById("cantidadIngresados").textContent = `Se computan los primeros ${limiteNum} números elegidos`;
 
   // Suma, promedio y mayores al promedio
   for (let i = 0; i < numeros.length; i++) {
@@ -131,7 +131,7 @@ function capturar1a() {
 
   let promedio = suma / numeros.length;
 
-  let mayoresAlPromedio = [];
+  const mayoresAlPromedio = [];
 
   for (let i = 0; i < numeros.length; i++) {
     if (numeros[i] > promedio) {
@@ -176,7 +176,7 @@ function capturar1() {
 
   let promedio = suma / numeros.length;
 
-  let mayoresAlPromedio = [];
+  const mayoresAlPromedio = [];
 
   for (let i = 0; i < numeros.length; i++) {
     if (numeros[i] > promedio) {
@@ -200,7 +200,7 @@ function capturar2() {
     return num[num.length - 1];
   }
 
-  let numerosM = [];
+  const numerosM = [];
 
   for (let i = 0; i < 10; i++) {
     let continuar = true;
@@ -223,7 +223,7 @@ function capturar2() {
 
   let ultimoNumero = ultimoElemento(numerosM);
 
-  let multiplos = [];
+  const multiplos = [];
 
   for (let i = 0; i < numerosM.length; i++) {
     let num = numerosM[i];
@@ -237,7 +237,7 @@ function capturar2() {
 
 // Ejercicio 3
 function capturar3() {
-  let numeros = [];
+  const numeros = [];
   let resultado = mostrarResultados("resultado3");
 
   for (let i = 0; i < 10; i++) {
@@ -290,7 +290,7 @@ function capturar4() {
     }
   }
 
-  let numerosSumados = [];
+  const numerosSumados = [];
   for (let i = 1; i < numeros.length; i += 2) {
     let numero = numeros[i];
     if (numero !== 0) {
@@ -309,7 +309,7 @@ function capturar5() {
   let resultado = (mostrarResultados("resultado5"));
 
   function invertirArray(array) {
-    let arrayInvertido = [];
+    const arrayInvertido = [];
     for (let i = array.length - 1; i >= 0; i--) {
       arrayInvertido.push(array[i]);
     }
@@ -357,7 +357,7 @@ function capturar7() {
   let resultado = mostrarResultados("resultado7");
 
   function invertirArray(array) {
-    let arrayInvertido = [];
+    const arrayInvertido = [];
     for (let i = array.length - 1; i >= 0; i--) {
       arrayInvertido.push(array[i]);
     }
@@ -382,7 +382,7 @@ function capturar8() {
   let resultado = mostrarResultados("resultado8");
 
   function obtenerCaracteresUnicos(array) {
-    let caracteresUnicos = [];
+    const caracteresUnicos = [];
     for (let i = 0; i < array.length; i++) {
       if (!caracteresUnicos.includes(array[i])) {
         caracteresUnicos.push(array[i]);
@@ -414,7 +414,7 @@ function capturar9Union() {
     let resultado = mostrarResultados("resultado9");
 
     function unionArray(array1, array2) {
-      let union = [];
+      const union = [];
       for (let i = 0; i < array1.length; i++) {
         if (!union.includes(array1[i])) {
           union.push(array1[i]);
@@ -465,7 +465,7 @@ function capturar9Interseccion() {
     let resultado = mostrarResultados("resultado9");
 
     function cargarArray(limite, consulta) {
-      let miArray = [];
+      const miArray = [];
       for (i = 0; i < limite; i++) {
         let elementos = "";
         while (elementos.length !== 1) {
@@ -477,7 +477,7 @@ function capturar9Interseccion() {
     }
 
     function interseccionArray(array1, array2) {
-      let interseccion = [];
+      const interseccion = [];
       for (let i = 0; i < array1.length; i++) {
         if (array2.includes(array1[i]) && !interseccion.includes(array1[i])) {
           interseccion.push(array1[i]);
@@ -520,7 +520,7 @@ function capturar9Diferencia() {
     let resultado = mostrarResultados("resultado9");
 
     function cargarArray(limite, consulta) {
-      let miArray = [];
+      const miArray = [];
       for (i = 0; i < limite; i++) {
         let elementos = "";
         while (elementos.length !== 1) {
@@ -532,7 +532,7 @@ function capturar9Diferencia() {
     }
 
     function mostrarDiferencia(array1, array2) {
-      let diferencia = [];
+      const diferencia = [];
       for (let i = 0; i < array1.length; i++) {
         if (!array2.includes(array1[i])) {
           diferencia.push(array1[i]);
@@ -575,7 +575,7 @@ function capturar9DiferenciaSim() {
     let resultado = mostrarResultados("resultado9");
 
     function cargarArray(limite, consulta) {
-      let miArray = [];
+      const miArray = [];
       for (i = 0; i < limite; i++) {
         let elementos = "";
         while (elementos.length !== 1) {
@@ -587,7 +587,7 @@ function capturar9DiferenciaSim() {
     }
 
     function mostrarDiferenciaSimetrica(array1, array2) {
-      let diferenciaSimetrica = [];
+      const diferenciaSimetrica = [];
       for (let i = 0; i < array1.length; i++) {
         if (!array2.includes(array1[i])) {
           diferenciaSimetrica.push(array1[i]);
@@ -622,11 +622,108 @@ function capturar9DiferenciaSim() {
   }, 200);
 }
 
+// Ejercicio 10
+function capturar10() {
+  let inputCadenaC = document.getElementById("inputCadenaC").value;
+  let subcadenaPares = "";
+  let subcadenaImpares = "";
+  let resultado = mostrarResultados("resultado10");
+
+  for (let i = 0; i < inputCadenaC.length; i++) {
+    if (i % 2 === 0) {
+      subcadenaPares += inputCadenaC.charAt(i);
+    } else {
+      subcadenaImpares += inputCadenaC.charAt(i);
+    }
+  }
+
+  resultado.innerHTML = `${generarEstiloResultado()}${subcadenaPares}<br>${subcadenaImpares}`;
+}
+
+// Ejercicio 11
+function contarVocales(cadena) {
+  let vocales = { A: 0, E: 0, I: 0, O: 0, U: 0 };
+  for (let i = 0; i < cadena.length; i++) {
+    let caracter = cadena[i].toUpperCase();
+    if (vocales.hasOwnProperty(caracter)) {
+      vocales[caracter]++;
+    }
+  }
+  return vocales;
+}
+
+function capturar11() {
+  let cantVocales = document.getElementById("cantVocales").value;
+  let vocales = contarVocales(cantVocales);
+  let resultado = mostrarResultados("resultado11");
+  let resultadoTexto = "";
+
+  for (let vocal in vocales) {
+    resultadoTexto += `${vocal}: '${vocales[vocal]}' `;
+  }
+
+  resultado.innerHTML = `${generarEstiloResultado()}Cantidad de vocales:<br>${resultadoTexto}`;
+}//Iha101330
+
+// Ejercicio 12
+function capturar12() {
+  let inputCantidadPalabras = document.getElementById("cantidadPalabras").value;
+  let palabras = inputCantidadPalabras.split(" ");
+  let resultado = mostrarResultados("resultado12");
+
+  resultado.innerHTML = `${generarEstiloResultado()}La cantidad total de palabras es: ${palabras.length}`;
+}
+
+// Ejercicio 13
+function capturar13() {
+  let inputPromedioPalabra = document.getElementById("inputPromedioPalabra").value;
+  let palabras = inputPromedioPalabra.split(" ");
+  let totalCaracteres = 0;
+  let resultado = mostrarResultados("resultado13");
+
+  for (let i = 0; i < palabras.length; i++) {
+    totalCaracteres += palabras[i].length;
+  }
+
+  let longitudPromedio = totalCaracteres / palabras.length;
+
+  resultado.innerHTML = `${generarEstiloResultado()}La longitud promedio de las palabras es ${longitudPromedio.toFixed(2)}`
+  document.getElementById("form13").reset();
+}
+
+// Ejercicio 14
+function capturar14() {
+  const inputFrase = document.getElementById("inputFrase").value.trim();
+  const palabras = inputFrase.split(" ");
+  let resultado = mostrarResultados("resultado14");
+
+  const pares = [];
+
+  for (let i = 0; i < palabras.length - 1; i++) {
+    const primeraPalabra = palabras[i];
+    const segundaPalabra = palabras[i + 1];
+    const ultimaLetraPrimera = primeraPalabra[primeraPalabra.length - 1];
+    const primeraLetraSegunda = segundaPalabra[0];
+
+    if (ultimaLetraPrimera.toUpperCase() === primeraLetraSegunda.toUpperCase()) {
+      pares.push(`${primeraPalabra} ${segundaPalabra}`);
+    }
+  }
+
+  if (pares.length === 0) {
+    resultado.innerHTML = `${generarEstiloResultado()}No se encontraron pares de palabras consecutivas.`;
+  } else {
+    resultado.innerHTML = `${inputFrase}<br>${generarEstiloResultado()}Pares de palabras consecutivas encontrados:<br>'${pares.join(", ")}'`;
+  }
+  document.getElementById("form14").reset();
+}
+
+
 // Ejercicio 15
 function capturar15() {
   let inputCadena = document.querySelector("#inputCadena").value.toUpperCase();
-  let ignorarEsp = prompt("¿Quieres ignorar los espacios? S/N ").toUpperCase();
-  // let ignorarEsp = "";
+  let ignorarEsp = prompt("¿Querés ignorar los espacios? S/N ").toUpperCase();
+
   let resultadoArray = splitCadena(inputCadena, ignorarEsp);
   let resultado = document.querySelector("#resultado15");
 
@@ -635,5 +732,28 @@ function capturar15() {
   document.getElementById("form15").reset();
 }
 
-// Ejercicio 10
+// Ejercicio 16
+
+function capturar16() {
+  let inputCadenaCesar = document.getElementById("inputCadenaCesar").value;
+  let desplazamiento = parseInt(document.getElementById("desplazamiento").value);
+  let resultado = mostrarResultados("resultado16");
+
+  let cifrado = "";
+
+  for (let i = 0; i < inputCadenaCesar.length; i++) {
+    let letra = inputCadenaCesar[i];
+    let codigo = letra.charCodeAt(0); //Para devolver cód Unicode
+
+    if (codigo >= 65 && codigo <= 90) { // Letra mayúscula
+      codigo = ((codigo - 65 + desplazamiento) % 26) + 65;
+    } else if (codigo >= 97 && codigo <= 122) { // Letra minúscula
+      codigo = ((codigo - 97 + desplazamiento) % 26) + 97;
+    }
+
+    cifrado += String.fromCharCode(codigo);
+  }
+
+  resultado.innerHTML = `${generarEstiloResultado()}La cadena cifrada es: '${cifrado}'`;
+}
 
