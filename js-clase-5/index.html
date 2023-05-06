@@ -24,7 +24,8 @@
     <section class="ejercicio" id="1">
       <div class="enunciados">
         <p>1- Realizá un programa que permita al usuario ingresar 10 números enteros. La computadora debe mostrar el
-          <span class="funct">promedio de los mismos y cuáles fueron los valores ingresados que lo superaron</span>.</p>
+          <span class="funct">promedio de los mismos y cuáles fueron los valores ingresados que lo superaron</span>.
+        </p>
       </div>
       <div class="form-cont">
         <form class="form__group invert" id="form1">
@@ -617,8 +618,11 @@ console.log("La diferencia simétrica de los conjuntos es: " + diferenciaSimetri
     <!-- Ejercicio 10 -->
     <section class="ejercicio" id="10">
       <div class="enunciados">
-        <p>10- Realizá un programa que permita al usuario ingresar una cadena. La computadora debe <span class="funct">mostrar las dos subcadenas formadas por las posiciones pares e impares</span>, respectivamente, de la cadena ingresada.</p>
-        <p class="nota">Ejemplo: Ingresa <span class="funct">"Tfernígoo"</span>, debe devolver <span class="funct">"Tengo" "frío"</span>.</p>
+        <p>10- Realizá un programa que permita al usuario ingresar una cadena. La computadora debe <span
+            class="funct">mostrar las dos subcadenas formadas por las posiciones pares e impares</span>,
+          respectivamente, de la cadena ingresada.</p>
+        <p class="nota">Ejemplo: Ingresa <span class="funct">"Tfernígoo"</span>, debe devolver <span
+            class="funct">"Tengo" "frío"</span>.</p>
       </div>
       <div class="form-cont">
         <form class="form__group invert" id="form10">
@@ -654,7 +658,8 @@ console.log(`Subcadena de posiciones impares: ${subcadenaImpares}`);
     <!-- Ejercicio 11 -->
     <section class="ejercicio" id="11">
       <div class="enunciados">
-        <p>11- Realizá un programa que permita al usuario ingresar una cadena. La computadora debe <span class="funct">mostrar las cantidades de cada vocal (cuántas 'A', cuántas 'E'…).</span>.</p>
+        <p>11- Realizá un programa que permita al usuario ingresar una cadena. La computadora debe <span
+            class="funct">mostrar las cantidades de cada vocal (cuántas 'A', cuántas 'E'…).</span>.</p>
       </div>
       <div class="form-cont">
         <form class="form__group invert" id="form11">
@@ -832,11 +837,13 @@ console.log(miArray.toUpperCase());
         </code>
       </pre>
     </section>
-    
+
     <!-- Ejercicio 16 -->
     <section class="ejercicio" id="16">
       <div class="enunciados">
-        <p>16- Realizá  un  programa  que  permita  al  usuario  ingresar  una  cadena  que  represente  una frase/oración y un número entero positivo que indique el desplazamiento. La computadora debe <span class="funct">cifrar la cadena (solo letras) utilizando el cifrado César y mostrar cómo quedó</spanZ.</p>
+        <p>16- Realizá un programa que permita al usuario ingresar una cadena que represente una frase/oración y un
+          número entero positivo que indique el desplazamiento. La computadora debe <span class="funct">cifrar la cadena
+            (solo letras) utilizando el cifrado César y mostrar cómo quedó</spanZ.< /p>
       </div>
       <div class="form-cont">
         <form class="form__group invert" id="form16">
@@ -889,6 +896,62 @@ for (let i = 0; i < inputCadena.length; i++) {
 }
 
 console.log(`La cadena cifrada es: ${cifrado}`);
+        </code>
+      </pre>
+    </section>
+
+    <!-- Ejercicio 17 -->
+    <section class="ejercicio" id="17">
+      <div class="enunciados">
+        <p>17- La siguiente cadena ha sido cifrada utilizando el cifrado César: "Bm nmtqkqbw. Pia xwlqlw lmakqnziz ti
+          kilmvi.". Se desconoce el desplazamiento. Realizá un programa que permita <span class="funct">descifrar la
+            cadena, mostrando cada uno de los 25 resultados posibles</span>. ¿Lograrás ver el mensaje entre alguno de
+          ellos?.</p>
+          <pre class="postParrafo">'Bm nmtqkqbw. Pia xwlqlw lmakqnziz ti kilmvi.'</pre>
+      </div>
+      <div class="form-cont">
+        <form class="form__group invert" id="form17">
+          <button type="button" onclick="capturar17()">mostrar codigo césar</button>
+        </form>
+      </div>
+      <p class="resp resultados" id="resultado17"></p>
+
+      <!-- Inserción de Código JS -->
+      <pre id="codigo17">
+        <button onclick="copyToClipboard('#codigo17')" class="btn"><i class="fa-regular fa-copy"></i><i class="fa-solid fa-check"></i></button>
+        <code>
+function descifrarCadenaCesar(cadenaCifrada) {
+  const letras = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+  let descifrado = "";
+
+  // probamos los 25 desplazamientos posibles
+  for (let i = 0; i < 26; i++) {
+    let desplazamiento = i;
+    let cadenaDescifrada = "";
+
+    // desciframos la cadena con el desplazamiento actual
+    for (let j = 0; j < cadenaCifrada.length; j++) {
+      let letra = cadenaCifrada.charAt(j);
+
+      if (letras.indexOf(letra.toUpperCase()) != -1) {
+        let indice = letras.indexOf(letra.toUpperCase());
+        let indiceDescifrado = (indice - desplazamiento + 26) % 26;
+
+        if (letra === letra.toLowerCase()) {
+          cadenaDescifrada += letras.charAt(indiceDescifrado).toLowerCase();
+        } else {
+          cadenaDescifrada += letras.charAt(indiceDescifrado);
+        }
+      } else {
+        cadenaDescifrada += letra;
+      }
+    }
+
+    console.log(`Desplazamiento ${desplazamiento}: ${cadenaDescifrada}`);
+  }
+}
+
+descifrarCadenaCesar("Bm nmtqkqbw. Pia xwlqlw lmakqnziz ti kilmvi.");
         </code>
       </pre>
     </section>

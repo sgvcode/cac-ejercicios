@@ -111,6 +111,13 @@ input:focus::placeholder{
   color: rgba(0, 0, 0, 0.214);
 }
 
+.postParrafo {
+  margin: 2rem 2rem -1.5rem;
+  color: var(--color2);
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+
 p {
   display:block;
   text-align: justify;

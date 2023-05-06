@@ -754,6 +754,45 @@ function capturar16() {
     cifrado += String.fromCharCode(codigo);
   }
 
-  resultado.innerHTML = `${generarEstiloResultado()}La cadena cifrada es: '${cifrado}'`;
+  resultado.innerHTML = `Tu frase: '${inputCadenaCesar}<br>${generarEstiloResultado()}en Cifrado César: '${cifrado}'`;
+  document.getElementById("form16").reset();
 }
+
+// Ejercicio 17
+function capturar17() {
+  function descifrarCadenaCesar(cadenaCifrada) {
+    const letras = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    let descifrado = "";
+
+    // probamos los 25 desplazamientos posibles
+    for (let i = 0; i < 26; i++) {
+      let desplazamiento = i;
+      let cadenaDescifrada = "";
+
+      // desciframos la cadena con el desplazamiento actual
+      for (let j = 0; j < cadenaCifrada.length; j++) {
+        let letra = cadenaCifrada.charAt(j);
+
+        if (letras.indexOf(letra.toUpperCase()) != -1) {
+          let indice = letras.indexOf(letra.toUpperCase());
+          let indiceDescifrado = (indice - desplazamiento + 26) % 26;
+
+          if (letra === letra.toLowerCase()) {
+            cadenaDescifrada += letras.charAt(indiceDescifrado).toLowerCase();
+          } else {
+            cadenaDescifrada += letras.charAt(indiceDescifrado);
+          }
+        } else {
+          cadenaDescifrada += letra;
+        }
+      }
+
+      let resultado = mostrarResultados("resultado17");
+      resultado.innerHTML += `Desplazamiento ${desplazamiento}: ${cadenaDescifrada}<br>`;
+    }
+  }
+
+  descifrarCadenaCesar("Bm nmtqkqbw. Pia xwlqlw lmakqnziz ti kilmvi.");
+}
+
 
