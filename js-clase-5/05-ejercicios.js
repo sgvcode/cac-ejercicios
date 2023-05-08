@@ -89,7 +89,7 @@ function splitCadena(inputCadena, ignorarEsp) {
   let arrayCadena;
   if (ignorarEsp === "S" || ignorarEsp === "") {
     // Eliminar espacios y separar caracteres con coma
-    arrayCadena = inputCadena.replace(/\s+/g, "").split("");
+    arrayCadena = inputCadena.replace(/\s+/g, "").split("");//'\s+/g' busca cualquier conjunto de uno o más espacios en blanco
     arrayCadena = arrayCadena.join("·").toUpperCase();
   } else {
     // Separar caracteres con espacios
@@ -416,7 +416,7 @@ function capturar9Union() {
     function unionArray(array1, array2) {
       const union = [];
       for (let i = 0; i < array1.length; i++) {
-        if (!union.includes(array1[i])) {
+        if (!union.includes(array1[i])) { //Si no está en unión (true)
           union.push(array1[i]);
         }
       }
@@ -637,7 +637,7 @@ function capturar10() {
     }
   }
 
-  resultado.innerHTML = `${generarEstiloResultado()}${subcadenaPares}<br>${subcadenaImpares}`;
+  resultado.innerHTML = `${generarEstiloResultado()}${subcadenaPares} ${subcadenaImpares}`;
 }
 
 // Ejercicio 11
