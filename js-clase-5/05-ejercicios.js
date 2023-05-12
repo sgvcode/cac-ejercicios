@@ -291,8 +291,9 @@ function capturar4() {
   }
 
   const numerosSumados = [];
-  for (let i = 1; i < numeros.length; i += 2) {
+  for (let i = 0; i < numeros.length; i += 2) {
     let numero = numeros[i];
+    sumaPares += numero;
     if (numero !== 0) {
       numerosSumados.push(numero);
     }
@@ -300,6 +301,7 @@ function capturar4() {
 
   document.getElementById("resultado4").innerHTML = `[${numeros.join(", ")}]<br>${generarEstiloResultado()}La suma de los números en posiciones pares es: '${sumaPares}'<br>Los números que se suman son: '${numerosSumados.join(", ")}'</span>`;
 }
+
 
 
 // Ejercicio 5
