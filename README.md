@@ -5,7 +5,7 @@
 #### 🌎 [clase 3 - Ciclos](https://sgvcode.github.io/cac-ejercicios-javascript/js-clase-3/index.html)
 #### 🌎 [clase 4 - Funciones](https://sgvcode.github.io/cac-ejercicios-javascript/js-clase-4/index.html)
 #### 🌎 [clase 5 - Arrays](https://sgvcode.github.io/cac-ejercicios-javascript/js-clase-5/index.html)
-#### 🌎 [clase 6 - Objetos](https://sgvcode.github.io/cac-ejercicios-javascript/js-clase-x/indexjsx.html)
+#### 🌎 [clase 6 - Objetos](https://sgvcode.github.io/cac-ejercicios-javascript/js-clase-6/index6.html)
 <br />
 
 
