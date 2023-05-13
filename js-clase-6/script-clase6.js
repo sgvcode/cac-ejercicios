@@ -17,7 +17,6 @@ function copyToClipboard(codigo) {
 }
 
 // EJERCICIO 1 - Crea un objeto llamado "persona" con las propiedades "nombre", "email" y "ciudad"
-
 const form1 = document.getElementById("form1");
 const resultado = document.getElementById("resultado1");
 const resultadosAnteriores = [];
