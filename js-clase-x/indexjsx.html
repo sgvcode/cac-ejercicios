@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="cssx.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/atom-one-dark.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.8/clipboard.min.js"></script>
+  <title>Practica JS</title>
+</head>
+
+<body>
+  <header>
+    <h1>Prácticas de Javascript C-6 <span>...CAC#23053...</span></h1>
+  </header>
+  <!------- EJERCICIOS Clase X ------->
+  <main class="contenido">
+    <h2>GUIA PRACTICA DE OBJETOS</h2>
+    <h3>Ingreso de datos por form (float labels)</h3>
+
+    <!-- Ejercicio 1 -->
+    <section class="ejercicio" id="1">
+      <div class="enunciados">
+        <p>1- Crea un objeto llamado "persona" con las propiedades <span class="funct">"nombre", "email" y "ciudad".</span>
+        </p>
+      </div>
+      <div class="form-cont">
+        <form class="form__group invert" id="form1">
+          <div class="form__group invert">
+            <input type="text" class="form__input" id="nombre" autocomplete="off" minlength="3" placeholder=" " required>
+            <label for="nombre" class="form__label">Nombre</label>
+          </div>
+          <div class="form__group invert">
+            <input type="email" class="form__input" autocomplete="off" id="email" maxlength="100" placeholder=" " required>
+            <label for="email" class="form__label">E-mail</label>
+          </div>
+          <div class="form__group invert">
+            <input type="text" class="form__input" autocomplete="off" id="ciudad" minlength="3" placeholder=" " required>
+            <label for="ciudad" class="form__label">Ciudad</label>
+          </div>
+          <button id="btn1" type="submit">Registrar Persona</button>
+        </form>
+      </div>
+      <p class="resp resultados" id="resultado1"></p>
+
+      <!-- Inserción de Código JS -->
+      <pre id="codigo1">
+        <button onclick="copyToClipboard('#codigo1')" class="btn"><i class="fa-regular fa-copy"></i><i class="fa-solid fa-check"></i></button>
+        <code>
+// Ejercicio Ingreso de datos por form y salida por consola
+const persona = {
+  nombre: "Juan",
+  email: "juan@mail.com",
+  ciudad: "Buenos Aires"
+};
+
+console.log(`Hola ${persona.nombre} de '${persona.ciudad}'`);
+console.log(`Registramos tu mail: ${persona.email}`);
+        </code>
+      </pre>
+      <pre id="codigo1">
+        <button onclick="copyToClipboard('#codigo1')" class="btn"><i class="fa-regular fa-copy"></i><i class="fa-solid fa-check"></i></button>
+        <code>
+// Ejercicio 1 - Ingreso de datos por form y salida por página
+const form1 = document.getElementById("form1");
+const resultado = document.getElementById("resultado1");
+const resultadosAnteriores = [];
+
+form1.addEventListener("submit", e => {
+  e.preventDefault();
+});
+
+function capturar1() {
+  const nombre = document.getElementById("nombre");
+  const email = document.getElementById("email");
+  const ciudad = document.getElementById("ciudad");
+
+  if (form1.checkValidity()) {
+    const id = Date.now().toString(); // Identificación única para cada resultado
+    const nuevoResultado = {
+      id: id,
+      html: `<div style='width: auto; font-weight: normal; padding: 0 0 .5rem 0 ; color: black; border-bottom:1px dotted black'>${nombre.value.toUpperCase()} de '${ciudad.value.toUpperCase()}', (${email.value.toLowerCase()}) <button class="btn-icon" style="border:none; background-color: transparent; color:crimson; cursor:pointer" onclick="eliminarResultado('${id}')"><i class="fas fa-trash"></i></button></div><br>`
+    };
+    resultadosAnteriores.push(nuevoResultado);
+    mostrarResultadosForm();
+    form1.reset();
+  } else {
+    form1.reportValidity();
+  }
+}
+
+function mostrarResultadosForm() {
+  const resultadosHTML = resultadosAnteriores.map(resultado => resultado.html).join("");
+  resultado.innerHTML = resultadosHTML;
+}
+
+function eliminarResultado(id) {
+  const index = resultadosAnteriores.findIndex(resultado => resultado.id === id);
+  if (index !== -1) {
+    resultadosAnteriores.splice(index, 1);
+    mostrarResultadosForm();
+  }
+}
+
+document.getElementById("btn1").addEventListener("click", capturar1);
+      </code>
+    </pre>
+    </section>
+
+    <img class="img" src="../img.svg" alt="Happy">
+    <footer>
+      <code
+        class="code-footer">SGVero | CAC#23053 | Docente:&nbsp;<a href="https://charlycimino.com" target="_blank">Charly Cimino</a></code>
+    </footer>
+  </main>
+  <button class="indice-btn" onclick="window.location.href = '../index.html';" title="Indice de Ejercicios"><i
+      class="fa-solid fa-bars fa-shake"></i></button>
+  <script src="/js-clase-x/jsx.js"></script>
+  <script src="https://kit.fontawesome.com/ad22120107.js" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+  <script>hljs.highlightAll();</script>
+</body>
+
+</html>
