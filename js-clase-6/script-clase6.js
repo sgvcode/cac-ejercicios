@@ -15,7 +15,6 @@ function copyToClipboard(codigo) {
       console.error('Error al copiar al portapapeles:', error);
     });
 }
-//--------------------------------------------------------------------------
 
 // EJERCICIO 1 - Crea un objeto llamado "persona" con las propiedades "nombre", "email" y "ciudad"
 
