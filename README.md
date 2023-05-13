@@ -5,6 +5,7 @@
 #### 🌎 [clase 3 - Ciclos](https://sgvcode.github.io/cac-ejercicios-javascript/js-clase-3/index.html)
 #### 🌎 [clase 4 - Funciones](https://sgvcode.github.io/cac-ejercicios-javascript/js-clase-4/index.html)
 #### 🌎 [clase 5 - Arrays](https://sgvcode.github.io/cac-ejercicios-javascript/js-clase-5/index.html)
+#### 🌎 [clase 6 - Objetos](https://sgvcode.github.io/cac-ejercicios-javascript/js-clase-x/indexjsx.html)
 <br />
 
 
@@ -14,3 +15,4 @@
 ![brave_E1y5BJsrFr](https://user-images.githubusercontent.com/106033066/233864021-95139145-f0aa-4200-b13b-71757fff369a.png)
 ![brave_jLUt0rJDDR](https://user-images.githubusercontent.com/106033066/234135840-25b24254-9e43-4c0e-be68-5da05b2e1619.png)
 ![brave_rLzgKsO9Rb](https://user-images.githubusercontent.com/106033066/235389292-b9bf3407-8ee3-4acc-94af-429b6d4d17d1.png)
+![opera_sOot2lw0mm](https://github.com/sgvcode/cac-ejercicios-javascript/assets/106033066/3111defd-2039-4662-a470-2623d946bb92)
