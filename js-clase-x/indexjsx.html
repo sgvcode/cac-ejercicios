@@ -60,53 +60,6 @@ console.log(`Hola ${persona.nombre} de '${persona.ciudad}'`);
 console.log(`Registramos tu mail: ${persona.email}`);
         </code>
       </pre>
-      <pre id="codigo1">
-        <button onclick="copyToClipboard('#codigo1')" class="btn"><i class="fa-regular fa-copy"></i><i class="fa-solid fa-check"></i></button>
-        <code>
-// Ejercicio 1 - Ingreso de datos por form y salida por página
-const form1 = document.getElementById("form1");
-const resultado = document.getElementById("resultado1");
-const resultadosAnteriores = [];
-
-form1.addEventListener("submit", e => {
-  e.preventDefault();
-});
-
-function capturar1() {
-  const nombre = document.getElementById("nombre");
-  const email = document.getElementById("email");
-  const ciudad = document.getElementById("ciudad");
-
-  if (form1.checkValidity()) {
-    const id = Date.now().toString(); // Identificación única para cada resultado
-    const nuevoResultado = {
-      id: id,
-      html: `<div style='width: auto; font-weight: normal; padding: 0 0 .5rem 0 ; color: black; border-bottom:1px dotted black'>${nombre.value.toUpperCase()} de '${ciudad.value.toUpperCase()}', (${email.value.toLowerCase()}) <button class="btn-icon" style="border:none; background-color: transparent; color:crimson; cursor:pointer" onclick="eliminarResultado('${id}')"><i class="fas fa-trash"></i></button></div><br>`
-    };
-    resultadosAnteriores.push(nuevoResultado);
-    mostrarResultadosForm();
-    form1.reset();
-  } else {
-    form1.reportValidity();
-  }
-}
-
-function mostrarResultadosForm() {
-  const resultadosHTML = resultadosAnteriores.map(resultado => resultado.html).join("");
-  resultado.innerHTML = resultadosHTML;
-}
-
-function eliminarResultado(id) {
-  const index = resultadosAnteriores.findIndex(resultado => resultado.id === id);
-  if (index !== -1) {
-    resultadosAnteriores.splice(index, 1);
-    mostrarResultadosForm();
-  }
-}
-
-document.getElementById("btn1").addEventListener("click", capturar1);
-      </code>
-    </pre>
     </section>
 
     <img class="img" src="../img.svg" alt="Happy">
