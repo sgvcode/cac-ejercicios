@@ -15,7 +15,7 @@
   <header>
     <h1>Prácticas de Javascript C-6 <span>...CAC#23053...</span></h1>
   </header>
-  <!------- EJERCICIOS Clase X ------->
+  <!------- EJERCICIOS Clase 6 ------->
   <main class="contenido">
     <h2>GUIA PRACTICA DE OBJETOS</h2>
     <h3>Ingreso de datos por form (float labels)</h3>
@@ -61,6 +61,58 @@ console.log(`Registramos tu mail: ${persona.email}`);
         </code>
       </pre>
     </section>
+
+    <!-- Ejercicio 2 -->
+    <section class="ejercicio" id="2">
+      <div class="enunciados">
+        <p>2- Crea un formulario que permita comprar tickets con descuento (ejercicio del proyecto integrador de Javascript</p>
+      </div>
+      <div id="comprar__ticket" class="form-cont">
+        <form class="form__group invert" id="formTicket">
+          <div class="form__group invert">
+            <input type="text" class="form__input" id="nombreTicket" autocomplete="off" minlength="3" placeholder=" " required>
+            <label for="nombreTicket" class="form__label">Nombre</label>
+          </div>
+          <div class="form__group invert">
+            <input type="text" class="form__input" id="apellidoTicket" autocomplete="off" minlength="3" placeholder=" " required>
+            <label for="apellidoTicket" class="form__label">Apellido</label>
+          </div>
+          <div class="form__group invert">
+            <input type="email" class="form__input" autocomplete="off" id="emailTicket" maxlength="100" placeholder=" " required>
+            <label for="emailTicket" class="form__label">E-mail</label>
+          </div>
+          <div class="form__group invert">
+            <input type="number" class="form__input" autocomplete="off" id="cantidadTicket" placeholder=" " required>
+            <label for="cantidadTicket" class="form__label">Cantidad</label>
+          </div>
+
+          <div class="form__group invert">
+            <select type="text" class="form__input" autocomplete="off" id="categoriaTicket" maxlength="2" placeholder=" " required>
+              <option>Estudiante</option>
+              <option>Trainee</option>
+              <option>Junior</option>
+            <label for="categoriaTicket" class="form__label">Categoría</label>
+            </select>
+          </div><br>
+          <p class="resp resultados" id="totalPagar">Total a pagar: $</p>
+          <div class="botones__pagar">
+            <button id="btnTicket" type="reset">resetear</button>
+            <button id="btnTicket" type="submit">Resumen</button>
+          </div>
+        </form>
+      </div>
+
+
+      <!-- Inserción de Código JS -->
+      <pre id="codigo2">
+        <button onclick="copyToClipboard('#codigo2')" class="btn"><i class="fa-regular fa-copy"></i><i class="fa-solid fa-check"></i></button>
+        <code>
+// Ejercicio Ingreso de datos por form y salida por consola
+
+        </code>
+      </pre>
+    </section>
+
 
     <img class="img" src="../img.svg" alt="Happy">
     <footer>

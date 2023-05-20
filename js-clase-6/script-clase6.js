@@ -58,3 +58,34 @@ function eliminarResultado(id) {
 }
 
 document.getElementById("btn1").addEventListener("click", capturar1);
+
+
+// Ejercicio 2 - Comprar ticket
+
+document.getElementById("formTicket").addEventListener("submit", e => {
+  e.preventDefault();
+
+  let cantidadTicket = parseInt(document.getElementById("cantidadTicket").value);
+  let categoriaTicket = document.getElementById("categoriaTicket").value;
+  let descuento = 0;
+
+  // Descuento
+  if (categoriaTicket === "Estudiante") {
+    descuento = 0.8;
+  } else if (categoriaTicket === "Trainee") {
+    descuento = 0.5;
+  } else {
+    descuento = 0.15;
+  }
+
+  let valorTicket = 200;
+  let total = cantidadTicket * valorTicket * (1 - descuento);
+
+  let totalPagar = document.getElementById("totalPagar");
+  totalPagar.innerHTML = `Total a pagar $${total.toFixed(0)}`
+});
+
+document.getElementById('resetBtn').addEventListener('click', function () {
+  document.getElementById('formTicket').reset(); // Restablece los campos del formulario
+  document.getElementById('totalPagar').innerHTML = 'Total a pagar: $'; // Limpia el párrafo de salida de resultados
+});

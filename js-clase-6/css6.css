@@ -273,6 +273,10 @@ code#diferenciaSim {
 
 }
 
+.botones__pagar {
+  display: flex;
+}
+
 .warnings {
   width: 80%;
   text-align: center;
